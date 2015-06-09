@@ -1,4 +1,4 @@
-# super alpha #
+# alpha version of the new website #
 
 This is source code for the website of MOLGENIS, including docs etc.
 
