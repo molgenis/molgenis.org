@@ -1,0 +1,6 @@
+{
+    "index":{"title":"Join","description":"Interact with members of the community","subheading":true},
+    "mailinglist":{"title":"Join mailinglist"},
+    "conferences":{"title":"Join conferences"},
+    "bugs":{"title":"Report a bug"}
+}

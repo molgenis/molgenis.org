@@ -1,0 +1,89 @@
+script(src="/res/js/jquery-1.11.3.min.js") 
+script(src="/res/js/bootstrap.min.js")
+
+nav.sidenav(id="sidebar")
+    ul.nav.hidden-xs.hidden-sm(id="sidenav")
+
+//- on document load: generate the sidenav for h1 and h2
+script.
+    $(function() {
+        var sideNav = $("#sidenav");
+        
+        $(".row h1").each(function() {
+            
+            //create id for h1
+            var id = $(this).text().replace(/\s/gi,"-").toLowerCase();
+            $(this).prepend("<a name=\""+id+"\"></a>");
+            
+            //add h1 to list
+            var li = $("<li><a href=\"#"+id+"\">"+$(this).text()+"</a></li>")
+            sideNav.append(li);
+            
+            //wrap h1 into section
+            var section = $(this).wrap("<section id=\""+id+"\"></section>").parent();
+            
+            //wrap parts of h1 into one section
+            $(this).parent().nextUntil("h1").each(function(){            
+                section.append($(this));
+            });
+            
+            //repeat for h2
+            if($("h2",$(this).parent()).length > 0) {
+                var ul = $("<ul class=\"nav\"></ul>");
+                li.append(ul);
+                
+                $("h2",$(this).parent()).each(function(){
+                
+                    //create id for h2
+                    var id = $(this).text().replace(/\s/gi,"-").toLowerCase();
+                    $(this).prepend("<a name=\""+id+"\"></a>");
+            
+                    //wrap h2 into section
+                    var section = $(this).wrap("<section id=\""+id+"\"></section>").parent();
+            
+                    ul.append($("<li><a href=\"#"+id+"\">"+$(this).text()+"</a></li>"));
+            
+                    //wrap parts of h2 into one section
+                    $(this).parent().nextUntil("h2").each(function(){            
+                        section.append($(this));
+                    });
+                
+
+                });
+            }
+        });    
+        
+        //add "back to top"
+        sideNav.append("<li><a href=\"#top\">Back to top</a></li>");
+        
+        var $body   = $(document.body);
+        var navHeight = $('.navbar-static-top').outerHeight(true) + 10;
+        
+        //enable the 'active' highlighting using scrollspy plugin
+        $('body').scrollspy({
+            target: '.sidenav',
+            offset: 60
+        });
+        
+        //add the positioning using 'affix' plugin
+        var $sideBar = $('#sidebar')
+        $sideBar.affix({
+            offset: {
+                top: function () {
+                    var offsetTop      = $sideBar.offset().top
+                    var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
+                    var navOuterHeight = $('.navbar-fixed-top').height()
+                    return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+                },
+                bottom: ($('.footer').outerHeight(true) + 40)
+            }
+        });
+        $('#sidebar').width($('#sidebar').parent().width());
+        
+        //resize affix box when window resizes
+        $(window).resize(function () {
+                $('#sidebar').width($('#sidebar').parent().width());
+            });
+        
+        $("table").addClass("table table-bordered");
+    });

@@ -1,3 +1,5 @@
+'''super alpha'''
+
 This is source code for the website of MOLGENIS, including docs etc.
 
 # to generate the website

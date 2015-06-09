@@ -1,0 +1,9 @@
+{ 
+    "index":{"title":"Data APIs", "description":"Programming interfaces", "subheading":true},
+    "java":{"title":"Java","description":"Core api we use for all the backend stuff"},
+    "rest":{"title":"REST", "description":"REST/json web services we use to retrieve and modify data"},
+    "r":{"title":"R-project","description":"Access, search and manipulate data from your favorite statistical environment, R"},
+    "create":{"title":"Create","description":"How to create new components","subheading":true},
+    "frontend":{"title": "Frontend", "description":"How to create a new user interface, analogous to the existing tools"},
+    "backends":{"title": "Backend", "description":"How to create a new backend, e.g. for dealing with a particular file format or to integrate the next noSQL database engine"}
+}

@@ -1,0 +1,11 @@
+{
+    "basics" : {"title":"Basics","description":"Tools in the scientific data toolbox to upload, search and visualize data","subheading":true},
+    "login":{"title":"Login", "description":"Registration and sign in"},
+    "upload" : {"title":"Upload", "description":"Batch import of Excel, CSV and other files"},
+    "explorer" : {"title":"Explorer", "description":"View, filter and edit your data"},
+    
+    "admin":{"title":"Admin","description":"Features for admin to customize","subheading":true},
+    "users":{"title":"Users & Groups","description":"Manage users and groups"},
+    "permissions":{"title":"Permissions", "description":"Give view/edit/create permissions to users and groups"},
+    "menu":{"title":"Menu manager", "description":"Change the menu's, logo and styling"}
+}

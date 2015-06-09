@@ -1,0 +1,172 @@
+/**
+ * Bootstrap
+ *
+ * We import all of bootstrap.
+ * Do not modify, so things are predictable.
+ */
+@import "_bootstrap/bootstrap";
+
+/**
+ * customize bootstrap
+ */
+@import "variables";
+
+/** because of the fixed heard */
+body { 
+    background-color: #f7f7f7;
+    margin-top: @navbar-height;
+}
+
+/** predictable sizes */
+@media (min-width: @screen-md) {
+        .container {
+        width: 970px;
+        }
+}
+
+@media (min-width: @screen-sm) {
+    .container {
+        width: 750px;
+    }
+}
+
+.btn-outline {
+  color: @navbar-default-bg;
+  background-color: transparent;
+  border-color: @navbar-default-bg;
+}
+
+/** whole page is wrapped to stretch it to 100%*/
+.wrapper{
+    margin-left: auto;
+	margin-right: auto; 
+	position: relative; //make #wrapper position non-static
+	min-height: 99%;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+}
+
+/**
+ * logo
+ */
+.wordmark {
+    height: 25px;
+    width: 100px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    margin-bottom: 20px;
+}
+
+//title bar
+.titlebar {
+    background: @navbar-default-link-active-bg;
+    color: @navbar-default-color;
+    margin-top: @navbar-height;
+}
+
+.titlebar h1, .titlebar h2 {
+    font-weight: 300;
+    margin-top: 10px;
+    font-size: 3.2rem;
+}
+.titlebar p {
+    font-weight: 300;
+    color: lighten(@navbar-default-bg, 10%);
+    line-height: 1.4;
+    font-size: 1.4rem;
+}
+
+//content box
+.contents {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+//footer
+.footer {
+	text-align: center;
+    width: inherit;
+}
+
+.footer li:first-child {
+  padding-left: 0;
+}
+
+.footer li {
+    display:inline;
+    padding-left: 15px;
+}
+.footer  a:link, .footer a:visited {
+    color: @navbar-default-bg;
+}
+
+//sitemap
+.sitemap, .sitemap a, .sitemap a:link, .sitemap a:visited {
+    background: @navbar-default-bg;
+    color: @navbar-default-color;
+    vertical-align:top;
+    text-decoration: none;
+    font-size: @font-size-small;
+    font-weight: 300;
+}
+
+.sitemap a:hover {
+    color:@navbar-default-link-hover-color;
+}
+
+.sitemap-contents {
+    border: solid green;
+}
+
+/* sidebar */
+.sidebar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar.affix {
+  position: static;
+}
+
+.sidenav a, .sidenav a:link, .sidenav a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+/* extra nest links */
+.sidenav .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+/* hide all (inactive) nested list */
+.sidenav .nav ul.nav {
+    display: none;           
+}
+/* show active nested list */
+.sidenav .nav>.active>ul.nav {
+    display: block; 
+    font-weight: normal;
+}
+.sidenav .nav>.active>a {
+    color: @navbar-default-bg;
+    font-weight: bold;
+    border-right: 1px solid #d8dde2;
+}
+
+.affix-top { }
+.affix { top: @navbar-height; width: 100%; z-index: 1; }
+.affix-bottom { position:absolute; }
+
+.partner {
+    max-height: 100px;
+    max-width: 200px;
+    padding: 20px;
+}

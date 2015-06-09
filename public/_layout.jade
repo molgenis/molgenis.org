@@ -1,0 +1,48 @@
+doctype
+//[if lt IE 8]><html lang="en" class="ie"><![endif]
+//[if gt IE 8]><!
+html(lang="en")
+  //<![endif]
+  head
+    meta(charset="utf-8")
+    //- Show specific page title, name, and tagline. If the full title is more than 70 chars, omit the tagline
+    title !{ title !== name ? title + ' &ndash; ' : '' }#{ name }#{ (title.length + name.length + tagline.length) >= 70 ? '' : ', ' + tagline.toLowerCase() }
+    meta(name="description", content!=description)
+    meta(name="author", content="#{author}")
+    meta(name="handheldfriendly", content="true")
+    meta(name="mobileoptimized", content="320")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(http-equiv="cleartype", content="on")
+    link(rel="stylesheet", href="/res/css/application.css", type="text/css")
+    link(rel="shortcut icon", href="/favicon.ico")
+    link(rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="#{ name }")  
+  body
+    
+    div.wrapper
+    
+        //- header
+        != partial("res/_header")
+    
+        //- root index has its own layout (add more files if you need)
+        != partial("res/_titlebar.jade")
+    
+        //- contents
+        if(current.source == 'index' && current.path.length == 1)
+            != yield
+            br
+        
+        else
+            div.container.website-content
+                div.row
+                    div.col-md-3(role="complementary")
+                        != partial("res/_sidebar.jade")
+                    div.col-md-9.contents(role="main")
+                        != yield
+                        i See something that could be better? #[a(href="#{docsgithub}/" + current.path.join('/') + ".md") Edit this page at Github]            
+     
+        //- footer
+        != partial("res/_footer")
+        p #{current.path}
+        
+

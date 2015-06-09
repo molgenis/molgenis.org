@@ -1,0 +1,11 @@
+{
+    "start":{"title":"Getting started", "description":"First steps into MOLGENIS", "subheading":"true"},
+    "demo" : {"title": "Online demo", "description":"Play around with the online demo"},
+    "download" : {"title": "Download stable", "description":"Download MOLGENIS stable release and install on your own machine"},
+    "source": {"title": "Get the source", "description":"Get all the source and compile yourself"},
+    "showcases":{"title":"Showcases","description":"Ready to use example applications","subheading":true},
+    "biobanking" : {"title":"Biobanking", "description":"Provide access to biobank data and samples"},
+    "research": {"title":"Research", "description":"Share all your consortium data and scripts"},
+    "rd":{"title":"Rare disease","description":"Share information about patients and mutations"},
+    "lorem" : {"title":"Lorem ipsum","description":"This page only exists to enable testing of the layout"}
+}

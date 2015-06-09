@@ -1,0 +1,25 @@
+{
+  "globals": {
+    "title": "Please edit _data.json for this path",
+    "description": "Please edit _data.json for this path",
+    "name": "MOLGENIS",
+    "tagline": "The scientific data platform",
+    "author": "MOLGENIS community",
+    "uri": "http://molgenis.org",
+    "github": "https://github.com/molgenis/molgenis",
+    "docsgithub": "https://github.com/molgenis/molgenis.org",      
+    "issues": "http://github.com/molgenis/molgenis/issues",
+    "docsissues": "http://github.com/molgenis/molgenis.org/issues",
+    "version": "1.8.0",
+    "releases" : "https://github.com/molgenis/molgenis/releases",
+    "service": {
+      "analytics": "UA-42029678-1",
+      "twitter": "molgenis",
+      "contributing": "molgenis/molgenis.org",
+      "youtube": "https://www.youtube.com/watch?v=",
+      "prism": false
+    }
+  },
+  "domains": ["molgenis.org"],
+  "tags": ["v1-18-0"]
+}

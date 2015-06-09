@@ -1,0 +1,20 @@
+div.jumbotron(style="text-align: center")
+    div.container
+        img(src="/res/images/wordmark-blue.svg", alt="#{ name }")
+        h2 flexible software for scientific data
+        a.btn.btn-default.btn-primary.btn-lg(href="start",role="button") Getting started
+        
+div.container(style="text-align: center")
+    p.lead MOLGENIS is open source. It's hosted, developed, and maintained on GitHub.
+    a.btn.btn-outline.btn-lg(href="https://github.com/molgenis/molgenis") View the GitHub project
+    
+hr.half-rule
+
+div.jumbotron(style="text-align: center")
+    p.lead Partners & Sponsors
+    
+    -var partners = {"bbmri-nl-bw.png":"BBMRI-NL", "umcg-bw.png":"umcg", "lifelines-bw.png":"LifeLines", "trait-bw.png":"CTMM/TraaIT", "rd-connect-bw.png":"RD-connect", "bioshare-bw.png":"BioSHaRE", "biomedbridges-bw.png":"BioMedBridges","panacea-bw.png":"panacea", "rug-bw.png":"Rijksuniversiteit Groningen", "energysense-bw.png":"energysense", "ercet-bw.png":"ERCET", "maelstrom-bw.png":"Maelstrom", "dtl-bw.png":"DTL", "nfu-bw.png":"NFU", "bbmri-eric-bw.png":"BBMRI-ERIC"}
+    each alt,img in partners
+        img.partner(src="res/images/#{img}", alt="#{alt}")
+
+
