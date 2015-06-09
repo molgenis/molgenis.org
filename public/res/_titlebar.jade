@@ -1,5 +1,5 @@
 if(current.source == 'index')
-    if(current.path.length > 1)
+    if(current.path.length > 1 && public._data[current.path[0]] != null)
         .titlebar.active
             .container 
                 h1 #{public._data[current.path[0]].title}
