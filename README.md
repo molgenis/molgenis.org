@@ -4,21 +4,23 @@ This is source code for the website of MOLGENIS, including docs etc.
 
 # to generate the website
 
-
-
+- checkout this git
 - cd to this directory
+- type ```harp compile```
 
 # harp reference
 The site is generated using harp.
 
-### basics
+## basics
 
 install npm and harp (once)
 ```
 #on mac you can use brew http://brew.sh/
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+
 #install node
 brew install node
+
 #install harp
 sudo npm install -g harp```
 
@@ -38,7 +40,7 @@ will generate the static pages in ~/www
 The layout is implemented using .jade templates (http://jade-lang.com/).
 Below quick commands including access to harp data.
 
-### jade basics
+## jade basics
 
 ```h1 my list
 ul
@@ -50,13 +52,14 @@ just renders a h1 and a ul with nested li
 ```p: #[b some bold] some normal and #[i some italic] text```
 allows nested elements to be defined on one line
 
-### render a javascript variable
+## render a javascript variable
 ```#{myvalue}```
 or
 ```p= myvalue```
 will render the value
 
-### harp automatidally provides _data.json
+## harp automatically provides _data.json
+
 ```for value, key in public._data
   li
     a(href="#{key}") #{value.title}
@@ -69,7 +72,7 @@ will iterate over the hashmap in _data.json (local _data file overrides a global
 ```
 will iterate over the hashmap in folder + file articles/_data.json 
 
-### style attributes
+## style attributes
 
 ```a(style={color: 'red', background: 'green'})```
 will render with style="color:red; background: green"
@@ -80,7 +83,7 @@ will render as a class="button"
 ```a#main```
 will render as a id="main"
 
-### commments
+## commments
 
 ```//blaat```
 will render a html comment
@@ -88,11 +91,12 @@ will render a html comment
 ```/-blaat```
 will not render a html comment
 
-#css type using less
+#css using less
 
 css stylesheets are implemented in .less files (http://lesscss.org/)
+See /res/css
 
-## License
+# License
 Copyright (c) 2002-, Morris Swertz, MOLGENIS Team, 
 Contributors Documentation released under [Creative Commons](./LICENSE-CC).
 Documentation source code released under the [MIT License](./LICENSE-MIT).
