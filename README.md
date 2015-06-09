@@ -4,9 +4,12 @@ This is source code for the website of MOLGENIS, including docs etc.
 
 # to generate the website
 
-- checkout this git
-- cd to this directory
-- type ```harp compile```
+```
+git clone https://github.com/molgenis/molgenis.org.git
+cd molgenis.org
+harp compile
+```
+you will find the generated website in folder ```www```
 
 # harp reference
 The site is generated using harp.
