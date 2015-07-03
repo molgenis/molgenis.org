@@ -1,20 +1,20 @@
 {   
-  "index" : {"title":"MOLGENIS home","description":"Welcome to MOLGENIS home page"},    
+  "index" : {"title":"home","description":"Welcome to MOLGENIS home page"},    
   "start": {
     "title": "Start",
-    "description": "Quick start for installing and running MOLGENIS and its major components."
+    "description": "Quick start for installing and using MOLGENIS."
   },
   "learn": {
-    "title": "Learn",
-    "description": "Using MOLGENIS for ..."
-  },    
+    "title": "Data",
+    "description": "Using MOLGENIS data management toolbox"
+  },
+  "compute": {
+    "title": "Analysis",
+    "description": "Using MOLGENIS analysis pipeline toolbox"
+  },        
   "develop": {
     "title": "Develop",
     "description": "Extensive documentation for contributing new code."
-  },
-  "community": {
-    "title": "Get involved",
-    "description": "Join the MOLGENIS community. Contribute support, ideas and development."
   },
   "about": {
     "title": "About",

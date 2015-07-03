@@ -5,8 +5,11 @@ html(lang="en")
   //<![endif]
   head
     meta(charset="utf-8")
-    //- Show specific page title, name, and tagline. If the full title is more than 70 chars, omit the tagline
-    title !{ title !== name ? title + ' &ndash; ' : '' }#{ name }#{ (title.length + name.length + tagline.length) >= 70 ? '' : ', ' + tagline.toLowerCase() }
+    if(current.source == 'index')
+        if(current.path.length > 1 && public._data[current.path[0]] != null)
+            title MOLGENIS - #{public._data[current.path[0]].title}
+    else
+        title MOLGENIS - #{title}
     meta(name="description", content!=description)
     meta(name="author", content="#{author}")
     meta(name="handheldfriendly", content="true")
@@ -22,10 +25,10 @@ html(lang="en")
     div.wrapper
     
         //- header
-        != partial("res/_header")
+        != partial("_layout/header")
     
         //- root index has its own layout (add more files if you need)
-        != partial("res/_titlebar.jade")
+        != partial("_layout/titlebar")
     
         //- contents
         if(current.source == 'index' && current.path.length == 1)
@@ -36,13 +39,16 @@ html(lang="en")
             div.container.website-content
                 div.row
                     div.col-md-3(role="complementary")
-                        != partial("res/_sidebar.jade")
+                        != partial("_layout/sidebar")
                     div.col-md-9.contents(role="main")
                         != yield
-                        i See something that could be better? #[a(href="#{docsgithub}/" + current.path.join('/') + ".md") Edit this page at Github]            
+                        center
+                            br
+                            i See something that could be better? #[a(href="#{docsgithub}/" + current.path.join('/') + ".md") Edit this page at Github]
+                            br
      
-        //- footer
-        != partial("res/_footer")
-        p #{current.path}
+    //- footer
+    != partial("_layout/footer")
+    p #{current.path}
         
 

@@ -7,7 +7,7 @@ nav.header.navbar.navbar-default.navbar-fixed-top
                 span.icon-bar
                 span.icon-bar
             a.navbar-brand(href="/")
-                img.wordmark(src="/res/images/wordmark.svg", alt="#{ name }")
+                img.wordmark(src="/res/images/wordmark.png", alt="#{ name }")
         #navbar.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-left
                 each article, slug in public._data
@@ -16,6 +16,8 @@ nav.header.navbar.navbar-default.navbar-fixed-top
                             a(href="/#{slug}") #{article.title}
             ul.nav.navbar-nav.navbar-right
                 li
+                    a(href="/sitemap") Sitemap
+                li
                     a(href="http://github.com/molgenis/molgenis") Github
-                li(class="#{ current.path[0] === 'blog' ? 'active' : '' }")
-                    a(href="blog") Blog
+//!-                li(class="#{ current.path[0] === 'blog' ? 'active' : '' }")
+//!-                    a(href="blog") Blog

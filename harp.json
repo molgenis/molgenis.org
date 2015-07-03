@@ -1,8 +1,6 @@
 {
   "globals": {
-    "title": "Please edit _data.json for this path",
-    "description": "Please edit _data.json for this path",
-    "name": "MOLGENIS",
+    "title": "MOLGENIS",
     "tagline": "The scientific data platform",
     "author": "MOLGENIS community",
     "uri": "http://molgenis.org",

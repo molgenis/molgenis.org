@@ -4,13 +4,10 @@ if(current.source == 'index')
             .container 
                 h1 #{public._data[current.path[0]].title}
                 p #{public._data[current.path[0]].description}
-else if(current.source == '404')
-    .titlebar.active
-        .container 
-            h1 404 Page not found
-            p Please contact the admin.
+else if(current.source == '404' || current.source == 'sitemap')
+    
 else
     .titlebar.active
         .container 
-            h1 #{title}
+            h1 #{public._data[current.path[0]].title} > #{title}
             p #{description}

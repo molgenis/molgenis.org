@@ -1,0 +1,8 @@
+{   
+    "index":{"title":"Compute", "description":"First steps into Compute",      "subheading":"true"},
+    "start":{"title":"Quickstart","description":"Start"},
+    "parameters":{"title":"Parameters","description":"Save time by combining multiple parameter files"},
+    "reference":{"title":"Reference","description":"Reference documentation"},
+    "publications":{"title":"Read more","description":"Publications, presentations and other reading"},
+    "pipelines":{"title":"Pipelines", "description":"Pipelines to use",      "subheading":"true"}
+}
