@@ -6,8 +6,10 @@ if(current.source == 'index')
                 p #{public._data[current.path[0]].description}
 else if(current.source == '404' || current.source == 'sitemap')
     
-else
+else if(public._data[current.path[0]] !=  null)
     .titlebar.active
         .container 
             h1 #{public._data[current.path[0]].title} > #{title}
             p #{description}
+else
+    ERROR
