@@ -5,7 +5,7 @@
     "author": "MOLGENIS community",
     "uri": "http://molgenis.org",
     "github": "https://github.com/molgenis/molgenis",
-    "docsgithub": "https://github.com/molgenis/molgenis.org",      
+    "docsgithub": "https://github.com/molgenis/molgenis.org/tree/master/public",      
     "issues": "http://github.com/molgenis/molgenis/issues",
     "docsissues": "http://github.com/molgenis/molgenis.org/issues",
     "version": "1.8.0",
