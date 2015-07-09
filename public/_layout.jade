@@ -44,14 +44,13 @@ html(lang="en")
                         != yield
                         center
                             br
-                            i See something that could be better? #[a(href="#{docsgithub}/" + current.path.join('/') + ".md") Edit this page at Github]
-                            br
+                            if(current.source != 'index')
+                                i See something that could be better? #[a(href="#{docsgithub}/" + current.path.join('/') + ".md") Edit this page at Github]
+                                br
      
     //- footer
     != partial("_layout/footer")
-    p #{current.path}
     
-    != partial("_layout/search")
-
+!= partial("_layout/search")
 != partial("_layout/analytics")
 
