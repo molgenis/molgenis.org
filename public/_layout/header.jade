@@ -14,10 +14,8 @@ nav.header.navbar.navbar-default.navbar-fixed-top
                     if(slug != "index")
                         li(class="#{ current.path[0] === slug ? 'active' : '' }")
                             a(href="/#{slug}") #{article.title}
-            ul.nav.navbar-nav.navbar-right
+            ul.nav.navbar-nav.navbar-right             
                 li
                     a(href="/sitemap") Sitemap
                 li
-                    a(href="http://github.com/molgenis/molgenis") Github
-//!-                li(class="#{ current.path[0] === 'blog' ? 'active' : '' }")
-//!-                    a(href="blog") Blog
+                    a(href="http://github.com/molgenis/molgenis") Github   
