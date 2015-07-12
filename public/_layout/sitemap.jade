@@ -1,12 +1,12 @@
 each article, slug in public._data
     if(slug != "index")
-        h2 
+        h1 
             a(href="/#{slug}") #{article.title}
         p #{article.description}
         if(public[slug]._data !== undefined)
             for subarticle, subslug in public[slug]._data
                 if(subarticle.subheading)
-                    h3 #{subarticle.title}
+                    h2 #{subarticle.title}
                     p #{subarticle.description} 
                 else
                     p

@@ -17,31 +17,29 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(http-equiv="cleartype", content="on")
-    link(rel="stylesheet", href="/res/css/application.css", type="text/css")
+    script(src="/res/js/jquery-1.11.3.min.js") 
+    script(src="/res/js/bootstrap.min.js")
+    link(rel="stylesheet", href="/res/css/application2.css", type="text/css")
     link(rel="shortcut icon", href="/favicon.ico")
     link(rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="#{ name }")  
   body
+    //- header
+    != partial("_layout/header")
     
-    div.wrapper
-    
-        //- header
-        != partial("_layout/header")
-    
-        //- root index has its own layout (add more files if you need)
-        != partial("_layout/titlebar")
-    
-        //- contents
-        if(current.source == 'index' && current.path.length == 1)
-            != yield
-            br
+    //- contents
+    if(current.source == 'index' && current.path.length == 1)
+        != yield
+        br    
         
-        else
-            div.container.website-content
-                div.row
-                    div.col-md-3(role="complementary")
+    else
+        .molgenis-docs-body
+            .container
+                .row
+                    .col-md-3(role="complementary")
                         != partial("_layout/sidebar")
-                    div.col-md-9.contents(role="main")
+                    .col-md-9.contents(role="main")
                         != yield
+                    
                         center
                             br
                             if(current.source != 'index')
@@ -51,6 +49,6 @@ html(lang="en")
     //- footer
     != partial("_layout/footer")
     
-!= partial("_layout/search")
-!= partial("_layout/analytics")
+    //- != partial("_layout/search")
+    != partial("_layout/analytics")
 

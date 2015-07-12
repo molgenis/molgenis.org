@@ -1,22 +1,5 @@
-div.footer
-    nav.navbar.navbar-default.sitemap
-        div.container
-                each article, slug in public._data
-                    if(slug != "index")
-                        .col-md-2 
-                            a(href="/#{slug}") #{article.title}
-                            br
-                            if(public[slug]._data !== undefined)
-                                for subarticle, subslug in public[slug]._data
-                                    if(subarticle.subheading)
-                                        br
-                                        u #{subarticle.title} 
-                                    else
-                                        a(href="/#{slug}/#{subslug}") #{subarticle.title} 
-                                    br
-
-
-    p MOLGENIS and these docs are maintained by the #[a(href="about/team") MOLGENIS team and collaborators]. #[br] Documentation source code released under the #[a(href="LICENSE-MIT") MIT License], documentation under #[a(href="LICENSE-CC") CC BY 3.0].
+footer.molgenis-docs-footer
+    p MOLGENIS and these docs are maintained by the #[a(href="about/team") MOLGENIS team and collaborators]. #[br] Documentation source code released under the #[a(href="/LICENSE-MIT") MIT License], documentation under #[a(href="/LICENSE-CC") CC BY 3.0].
         ul.text-muted
             li Version #{version}
             li ·
@@ -29,5 +12,3 @@ div.footer
             li: a(href="#{docsissues}") Docs Issues
             li ·
             li: a(href="#{releases}") Releases
-            
-            

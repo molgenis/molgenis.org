@@ -1,18 +1,15 @@
-script(src="/res/js/jquery-1.11.3.min.js") 
-script(src="/res/js/bootstrap.min.js")
-
-nav.sidenav(id="sidebar")
-    ul.nav.hidden-xs.hidden-sm(id="sidenav")
+nav.molgenis-docs-sidebar(id="molgenis-docs-sidebar").hidden-print.hidden-xs.hidden-sm
+        ul.nav.molgenis-docs-sidenav(id="molgenis-docs-sidenav")
 
 //- on document load: generate the sidenav for h1 and h2
 script.
     $(function() {
-        var sideNav = $("#sidenav");
-        
+        var sideNav = $("#molgenis-docs-sidenav");
+        var index = 0;
         $(".row h1").each(function() {
             
             //create id for h1
-            var id = $(this).text().replace(/\s/gi,"-").toLowerCase();
+            var id = (index++) + $(this).text().replace(/\s/gi,"-").toLowerCase();
             $(this).prepend("<a name=\""+id+"\"></a>");
             
             //add h1 to list
@@ -35,7 +32,7 @@ script.
                 $("h2",$(this).parent()).each(function(){
                 
                     //create id for h2
-                    var id = $(this).text().replace(/\s/gi,"-").toLowerCase();
+                    var id = (index++) + $(this).text().replace(/\s/gi,"-").toLowerCase();
                     $(this).prepend("<a name=\""+id+"\"></a>");
             
                     //wrap h2 into section
@@ -55,34 +52,28 @@ script.
         
         //add "back to top"
         sideNav.append("<li><a href=\"#top\" style=\"font-size:smaller\">Back to top</a></li>");
-        
         var $body   = $(document.body);
-        var navHeight = $('.navbar-static-top').outerHeight(true) + 10;
+        
+        //calculate top and bottom spacing
+        var spaceTop = $('header').outerHeight(true);
+        var spaceBottom = $('footer').outerHeight(true);
         
         //enable the 'active' highlighting using scrollspy plugin
         $('body').scrollspy({
-            target: '.sidenav',
-            offset: 60
+            target: '#molgenis-docs-sidebar'
         });
+        $('#molgenis-docs-sidebar').width($('#molgenis-docs-sidebar').parent().width());
         
-        //add the positioning using 'affix' plugin
-        var $sideBar = $('#sidebar')
-        $sideBar.affix({
+        //enable affix
+        $('#molgenis-docs-sidebar').affix({
             offset: {
-                top: function () {
-                    var offsetTop      = $sideBar.offset().top
-                    var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
-                    var navOuterHeight = $('.navbar-fixed-top').height()
-                    return (this.top = offsetTop - navOuterHeight - sideBarMargin)
-                },
-                bottom: ($('.footer').outerHeight(true) + 40)
+                top: spaceTop
             }
         });
-        $('#sidebar').width($('#sidebar').parent().width());
         
         //resize affix box when window resizes
         $(window).resize(function () {
-                $('#sidebar').width($('#sidebar').parent().width());
+                $('#molgenis-docs-sidebar').width($('#molgenis-docs-sidebar').parent().width());
             });
         
         $("table").addClass("table table-bordered");

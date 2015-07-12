@@ -1,21 +1,42 @@
-nav.header.navbar.navbar-default.navbar-fixed-top
-    div.container
-        div.navbar-header
-            button.navbar-toggle.collapsed(type="button",data-toggle="collapse",data-target="#navbar",aria-expanded="false",aria-controls="navbar")
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-            a.navbar-brand(href="/")
-                img.wordmark(src="/res/images/wordmark.png", alt="#{ name }")
-        #navbar.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-left
-                each article, slug in public._data
-                    if(slug != "index")
-                        li(class="#{ current.path[0] === slug ? 'active' : '' }")
-                            a(href="/#{slug}") #{article.title}
-            ul.nav.navbar-nav.navbar-right             
-                li
-                    a(href="/sitemap") Sitemap
-                li
-                    a(href="http://github.com/molgenis/molgenis") Github   
+//- header
+header.molgenis-docs-header
+
+    //- navbar
+    .navbar.navbar-static-top
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(type="button",data-toggle="collapse",data-target="#navbar",aria-expanded="false",aria-controls="navbar")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="/")
+                    img.wordmark(src="/res/images/wordmark-blue.png", alt="#{ name }")
+            #navbar.collapse.navbar-collapse
+                ul.nav.navbar-nav.navbar-left
+                    each article, slug in public._data
+                        if(slug != "index")
+                            li(class="#{ current.path[0] === slug ? 'active' : '' }")
+                                a(href="/#{slug}") #{article.title}
+                ul.nav.navbar-nav.navbar-right             
+                    li
+                        a(href="/sitemap") Sitemap
+                    li
+                        a(href="http://github.com/molgenis/molgenis") Github   
+    
+    //- titlebar
+    if(current.source == 'index')
+        if(current.path.length > 1 && public._data[current.path[0]] != null)
+            .molgenis-docs-titlebar.active
+                .container 
+                    h1 #{public._data[current.path[0]].title}
+                    p #{public._data[current.path[0]].description}
+    else if(current.source == '404' || current.source == 'sitemap')
+    
+    else if(public._data[current.path[0]] !=  null)
+        .molgenis-docs-titlebar.active
+            .container 
+                h1 #{public._data[current.path[0]].title} > #{title}
+                p #{description}
+    else
+        ERROR
