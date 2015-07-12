@@ -35,12 +35,16 @@ header.molgenis-docs-header
                     h1 #{public._data[current.path[0]].title}
                     p #{public._data[current.path[0]].description}
                     
-    else if(current.source == '404' || current.source == 'sitemap')
+    else if(current.source == '404')
+            .molgenis-docs-titlebar.active
+                .container 
+                    h1 404 Page not found
+                    p Sorry this page is not available.
     
     else if(public._data[current.path[0]] !=  null)
         .molgenis-docs-titlebar.active
             .container 
-                h1 #{public._data[current.path[0]].title} > #{title}
+                h1 #{title}
                 p #{description}
     else
         ERROR

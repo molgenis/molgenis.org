@@ -9,7 +9,7 @@
     "description": "Using MOLGENIS data management toolbox"
   },
   "compute": {
-    "title": "Analysis",
+    "title": "Compute",
     "description": "Using MOLGENIS analysis pipeline toolbox"
   },        
   "develop": {
@@ -19,5 +19,9 @@
   "about": {
     "title": "About",
     "description": "Information about MOLGENIS, publications, team and history."
+  },  
+  "sitemap": {
+    "title": "Sitemap",
+    "description": "Complete index of all pages in this website."
   }
 }
