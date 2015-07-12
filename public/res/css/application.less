@@ -6,28 +6,93 @@
  */
 @import "_bootstrap/bootstrap";
 
-@navbar-default-bg:                 #0079c2;
-@navbar-default-color:              white;
-@navbar-default-link-color:         white;
+/** 
+ * Add the 'blue'
+ */
+@navbar-default-bg:                 white;
+@navbar-default-color:              #0079c2;
+//@navbar-default-link-color:         #0079c2;
 @navbar-default-link-hover-color:   #66cc00;
-@navbar-default-link-active-color:  white;
-@navbar-default-toggle-icon-bar-bg: white;
-@navbar-default-toggle-border-color: white;
+//@navbar-default-link-active-color:  #0079c2;
+//@navbar-default-toggle-icon-bar-bg: #0079c2;
+//@navbar-default-toggle-border-color: #0079c2;
+@btn-default-color:              @navbar-default-color;
+@btn-default-border:             @navbar-default-color;
 
-/** because of the fixed heard */
-html{
-    min-height: 100%;
-    height: 100%;
+.btn-outline {
+    border: solid thin @navbar-default-color;
 }
 
-body { 
+/**
+ * full size body
+ */
+html,body { 
     //background-color: #f7f7f7;
-    margin-top: @navbar-height;
     min-height: 100%;
-    height: 100%;
+    position:relative;
 }
 
-/** predictable sizes */
+/**
+ * molgenis-docs-header
+ */
+.molgenis-docs-header .nav .navbar-brand, .molgenis-docs-header .nav .navbar-nav>li>a{
+    font-weight: 500;
+}
+
+.molgenis-docs-header .navbar {
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0;
+    position:relative;
+}
+
+.molgenis-docs-header .navbar-toggle .icon-bar, .molgenis-docs-header .navbar-toggle .collapsed{
+    background-color: @navbar-default-color;
+    border-color: @navbar-default-color;
+}
+
+.molgenis-docs-header img {
+    height: 25px;
+    width: 100px;
+}
+
+/**
+ * molgenis-docs-titlebar
+ */
+@media (min-width: 768px) {
+    .molgenis-docs-titlebar {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        font-size: 24px;
+        text-align: left;
+    }
+    .molgenis-docs-titlebar h1 {
+        font-size: 60px;
+        line-height: 1;
+    }
+}
+
+.molgenis-docs-titlebar {
+    color: @navbar-default-link-active-bg;
+    background: @navbar-default-color;
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+}
+
+.molgenis-docs-titlebar h1 {
+    color:#fff;
+}
+
+.molgenis-docs-titlebar p {
+    font-weight: 300;
+    color: lighten(@navbar-default-color, 40%);
+    line-height: 1.4;
+}
+
+/**
+ * helper: container with responsive, predictable sizes
+ */
 @media (min-width: @screen-md) {
         .container {
         width: 970px;
@@ -40,59 +105,17 @@ body {
     }
 }
 
-.website-content{
-    height: 100%;
-}
-
-.btn-outline {
-  color: @navbar-default-bg;
-  background-color: transparent;
-  border-color: @navbar-default-bg;
-}
-
-/** whole page is wrapped to stretch it to 100%*/
-.wrapper{
+/**
+ * body
+ */
+.molgenis-docs-body {
     margin-left: auto;
 	margin-right: auto; 
-	position: relative; //make #wrapper position non-static
 	min-height: 100%;
+    height: 100%;
     height: auto;
     width: 100%;
-}
-
-.header {
-    width: 100%;
-}
-
-/**
- * logo
- */
-.wordmark {
-    height: 25px;
-    width: 100px;
-}
-
-.navbar {
-    margin-bottom: 0px;
-    margin-bottom: 20px;
-}
-
-//title bar
-.titlebar {
-    background: @navbar-default-link-active-bg;
-    color: @navbar-default-color;
-}
-
-.titlebar h1, .titlebar h2 {
-    font-weight: 300;
-    margin-top: 10px;
-    font-size: 3.2rem;
-}
-.titlebar p {
-    font-weight: 300;
-    color: lighten(@navbar-default-bg, 10%);
-    line-height: 1.4;
-    font-size: 1.4rem;
+    position:relative;
 }
 
 //content box
@@ -101,85 +124,73 @@ body {
     //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-//footer
-.footer {
+/**
+ * molgenis-docs-footer
+ */
+.molgenis-docs-footer {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 40px;
 	text-align: center;
     width: inherit;
 }
 
-.footer li:first-child {
+.molgenis-docs-footer li:first-child {
   padding-left: 0;
 }
 
-.footer li {
+.molgenis-docs-footer li {
     display:inline;
     padding-left: 15px;
 }
-.footer  a:link, .footer a:visited {
-    color: @navbar-default-bg;
-}
-
-//sitemap
-.sitemap, .sitemap a, .sitemap a:link, .sitemap a:visited {
-    background: @navbar-default-bg;
+.molgenis-docs-footer a:link, footer a:visited {
     color: @navbar-default-color;
-    vertical-align:top;
-    text-decoration: none;
-    font-size: @font-size-small;
-    font-weight: 300;
 }
 
-.sitemap a:hover {
-    color:@navbar-default-link-hover-color;
+
+/**
+ * molgenis-docs-sidebar is an affix box 
+ */
+.molgenis-docs-sidebar {
+
 }
 
-.sitemap-contents {
-    border: solid green;
+.molgenis-docs-sidebar.affix{
+    top: 0px;
 }
 
-/* sidebar */
-.sidebar {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.molgenis-docs-sidebar.affix-bottom {
+    position: relative
 }
 
-.sidebar.affix {
-  position: static;
-}
-
-.sidenav a, .sidenav a:link, .sidenav a:visited{
+/** 
+ * molgenis-docs-sidenav sits inside the sidebar 
+ */
+.molgenis-docs-sidenav a, .molgenis-docs-sidenav a:link, .molgenis-docs-sidenav a:visited{
     color: black;
     text-decoration: none;
 }
 
-/* extra nest links */
-.sidenav .nav .nav>li>a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 30px;
+.molgenis-docs-sidenav >.active >a, .molgenis-docs-sidenav .nav > .active >a {
+    font-weight: bold;
+    color: @navbar-default-color;
+    border-right: 1px solid @navbar-default-color;
+}
+
+/* hide all (inactive) nested list */
+.molgenis-docs-sidenav .nav {
+    display: none;  
+}
+
+/* show active nested list */
+.molgenis-docs-sidenav > .active > ul.nav {
+    display: block;
+    font-weight: normal;
+    padding-left: 10px;
+    font-weight: 500;
     font-size: 12px;
 }
-/* hide all (inactive) nested list */
-.sidenav .nav ul.nav {
-    display: none;           
-}
-/* show active nested list */
-.sidenav .nav>.active>ul.nav {
-    display: block; 
-    font-weight: normal;
-}
-.sidenav .nav>.active>a {
-    color: @navbar-default-bg;
-    font-weight: bold;
-    border-right: 1px solid #d8dde2;
-}
 
-.affix-top { }
-.affix { top: @navbar-height; width: 100%; z-index: 1; }
-.affix-bottom { position:absolute; }
-
-.partner {
-    max-height: 100px;
-    max-width: 200px;
-    padding: 20px;
+.molgenis-docs-sidenav > .active > ul.nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
