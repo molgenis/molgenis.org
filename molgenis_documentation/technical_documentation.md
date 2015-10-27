@@ -34,75 +34,17 @@ A biologist has generated gigabytes of data, and have processing is now searchin
 ### What can MOLGENIS be used for
 MOLGENIS has a plethora of use cases, several of these are described below
 
-#### how to create a biobank catalogue
-Creating a biobank catalogue text + screenshots + example projects
+#### Biobank catalogue
+Biobank catalogue text + screenshots + example projects
 
 #### NGS data annotation/interpretation
 Using MOLGENIS for NGS text + screenshots + example projects
 
-#### Portal for research groups/consortia
+#### Research portals groups/consortia
 Palga / mutation databases text + screenshots + example projects
 
 #### Online analysis + pipelines
 More analysis compute things?
-
-### Understanding how MOLGENIS works (The Reference)
-Extensive software, developed with advanced technologies etc etc..
-
-#### Architecture overview 
-![](images/architecture_overview.png?raw=true "MOLGENIS architecture overview")
-
-##### Core
-The core of MOLGENIS
-
-##### Extension points
-Extension points
-
-##### Dependencies
-Dependencies
-
-#### Data service
-MOLGENIS provides a simple but powerful data framework. Key concepts are described below.
-![](images/data_service.png?raw=true "MOLGENIS architecture overview")
-
-##### Repositories
-Scientific data always comes in large homogeneous collections to enable comparisons. The MOLGENIS entity framework allows for the definition of these collections as follows:
-
-* repository: interface to access a collection  
-* metadata: defines the attributes of each record in the collection  
-* permission: defines who has collection level admin, edit, aggregate or view permissions  
-* capabilities: define what a repository can do, i.e. add, updated, delete, etc
-
-##### AttributeMetaData
-The heart of EntityMetaData is defined by the definition of attributes.
-TODO
-
-##### EntityMetaData
-EntityMetaData describes entities, which represent data uploaded into MOLGENIS
-TODO
-
-See the [EMX documentation](https://github.com/molgenis/molgenis/wiki/EMX-upload-format) for explanation of the proporties.
-
-##### How to write a backend plugin?
-TODO: describe what is needed
-
-##### MyRepository
-TODO
-
-##### MyRepositoryCollection
-TODO
-
-#### service overview
-Services we provide…
-
-##### Data
-Data
-
-##### Account
-Account system..
-
-##### Permission
-Permission system
 
 ### Getting your own MOLGENIS (Black triangle)
 Molgenis can be downloaded from https://github.com/molgenis/molgenis
@@ -179,5 +121,60 @@ Easy uploading
 * How to migrations
 * How to generate a deploy (F)
 
+### Understanding how MOLGENIS works (The Reference)
+Extensive software, developed with advanced technologies etc etc..
 
+#### Architecture overview 
+![](images/architecture_overview.png?raw=true "MOLGENIS architecture overview")
 
+##### Core
+The core of MOLGENIS
+
+##### Extension points
+Extension points
+
+##### Dependencies
+Dependencies
+
+#### Data service
+MOLGENIS provides a simple but powerful data framework. Key concepts are described below.
+![](images/data_service.png?raw=true "MOLGENIS architecture overview")
+
+##### Repositories
+Scientific data always comes in large homogeneous collections to enable comparisons. The MOLGENIS entity framework allows for the definition of these collections as follows:
+
+* repository: interface to access a collection  
+* metadata: defines the attributes of each record in the collection  
+* permission: defines who has collection level admin, edit, aggregate or view permissions  
+* capabilities: define what a repository can do, i.e. add, updated, delete, etc
+
+##### AttributeMetaData
+The heart of EntityMetaData is defined by the definition of attributes.
+TODO
+
+##### EntityMetaData
+EntityMetaData describes entities, which represent data uploaded into MOLGENIS
+TODO
+
+See the [EMX documentation](https://github.com/molgenis/molgenis/wiki/EMX-upload-format) for explanation of the proporties.
+
+##### How to write a backend plugin?
+TODO: describe what is needed
+
+##### MyRepository
+TODO
+
+##### MyRepositoryCollection
+TODO
+
+#### service overview
+Services we provide…
+
+##### Data
+Data
+
+##### Account
+Account system..
+
+##### Permission
+Permission system
