@@ -24,6 +24,7 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 
 # MOLGENIS user documentation
 ---
+
 ## Introduction
 **
 This document is a detailed description of the web-based MOLGENIS software. Here you will learn, step-by-step, what MOLGENIS is, and the many options it offers you to explore and manipulate your data.
@@ -33,34 +34,33 @@ This document is a detailed description of the web-based MOLGENIS software. Here
 Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organizations all around the world. 
 
 ### Why MOLGENIS?
-Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing users to model their data however they want. This creates flexibility that other, more static, database applications often lack. Its web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
+Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing users to model their data however they want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
 MOLGENIS takes away the hassle of storing and analysing data by taking care of the storing and querying part. Allowing researchers to focus on the data itself.
 
 ### Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
-#### Biobank catalogue
+#### Biobank catalogue TODO
 Biobank catalogue text + screenshots + example projects
 
-#### NGS data annotation/interpretation
+#### NGS data annotation/interpretation TODO
 Using MOLGENIS for NGS text + screenshots + example projects
 
-#### Research portals groups/consortia
+#### Research portals groups/consortia TODO
 Palga / mutation databases text + screenshots + example projects
 
-#### Online analysis + pipelines
+#### Online analysis + pipelines TODO
 More analysis compute things?
 
-### Getting your own MOLGENIS (Black triangle)
-Molgenis can be downloaded from https://github.com/molgenis/molgenis
+---
+---
 
-#### Happy install example
-Example of how it should go in an ideal world
+### Getting your own MOLGENIS (Black triangle)
+If you have decided to use MOLGENIS for your project, the first thing you can do is to get a local version up and running. This can be done either through Eclipse or IntelliJ, or by deploying the compiled war to your apache-tomcat/webapps folder. WAR files for the different releases can be downloaded from https://github.com/molgenis/molgenis/releases. If you want to compile and run MOLGENIS from an IDE, then follow the steps described 
 
 #### How to install
 Installation guide ( Copy paste Readme.MD I guess)
-Download VM, ready, go
 Download war, install mysql + tomcat, go
 How to upgrade (upgrade war, clean database, delete index)
 
@@ -81,6 +81,9 @@ Custom home page
 
 ##### Themes
 Style themes
+
+---
+---
 
 ### How to get your data into MOLGENIS (Hairball)
 Data is uploaded
@@ -113,6 +116,9 @@ Easy uploading
 * R
 * Python
 
+---
+---
+
 ### How to develop (Hairball / The Reference)
 
 * Download code, eclipse, compile, run
@@ -128,9 +134,9 @@ Easy uploading
 * How to generate a deploy (F)
 
 ### Understanding how MOLGENIS works (The Reference)
-Extensive software, developed with advanced technologies etc etc..
+If you have decided to become active in MOLGENIS development, then the following information will help you in understanding the architecture of software. The major java object and APIs are described in detail.
 
-#### Architecture overview 
+#### Architectural overview 
 ![](images/architecture_overview.png?raw=true "MOLGENIS architecture overview")
 
 ##### Core
