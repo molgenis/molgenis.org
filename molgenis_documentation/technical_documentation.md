@@ -55,31 +55,44 @@ Analysis compute things?
 ---
 ---
 
-### Getting your own MOLGENIS (Black triangle)
-If you have decided to use MOLGENIS for your project, the first thing you can do is to get a local version up and running. This can be done either through Eclipse or IntelliJ, or by deploying the compiled war to your apache-tomcat/webapps folder. WAR files for the different releases can be downloaded from https://github.com/molgenis/molgenis/releases. If you want to compile and run MOLGENIS from an IDE, then follow the steps described 
+### Getting your own MOLGENIS
+If you have decided to use MOLGENIS for your project, the first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several datasets including biobank data and genetic data. But of course you want to see how your own data looks like, so lets jump right into that. 
 
 #### How to install
-Installation guide ( Copy paste Readme.MD I guess)
-Download war, install mysql + tomcat, go
-How to upgrade (upgrade war, clean database, delete index)
+The three components needed to run MOLGENIS locally or on a server are:
 
-#### How to configure your MOLGENIS
-MOLGENIS is a variable system which can be catered to suit your needs and preferences. 
+* [apache-tomcat](http://tomcat.apache.org/) 
+* [MySQL](https://www.mysql.com/downloads/)
+* The WAR for the [latest molgenis-app release](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22molgenis-app%22) from maven central.
 
-##### Menu manager
-The Menu manager
+Deploy apache-tomcat, and place the molgenis-app WAR as the ROOT.war in your apache-tomcat/webapps folder. If you are unfamiliar with apache-tomcat, follow one of their [apache-tomcat installation guides](https://tomcat.apache.org/tomcat-7.0-doc/deployer-howto.html).
 
-##### Permissions
-Permissions
+Now that your apache-tomcat is running and MOLGENIS is deployed, you will notice it will not work yet. This is because your MySQL needs to be configured, and a single properties file needs to be set.
 
-##### User management
-User management
+**Setting your molgenis-server.properties**   
+MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
 
-##### Home page (static content)
-Custom home page
+> db_user=molgenis  
+> db_password=molgenis  
+> db_uri=jdbc:mysql://localhost/omx  
+> admin.password=admin  
+> user.password=admin  
 
-##### Themes
-Style themes
+Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
+
+**Setting up your MySQL**  
+If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as root user and type the following commands:
+
+> create database omx;  
+> grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
+> flush privileges;  
+
+Now that your MySQL server and properties file have been configured, restart the apache tomcat server.
+If you open up a web browser and navigate to where your apache-tomcat applications are deployed (often this is localhost:8080) you should see the following:  
+
+![](images/molgenis_home_logged_out.png?raw=true, "molgenis home page")  
+
+Congratulations! You now have your MOLGENIS application up and running. Remember the admin.password you set in the molgenis-server.properties file? Use that password to login as the admin user. The next section will take you through the different modules MOLGENIS has to offer.  
 
 ---
 ---
@@ -114,6 +127,24 @@ Easy uploading
 * REST
 * R
 * Python
+
+### Advanced MOLGENIS applcation configuration (Hairball)
+Once you got 
+
+##### Menu manager
+The Menu manager
+
+##### Permissions
+Permissions
+
+##### User management
+User management
+
+##### Home page (static content)
+Custom home page
+
+##### Themes
+Style themes
 
 ---
 ---
