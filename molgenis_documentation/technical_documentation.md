@@ -23,7 +23,6 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 
 
 # MOLGENIS user documentation
----
 
 ## Introduction
 **
@@ -36,7 +35,7 @@ Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based so
 ### Why MOLGENIS?
 Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing users to model their data however they want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
-MOLGENIS takes away the hassle of storing and analysing data by taking care of the storing and querying part. Allowing researchers to focus on the data itself.
+MOLGENIS takes away the hassle of storing data, and makes it highly accesible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
 
 ### Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
@@ -51,7 +50,7 @@ Using MOLGENIS for NGS text + screenshots + example projects
 Palga / mutation databases text + screenshots + example projects
 
 #### Online analysis + pipelines TODO
-More analysis compute things?
+Analysis compute things?
 
 ---
 ---
