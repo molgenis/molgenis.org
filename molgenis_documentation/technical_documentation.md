@@ -22,79 +22,148 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 * Contribution policies (if your project accepts outside contributions).
 
 
-# MOLGENIS user documentation
----
+# <a name="top"></a> MOLGENIS user documentation
 
-## Introduction
+## <a name="introduction"></a> Introduction
 **
 This document is a detailed description of the web-based MOLGENIS software. Here you will learn, step-by-step, what MOLGENIS is, and the many options it offers you to explore and manipulate your data.
 **
 
-### What is MOLGENIS?
-Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organizations all around the world. 
+## <a name="table-of-contents"></a> Table of contents
 
-### Why MOLGENIS?
-Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing users to model their data however they want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
+* [What is MOLGENIS?](#what-is-molgenis)
+* [Trying out MOLGENIS](#trying-out-molgenis)
+* [Why MOLGENIS?](#why-molgenis)
+* [Should I use MOLGENIS?](#should-i-use-molgenis)
+	* [Biobanks](#biobank-example)
+	* [NGS](#ngs-example)
+	* [Research portals](#research-portal-example)
+	* [Pipeline computing](#compute-example)
+	
 
-MOLGENIS takes away the hassle of storing and analysing data by taking care of the storing and querying part. Allowing researchers to focus on the data itself.
+### <a name="what-is-molgenis"></a> What is MOLGENIS?
+Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
-### Should I use MOLGENIS?
+### <a name="why-molgenis"></a> Why MOLGENIS?
+Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing you to model your data however you want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
+
+MOLGENIS takes away the hassle of storing data, and makes it highly accessible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
+
+### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
-#### Biobank catalogue TODO
+#### <a name="biobank-example"></a> Biobank catalogue TODO
 Biobank catalogue text + screenshots + example projects
 
-#### NGS data annotation/interpretation TODO
+#### <a name="ngs-example"></a> NGS data annotation/interpretation TODO
 Using MOLGENIS for NGS text + screenshots + example projects
 
-#### Research portals groups/consortia TODO
+#### <a name="research-portal-example"></a> Research portals groups/consortia TODO
 Palga / mutation databases text + screenshots + example projects
 
-#### Online analysis + pipelines TODO
-More analysis compute things?
+#### <a name="compute-example"></a> Online analysis + pipelines TODO
+Analysis compute things?
 
 ---
 ---
 
-### Getting your own MOLGENIS (Black triangle)
-If you have decided to use MOLGENIS for your project, the first thing you can do is to get a local version up and running. This can be done either through Eclipse or IntelliJ, or by deploying the compiled war to your apache-tomcat/webapps folder. WAR files for the different releases can be downloaded from https://github.com/molgenis/molgenis/releases. If you want to compile and run MOLGENIS from an IDE, then follow the steps described 
+### Trying out MOLGENIS
+If you have decided to use MOLGENIS for your project, the first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several datasets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
 
-#### How to install
-Installation guide ( Copy paste Readme.MD I guess)
-Download war, install mysql + tomcat, go
-How to upgrade (upgrade war, clean database, delete index)
+But perhaps you want to see how your own data looks like, and you would like to see your data locally, and not upload it for other people to see, not yet anyway. So lets jump right into that. 
 
-#### How to configure your MOLGENIS
-MOLGENIS is a variable system which can be catered to suit your needs and preferences. 
+<!--
+TODO: We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
 
-##### Menu manager
-The Menu manager
+Need to think this through a bit more, but for now this section contains a more technical installation guide.
+-->
+#### Installing MOLGENIS
+The three components needed to run MOLGENIS locally or on a server are:
 
-##### Permissions
-Permissions
+* [apache-tomcat](http://tomcat.apache.org/) 
+* [MySQL](https://www.mysql.com/downloads/)
+* The WAR for the [latest molgenis-app release](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22molgenis-app%22) from maven central.
 
-##### User management
-User management
+Deploy apache-tomcat, and place the molgenis-app WAR as the ROOT.war in your apache-tomcat/webapps folder. If you are unfamiliar with apache-tomcat, follow one of their [apache-tomcat installation guides](https://tomcat.apache.org/tomcat-7.0-doc/deployer-howto.html).
 
-##### Home page (static content)
-Custom home page
+Now that your apache-tomcat is running and MOLGENIS is deployed, you will notice it will not work yet. This is because your MySQL needs to be configured, and a single properties file needs to be set.
 
-##### Themes
-Style themes
+**Setting your molgenis-server.properties**   
+MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
+
+> db_user=molgenis  
+> db_password=molgenis  
+> db_uri=jdbc:mysql://localhost/omx  
+> admin.password=admin  
+> user.password=admin  
+
+Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
+
+**Setting up your MySQL**  
+If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
+
+> create database omx;  
+> grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
+> flush privileges;  
+
+Now that your MySQL server and properties file have been configured, restart the apache tomcat server.
+If you open up a web browser and navigate to where your apache-tomcat applications are deployed (often this is localhost:8080) you should see the following:  
+
+![](images/molgenis_home_logged_out.png?raw=true, "molgenis home page")  
+
+Congratulations! You now have your MOLGENIS application up and running. Remember the admin.password you set in the molgenis-server.properties file? Use that password to login as the admin user. The next section will take you through the different modules MOLGENIS has to offer.  
+
+### Getting your first data into MOLGENIS
+So you have a MOLGENIS application up and running, and your dataset is sitting nice and cozy on your computer somewhere, now what? We upload the data of course! As mentioned before, MOLGENIS uses an extensible model format allowing you to model your data however you want. This is done via the **EMX** format. Now I know a custom format sounds scary, but if you keep reading for a bit, you will find out it's not scary at all.
+
+We wanted researchers to be able to describe their data in a flexible 'meta model'. This sounds really interesting, but what it boils down to, is that you have one separate xlsx sheet that describes your column names, or attributes as we call them. Thats it. Thats all the EMX format is. Keep reading to find a detailed example.
+
+#### Creating an EMX file
+If you want to skip this theory lesson and download an excel file right away to use as a template, you can find several of them [on Github](https://github.com/molgenis/molgenis/tree/master/molgenis-app/src/test/resources). Be advised that these are files for testing purposes, and do not have real data in them, so they might not fully represent the complexity of your own data.
+
+Now for the example. Say that you have an existing excel sheet with a couple of thousand rows of data and several columns. This data can look something like this:
+
+**Data sheet**:
+ 
+|Identifier|Gene    |Protein measured|Protein count|
+|----------|--------|----------------|-------------|
+|A12345_Z  |BRCA2   |P51587          |321          |
+|B12345_Y  |BRCA2   |Q86YC2          |123          |
+|C12345_X  |BRCA2   |Q9P287          |213          |
+|D12345_W  |BRCA2   |P46736          |231          |
+|E12345_V  |BRCA2   |Q8MKI9          |312          |
+
+Now to make this into a full fledged EMX file, all you have to do is create a new sheet within the same file and call it *attributes*. To give an idea on what the purpose of this sheet is, it will describe the columns that you have set for your data. This description allows MOLGENIS to properly store and display it. An attribute sheet will look something like this:
+
+**Attribute sheet**
+
+|name            |entity            |dataType|description                     |refEntity|idAttribute|nillable|
+|----------------|------------------|--------|--------------------------------|---------|-----------|--------|
+|Identifier      |example_data_table|string  |The identifier for this table   |         |TRUE       |FALSE   |
+|Gene            |example_data_table|string  |The HGNC Gene identifier        |         |FALSE      |TRUE    |
+|Protein measured|example_data_table|string  |The protein that was measured   |         |FALSE      |TRUE    |
+|Protein count   |example_data_table|int     |Number of proteins measured     |         |FALSE      |TRUE    |
+
+This little bit is all you need. You specify the *name*, which is the name you gave to the column already. The *entity* is the name the table will get when it is stored in the database. The *dataType* is, as you might have guessed, the type of data that is present in each column. The *description* column allows you to describe your attribute. If you want to have a value point to another table, you can use the *refEntity* column. Complex data structures do not always consist of a single table, we support multiple table models through this system of reference entities. The *idAttribute* parameter will tell MOLGENIS that this is the primary key. It has to be unique, and it is not allowed to be null or missing. With the *nillable* parameter you can enforce whether an attribute is allowed to be missing or not.  
+
+This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query able.
+
+In the next section, you can find the complete list of EMX options and parameters.
+
+#### Importing your EMX file into MOLGENIS
+So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
+
+Browse to wherever your application is running, and login as admin user.
+Go to the Upload menu. You now should see something like this:
+
+![Importer first screen](images/importer_first_screen.png?raw=true, "importer")
 
 ---
 ---
 
-### How to get your data into MOLGENIS (Hairball)
-Data is uploaded
+### To become an expert MOLGENIS data import user
 
-#### Happy upload example
-Easy uploading
-
-#### The MOLGENIS flexible ‘meta model’ concept
-
-* EMX reference
-* CSV, XLS
+There are several other 
 
 ### How to use MOLGENIS user interface (Hairball)
 
@@ -116,10 +185,28 @@ Easy uploading
 * R
 * Python
 
+### Advanced MOLGENIS application configuration (Hairball)
+Once you got 
+
+##### Menu manager
+The Menu manager
+
+##### Permissions
+Permissions
+
+##### User management
+User management
+
+##### Home page (static content)
+Custom home page
+
+##### Themes
+Style themes
+
 ---
 ---
 
-### How to develop (Hairball / The Reference)
+### How to develop (The Reference)
 
 * Download code, eclipse, compile, run
 * How to create a UI plugin
