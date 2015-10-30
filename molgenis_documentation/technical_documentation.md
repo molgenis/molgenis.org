@@ -88,7 +88,7 @@ MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Cre
 Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
 
 **Setting up your MySQL**  
-If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as root user and type the following commands:
+If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
 
 > create database omx;  
 > grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
@@ -101,8 +101,6 @@ If you open up a web browser and navigate to where your apache-tomcat applicatio
 
 Congratulations! You now have your MOLGENIS application up and running. Remember the admin.password you set in the molgenis-server.properties file? Use that password to login as the admin user. The next section will take you through the different modules MOLGENIS has to offer.  
 
----
----
 
 ### How to get your data into MOLGENIS (Hairball)
 Data is uploaded
