@@ -173,7 +173,7 @@ There are several other
 * R
 * Python
 
-### Advanced MOLGENIS applcation configuration (Hairball)
+### Advanced MOLGENIS application configuration (Hairball)
 Once you got 
 
 ##### Menu manager
@@ -194,7 +194,7 @@ Style themes
 ---
 ---
 
-### How to develop (Hairball / The Reference)
+### How to develop (The Reference)
 
 * Download code, eclipse, compile, run
 * How to create a UI plugin
