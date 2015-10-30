@@ -22,34 +22,46 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 * Contribution policies (if your project accepts outside contributions).
 
 
-# MOLGENIS user documentation
+# <a name="top"></a> MOLGENIS user documentation
 
-## Introduction
+## <a name="introduction"></a> Introduction
 **
 This document is a detailed description of the web-based MOLGENIS software. Here you will learn, step-by-step, what MOLGENIS is, and the many options it offers you to explore and manipulate your data.
 **
 
-### What is MOLGENIS?
+## <a name="table-of-contents"></a> Table of contents
+
+* [What is MOLGENIS?](#what-is-molgenis)
+* [Trying out MOLGENIS](#trying-out-molgenis)
+* [Why MOLGENIS?](#why-molgenis)
+* [Should I use MOLGENIS?](#should-i-use-molgenis)
+	* [Biobanks](#biobank-example)
+	* [NGS](#ngs-example)
+	* [Research portals](#research-portal-example)
+	* [Pipeline computing](#compute-example)
+	
+
+### <a name="what-is-molgenis"></a> What is MOLGENIS?
 Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
-### Why MOLGENIS?
+### <a name="why-molgenis"></a> Why MOLGENIS?
 Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing you to model your data however you want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
 MOLGENIS takes away the hassle of storing data, and makes it highly accessible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
 
-### Should I use MOLGENIS?
+### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
-#### Biobank catalogue TODO
+#### <a name="biobank-example"></a> Biobank catalogue TODO
 Biobank catalogue text + screenshots + example projects
 
-#### NGS data annotation/interpretation TODO
+#### <a name="ngs-example"></a> NGS data annotation/interpretation TODO
 Using MOLGENIS for NGS text + screenshots + example projects
 
-#### Research portals groups/consortia TODO
+#### <a name="research-portal-example"></a> Research portals groups/consortia TODO
 Palga / mutation databases text + screenshots + example projects
 
-#### Online analysis + pipelines TODO
+#### <a name="compute-example"></a> Online analysis + pipelines TODO
 Analysis compute things?
 
 ---
