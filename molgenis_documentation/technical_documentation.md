@@ -200,9 +200,9 @@ Now to make this into a full fledged EMX file, all you have to do is create a ne
 
 This little bit is all you need. You specify the *name*, which is the name you gave to the column already. The *entity* is the name the table will get when it is stored in the database. The *dataType* is, as you might have guessed, the type of data that is present in each column. The *description* column allows you to describe your attribute. If you want to have a value point to another table, you can use the *refEntity* column. Complex data structures do not always consist of a single table, we support multiple table models through this system of reference entities. The *idAttribute* parameter will tell MOLGENIS that this is the primary key. It has to be unique, and it is not allowed to be null or missing. With the *nillable* parameter you can enforce whether an attribute is allowed to be missing or not.  
 
-This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query able.
+This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query-able.
 
-In the [To become an expert MOLGENIS data import user](#To-become-an-expert-MOLGENIS-data-import-user) section, you can find the complete list of EMX options and parameters available to you.
+In the [Becoming an expert MOLGENIS data importer](#importing-advanced) section, you can find the complete list of EMX options and parameters available to you.
 
 #### <a name="importing-simple"></a> Importing your EMX file into MOLGENIS
 So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
@@ -211,6 +211,8 @@ Browse to wherever your application is running, and login as admin user.
 Go to the Upload menu. You now should see something like this:
 
 ![Importer first screen](images/importer_first_screen.png?raw=true, "importer")
+
+To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those in [this section](#importing-advanced). After your import is done,
 
 ---
 ---
