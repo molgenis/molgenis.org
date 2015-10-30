@@ -84,23 +84,39 @@ MOLGENIS takes away the hassle of storing data, and makes it highly accessible w
 ### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
-#### <a name="biobank-example"></a> Biobank catalogue TODO
-Biobank catalogue text + screenshots + example projects
+<!--
+TODO, we need to paint a clear picture on how MOLGENIS is very suitable to handle the usecases described below. The reader should get the feeling that MOLGENIS is perfect for his or her project
+-->
+#### <a name="biobank-example"></a> Biobank catalogue
+Biobanks are collections of data from samples...
+MOLGENIS has been used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects....
 
-#### <a name="ngs-example"></a> NGS data annotation/interpretation TODO
-Using MOLGENIS for NGS text + screenshots + example projects
+#### <a name="ngs-example"></a> NGS data annotation and interpretation
+Next generation sequencing data often results in mutation data. thousands of single SNPs...
+MOLGENIS is hosting mulitple mutation databases like the COL7A1 database and the CHD7 database.
 
-#### <a name="research-portal-example"></a> Research portals groups/consortia TODO
-Palga / mutation databases text + screenshots + example projects
+#### <a name="research-portal-example"></a> Research portals
+Research portals....
 
-#### <a name="compute-example"></a> Online analysis + pipelines TODO
-Analysis compute things?
+#### <a name="compute-example"></a> Analysis pipelines and online computing
+<!--
+I dont know :( do we have any examples for this? Can we even do this?
+-->
 
 ### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
 There are several research groups already...
 
 #### <a name="service-overview"></a> Service overview
-Services we provide…
+Several research groups and organizations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
+
+|Project name | Pubmed                                            | Project URL                                 |Project description          |
+|-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
+|ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
+|COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
+
+<!--
+TODO: Fill in more of our projects
+-->
 
 ---
 ---
