@@ -15,7 +15,6 @@ Your “black triangle” documentation should be a short guide that runs the us
 The “hairball” is the twisted, tangled maze of teaching that is going to take these novices and turn them into expert users. It’s going to mold their brains, one nudge at a time, until they have a pretty good understanding of how your project works.
 
 ### The Reference (In depth API and script interfaces.)
-
 * “API documentation” for every user-facing part of your project.
 * A full changelog, with particular attention to backwards-incompatible changes between versions.
 * Details about the internal implementation of the project.
@@ -24,22 +23,55 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 
 # <a name="top"></a> MOLGENIS user documentation
 
+## <a name="table-of-contents"></a> Table of contents
+
+* [Introduction](#introduction)
+	* [What is MOLGENIS](#what-is-molgenis)
+	* [Why MOLGENIS](#why-molgenis)
+	* [Should I use MOLGENIS](#should-i-use-molgenis)
+		* [Biobanks](#biobank-example)
+		* [NGS](#ngs-example)
+		* [Research portals](#research-portal-example)
+		* [Pipeline computing](#compute-example)
+	* [Who is using MOLGENIS](#who-uses-molgenis)
+		* [Service overview](#service-overview)  
+		
+* [Trying out MOLGENIS](#trying-out-molgenis)
+	* [Installing MOLGENIS](#installing-molgenis)
+	* [Getting your first data into MOLGENIS](#)
+		* [Creating an EMX file](#creating-emx-file)
+		* [Importing your EMX file into MOLGENIS](#importing-simple)
+	
+		
+* [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
+	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
+	* [How to use the MOLGENIS user interface](#molgenis-interface-modules)
+	* [Using scripts](#how-to-use-scripts)
+	* [Advanced MOLGENIS application configuration](#advanced-molgenis-app-configuration)
+		* [Menu manager](#menu-manager)
+		* [Setting permissions](#permissions)
+		* [User management](#user-management)
+		* [Configuring your homepage](#home-page)
+		* [Styling your MOLGENIS application](#themes)
+		
+* [Become a MOLGENIS developer](#how-to-develop)
+	* [Understanding how MOLGENIS works](#molgenis-architecture)
+		* [Architectural overview](#architecture-overview)
+			* [MOLGENIS core](#molgenis-core)
+			* [MOLGENIS dependencies](#molgenis-dependencies)
+		* [Data service](#data-service)
+			* [Repositories](#molgenis-repositories)
+			* [Attribute metadata](#molgenis-attribute-metadata)
+			* [Entity metadata](#molgenis-entity-metadata)
+			* [My repository](#molgenis-my-repository)
+			* [My repository collection](#molgenis-my-repository-collection)
+		* [How to write a new backend plugin](#how-to-write-a-new-plugin)
+			
+
 ## <a name="introduction"></a> Introduction
 **
 This document is a detailed description of the web-based MOLGENIS software. Here you will learn, step-by-step, what MOLGENIS is, and the many options it offers you to explore and manipulate your data.
 **
-
-## <a name="table-of-contents"></a> Table of contents
-
-* [What is MOLGENIS?](#what-is-molgenis)
-* [Trying out MOLGENIS](#trying-out-molgenis)
-* [Why MOLGENIS?](#why-molgenis)
-* [Should I use MOLGENIS?](#should-i-use-molgenis)
-	* [Biobanks](#biobank-example)
-	* [NGS](#ngs-example)
-	* [Research portals](#research-portal-example)
-	* [Pipeline computing](#compute-example)
-	
 
 ### <a name="what-is-molgenis"></a> What is MOLGENIS?
 Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
@@ -64,10 +96,16 @@ Palga / mutation databases text + screenshots + example projects
 #### <a name="compute-example"></a> Online analysis + pipelines TODO
 Analysis compute things?
 
+### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
+There are several research groups already...
+
+#### <a name="service-overview"></a> Service overview
+Services we provide…
+
 ---
 ---
 
-### Trying out MOLGENIS
+## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
 If you have decided to use MOLGENIS for your project, the first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several datasets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
 
 But perhaps you want to see how your own data looks like, and you would like to see your data locally, and not upload it for other people to see, not yet anyway. So lets jump right into that. 
@@ -77,7 +115,7 @@ TODO: We want to write a more easy way of getting MOLGENIS running locally. The 
 
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
 -->
-#### Installing MOLGENIS
+### <a name="installing-molgenis"></a> Installing MOLGENIS
 The three components needed to run MOLGENIS locally or on a server are:
 
 * [apache-tomcat](http://tomcat.apache.org/) 
@@ -113,12 +151,12 @@ If you open up a web browser and navigate to where your apache-tomcat applicatio
 
 Congratulations! You now have your MOLGENIS application up and running. Remember the admin.password you set in the molgenis-server.properties file? Use that password to login as the admin user. The next section will take you through the different modules MOLGENIS has to offer.  
 
-### Getting your first data into MOLGENIS
+### <a name="first-data-upload"></a> Getting your first data into MOLGENIS
 So you have a MOLGENIS application up and running, and your dataset is sitting nice and cozy on your computer somewhere, now what? We upload the data of course! As mentioned before, MOLGENIS uses an extensible model format allowing you to model your data however you want. This is done via the **EMX** format. Now I know a custom format sounds scary, but if you keep reading for a bit, you will find out it's not scary at all.
 
 We wanted researchers to be able to describe their data in a flexible 'meta model'. This sounds really interesting, but what it boils down to, is that you have one separate xlsx sheet that describes your column names, or attributes as we call them. Thats it. Thats all the EMX format is. Keep reading to find a detailed example.
 
-#### Creating an EMX file
+#### <a name="creating-emx-file"></a> Creating an EMX file
 If you want to skip this theory lesson and download an excel file right away to use as a template, you can find several of them [on Github](https://github.com/molgenis/molgenis/tree/master/molgenis-app/src/test/resources). Be advised that these are files for testing purposes, and do not have real data in them, so they might not fully represent the complexity of your own data.
 
 Now for the example. Say that you have an existing excel sheet with a couple of thousand rows of data and several columns. This data can look something like this:
@@ -148,9 +186,9 @@ This little bit is all you need. You specify the *name*, which is the name you g
 
 This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query able.
 
-In the next section, you can find the complete list of EMX options and parameters.
+In the [To become an expert MOLGENIS data import user](#To-become-an-expert-MOLGENIS-data-import-user) section, you can find the complete list of EMX options and parameters available to you.
 
-#### Importing your EMX file into MOLGENIS
+#### <a name="importing-simple"></a> Importing your EMX file into MOLGENIS
 So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
 
 Browse to wherever your application is running, and login as admin user.
@@ -161,11 +199,17 @@ Go to the Upload menu. You now should see something like this:
 ---
 ---
 
-### To become an expert MOLGENIS data import user
+## <a name="from-user-to-expert"></a> From user to expert, MOLGENIS step-by-step
+In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module its full capabilities. Lets not wait any longer! We will start off with the most basic step, importing your data.
+
+### <a name="importing-advanced"></a> Becoming an expert MOLGENIS data importer
 
 There are several other 
 
-### How to use MOLGENIS user interface (Hairball)
+<!-- 
+TODO: Write a header for every module, start by explaining a module with an easy use case, and go into more detail with each step. Teach the user on how to become an expert
+-->
+### <a name="introduction"></a> How to use MOLGENIS user interface (Hairball)
 
 * data explorer
 * search and filter
@@ -179,34 +223,34 @@ There are several other
 * catalogue
 * model registry
 
-### How to script interface (Hairball)
+### <a name="script-interface-how-to"></a> How to script interface (Hairball)
 
 * REST
 * R
 * Python
 
-### Advanced MOLGENIS application configuration (Hairball)
+### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration (Hairball)
 Once you got 
 
-##### Menu manager
+##### <a name="menu-manager"></a> Menu manager
 The Menu manager
 
-##### Permissions
+##### <a name="permissions"></a> Setting permissions
 Permissions
 
-##### User management
+##### <a name="user-management"></a> User management
 User management
 
-##### Home page (static content)
+##### <a name="home-page"></a> Configuring your homepage
 Custom home page
 
-##### Themes
+##### <a name="themes"></a> Styling your MOLGENIS application
 Style themes
 
 ---
 ---
 
-### How to develop (The Reference)
+## <a name="how-to-develop"></a> Become a MOLGENIS developer (The Reference)
 
 * Download code, eclipse, compile, run
 * How to create a UI plugin
@@ -220,26 +264,23 @@ Style themes
 * How to migrations
 * How to generate a deploy (F)
 
-### Understanding how MOLGENIS works (The Reference)
+### <a name="molgenis-architecture"></a> Understanding how MOLGENIS works (The Reference)
 If you have decided to become active in MOLGENIS development, then the following information will help you in understanding the architecture of software. The major java object and APIs are described in detail.
 
-#### Architectural overview 
+#### <a name="architecture-overview"></a> Architectural overview 
 ![](images/architecture_overview.png?raw=true "MOLGENIS architecture overview")
 
-##### Core
+##### <a name="molgenis-core"></a> MOLGENIS core
 The core of MOLGENIS
 
-##### Extension points
-Extension points
-
-##### Dependencies
+##### <a name="molgenis-dependencies"></a> MOLGENIS dependencies
 Dependencies
 
-#### Data service
+#### <a name="data-service"></a> Data service
 MOLGENIS provides a simple but powerful data framework. Key concepts are described below.
 ![](images/data_service.png?raw=true "MOLGENIS architecture overview")
 
-##### Repositories
+##### <a name="molgenis-repositories"></a> Repositories
 Scientific data always comes in large homogeneous collections to enable comparisons. The MOLGENIS entity framework allows for the definition of these collections as follows:
 
 * repository: interface to access a collection  
@@ -247,33 +288,21 @@ Scientific data always comes in large homogeneous collections to enable comparis
 * permission: defines who has collection level admin, edit, aggregate or view permissions  
 * capabilities: define what a repository can do, i.e. add, updated, delete, etc
 
-##### AttributeMetaData
+##### <a name="molgenis-attribute-metadata"></a> Attribute metadata
 The heart of EntityMetaData is defined by the definition of attributes.
 TODO
 
-##### EntityMetaData
+##### <a name="molgenis-entity-metadata"></a> Entity metadata
 EntityMetaData describes entities, which represent data uploaded into MOLGENIS
 TODO
 
 See the [EMX documentation](https://github.com/molgenis/molgenis/wiki/EMX-upload-format) for explanation of the proporties.
 
-##### How to write a backend plugin?
+##### <a name="molgenis-my-repository"></a> My repository
+TODO
+
+##### <a name="molgenis-my-repository-collection"></a> My repository collection
+TODO
+
+#### <a name="how-to-write-a-new-plugin"></a> How to write a backend plugin?
 TODO: describe what is needed
-
-##### MyRepository
-TODO
-
-##### MyRepositoryCollection
-TODO
-
-#### service overview
-Services we provide…
-
-##### Data
-Data
-
-##### Account
-Account system..
-
-##### Permission
-Permission system
