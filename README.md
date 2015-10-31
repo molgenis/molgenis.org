@@ -2,6 +2,10 @@
 
 This is source code for the website of MOLGENIS, including docs etc.
 
+* All files that you can edit are inside the 'public' folder
+* the main menu structure is defined in public/_data.json
+* for the sub-menu's you make a folder; each folder can also have a _data.json
+
 # to generate the website
 
 ```
