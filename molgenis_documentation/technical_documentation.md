@@ -124,7 +124,7 @@ TODO: Fill in more of our projects
 ## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
 If you have decided to use MOLGENIS for your project, the first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several datasets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
 
-But perhaps you want to see how your own data looks like, and you would like to see your data locally, and not upload it for other people to see, not yet anyway. So lets jump right into that. 
+But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that. 
 
 <!--
 TODO: We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
