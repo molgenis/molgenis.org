@@ -21,7 +21,7 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 * Contribution policies (if your project accepts outside contributions).
 
 
-# <a name="top"></a> MOLGENIS user documentation
+# <a name="top"></a> MOLGENIS v1.12 user documentation
 
 ## <a name="table-of-contents"></a> Table of contents
 
