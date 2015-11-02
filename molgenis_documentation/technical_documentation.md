@@ -110,14 +110,13 @@ There are several research groups already...
 #### <a name="service-overview"></a> Service overview
 Several research groups and organizations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
 
+<!--
+TODO: Fill in more of our projects
+-->
 |Project name | Pubmed                                            | Project URL                                 |Project description          |
 |-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
 |ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
 |COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
-
-<!--
-TODO: Fill in more of our projects
--->
 
 ---
 ---
