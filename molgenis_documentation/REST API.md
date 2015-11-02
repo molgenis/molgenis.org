@@ -90,12 +90,15 @@ print(samples)
 20 rs12460890 SRS418754         44         47         19   829568 1418804
 21 rs12460890 SRS418755         60         55         19   829568 1418805
 ```
-So there are 21 samples for this SNP.
-
+There they are.
 Let's plot the expression counts in these samples in a scatter plot.
 
 ```
 plot(samples$Ref_Counts, samples$Alt_Counts, xlim = c(0, 5000), ylim = c(0, 5000), xlab='Reference Allele', ylab='Alternative Allele', main = 'Allele-Specific Expression for rs12460890')
+```
+And add a line for the non-specific expression.
+
+```
 lines(c(0,5000), c(0, 5000))
 ```
 ![image](rs12460890.png)
@@ -133,7 +136,9 @@ molgenis.get("ASE", num=5, start=5)
 will retrieve the second page of 5 rows.
 
 ### Server
-By default, the MOLGENIS R API retrieves its data from the server you retrieved it from. You can specify a different REST API URL to use by setting `molgenis.api.url` in the `molgenis.env` environment. For example:
+By default, the MOLGENIS R API retrieves its data from the server you retrieved it from, so if you want to retrieve data from a different server, simply source the molgenis.R from that server.
+
+But if you want to combine data from multiple server, you can specify a different REST API URL to use by setting `molgenis.api.url` in the `molgenis.env` environment. For example:
 
 ```
 local({
