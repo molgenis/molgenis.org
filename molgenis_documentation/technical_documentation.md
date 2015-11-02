@@ -131,7 +131,42 @@ TODO: We want to write a more easy way of getting MOLGENIS running locally. The 
 
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
 -->
-### <a name="installing-molgenis"></a> Installing MOLGENIS
+### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
+The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deplloy MOLGENIS for you. There are three steps you need to do before this will work: 
+
+**Download the cargo project**
+<!--
+TODO: Get this project to the molgenis repository, so I do not have to link to the github of fleur
+-->
+[Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
+
+**Setting your molgenis-server.properties**   
+MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
+
+> db_user=molgenis  
+> db_password=molgenis  
+> db_uri=jdbc:mysql://localhost/omx  
+> admin.password=admin  
+> user.password=admin  
+
+Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
+
+**Setting up your MySQL**  
+If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
+
+> create database omx;  
+> grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
+> flush privileges;  
+
+If your MySQL has been configured correctly, and your molgenis-server.properties set, then you have to navigate to the location of the cargo and start MOLGENIS with the following command:
+
+``mvn clean resources:resources org.codehaus.cargo:cargo-maven2-plugin:run``
+
+More details are included in the README of the cargo project.
+
+For a more detailed instruction on deploying MOLGENIS, including apache-tomcat, see [Installing MOLGENIS manually](#installing-molgenis-apache-tomcat).
+
+### <a name="installing-molgenis-apache-tomcat"></a> Installing MOLGENIS using apache-tomcat
 The three components needed to run MOLGENIS locally or on a server are:
 
 * [apache-tomcat](http://tomcat.apache.org/) 
