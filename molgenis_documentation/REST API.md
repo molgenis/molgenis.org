@@ -112,6 +112,12 @@ molgenis.login("your username", "your password")
 ```
 This will create a molgenis token on the server and set it in the `molgenis.token` variable in your R workspace.
 
+When you're done, you can log out using
+
+```
+molgenis.logout()
+```
+
 ### Retrieving more rows
 By default, `molgenis.get` will retrieve up to 1000 rows only.
 
