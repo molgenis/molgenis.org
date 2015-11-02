@@ -37,7 +37,8 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		* [Service overview](#service-overview)  
 		
 * [Trying out MOLGENIS](#trying-out-molgenis)
-	* [Installing MOLGENIS](#installing-molgenis)
+	* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo)
+	* [Installing MOLGENIS using apache-tomcat](#installing-molgenis-apache-tomcat)
 	* [Getting your first data into MOLGENIS](#)
 		* [Creating an EMX file](#creating-emx-file)
 		* [Importing your EMX file into MOLGENIS](#importing-simple)
