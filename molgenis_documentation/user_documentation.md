@@ -55,6 +55,10 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
 		
+* [Molgenis modules](#molgenis-modules)
+	*  [Upload](#upload)
+
+		
 * [End note](#end-note)
 
 ## <a name="introduction"></a> Introduction
@@ -290,7 +294,7 @@ Then you must provide a model of your 'patients' via Excel with sheet named 'att
 
 You can first upload the 'model' and then the 'data'. Or you can put the both into one file and upload in one go. What you prefer :-) [todo: provide example files for download]
 
-## Advanced data example ([download](example2.xlsx))
+## <a name="advanced-data-example"></a> Advanced data example ([download](example2.xlsx))
 
 Lets assume we want to upload multiple data sheets, with relations between them:
 
@@ -557,6 +561,44 @@ A new menu item will appear which will take you to the bioinformatics wikipedia 
 
 ##### <a name="themes"></a> Styling your MOLGENIS application
 Style themes
+
+## <a name="molgenis-modules"></a>Molgenis modules
+### <a name="upload"></a>Upload
+The upload module is the place in Molgenis where you can upload your data into the Molgenis application.
+
+#### <a name="upload-possibilities"></a>Upload possibilities
+The molgenis upload module supports the following upload files formats and data:
+	
+|file format		|file extention             |data formats|
+||
+|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
+|Excel            	|".xls" ".xlsx"             |EMX|
+|OWL              	|".owl.zip"                 |OWL|
+|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
+
+##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
+
+* CSV: Comma Seperated Value
+* OWL: Web Ontology Language
+* VCF: Variant Call Format
+* EMX: Entity Model Extensible
+
+#### <a name="upload-screens"></a>Upload screens
+The different screens will be explianed by uploading the ["advanced data example"](#advanced-data-example).
+
+1. Upload file
+2. Options
+3. Packages
+4. Validation
+5. Result
+
+##### <a name="upload-screens-upload-file"></a>Upload file
+![Upload file screen](images/upload-file-screen.png?raw=true, "upload file")
+##### <a name="upload-screens-options"></a>Options
+##### <a name="upload-screens-packages"></a>Packages
+##### <a name="upload-screens-validation"></a>Validation
+##### <a name="upload-screens-result"></a>Result
+
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
