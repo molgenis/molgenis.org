@@ -74,7 +74,7 @@ MOLGENIS takes away the hassle of storing data, and makes it highly accessible w
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
 <!--
-TODO, we need to paint a clear picture on how MOLGENIS is very suitable to handle the usecases described below. The reader should get the feeling that MOLGENIS is perfect for his or her project
+TODO, we need to paint a clear picture on how MOLGENIS is very suitable to handle the use cases described below. The reader should get the feeling that MOLGENIS is perfect for his or her project
 -->
 #### <a name="biobank-example"></a> Biobank catalogue
 Biobanks are collections of data from samples...
@@ -82,21 +82,24 @@ MOLGENIS has been used to host biobank data for several major Dutch and European
 
 #### <a name="ngs-example"></a> NGS data annotation and interpretation
 Next generation sequencing data often results in mutation data. thousands of single SNPs...
-MOLGENIS is hosting mulitple mutation databases like the COL7A1 database and the CHD7 database.
+MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
 
 #### <a name="research-portal-example"></a> Research portals
 Research portals....
 
+
 #### <a name="compute-example"></a> Analysis pipelines and online computing
 <!--
-I dont know :( do we have any examples for this? Can we even do this?
+I don't know :( do we have any examples for this? Can we even do this?
 -->
+
+Some text...
 
 ### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
 There are several research groups already...
 
 #### <a name="service-overview"></a> Service overview
-Several research groups and organizations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
+Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
 
 <!--
 TODO: Fill in more of our projects
@@ -120,11 +123,11 @@ TODO: We want to write a more easy way of getting MOLGENIS running locally. The 
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
 -->
 ### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
-The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deplloy MOLGENIS for you. There are three steps you need to do before this will work: 
+The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
 
 **Download the cargo project**
 <!--
-TODO: Get this project to the molgenis repository, so I do not have to link to the github of fleur
+TODO: Get this project to the molgenis repository, so I do not have to link to the Github of fleur
 -->
 [Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
 
@@ -248,9 +251,212 @@ Of course, simply uploading and showing data is not the only thing you can do wi
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
 ### <a name="importing-advanced"></a> Becoming an expert MOLGENIS data importer
+<!--
+TODO: Assimilate this into a proper piece of user documentation.
+Use the table example from the importing-simple paragraph
+-->
+EMX (entity model extensible) is a flexible spreadsheet format to easily upload any tabular data using Excel or a zip file of tab-delimited *.tsv files. This works because you can tell MOLGENIS the 'model' of your data via a special sheet named 'attributes'.
 
-So we showed a simple example on how a basic 
+## Rules for technical names
+For all technical names in the EMX format, the following rules apply:
+- No special characters, except for; '_' and '#', only letters, numbers are allowed.
+- No names starting with digits. 
+- Maximum length for names is 30 chars.
+- Keywords used by programming languages (e.g. java, javascript, mysql) are not allowed.
 
+These rules only apply to the technical names, labels are not limited by these rules.
+
+## Minimal example ([download](example1.xlsx))
+
+For example, if you want to upload an Excel with sheet 'patients':
+
+| displayName | firstName | lastName | birthdate  | birthplace |
+|-------------|-----------|----------|------------|------------|
+| john doe    | john      | doe      | 1976-03-13 | new york   |
+| jane doe    | jane      | doe      |            | metropolis |
+| papa doe    | papa      | doe      |            | new york   |
+
+Then you must provide a model of your 'patients' via Excel with sheet named 'attributes':
+
+| name        | entity   | dataType | idAttribute | nillable | description             |
+|-------------|----------|----------|-------------|----------|-------------------------|
+| displayName | patients |          | TRUE        | FALSE    | name                    |
+| firstName   | patients |          |             | FALSE    | first name              |
+| lastName    | patients |          |             | FALSE    | family name             |
+| birthdate   | patients | date     |             | FALSE    | day of birth            |
+| birthplace  | patients |          |             | FALSE    | place of birth          |
+
+'entity' should show the name of your data sheet. Each attribute the column headers in your data. Default dataType is 'string' so you only need to provide non-string values (int, date, decimal, etc). And you must always provide one idAttribute that has 'nillable' = 'FALSE'.
+
+You can first upload the 'model' and then the 'data'. Or you can put the both into one file and upload in one go. What you prefer :-) [todo: provide example files for download]
+
+## Advanced data example ([download](example2.xlsx))
+
+Lets assume we want to upload multiple data sheets, with relations between them:
+
+Cities:
+
+| cityName   |
+|------------|
+| new york   |
+| metropolis |
+
+Patients:
+
+| displayName | firstName | lastName | birthdate  | birthplace | children           | disease |
+|-------------|-----------|----------|------------|------------|--------------------|---------|
+| john doe    | john      | doe      | 1976-13-03 | new york   |                    | none    |
+| jane doe    | jane      | doe      |            | metropolis |                    | none    |
+| pape doe    | papa      | doe      |            | new york   | john doe, jane doe | cardio  |
+
+Notes: birthplace refers to elements in the cityName values in the cities table. children contains comma separated values referring to another patient via displayName (trailing spaces will be removed).
+
+Users:
+
+| userName | active | displayName | firstName | lastName |
+|----------|--------|-------------|-----------|----------|
+| jdoe     | TRUE   | john doe    | john      | doe      |
+| jdoe2    |        | jane doe    | jane      | doe      |
+| pdoe     |        | papa doe    | papa      | doe      |
+
+Note: users looks similar patients, i.e. they are also persons having 'displayName', 'firstName', and 'lastName'. We will use this in the model below. 
+
+## Advanced model example
+
+To model the data advanced data example, again you need to provide the 'attributes' (i.e., columns, properties). Optionally, you can also describe entities (i.e., classes, tables), and packages (i.e, models and sub models) which gives you some advanced options.
+
+### 'Attributes' sheet (required)
+The example below defines the model for entities 'city', 'patient' and 'user'. Note that 'users' had some attributes shared with 'patients' so we will use 'object orientation' to say that both 'user' and 'patient' are both a special kind of 'persons'. This will be defined using the 'extends' relation defined in the 'entities' sheet below.
+
+| name        | entity   | dataType | nillable | refEntity | idAttribute | description             |
+|-------------|----------|----------|----------|-----------|-------------|-------------------------|
+| cityName    | cities   |          | FALSE    |           | TRUE        |  unique city name       |
+| displayName | persons  |          | FALSE    |           | TRUE        |  unique name            |
+| firstName   | persons  |          |          |           |             |  first name             |
+| lastName    | persons  |          |          |           |             |  family name            |
+| birthdate   | patients | date     |          |           |             |  day of birth           |
+| birthplace  | patients | xref     |          | cities    |             |  place of birth         |
+| disease     | patients |          |          |           |             |  disease description     |
+| userName    | users    |          | FALSE    |           | TRUE        |  unique login name      |
+| active      | users    | bool     |          |           |             |  whether user is active |
+
+### 'Entities' sheet (optional)
+In most cases the 'attributes' sheet is all you need. However, in some cases you may want to add more details on the 'entity'. Here we wanted to show use of 'abstract' (i.e., interfaces) to create model class 'persons' and 'extends' (i.e., subclass, inheritance) to define that 'user' and 'patient' have the same attributes as 'persons'. When data model become larger, or when many data sheets are loaded then the 'package' construct enables you to group your (meta)data. 
+
+| name     | package  | extends | abstract | description                                                       |
+|----------|----------|---------|----------|-------------------------------------------------------------------|
+| cities   | hospital |         |          | list of cities
+| persons  | hospital |         | true     | person defines general attributes like firstName, lastName        |
+| users    | hospital | persons |          | users extends persons, meaning it 'inherits' attribute definition |
+| patients | hospital | persons |          | patient extends person, adding patientNumber                      |
+
+### 'Packages' sheet (optional)
+Package allow you to create several models in your system, describe the and next them using the 'parent' relationship. For example:
+
+| name     | description                                                   | parent |
+|----------|---------------------------------------------------------------|--------|
+| root     | my main package                                               |        |
+| hospital | sub package holding entities to describe all kinds of persons | root   |
+
+## EMX model reference documentation
+
+Minimally, you need to provide the 'attributes' of your model (i.e., columns, properties). Optionally, you can also add metadata on entities (i.e., classes, tables), and packages (i.e, models and sub models)
+
+### 'Attributes'
+
+Required columns:
+* entity : name of the entity this attribute is part of
+* attribute : name of attribute, unique per entity
+
+Optional columns (can be omitted):
+
+* dataType: defines the data type (default: string)
+  * string : character string of <255 characters
+  * text : character string of unlimited length (usually <2Gb)
+  * int : natural numbers like -1, 0, 3. Optionally use rangeMin and rangeMax
+  * long : non-decimal number of type long
+  * decimal : decimal numbers like -1.3, 0.5, 3.75 (float precision)
+  * bool : yes/no choice
+  * date : date in yyyy-mm-dd format
+  * datetime : date in yyyy-mm-dd hh:mm:ss
+  * xref : cross reference to another entity; requires refEntity to be provided
+  * mref : many-to-many relation to another entity; requires refEntity to be provided
+  * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options.
+  * compound : way to assemble complex entities from building blocks (will be shown as tree in user interface);   requires refEntity to be provided.
+  * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
+* refEntity : used in combination with xref, mref or compound. Should refer to an entity.
+* nillable : whether the column may be left empty. Default: false
+* idAttribute : whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
+* description : free text documentation describing the attribute
+* rangeMin : used to set range in case of int attributes
+* rangeMax : used to set range in case of int attributes
+* lookupAttribute : true/false to indicate that the attribute should appear in the xref/mref search drop down in the dataexplorer
+* label : optional human readable name of the attribute
+* aggregateable : true/false to indicate if the user can use this attribute in an aggregate query
+* labelAttribute : true/false to indicate that the value of this attribute should be used as label for the entity (in the dataexplorer when used in xref/mref). Default: false
+* readOnly true/false to indicate a readOnly attribute
+* tags : ability to tag the data referring to the tags sections, described below
+* validationExpression : javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
+* defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
+
+## Wish list
+
+### 'Entities' options
+Required columns:
+
+* entity : unique name of the entity. If packages are provided, name must be unique within a package.
+
+Optional columns:
+
+* extends : reference to another entity that is extended
+* package : name of the group this entity is part of
+* abstract : indicate if data can be provided for this entity (abstract entities are only used for data modelling purposes but cannot accept data)
+* description : free text description of the entity
+* backend: the backend (database) to store the entities in (currently MySQL or ElasticSearch)
+* tags : ability to tag the data referring to the tags sections, described below
+
+### 'Packages' Options
+Required columns:
+
+* name : unique name of the package. If parent package is provided the name is unique within the parent.
+
+Optional columns:
+* description : free text description of the package
+* parent : use when packages is a sub-package of another package
+* tags : mechanism to add flexible meta data such as ontology references, hyperlinks
+
+## BETA feature: 'tags'
+
+### 'Tags' sheet (optional, BETA)
+Optionally, additional information can be provided beyond the standard meta data described above. Therefore all meta-data elements can be tagged in simple or advanced ways (equivalent to using RDF triples). For example, above in the packages example there is a 'homepage' tag provided. For example:
+
+| identifier | label                   | objectIRI               | relationLabel          | codeSystem | relationIRI |
+|------------|-------------------------|-------------------------|------------------------|------------|-------------|
+| like       | like                    |                         |                        |            |             |
+| homepage   | http://www.molgenis.org | http://www.molgenis.org | homepage               |            |             |
+| docs       | http://some.url         | http://www.molgenis.org | Documentation and Help | EDAM       | http://edamontology.org/topic_3061 |
+
+### 'Tags' options
+
+Required columns:
+* identifier : unique name of this tag, such that it can be referenced
+* label : the human readable label of the tag (e.g. the 'like' tag as shown above).
+
+Optional columns:
+* objectIRI: url to the value object (will become an hyperlink in the user interface)
+* relationLabel: human readable label of the relation, e.g. 'Documentation and Help'
+* relationIRI: url to the relation definition, e.g. http://edamontology.org/topic_3061
+* codeSystem: name of the code system used, e.g. EDAM
+
+Change documentation:
+
+* 'required' and 'unique' (and xref_entity?) property for attribute?
+* create separate 'unit' list?
+* can we load dataset without entity / attributes (auto load?)
+* create 'category'
+  * code, label, is missing, description, ontology
+  * use decorator to automatically produce identifier (optional)
+* validation rules
 
 
 <!-- 
@@ -277,22 +483,80 @@ TODO: Write a header for every module, start by explaining a module with an easy
 * Python
 
 ### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration (Hairball)
-Once you have a server running and data loaded, you are pobably eager to share your data with the world. However, you might want to only show your data to a select few, or you are not happy with the basic style MOLGENIS offers you. And ofcourse you want people to land on a nice homepage when they navigate to your newly created web-based database. 
+Once you have a server running and data loaded, you are probably eager to share your data with the world. However, you might want to only show your data to a select few, or you are not happy with the basic style MOLGENIS offers you. And of course you want people to land on a nice homepage when they navigate to your newly created web-based database. 
 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
 
-##### <a name="menu-manager"></a> Menu manager
-The menu manager is a modulethat gives you the power to arrange your menu to contain the items that you want it to contain. If you only want to show the 
+#### <a name="home-page"></a> Configuring your homepage
+The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
 
-##### <a name="permissions"></a> Setting permissions
-Permissions
-
-##### <a name="user-management"></a> User management
+#### <a name="user-management"></a> User management
 User management
 
-##### <a name="home-page"></a> Configuring your homepage
-Custom home page
+#### <a name="permissions"></a> Setting permissions
+For the scientific community, the need for data security is very large. We tried to meet this demand by implementing an extensive permission system. The system allows for the setting of count, read and write permissions on the different datasets 
+and modules present in MOLGENIS. These permissions can be set either for specific users, or entire user groups
+
+#### <a name="menu-manager"></a> Menu manager
+The menu manager is a module that gives you the ability to arrange your menu to contain the items that you want it to contain. If you only want to show the data explorer and importer, you can do that. If you want to throw away news and background modules because you do not have any need for them, then you can do that as well. Every item is configurable.
+
+![Menu manager screen](images/menu_manager.png?raw=true, "menu manager")
+
+Just remember that throwing away the menu manager module might not be the best idea! And it's good to always keep the blue Home item at the top, else your homepage will no longer be accessible to anonymous visitors.
+
+**Try it out**  
+When you enter the menu manager screen, it can be a bit overwhelming. But do not be alarmed, we will take you through it one step at a time.
+
+First, pay attention to the large list on the left. As you can see, this block represents the current menu structure. You can change the structure by moving items around, you can change the name of a menu item by pressing the pencil, and you can remove items by pressing the trash can. Remember to save your changes before leaving this screen by pressing the 'Save the new menu layout' button. If you do not, then your changes will not be applied to the menu.
+
+The block to the right gives you the options to add new menu items, or to add an entirely new menu. Try it by creating a new menu with 'test_plugin' as ID and 'Test' as the Name, then press 'Create'. You will see that a new item, called Test, is added to your list of items on the left. Now that you have created a new menu, lets add an item to that menu.
+
+Fill in the Create Menu Item form with the following data:
+
+* Plugin: contact
+* Name: Contact information
+* Query string: 
+
+Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
+
+**Using Query string to add additional parameters**  
+Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item.
+
+Create a new menu item with the following data:
+<!--TODO: Should use a better example then settings_dataexplorer?-->
+* Plugin: dataexplorer
+* Name: My Data explorer with a Query
+* Query string: entity=settings_dataexplorer
+
+Create and save, and when you press the *My Data explorer with a Query* in your menu then you will be taken to the dataexplorer with the Data Explorer Settings data set selected.
+
+
+A complete list of all the Query strings available per module:
+
+* Data Explorer
+	* *entity=*: Using this Query string you can open the data explorer with the specified entity selected. If we have a 	  data set called 'test_data', then you can set the url to *entity=test_data*.
+	* *hideselect=*: Using this Query string you can hide the dropdown for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
+* Are there more? <!--TODO: find out if there are more query string possibilities for data explorer and / or other modules-->
+
+**Creating redirects to URLs outside MOLGENIS**  
+Using the redirect plugin as a menu item, you are able to create a link to an outside source. To show how this works, we will create a menu item that links to wikipedia.
+
+First, create a new Menu item that has the following traits:  
+
+* Plugin: redirect
+* Name: Wikipedia Link
+* Query string: https://en.wikipedia.org/wiki/Bioinformatics 
+
+Second, move the new link below the Home item. Then press the 'Save the new menu layout' button. 
+
+A new menu item will appear which will take you to the bioinformatics wikipedia page.
+
 
 ##### <a name="themes"></a> Styling your MOLGENIS application
 Style themes
+
+## <a name="end-note"></a> End note
+If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
+
+If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>.
 
