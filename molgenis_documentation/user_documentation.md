@@ -538,7 +538,7 @@ A complete list of all the Query strings available per module:
 
 * Data Explorer
 	* *entity=*: Using this Query string you can open the data explorer with the specified entity selected. If we have a 	  data set called 'test_data', then you can set the url to *entity=test_data*.
-	* *hideselect=*: Using this Query string you can hide the dropdown for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
+	* *hideselect=*: Using this Query string you can hide the drop down for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
 * Are there more? <!--TODO: find out if there are more query string possibilities for data explorer and / or other modules-->
 
 **Creating redirects to URLs outside MOLGENIS**  
@@ -553,7 +553,6 @@ First, create a new Menu item that has the following traits:
 Second, move the new link below the Home item. Then press the 'Save the new menu layout' button. 
 
 A new menu item will appear which will take you to the bioinformatics wikipedia page.
-
 
 ##### <a name="themes"></a> Styling your MOLGENIS application
 Creating your own research database often comes with the desire to add a unique styling to it. We wanted to give users a way to change the standard [Bootstrap](http://getbootstrap.com/) style that is shipped with MOLGENIS. 
