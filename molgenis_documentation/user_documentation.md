@@ -478,6 +478,7 @@ TODO: Write a header for every module, start by explaining a module with an easy
 * model registry
 * mapping service
 * pathways
+* Account
 
 ### <a name="script-interface-how-to"></a> How to script interface (Hairball)
 
@@ -491,6 +492,8 @@ Once you have a server running and data loaded, you are probably eager to share 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
 
 #### <a name="home-page"></a> Configuring your homepage
+
+
 The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
 
 #### <a name="user-management"></a> User management
