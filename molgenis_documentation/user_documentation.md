@@ -49,11 +49,13 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 	* [How to use the MOLGENIS user interface](#molgenis-interface-modules)
 	* [Using scripts](#how-to-use-scripts)
 	* [Advanced MOLGENIS application configuration](#advanced-molgenis-app-configuration)
-		* [Menu manager](#menu-manager)
-		* [Setting permissions](#permissions)
-		* [User management](#user-management)
 		* [Configuring your homepage](#home-page)
+		* [User management](#user-management)
+		* [Setting permissions](#permissions)
+		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
+		
+* [End note](#end-note)
 
 ## <a name="introduction"></a> Introduction
 **
