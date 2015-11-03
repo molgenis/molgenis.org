@@ -542,7 +542,16 @@ Managing your users is quick and easy. And opens up way to our next big security
 
 #### <a name="permissions"></a> Setting permissions
 For the scientific community, the need for data security is very large. We tried to meet this demand by implementing an extensive permission system. The system allows for the setting of count, read and write permissions on the different datasets 
-and modules present in MOLGENIS. These permissions can be set either for specific users, or entire user groups
+and modules present in MOLGENIS. These permissions can be set either for specific users, or entire user groups.
+
+You can navigate to the permission module under the Admin menu, and then navigating to the Permission Manager.
+
+![Menu manager screen](images/permission_manager.png?raw=true, "permission manager")
+
+Here you can set permissions for different groups and users. These permission allow users to either Edit, View, Count, or do nothing with the different data sets and modules in MOLGENIS.
+
+**Try it out**  
+Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change dat
 
 #### <a name="menu-manager"></a> Menu manager
 The menu manager is a module that gives you the ability to arrange your menu to contain the items that you want it to contain. If you only want to show the data explorer and importer, you can do that. If you want to throw away news and background modules because you do not have any need for them, then you can do that as well. Every item is configurable.
