@@ -396,7 +396,8 @@ Pass the token as a parameter when you request the molgenis.R api script:
 ```Freemarker
 library('RCurl')
 eval(expr = parse(text = getURL("https://molgenis01.target.rug.nl/molgenis.R?molgenis-token=${molgenisToken}")))
-molgenis.get("MolgenisUser")```
+molgenis.get("MolgenisUser")
+```
 
 ## Running a script
 You can run your script by pressing the ![image](images/execute.png) execute button.
