@@ -494,7 +494,51 @@ In the following paragraphs we explain on how to use different modules to config
 The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
 
 #### <a name="user-management"></a> User management
-User management
+User management is crucial for keeping an overview of people visiting your research database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. You can find the User manager module under the Admin menu. Going there, you will find something looking like this:
+
+![Menu manager screen](images/user_manager.png?raw=true, "user manager")
+
+The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website, but are not logged in. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
+
+
+**Try it out**  
+To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the pencil with green plus icon. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
+
+First, there is a destinction between required and non-required fields. Required fields are marked by an asterisk. You can decide to only show the required fields by pressing the eye icon at the top right. This will save you the trouble of scrolling past all the non-required fields.
+
+For now, click the eye so it only shows the required fields. It should show:
+
+*  Username: The users login name
+*  Password: The users password
+*  Active: This sets if the user account is active, meaning that the user can login
+*  Superuser: A super user is a form of administrator, he or she has acces to everything
+*  Email: The users email
+*  Change password: This sets whether the user has to change his or her password on the first login
+
+Fill these fields with the following:
+
+*  Username: molgenis_user
+*  Password: password
+*  Active: Yes
+*  Superuser: No
+*  Email: molgenis_user@email.org
+*  Change password: No
+
+Then click create. You will now return to the start screen and you can see that the molgenis_user user has been added to the bottom of the table. It has been automatically added to the 'All users' group, which will give the newly created user some basic permissions like the home page and its own account.
+
+But we want more then just a user, we want to create a group as well. In the long run, setting permissions for groups is a lot less time consuming then treating every user individually. 
+
+**Creating groups**  
+At the the top of the screen, select the *Groups* tab. Here, you will there is only one group, the All users group. Click the pencil green plus icon to create a new group.
+
+In the popup, set the Name to test_group, and set the group to Active. Click create and you will see the newly created group being added to the bottom of the table.
+
+Go back to the users tab, and you can see there is now a column behind every user, that allows you to place that user in the test_group group. Why don't we add the molgenis_user to this test_group.
+
+**Edit a user**  
+If at any time you want to edit an existing user, you can click the icon in the edit column. This will show you a form where you can edit all the information pertaining to that specific user.
+
+Managing your users is quick and easy. And opens up way to our next big security item, [setting permissions](#permissions) for your data.
 
 #### <a name="permissions"></a> Setting permissions
 For the scientific community, the need for data security is very large. We tried to meet this demand by implementing an extensive permission system. The system allows for the setting of count, read and write permissions on the different datasets 
