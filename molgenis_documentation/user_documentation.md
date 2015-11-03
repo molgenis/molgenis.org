@@ -561,9 +561,9 @@ Using the Theme manager, you can select between multiple bootstrap styles.
 
 ![Theme Manager](images/theme_manager.png?raw=true, "Theme Manager")
 
-To get the feel off how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
+To get the feel of how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
 
-For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website.
+For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It us currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
