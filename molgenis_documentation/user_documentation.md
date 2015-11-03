@@ -567,16 +567,13 @@ Fill in the Create Menu Item form with the following data:
 Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
-Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item.
+Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [previous importer section](#creating-emx-file) will be selected at the start.
 
-Create a new menu item with the following data:
-<!--TODO: Should use a better example then settings_dataexplorer?-->
-* Plugin: dataexplorer
-* Name: My Data explorer with a Query
-* Query string: entity=settings_dataexplorer
+Edit the existing data explorer item by pressing the pencil, and add the the following Query string:
 
-Create and save, and when you press the *My Data explorer with a Query* in your menu then you will be taken to the dataexplorer with the Data Explorer Settings data set selected.
+* Query string: entity=example_data_table
 
+Save and when you now press the *Data explorer* in your menu then you will be taken to the dataexplorer with the example_data_table data set selected.
 
 A complete list of all the Query strings available per module:
 
