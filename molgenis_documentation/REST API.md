@@ -1,6 +1,6 @@
 # REST API
 
-Molgenis has a REST API that allows you to access the data and metadata inside MOLGENIS from the outside through HTTP requests. The REST API allows you to login using your molgenis user account, retrieve data and metadata, and query, aggregate, insert or update the data.
+MOLGENIS has a REST API that allows you to access the data and metadata inside MOLGENIS from the outside through HTTP requests. The REST API allows you to login using your molgenis user account, retrieve data and metadata, and query, aggregate, insert or update the data.
 
 These HTTP requests are platform independent, so you should be able to create them quite easily on most client platforms.
 For a couple common platforms we provide you with a higher level client-side MOLGENIS API that should make things even easier.
@@ -10,7 +10,7 @@ For a couple common platforms we provide you with a higher level client-side MOL
 
 The R API is a script that is hosted on MOLGENIS on the URL `http[s]://<your.molgenis.url>/molgenis.R`.
 
-### Example: Plotting Allele-Specific Expression data from MOLGENIS in R
+### [Example: Plotting Allele-Specific Expression data from MOLGENIS in R](id:example-rest-R)
 As an example, let's create a plot for publicly available ASE data available on https://molgenis56.target.rug.nl/. For a description of the data, take a look at [http://molgenis.org/ase](http://molgenis.org/ase).
 
 Start up the R environment.
@@ -191,7 +191,7 @@ Start an interactive python shell and create a molgenis connection:
 import molgenis
 c = molgenis.Connection("https://molgenis56.target.rug.nl/api/")
 ```
-This loads the R API and points it at the molgenis56 server. If you take a look at the connection by typing
+This imports the molgenis package and instantiates a new Connection and points it at the molgenis56 server. If you take a look at the connection by typing
 
 ```python
 dir(c)
@@ -384,4 +384,112 @@ var name = $("name")
 var amount = int($("amount"))
 ```
 
+### Generate molgenis security token
+Your script can access data inside a MOLGENIS repository through the REST API.
+If the data is private data, you can set Generate Security Token to Yes.
+Then a molgenis security token will be generated for the user running the script and added as a parameter named `molgenisToken`.
+You can pass the token on to the REST API.
 
+#### Use security token in R script
+Pass the token as a parameter when you request the molgenis.R api script:
+
+```Freemarker
+library('RCurl')
+eval(expr = parse(text = getURL("https://molgenis01.target.rug.nl/molgenis.R?molgenis-token=${molgenisToken}")))
+molgenis.get("MolgenisUser")```
+
+## Running a script
+You can run your script by pressing the ![image](images/execute.png) execute button.
+If the script has parameters, you'll be presented with a popup form to specify them.
+
+You can also run the script through an HTTP request.
+For instance, to run the `bmi` script with parameters `weight=50` and `height=1.60` on server `http://molgenis09.target.rug.nl` you can surf to [https://molgenis09.target.rug.nl/scripts/bmi/run?weight=50&height=1.60](https://molgenis09.target.rug.nl/scripts/bmi/run?weight=50&height=1.60)
+
+>Beware that you need to URL-encode parameter values if they contain special characters
+
+### Permissions
+Note that in order to execute scripts, users need
+
+* to be authenticated (i.e. anonymous users cannot execute your scripts)
+* View permissions on the Scripts entity
+* View permissions on the ScriptParameter entity
+* View permissions on the ScriptType entity
+
+## Putting it all together
+Let's take the R script from [the previous example](#example-rest-R) and add it to the Script plugin. The script will fetch the public ASE data from [https://molgenis56.target.rug.nl/](https://molgenis56.target.rug.nl/)
+
+You'll need a running instance of MOLGENIS.
+So either run this example locally on your own MOLGENIS instance or Sign Up on our demo server [https://molgenis09.target.rug.nl/](https://molgenis09.target.rug.nl/)
+
+### Create the script
+
+Go to the Script plugin and create a new script.
+
+#### Name
+Any name will do, as long as it's unique.
+Since the result will be a plot of Allele-Specific Expression for a SNP, we suggest the name `plot-ase`.
+
+#### Type
+We're creating an R script, so pick `R`.
+
+#### Generate security token
+No, since the data is publicly available and lives on a different server anyways.
+
+#### Result file extension
+R can plot postscript, pdf, png and jpeg. 
+Let's pick `png`.
+
+#### Parameters
+In the example we plotted one specific ASE, let's make the snp ID a parameter.
+Select `snp_id`.
+If it's not yet available you can add it by pushing the **+** button to the right of the select box.
+
+#### Content
+
+```
+library('RCurl')
+eval(expr = parse(text = getURL("https://molgenis56.target.rug.nl/molgenis.R")))
+
+samples <- molgenis.get("SampleAse", q="SNP_ID==${snp_id}")
+jpeg('${outputFile}')
+
+max <- max(samples$Ref_Counts, samples$Alt_Counts)
+
+plot(samples$Ref_Counts, samples$Alt_Counts, xlim = c(0, max), ylim = c(0, max), xlab='Reference Allele', ylab='Alternative Allele', main = 'Allele-Specific Expression for ${snp_id}')
+lines(c(0,max), c(0, max))
+```
+
+Let's take a closer look at what happens here.
+
+First we fetch and source the MOLGENIS R API from molgenis56.
+This means it'll be set up to retrieve its data from molgenis56.
+
+Then we retrieve the samples using `molgenis.get`.
+
+The `snp_id` parameter gets filled in into the rsql query q.
+So if for instance `snp_id` equals `rs2287988`, Freemarker will fill the parameter in where it says `${snp_id}` so the query becomes `q="SNP_ID==rs2287988"`.
+
+The outputFile parameter gets filled in into `jpeg('${outputFile}')` so that R plots to the correct output file.
+
+In [the previous example](#example-rest-R) we manually set the axes to `c(0, 5000)`, but here the amount of reads depends on the chosen SNP. So we compute the maximum amount of reads in both the `Ref_Counts` and `Alt_Counts` attributes of the `samples` dataframe.
+
+Next we create the scatter plot and the reference line, like we did before.
+Note how we use the `snp_id` parameter a second time, to render the plot title.
+
+Save the script.
+
+#### Call the script
+Push the ![image](images/execute.png) execute button.
+
+In the popup, specify the value for `snp_id`, for example `rs2287988`.
+
+Push Run.
+
+![image](images/rs2287988.png)
+
+#### Entity Report
+If you are plotting your own data, a nice trick is to define a FreemarkerTemplate with an Entity Report for the entity you're plotting.
+
+For instance, if you have an entity with a SNP_ID attribute, it's as easy as adding `<img src="https://molgenis09.target.rug.nl/scripts/plot-ase/run?snp_id=${entity.getString("SNP_ID")}"/>` into the FreemarkerTemplate for that entity.
+
+This will allow you to generate one or more plots for entities you select in the Data Explorer. See the documentation for Entity Report.
