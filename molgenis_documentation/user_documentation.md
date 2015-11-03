@@ -465,16 +465,19 @@ TODO: Write a header for every module, start by explaining a module with an easy
 ### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface (Hairball)
 
 * data explorer
-* search and filter
-* aggregates
-* export
-* genome browser
-* import
-* biobankconnect
+	* download
+	* search and filter
+	* aggregates
+	* annotators
+	* genome browser
+	* charts
+	* disease matcher
+
 * questionnaire
-* annotators
 * catalogue
 * model registry
+* mapping service
+* pathways
 
 ### <a name="script-interface-how-to"></a> How to script interface (Hairball)
 
