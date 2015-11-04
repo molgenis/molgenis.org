@@ -16,10 +16,13 @@ In the upper left corner of the data explorer is a search box, this search box c
 ![Dataexplorer search](images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
 
 Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
-Using the checkbox in front of each attribute the visabilty of this attribute in the table can be managed. This filter icon can be used to set filters for this specific attribute.
+Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. This filter icon can be used to set filters for this specific attribute.
   
-![Dataexplorer todo](images/dataexplorer/todo.png?raw=true, "todo")
+![Dataexplorer active filters](images/dataexplorer/active_filters.png?raw=true, "dataexplorer/active_filters")
 
+In the area with the active filters you will also find the button to open the filter wizard, this is a popup screen that allows you to add filters for different attributes in one go.
+
+![Dataexplorer filter wizard](images/dataexplorer/filterwizard.png?raw=true, "dataexplorer/filterwizard")
 
 #### mods
     
