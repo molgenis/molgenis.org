@@ -1,9 +1,9 @@
-### Data explorer
+## Data explorer
 One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the pluginh to use if you wish to take a closer look at the data.
 
 Note that some of the compoments described below are only shown to people with the appropriate permissions.
 
-#### description of the different components on the screen:
+### description of the different components on the screen:
 On the top of the data explorer the name of the currently selected entity is shown as well as the description.
 
 At the right side at the top a dropdown is shown which can be used to select the entity you wish to display.
@@ -24,13 +24,13 @@ In the area with the active filters you will also find the button to open the fi
 
 ![Dataexplorer filter wizard](images/dataexplorer/filterwizard.png?raw=true, "dataexplorer/filterwizard")
 
-#### mods
+## mods
     
 ![Dataexplorer tabs](images/dataexplorer/dataexplorer_tabs.png?raw=true, "dataexplorer/dataexplorer_tabs")
 
 The data explorer consists of multiple modules to view or process the data in different ways. These modules are described below:
 
-##### Data mod
+### Data mod
 The data mod shows the data in a table, the table can be sorted by clicking on the headers.
 If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
 
@@ -54,7 +54,7 @@ At the bottom of the table there is a download button, which will allow you to s
 Another button will allow you to send your data to a galaxy server (https://galaxyproject.org).
 
 
-###### genome browser
+#### genome browser
   
 ![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
 
@@ -88,7 +88,7 @@ Click the edit icon and change the chromosome from 7 to 8 and save.
 Adding a row works the same way, only without the prefilled fields.
 Now lets click the red garbage bin icon in front of a line to delete this line from the entity.
 
-##### Annotation mod
+## Annotation mod
 
 The anotator mod of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
 The annotator framework is a system to add data from other resources to your entities. For example pathognicity prediction, allele frequencies and phenotype information.
