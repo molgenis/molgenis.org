@@ -570,7 +570,6 @@ Note that if you are creating more complex data sets that have references to oth
 
 And if you are wondering about the Entity permissions menu, that is reserved for when we implement row level security.
 
-
 #### <a name="menu-manager"></a> Menu manager
 The menu manager is a module that gives you the ability to arrange your menu to contain the items that you want it to contain. If you only want to show the data explorer and importer, you can do that. If you want to throw away news and background modules because you do not have any need for them, then you can do that as well. Every item is configurable.
 
@@ -594,7 +593,7 @@ Fill in the Create Menu Item form with the following data:
 Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
-Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [previous importer section](#creating-emx-file) will be selected at the start.
+Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [Creating an EMX file](#creating-emx-file) section will be selected at the start.
 
 Edit the existing data explorer item by pressing the pencil, and add the the following Query string:
 
