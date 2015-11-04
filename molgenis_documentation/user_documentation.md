@@ -478,6 +478,7 @@ TODO: Write a header for every module, start by explaining a module with an easy
 * model registry
 * mapping service
 * pathways
+* Account
 
 ### <a name="script-interface-how-to"></a> How to script interface (Hairball)
 
@@ -491,14 +492,69 @@ Once you have a server running and data loaded, you are probably eager to share 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
 
 #### <a name="home-page"></a> Configuring your homepage
+
+
 The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
 
 #### <a name="user-management"></a> User management
-User management
+User management is crucial for keeping an overview of people visiting your online database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. MOLGENIS uses groups and users to efficiently control permissions. Groups and users can both have individual permissions on certain data sets for example. But users can also be part of a group, automatically inheriting the permissions set for that group. You can find the User manager module under the Admin menu:
+
+![Menu manager screen](images/user_manager.png?raw=true, "user manager")
+
+The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
+
+
+**Try it out**  
+To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
+
+First, there is a destinction between required and non-required fields. Required fields are marked by an asterisk. You can decide to only show the required fields by pressing the eye icon at the top right. This will save you the trouble of scrolling past all the non-required fields.
+
+For now, click the eye so it only shows the required fields. It should show:
+
+*  Username: The users login name
+*  Password: The users password
+*  Active: This sets if the user account is active, meaning that the user can login
+*  Superuser: A super user is a form of administrator, he or she has acces to everything
+*  Email: The users email
+*  Change password: This sets whether the user has to change his or her password on the first login
+
+Fill these fields with the following:
+
+*  Username: molgenis_user
+*  Password: password
+*  Active: Yes
+*  Superuser: No
+*  Email: molgenis_user@email.org
+*  Change password: No
+
+Then click create. You will now return to the start screen and you can see that the molgenis_user user has been added to the bottom of the table. It has been automatically added to the 'All users' group, which will give the newly created user some basic permissions like the home page and its own account.
+
+But we want more then just a user, we want to create a group as well. In the long run, setting permissions for groups is a lot less time consuming then treating every user individually. 
+
+**Creating groups**  
+At the the top of the screen, select the *Groups* tab. Here, you will there is only one group, the All users group. Click the ![New button](images/new.png?raw=true, "new button") button to create a new group.
+
+In the popup, set the Name to test_group, and set the group to Active. Click create and you will see the newly created group being added to the bottom of the table.
+
+Go back to the users tab, and you can see there is now a column behind every user, that allows you to place that user in the test_group group. Why don't we add the molgenis_user to this test_group.
+
+**Edit a user**  
+If at any time you want to edit an existing user, you can click the icon in the edit column. This will show you a form where you can edit all the information pertaining to that specific user.
+
+Managing your users is quick and easy. And opens up way to our next big security item, [setting permissions](#permissions) for your data.
 
 #### <a name="permissions"></a> Setting permissions
 For the scientific community, the need for data security is very large. We tried to meet this demand by implementing an extensive permission system. The system allows for the setting of count, read and write permissions on the different datasets 
-and modules present in MOLGENIS. These permissions can be set either for specific users, or entire user groups
+and modules present in MOLGENIS. These permissions can be set either for specific users, or entire user groups.
+
+You can navigate to the permission module under the Admin menu, and then navigating to the Permission Manager.
+
+![Menu manager screen](images/permission_manager.png?raw=true, "permission manager")
+
+Here you can set permissions for different groups and users. These permission allow users to either Edit, View, Count, or do nothing with the different data sets and modules in MOLGENIS.
+
+**Try it out**  
+Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change dat
 
 #### <a name="menu-manager"></a> Menu manager
 The menu manager is a module that gives you the ability to arrange your menu to contain the items that you want it to contain. If you only want to show the data explorer and importer, you can do that. If you want to throw away news and background modules because you do not have any need for them, then you can do that as well. Every item is configurable.
@@ -523,22 +579,19 @@ Fill in the Create Menu Item form with the following data:
 Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
-Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item.
+Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [previous importer section](#creating-emx-file) will be selected at the start.
 
-Create a new menu item with the following data:
-<!--TODO: Should use a better example then settings_dataexplorer?-->
-* Plugin: dataexplorer
-* Name: My Data explorer with a Query
-* Query string: entity=settings_dataexplorer
+Edit the existing data explorer item by pressing the pencil, and add the the following Query string:
 
-Create and save, and when you press the *My Data explorer with a Query* in your menu then you will be taken to the dataexplorer with the Data Explorer Settings data set selected.
+* Query string: entity=example_data_table
 
+Save and when you now press the *Data explorer* in your menu then you will be taken to the dataexplorer with the example_data_table data set selected.
 
 A complete list of all the Query strings available per module:
 
 * Data Explorer
 	* *entity=*: Using this Query string you can open the data explorer with the specified entity selected. If we have a 	  data set called 'test_data', then you can set the url to *entity=test_data*.
-	* *hideselect=*: Using this Query string you can hide the dropdown for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
+	* *hideselect=*: Using this Query string you can hide the drop down for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
 * Are there more? <!--TODO: find out if there are more query string possibilities for data explorer and / or other modules-->
 
 **Creating redirects to URLs outside MOLGENIS**  
@@ -554,9 +607,16 @@ Second, move the new link below the Home item. Then press the 'Save the new menu
 
 A new menu item will appear which will take you to the bioinformatics wikipedia page.
 
-
 ##### <a name="themes"></a> Styling your MOLGENIS application
-Style themes
+Creating your own research database often comes with the desire to add a unique styling to it. We wanted to give users a way to change the standard [Bootstrap](http://getbootstrap.com/) style that is shipped with MOLGENIS. 
+
+Using the Theme manager, you can select between multiple bootstrap styles.
+
+![Theme Manager](images/theme_manager.png?raw=true, "Theme Manager")
+
+To get the feel of how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
+
+For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
