@@ -772,9 +772,15 @@ Once you have a server running and data loaded, you are probably eager to share 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
 
 #### <a name="home-page"></a> Configuring your homepage
+The home page is one of the most important part of your MOLGENIS application. It is a doorway to the rest of your application, and as it is such, it should look nice! When you are logged in as administrator, the home page contains an *edit* button. Clicking this button will open up an editor. 
 
+![Home page editor](images/home_page_editor.png?raw=true, "home page editor")
 
-The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
+Here you can do simple stuff like adding text, images, and table. 
+
+If you want more control, you can go to tools -> Source code. This opens up an HTML editor, which is nice if you know how to write HTML. For even more fancy functionality, the Source code editor also allows you to write JavaScript code.
+
+If you need some aspiration for a nice home page, you visit either the [ASE website](http://molgenis.org/ase) or the [COL7A1 website](https://molgenis03.target.rug.nl/).
 
 #### <a name="user-management"></a> User management
 User management is crucial for keeping an overview of people visiting your online database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. MOLGENIS uses groups and users to efficiently control permissions. Groups and users can both have individual permissions on certain data sets for example. But users can also be part of a group, automatically inheriting the permissions set for that group. You can find the User manager module under the Admin menu:
@@ -782,7 +788,6 @@ User management is crucial for keeping an overview of people visiting your onlin
 ![Menu manager screen](images/user_manager.png?raw=true, "user manager")
 
 The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
-
 
 **Try it out**  
 To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
