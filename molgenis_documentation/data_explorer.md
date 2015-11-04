@@ -1,7 +1,7 @@
 ### Data explorer
 One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the pluginh to use if you wish to take a closer look at the data.
 
-Note that some of the compoments descibed below are only shown to people with the appropriate permissions.
+Note that some of the compoments described below are only shown to people with the appropriate permissions.
 
 #### description of the different components on the screen:
 On the top of the data explorer the name of the currently selected entity is shown as well as the description.
@@ -50,7 +50,8 @@ This button can be used to remove a row from the entity.
   
 ![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
 
-At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Another button will allow you to send your data to a galaxy server (https://galaxyproject.org).
+At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Depending on the purpose of the download, id's or labels can be used as column headers.
+Another button will allow you to send your data to a galaxy server (https://galaxyproject.org).
 
 
 ###### genome browser
@@ -77,7 +78,7 @@ The "FILTER" column shows the dame value for every line, we are not interested i
 
 Click any header in the table to sort the data based on that column, click again to sort in the other direction.
 Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
-Click the symbol in front of the "SAMPLES" column header to show the columns beloning to the samples.
+Click the symbol in front of the "SAMPLES" column header to show the columns belonging to the samples.
 
 Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However as stated above all kinds of reports can be added at runtime by an admin.
 
@@ -87,7 +88,18 @@ Click the edit icon and change the chromosome from 7 to 8 and save.
 Adding a row works the same way, only without the prefilled fields.
 Now lets click the red garbage bin icon in front of a line to delete this line from the entity.
 
+##### Annotation mod
 
+The anotator mod of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
+The annotator framework is a system to add data from other resources to your entities. For example pathognicity prediction, allele frequencies and phenotype information.
 
+![Dataexplorer annotators](images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
+
+The screen shows a list of available annotators that can be used. Clicking the title of the annotator will result in a popup with additional information such as a general description and a listing of the attributes that will be added by this annotator.
+Using the checkboxes multiple annotaotrs can be selected for one run, which is starten by clicking the "annotate" button. If preferred a copy of the dataset can be created with the annotations added to this copy, leaving the original entity as it is.
+Annotated fields will be added to the entity in a compound attribute.
+
+On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
+The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
 
 
