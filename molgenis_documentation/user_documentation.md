@@ -282,7 +282,8 @@ In this section you will learn about all the different modules MOLGENIS has to o
 TODO: Put Jonathan his text here
 -->
 
-### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface (Hairball)
+### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
+MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
 
 * data explorer
 	* download
