@@ -294,7 +294,7 @@ Then you must provide a model of your 'patients' via Excel with sheet named 'att
 
 You can first upload the 'model' and then the 'data'. Or you can put the both into one file and upload in one go. What you prefer :-) [todo: provide example files for download]
 
-## <a name="advanced-data-example"></a> Advanced data example ([download](example2.xlsx))
+## <a name="advanced-data-example"></a> Advanced data example ([download](images/advanced_data_example_v20151104.xlsx))
 
 Lets assume we want to upload multiple data sheets, with relations between them:
 
@@ -593,11 +593,23 @@ The different screens will be explianed by uploading the ["advanced data example
 5. Result
 
 ##### <a name="upload-screens-upload-file"></a>Upload file
-![Upload file screen](images/upload-file-screen.png?raw=true, "upload file")
+1. Select a file to upload.
+2. Click on the next button.
+![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
 ##### <a name="upload-screens-options"></a>Options
+Select a data upload option. On this page you can select how to upload your data into Molgenis. In our case enitites are rows and because this dataset is new we leave the default option "Add entities" selected.
+
+Options:
+1. Add entities
+2. Add entities / update existing
+3. Update entities
+![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
 ##### <a name="upload-screens-packages"></a>Packages
+![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
 ##### <a name="upload-screens-validation"></a>Validation
+![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
 ##### <a name="upload-screens-result"></a>Result
+![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 
 ## <a name="end-note"></a> End note
