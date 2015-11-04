@@ -47,6 +47,7 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 * [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
 	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
+		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
  		* [REST API](#rest-api)
 	 	* [R](#R)
@@ -284,6 +285,35 @@ TODO: Put Jonathan his text here
 
 ### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
 MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
+
+#### <a name="model-registry"></a> The model registry
+The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modeled. This is usefull for detecting errors in your model, or if you want to base your own model on something that already exists.
+
+![Model registry screen 1](images/model_registry_screen1.png?raw=true, "model registry screen 1")
+
+The following paragraphs will explain how the model registry works, but it is more fun to learn how it works with some actual models. So for this part, you can go to [The BioMedBridges](https://molgenis08.target.rug.nl/menu/main/standardsregistry) website, and navigate to the model registry module, you do not even have to log in!
+
+Now that we have some actual models on our screen, lets get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
+
+This part is not telling us much about the content of the EMX model yet, so lets see what it holds! Click the *View Model Details* button to get to the details page.
+
+![Model registry screen 2](images/model_registry_screen2.png?raw=true, "model registry screen 2")
+
+Here you can see a tree on the left and a large middle section containing all the meta data. You can also view a UML diagram of your entire package, and even print out a document containing the overview of your model.
+
+**The tree**  
+The tree is a simplified overview of all the tables, or entities, inside a package. Clicking on the Molgenis Field Types entity for example, will take you to the detailed description of that entity. You can also expand an entity, to see all its attributes. Clicking an attribute will take you to the description of that attribute.
+
+**The details**  
+The details for every entity and attribute is an overview of data types, constraints, default values, and descriptions. 
+
+**UML**
+Navigate to the UML tab to see a UML representation of your model. You can zoom in and out using the + and - buttons. You can also drag around the different boxes to rearange the diagram.
+
+**Printing**
+You can print your model to review it on paper by pressing the print button at the top right of the screen.
+
+
 
 * data explorer
 	* download
