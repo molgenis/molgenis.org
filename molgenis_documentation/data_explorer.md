@@ -8,18 +8,21 @@ On the top of the data explorer the name of the currently selected entity is sho
 
 At the right side at the top a dropdown is shown which can be used to select the entity you wish to display.
 Right of the entity select a delete button is shown, clicking it will allow you to choose if you which to delete theonly the data or also the metadata for the currently selected entity.
+  
 ![Dataexplorer entity select](images/dataexplorer/entitySelect.png?raw=true, "dataexplorer/entitySelect")
 
 In the upper left corner of the data explorer is a search box, this search box can be used to search all your data for a certein search term.
+  
 ![Dataexplorer search](images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
 
 Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
 Using the checkbox in front of each attribute the visabilty of this attribute in the table can be managed. This filter icon can be used to set filters for this specific attribute.
+  
 ![Dataexplorer todo](images/dataexplorer/todo.png?raw=true, "todo")
 
 
 #### mods
-
+    
 ![Dataexplorer tabs](images/dataexplorer/dataexplorer_tabs.png?raw=true, "dataexplorer/dataexplorer_tabs")
 
 The data explorer consists of multiple modules to view or process the data in different ways. These modules are described below:
@@ -29,7 +32,7 @@ The data mod shows the data in a table, the table can be sorted by clicking on t
 If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
 
 Every line starts, depening on your permissions with some action icons:
-
+  
 ![Dataexplorer action buttons](images/dataexplorer/action_buttons.png?raw=true, "dataexplorer/action_buttons")
 
 - add row:
@@ -41,14 +44,14 @@ This button will open a popup with a custom made report for this row. Different 
 - delete row:
 This button can be used to remove a row from the entity.
 
-
+  
 ![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
 
 At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Another button will allow you to send your data to a galaxy server (https://galaxyproject.org).
 
 
 ###### genome browser
-
+  
 ![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
 
 When a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the Dalliance genome browser. (http://www.biodalliance.org)
