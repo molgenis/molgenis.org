@@ -296,7 +296,6 @@ MOLGENIS is a web-based application with many different modules allowing you to 
 
 * questionnaire
 * catalogue
-* model registry
 * mapping service
 * pathways
 * Account
