@@ -554,7 +554,21 @@ You can navigate to the permission module under the Admin menu, and then navigat
 Here you can set permissions for different groups and users. These permission allow users to either Edit, View, Count, or do nothing with the different data sets and modules in MOLGENIS.
 
 **Try it out**  
-Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change dat
+Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change it so that our test_group has the permission to open the Data explorer, and the molgenis_user will be able to see the example_data_table data set, which we created in the [Creating an EMX file](#creating-emx-file) section.
+
+**Setting group permissions**  
+As you open the permission manager, the groups tab is already selected. For the group *test_group* we want to set the permissions in such a way to the members of that group can use the data explorer to look at data sets. To do this, select the test_group from the drop down. Next you will want to lookup dataexplorer in the Plugin column, and set the permission to *View*. Press the Save button which is below the table to save your change. 
+
+To make it work perfectly, we will also have to give rights to the group to read the data explorer settings table. To do this, select the *Entity Class Permissions* menu, select the test_group from the drop down, and find the *settings_dataexplorer* in the Entity Class column and set it to *View*. 
+
+**Setting user permissions**  
+Now that we have the Data Explorer module working for the test_group, we want to give our molgenis_user the permission to see the example_data_table. To do this, select Entity Class Permissions menu, switch to the Users tab, and select molgenis_user from the dropdown. Look up example_data_table in the Entity Class column and set the permission to *View*.
+
+Congratulations! The molgenis_user account should now be able to use the data explorer, and see the example_data_table data set. You can verify this by logging out as admin, and logging in again as the molgenis_user.
+
+Note that if you are creating more complex data sets that have references to other data sets, that you should also consider giving permissions to those reference tables.
+
+And if you are wondering about the Entity permissions menu, that is reserved for when we implement row level security.
 
 #### <a name="menu-manager"></a> Menu manager
 The menu manager is a module that gives you the ability to arrange your menu to contain the items that you want it to contain. If you only want to show the data explorer and importer, you can do that. If you want to throw away news and background modules because you do not have any need for them, then you can do that as well. Every item is configurable.
@@ -579,7 +593,7 @@ Fill in the Create Menu Item form with the following data:
 Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
-Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [previous importer section](#creating-emx-file) will be selected at the start.
+Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [Creating an EMX file](#creating-emx-file) section will be selected at the start.
 
 Edit the existing data explorer item by pressing the pencil, and add the the following Query string:
 
