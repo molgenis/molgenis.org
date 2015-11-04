@@ -46,7 +46,7 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		
 * [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
 	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
-	* [How to use the MOLGENIS user interface](#molgenis-interface-modules)
+	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
  		* [REST API](#rest-api)
 	 	* [R](#R)
