@@ -52,7 +52,7 @@ This button can be used to remove a row from the entity.
 ![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
 
 At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Depending on the purpose of the download, id's or labels can be used as column headers.
-Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "galaxy") server.
+Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "Galaxy") server.
 
 
 #### genome browser
@@ -66,7 +66,7 @@ A button ('apply filters') is available at the bottom of the genome browser to f
 
 #### try it out
 #####Data exploration
-upload the [vcf_example_file](/data/Documentation_VCF.vcf "vcf example file") using the importer.
+upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
 Lets select a entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
 Let's assume we have a specific location we are interested in say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
 Let's first use the search box to see if we can find the line that way:
@@ -133,8 +133,7 @@ finally select "patientid" in the third dropdown, the distinct attribute.
 The table will update to show you for how many patients the sample of a specific type are available in a biobank.
 
 ### Charts mod
-TODO: highcharts 
-[Highcharts](http://www.highcharts.com "Highcharts")
+For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
 
 MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
 ![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
