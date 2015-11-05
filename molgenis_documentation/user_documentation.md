@@ -951,12 +951,12 @@ To get the feel of how certain styles look, you can select it in the dropdown me
 
 For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
 
-## <a name="molgenis-modules"></a>Molgenis modules
+## <a name="molgenis-modules"></a>MOLGENIS modules
 ### <a name="upload"></a>Upload
-The upload module is the place in Molgenis where you can upload your data into the Molgenis application.
+The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application.
 
 #### <a name="upload-possibilities"></a>Upload possibilities
-The molgenis upload module supports the following upload files formats and data:
+The MOLGENIS upload module supports the following upload files formats and data:
 	
 |file format		|file extention             |data formats|
 ||
@@ -1001,7 +1001,7 @@ Navigation buttons at the bottom of the pages:
 ![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
 
 ##### <a name="upload-screens-options"></a>Options page
-Select a data upload option. On this page you can select the rules of how to upload your data into Molgenis. Because this dataset is an unknown dataset to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an unknown dataset to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
 It is important to understand that this selection is about the data and not the meta data of the data set.
 
 ###### <a name="upload-screens-options-options"></a>Options
@@ -1017,7 +1017,7 @@ It is important to understand that this selection is about the data and not the 
 ![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
 
 ##### <a name="upload-screens-packages"></a>Packages page
-Because the entity (table) persons has no package defined, the by the packages page we have the posibility to choose another package then the Molgenis default package.
+Because the entity (table) persons has no package defined, the by the packages page we have the posibility to choose another package then the MOLGENIS default package.
 The select options are generated from the available existing packages in this data set.
 
 ###### <a name="upload-screens-packages-steps"></a>Steps
@@ -1052,7 +1052,7 @@ When you see this page the validation is already done. This page validates the s
 
 When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
 
-After the data is uploaded into Molgenis, you can change some permission for the entities.
+After the data is uploaded into MOLGENIS, you can change some permission for the entities.
 
 In the permission view you can:
 
@@ -1077,7 +1077,7 @@ There are two ways to override reports:
 
 You will need:
 
-1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your molgenis instance see the [Upload](#upload) section.
+1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
 2. To override the entity view:
 	* view-entityreport-specific-root_hospital_cities.ftl ([download](download/reports/view-entityreport-specific-root_hospital_cities.ftl)). 
 3. To override entities view:
@@ -1092,13 +1092,13 @@ Steps:
 2. Select the "cities" entity via the entity select dropdow.
 3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
 4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-5. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates.
+5. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this MOLGENIS directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates.
 6. Reload the page and repeat steps 2 and 3. 
 7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
 
 ###### Override the entities view
 1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
-2. Place the "view-Cities-entitiesreport.ftl" file in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+2. Place the "view-Cities-entitiesreport.ftl" file in this MOLGENIS directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
 3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
 	a. Check: Modules -> Data -> Reports -> Yes
 	b. Set: Reports -> Reports -> root_hospital_cities:Cities
