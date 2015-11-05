@@ -1,0 +1,1 @@
+<div>City name: ${entity.get('cityName')}</div>

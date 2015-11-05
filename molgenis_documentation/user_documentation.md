@@ -973,7 +973,7 @@ The molgenis upload module supports the following upload files formats and data:
 * EMX: Entity Model Extensible
 
 #### <a name="upload-screens"></a>Upload pages
-The different pages will be explianed by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](images/advanced_data_example_v20151104.xlsx)) example data set.
+The different pages will be explianed by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
 
 The pages are: 
 
@@ -1066,6 +1066,39 @@ In the permission view you can:
 3. Click on the finish button.
 
 ![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
+
+##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
+The reports functionality is made for overriding the default row or rows view in the Data-explorer.
+Overriding of the views is only posible in development enviorement before the application is deployed into the server.
+In this short tutorial I will show you how to achive this.
+
+There are two ways to override reports: 
+
+1. Overriding the entity (row) view
+2. Overriding the entities (rows) view
+
+You will need:
+
+1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your molgenis instance see the [Upload](#upload) section.
+2. To override the entity view:
+	* view-entityreport-specific-root_hospital_cities.ftl ([download](download/reports/view-entityreport-specific-root_hospital_cities.ftl)). 
+3. To override entities view:
+	* view-root_hospital_cities-entitiesreport.ftl ([download](download/reports/view-root_hospital_cities-entitiesreport.ftl))
+	* Place the file in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+
+###### Override the entity view
+
+
+Steps:
+
+1. Go to the datat explorer select the "cities" entity via the th entity select dropdown.
+2. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button.
+3. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
+4. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+5. Reload the page and repeat steps 1,2. 
+6. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
+
+###### Override the entities view
 
 
 ## <a name="end-note"></a> End note
