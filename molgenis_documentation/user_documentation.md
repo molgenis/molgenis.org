@@ -46,7 +46,8 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		
 * [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
 	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
-	* [How to use the MOLGENIS user interface](#molgenis-interface-modules)
+	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
+		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
  		* [REST API](#rest-api)
 	 	* [R](#R)
@@ -282,7 +283,37 @@ In this section you will learn about all the different modules MOLGENIS has to o
 TODO: Put Jonathan his text here
 -->
 
-### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface (Hairball)
+### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
+MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
+
+#### <a name="model-registry"></a> The model registry
+The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modeled. This is usefull for detecting errors in your model, or if you want to base your own model on something that already exists.
+
+![Model registry screen 1](images/model_registry_screen1.png?raw=true, "model registry screen 1")
+
+The following paragraphs will explain how the model registry works, but it is more fun to learn how it works with some actual models. So for this part, you can go to [The BioMedBridges](https://molgenis08.target.rug.nl/menu/main/standardsregistry) website, and navigate to the model registry module, you do not even have to log in!
+
+Now that we have some actual models on our screen, lets get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
+
+This part is not telling us much about the content of the EMX model yet, so lets see what it holds! Click the *View Model Details* button to get to the details page.
+
+![Model registry screen 2](images/model_registry_screen2.png?raw=true, "model registry screen 2")
+
+Here you can see a tree on the left and a large middle section containing all the meta data. You can also view a UML diagram of your entire package, and even print out a document containing the overview of your model.
+
+**The tree**  
+The tree is a simplified overview of all the tables, or entities, inside a package. Clicking on the Molgenis Field Types entity for example, will take you to the detailed description of that entity. You can also expand an entity, to see all its attributes. Clicking an attribute will take you to the description of that attribute.
+
+**The details**  
+The details for every entity and attribute is an overview of data types, constraints, default values, and descriptions. 
+
+**UML**
+Navigate to the UML tab to see a UML representation of your model. You can zoom in and out using the + and - buttons. You can also drag around the different boxes to rearange the diagram.
+
+**Printing**
+You can print your model to review it on paper by pressing the print button at the top right of the screen.
+
+
 
 * data explorer
 	* download
@@ -295,7 +326,6 @@ TODO: Put Jonathan his text here
 
 * questionnaire
 * catalogue
-* model registry
 * mapping service
 * pathways
 * Account
@@ -772,9 +802,15 @@ Once you have a server running and data loaded, you are probably eager to share 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
 
 #### <a name="home-page"></a> Configuring your homepage
+The home page is one of the most important part of your MOLGENIS application. It is a doorway to the rest of your application, and as it is such, it should look nice! When you are logged in as administrator, the home page contains an *edit* button. Clicking this button will open up an editor. 
 
+![Home page editor](images/home_page_editor.png?raw=true, "home page editor")
 
-The home page is the first thing a visitor sees. It should be the thing that informs a user about whatever is on the page he or she has navigated to. It should also sell the content, making it a very important piece
+Here you can do simple stuff like adding text, images, and table. 
+
+If you want more control, you can go to tools -> Source code. This opens up an HTML editor, which is nice if you know how to write HTML. For even more fancy functionality, the Source code editor also allows you to write JavaScript code.
+
+If you need some aspiration for a nice home page, you visit either the [ASE website](http://molgenis.org/ase) or the [COL7A1 website](https://molgenis03.target.rug.nl/).
 
 #### <a name="user-management"></a> User management
 User management is crucial for keeping an overview of people visiting your online database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. MOLGENIS uses groups and users to efficiently control permissions. Groups and users can both have individual permissions on certain data sets for example. But users can also be part of a group, automatically inheriting the permissions set for that group. You can find the User manager module under the Admin menu:
@@ -782,7 +818,6 @@ User management is crucial for keeping an overview of people visiting your onlin
 ![Menu manager screen](images/user_manager.png?raw=true, "user manager")
 
 The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
-
 
 **Try it out**  
 To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
