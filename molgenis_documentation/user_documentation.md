@@ -1068,9 +1068,7 @@ In the permission view you can:
 ![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 ##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
-The reports functionality is made for overriding the default row or rows view in the Data-explorer.
-Overriding of the views is only posible in development enviorement before the application is deployed into the server.
-In this short tutorial I will show you how to achive this.
+The reports functionality is made for overriding the default row or rows view in the Data-explorer. Overriding the views is only possible in development environment before the application is deployed into the server. In this short tutorial I will show you how to achieve this.
 
 There are two ways to override reports: 
 
@@ -1083,23 +1081,32 @@ You will need:
 2. To override the entity view:
 	* view-entityreport-specific-root_hospital_cities.ftl ([download](download/reports/view-entityreport-specific-root_hospital_cities.ftl)). 
 3. To override entities view:
-	* view-root_hospital_cities-entitiesreport.ftl ([download](download/reports/view-root_hospital_cities-entitiesreport.ftl))
-	* Place the file in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+	* view-root_hospital_cities-entitiesreport.ftl ([download](download/reports/view-Cities-entitiesreport.ftl))
 
 ###### Override the entity view
 
 
 Steps:
 
-1. Go to the datat explorer select the "cities" entity via the th entity select dropdown.
-2. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button.
-3. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-4. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
-5. Reload the page and repeat steps 1,2. 
-6. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
+1. Go to the data explorer
+2. Select the "cities" entity via the entity select dropdow.
+3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
+4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
+5. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates.
+6. Reload the page and repeat steps 2 and 3. 
+7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
 
 ###### Override the entities view
-
+1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
+2. Place the "view-Cities-entitiesreport.ftl" file in this Molgenis directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
+	a. Check: Modules -> Data -> Reports -> Yes
+	b. Set: Reports -> Reports -> root_hospital_cities:Cities
+	
+	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
+4. Refresh the page and repeat step 1.
+5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
+	
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)

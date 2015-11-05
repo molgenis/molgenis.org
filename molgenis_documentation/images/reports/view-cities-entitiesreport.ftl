@@ -1,1 +1,0 @@
-"new template for cities"
