@@ -63,8 +63,8 @@ Clicking on a row in the data table will make the genome browser zoom to the coo
 A button ('apply filters') is available at the bottom of the genome browser to filter the data table based on the coordinates currently in shown in the genome browser.
 
 
-## try it out
-###Data exploration
+#### try it out
+#####Data exploration
 Lets select a entity containing genomic variants, demo.vcf (TODO: where to find how to load).
 Let's assume we have a specific location we are interested in say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
 Let's first use the search box to see if we can find the line that way:
@@ -74,7 +74,7 @@ But now we like to take a look at all variantion on chromosome 7, as you can ima
 Click the filter icon in front of "#CHROM" in te attribute selection tree and enter "8" in the input field than click "apply"
 However we meant to search for chromosome 7, so lets click the filter in the active filters box, and change the value to 7.
 We now have all the values for chromosome 7 in the table, however the results are devided over several pages of results, we'd like to view them all in one screen; click the "rows per page" dropdown below the table and select "100" this will show 100 results per page.
-The "FILTER" column shows the dame value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
+The "FILTER" column shows the dame value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
 
 Click any header in the table to sort the data based on that column, click again to sort in the other direction.
 Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
@@ -82,13 +82,13 @@ Click the symbol in front of the "SAMPLES" column header to show the columns bel
 
 Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However as stated above all kinds of reports can be added at runtime by an admin.
 
-###Data manipulation
+#####Data manipulation
 
 Click the edit icon and change the chromosome from 7 to 8 and save.
 Adding a row works the same way, only without the prefilled fields.
 Now lets click the red garbage bin icon in front of a line to delete this line from the entity.
 
-## Annotation mod
+### Annotation mod
 
 The anotator mod of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
 The annotator framework is a system to add data from other resources to your entities. For example pathognicity prediction, allele frequencies and phenotype information.
@@ -101,5 +101,34 @@ Annotated fields will be added to the entity in a compound attribute.
 
 On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
 The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
+
+### Aggregation mod
+
+The aggregation mod allows users to produce counts for queries on the data.
+
+The screen has 2 area's the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
+
+![Dataexplorer aggregates](images/dataexplorer/aggregate_controls.png?raw=true, "dataexplorer/aggregates")
+
+You can select 1 attribute for simple one dimensional counts, represented as a table with one column, or two attributes to get a 2 dimensional aggregate table.
+A third dropdown allows you to select a attribute that has to be distinct within the results.
+
+![Dataexplorer aggregate results](images/dataexplorer/aggregate_result_Table.png?raw=true, "dataexplorer/aggregateresults")
+
+These functionalities are best explained by the example in the "try it out section below".
+
+#### try it out
+Upload biobanks.xlsx throught the importer.
+Navigate to the data explorer and select the aggregates tab. Select the just uploaded "biobanks" entity.
+
+Now select "patientid" in the entity dropdown.
+You now get an 1 dimensional list of counts, showing you that every patient has 3 entries in the selected entity
+
+Now select "biobank" in the first aggregate dropdown and in the second select "sampletype"
+You now get a table representing the amount of samples in both biobanks per type.
+
+finally select "patientid" in the third dropdown, the distinct attribute. 
+The table will update to show you for how many patients the sample of a specific type are available in a biobank.
+
 
 
