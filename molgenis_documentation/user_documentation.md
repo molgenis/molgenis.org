@@ -583,8 +583,10 @@ The molgenis upload module supports the following upload files formats and data:
 * VCF: Variant Call Format
 * EMX: Entity Model Extensible
 
-#### <a name="upload-screens"></a>Upload screens
-The different pages will be explianed by uploading the ["advanced data example"](#advanced-data-example).
+#### <a name="upload-screens"></a>Upload pages
+The different pages will be explianed by uploading the ["advanced data example"](#advanced-data-example) example data set.
+
+The pages are: 
 
 1. Upload file
 2. Options
@@ -592,9 +594,21 @@ The different pages will be explianed by uploading the ["advanced data example"]
 4. Validation
 5. Result
 
+Navigation buttons at the bottom of the pages:
+
+* Previous: Go to the previous page.
+* Next: Go to the next page.
+* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
+* Finish: The same as Restart.
+
+
 ##### <a name="upload-screens-upload-file"></a>Upload file page
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
 1. Select a file to upload.
 2. Click on the next button.
+
 ![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
 
 ##### <a name="upload-screens-options"></a>Options page
@@ -603,16 +617,65 @@ It is important to understand that this selection is about the data and not the 
 
 ###### <a name="upload-screens-options-options"></a>Options
 
-1. Add entities: Importer adds new entities or fail if entity exists.
+1. Add entities: Importer adds new entities or fails if entity exists.
 2. Add entities / update existing: Importer adds new entities or updaes existing entities.
 3. Update entities: Impoter updates existing entities or fails if entity does not exist.
 
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Click on the next Button.
+
 ![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
+
 ##### <a name="upload-screens-packages"></a>Packages page
+Because the entity (table) persons has no package defined, the by the packages page we have the posibility to choose another package then the Molgenis default package.
+The select options are generated from the available existing packages in this data set.
+
+###### <a name="upload-screens-packages-steps"></a>Steps
+
+1. Click on the next Button.
+
 ![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
+
 ##### <a name="upload-screens-validation"></a>Validation page
+When you see this page the validation is already done. This page validates the structure of the meta data.
+
+"Enitities" table where all the entities (tables) are defined.
+
+* Name: Name of entity
+* Importable: Is this entity inportable or not. Two options (Yes, No) 
+
+"Entity fields" table that will contain information a bout the fields of a entity (Columns of the table)
+
+* Name: Name of entity
+* Detected: A comma seperated list of fields that where found for this entity.
+* Requierd: Are there requierd fields defined in the meta data that are missing in the entity?
+* Available: Are there fields in the meta data that are optionel and where not found in the antity?
+* Unknown: Are there fields defined in the entity the where undefined in the meta data?
+
+###### <a name="upload-screens-validation-steps"></a>Steps
+
+1. Click on the next Button.
+
 ![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
+
 ##### <a name="upload-screens-result"></a>Result page
+
+When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
+
+After the data is uploaded into Molgenis, you can change some permission for the entities.
+
+In the permission view you can:
+
+1. Select a group: which user group will get this permissions.
+2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
+
+###### <a name="upload-screens-result-steps"></a>Steps
+
+1. Select the view permission for the root_hospital_cities entity.
+2. Click on the save button.
+2. Click on the finish Button. Clicking on the Restart button will give the same result and that is redirecting to the start page (Upload file). 
+
 ![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 
