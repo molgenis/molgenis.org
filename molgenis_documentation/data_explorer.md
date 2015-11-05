@@ -148,4 +148,4 @@ For the scatterplot 2 attributes are selected to make the plot, optionally a thi
 
 For the boxplot 1 attribute is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
 
-![Dataexplorer charts boxplot](images/dataexplorer/box plot.png?raw=true, "dataexplorer/boxplot")
+![Dataexplorer charts boxplot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
