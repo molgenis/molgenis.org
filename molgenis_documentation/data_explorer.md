@@ -113,7 +113,7 @@ The screen has 2 area's the controls and the results, the controls allow you to 
 You can select 1 attribute for simple one dimensional counts, represented as a table with one column, or two attributes to get a 2 dimensional aggregate table.
 A third dropdown allows you to select a attribute that has to be distinct within the results.
 
-![Dataexplorer aggregate results](images/dataexplorer/aggregate_result_Table.png?raw=true, "dataexplorer/aggregateresults")
+![Dataexplorer aggregate results](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/aggregateresults")
 
 These functionalities are best explained by the example in the "try it out section below".
 
