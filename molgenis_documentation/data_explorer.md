@@ -1,4 +1,5 @@
 ## Data explorer
+
 One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the pluginh to use if you wish to take a closer look at the data.
 
 Note that some of the compoments described below are only shown to people with the appropriate permissions.
@@ -51,21 +52,22 @@ This button can be used to remove a row from the entity.
 ![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
 
 At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Depending on the purpose of the download, id's or labels can be used as column headers.
-Another button will allow you to send your data to a galaxy server (https://galaxyproject.org).
+Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "galaxy") server.
 
 
 #### genome browser
   
 ![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
 
-When a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the Dalliance genome browser. (http://www.biodalliance.org)
+When a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the [Dalliance](http://www.biodalliance.org "Dalliance") genome browser.
 Clicking on a row in the data table will make the genome browser zoom to the coordinates of that row.
 A button ('apply filters') is available at the bottom of the genome browser to filter the data table based on the coordinates currently in shown in the genome browser.
 
 
 #### try it out
 #####Data exploration
-Lets select a entity containing genomic variants, demo.vcf (TODO: where to find how to load).
+upload the [vcf_example_file](/data/Documentation_VCF.vcf "vcf example file") using the importer.
+Lets select a entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
 Let's assume we have a specific location we are interested in say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
 Let's first use the search box to see if we can find the line that way:
 
@@ -118,7 +120,7 @@ A third dropdown allows you to select a attribute that has to be distinct within
 These functionalities are best explained by the example in the "try it out section below".
 
 #### try it out
-Upload biobanks.xlsx throught the importer.
+Upload [emx_example_file](/data/Documentation_EMX.xlsx "EMX example file") throught the importer.
 Navigate to the data explorer and select the aggregates tab. Select the just uploaded "biobanks" entity.
 
 Now select "patientid" in the entity dropdown.
@@ -131,22 +133,26 @@ finally select "patientid" in the third dropdown, the distinct attribute.
 The table will update to show you for how many patients the sample of a specific type are available in a biobank.
 
 ### Charts mod
-TODO: highcharts http://www.highcharts.com
+TODO: highcharts 
+[Highcharts](http://www.highcharts.com "Highcharts")
 
 MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
 ![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
 
-#### scatter plot https://en.wikipedia.org/wiki/Scatter_plot
+#### scatter plot [Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot "Scatter plot")
 ![Dataexplorer charts create scatterplot](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/scatterplot")
 
 For the scatterplot 2 attributes are selected to make the plot, optionally a third attribute can be selected to split the dots in groups using different shapes and colours per group. Optionally you can provide a title for your plot.
 
 ![Dataexplorer charts scatterplot](images/dataexplorer/scatter plot.png?raw=true, "dataexplorer/scatterplot")
 
-#### box plot https://en.wikipedia.org/wiki/Box_plot
+#### box plot [Box_plot](https://en.wikipedia.org/wiki/Box_plot "Box plot")
 
 ![Dataexplorer aggregate create boxplot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
 
 For the boxplot 1 attribute (feature) is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
 
 ![Dataexplorer charts boxplot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
+
+
+
