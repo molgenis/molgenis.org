@@ -130,5 +130,22 @@ You now get a table representing the amount of samples in both biobanks per type
 finally select "patientid" in the third dropdown, the distinct attribute. 
 The table will update to show you for how many patients the sample of a specific type are available in a biobank.
 
+### Charts mod
 
+MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
+![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
 
+#### scatter plot
+![Dataexplorer charts create scatterplot](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/scatterplot")
+
+For the scatterplot 2 attributes are selected to make the plot, optionally a third attribute can be selected to split the dots in groups using different shapes and colours per group. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts scatterplot](images/dataexplorer/scatter plot.png?raw=true, "dataexplorer/scatterplot")
+
+#### box plot
+
+![Dataexplorer aggregate create boxplot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
+
+For the boxplot 1 attribute is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts boxplot](images/dataexplorer/box plot.png?raw=true, "dataexplorer/boxplot")
