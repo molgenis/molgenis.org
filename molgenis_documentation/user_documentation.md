@@ -584,7 +584,7 @@ The molgenis upload module supports the following upload files formats and data:
 * EMX: Entity Model Extensible
 
 #### <a name="upload-screens"></a>Upload screens
-The different screens will be explianed by uploading the ["advanced data example"](#advanced-data-example).
+The different pages will be explianed by uploading the ["advanced data example"](#advanced-data-example).
 
 1. Upload file
 2. Options
@@ -592,23 +592,27 @@ The different screens will be explianed by uploading the ["advanced data example
 4. Validation
 5. Result
 
-##### <a name="upload-screens-upload-file"></a>Upload file
+##### <a name="upload-screens-upload-file"></a>Upload file page
 1. Select a file to upload.
 2. Click on the next button.
 ![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
-##### <a name="upload-screens-options"></a>Options
-Select a data upload option. On this page you can select how to upload your data into Molgenis. In our case enitites are rows and because this dataset is new we leave the default option "Add entities" selected.
 
-Options:
-1. Add entities
-2. Add entities / update existing
-3. Update entities
+##### <a name="upload-screens-options"></a>Options page
+Select a data upload option. On this page you can select the rules of how to upload your data into Molgenis. Because this dataset is an unknown dataset to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+It is important to understand that this selection is about the data and not the meta data of the data set.
+
+###### <a name="upload-screens-options-options"></a>Options
+
+1. Add entities: Importer adds new entities or fail if entity exists.
+2. Add entities / update existing: Importer adds new entities or updaes existing entities.
+3. Update entities: Impoter updates existing entities or fails if entity does not exist.
+
 ![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
-##### <a name="upload-screens-packages"></a>Packages
+##### <a name="upload-screens-packages"></a>Packages page
 ![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
-##### <a name="upload-screens-validation"></a>Validation
+##### <a name="upload-screens-validation"></a>Validation page
 ![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
-##### <a name="upload-screens-result"></a>Result
+##### <a name="upload-screens-result"></a>Result page
 ![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 
