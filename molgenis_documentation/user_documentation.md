@@ -83,7 +83,7 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
 		
-* [Molgenis modules](#molgenis-modules)
+* [MOLGENIS modules](#molgenis-modules)
 	*  [Upload](#upload)
 
 		
