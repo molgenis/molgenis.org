@@ -1001,7 +1001,7 @@ Navigation buttons at the bottom of the pages:
 ![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
 
 ##### <a name="upload-screens-options"></a>Options page
-Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an unknown dataset to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
 It is important to understand that this selection is about the data and not the meta data of the data set.
 
 ###### <a name="upload-screens-options-options"></a>Options
@@ -1017,8 +1017,7 @@ It is important to understand that this selection is about the data and not the 
 ![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
 
 ##### <a name="upload-screens-packages"></a>Packages page
-Because the entity (table) persons has no package defined, the by the packages page we have the posibility to choose another package then the MOLGENIS default package.
-The select options are generated from the available existing packages in this data set.
+Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
 
 ###### <a name="upload-screens-packages-steps"></a>Steps
 
@@ -1068,23 +1067,18 @@ In the permissions view you can:
 ![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 ##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
-The reports functionality is made for overriding the default row or rows view in the Data-explorer. Overriding the views is only possible in development environment before the application is deployed into the server. In this short tutorial I will show you how to achieve this.
+The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
 
 There are two ways to override reports: 
 
-1. Overriding the entity (row) view
-2. Overriding the entities (rows) view
+1. Overriding the default instance view.
+2. Add a instances view tabs.
 
 You will need:
 
 1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
-2. To override the entity view:
-	* view-entityreport-specific-root_hospital_cities.ftl ([download](download/reports/view-entityreport-specific-root_hospital_cities.ftl)). 
-3. To override entities view:
-	* view-root_hospital_cities-entitiesreport.ftl ([download](download/reports/view-Cities-entitiesreport.ftl))
 
 ###### Override the entity view
-
 
 Steps:
 
@@ -1092,16 +1086,28 @@ Steps:
 2. Select the "cities" entity via the entity select dropdown.
 3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
 4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-5. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this MOLGENIS directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates.
-6. Reload the page and repeat steps 2 and 3. 
+5. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-<Full entity name>.ftl)
+		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
+	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
+6. Repeat steps 2 and 3. 
 7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
 
-###### Override the entities view
+###### Add a instances view tab
 1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
-2. Place the "view-Cities-entitiesreport.ftl" file in this MOLGENIS directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates".
+2. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-Cities-entitiesreport.ftl (view-<template name>-entitiesreport.ftl)
+		* Value: "\<div>My cities\</div>"
+		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
 3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
 	a. Check: Modules -> Data -> Reports -> Yes
 	b. Set: Reports -> Reports -> root_hospital_cities:Cities
+		* root_hospital_cities is the entity name.
+		* Cities is the template name.
 	
 	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
 4. Refresh the page and repeat step 1.
