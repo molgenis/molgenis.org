@@ -956,7 +956,7 @@ For an overview of all the different themes offered, visit the [Bootswatch](http
 The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application.
 
 #### <a name="upload-possibilities"></a>Upload possibilities
-The MOLGENIS upload module supports the following upload files formats and data:
+The MOLGENIS upload module supports the following file formats and data:
 	
 |file format		|file extention             |data formats|
 ||
@@ -973,7 +973,7 @@ The MOLGENIS upload module supports the following upload files formats and data:
 * EMX: Entity Model Extensible
 
 #### <a name="upload-screens"></a>Upload pages
-The different pages will be explianed by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
+The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
 
 The pages are: 
 
@@ -1007,8 +1007,8 @@ It is important to understand that this selection is about the data and not the 
 ###### <a name="upload-screens-options-options"></a>Options
 
 1. Add entities: Importer adds new entities or fails if entity exists.
-2. Add entities / update existing: Importer adds new entities or updaes existing entities.
-3. Update entities: Impoter updates existing entities or fails if entity does not exist.
+2. Add entities / update existing: Importer adds new entities or updates existing entities.
+3. Update entities: Importer updates existing entities or fails if entity does not exist.
 
 ###### <a name="upload-screens-options-steps"></a>Steps
 
@@ -1029,18 +1029,18 @@ The select options are generated from the available existing packages in this da
 ##### <a name="upload-screens-validation"></a>Validation page
 When you see this page the validation is already done. This page validates the structure of the meta data.
 
-"Enitities" table where all the entities (tables) are defined.
+"Entities" table where all the entities (tables) are defined.
 
 * Name: Name of entity
 * Importable: Is this entity inportable or not. Two options (Yes, No) 
 
-"Entity fields" table that will contain information a bout the fields of a entity (Columns of the table)
+"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
 
 * Name: Name of entity
-* Detected: A comma seperated list of fields that where found for this entity.
-* Requierd: Are there requierd fields defined in the meta data that are missing in the entity?
-* Available: Are there fields in the meta data that are optionel and where not found in the antity?
-* Unknown: Are there fields defined in the entity the where undefined in the meta data?
+* Detected: A comma separated list of fields that were found for this entity
+* Required: Are there required fields defined in the meta data that are missing in the entity?
+* Available: Are there fields in the meta data that are optionel and were not found in the entity?
+* Unknown: Are there fields defined in the entity that were undefined in the meta data?
 
 ###### <a name="upload-screens-validation-steps"></a>Steps
 
@@ -1052,11 +1052,11 @@ When you see this page the validation is already done. This page validates the s
 
 When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
 
-After the data is uploaded into MOLGENIS, you can change some permission for the entities.
+After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
 
-In the permission view you can:
+In the permissions view you can:
 
-1. Select a group: which user group will get this permissions.
+1. Select a group: which user group will get these permissions.
 2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
 
 ###### <a name="upload-screens-result-steps"></a>Steps
@@ -1089,7 +1089,7 @@ You will need:
 Steps:
 
 1. Go to the data explorer
-2. Select the "cities" entity via the entity select dropdow.
+2. Select the "cities" entity via the entity select dropdown.
 3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
 4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
 5. Lets upload our own template. Place the "view-entityreport-specific-root_hospital_cities.ftl" in this MOLGENIS directory: "/molgenis/molgenis-dataexplorer/src/main/resources/templates.
