@@ -1,1 +1,0 @@
-<div>My cities</div>
