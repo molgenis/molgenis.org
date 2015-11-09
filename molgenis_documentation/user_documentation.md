@@ -1069,7 +1069,7 @@ In the permissions view you can:
 ##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
 The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
 
-There are two ways to override reports: 
+There are two ways to create your own reports: 
 
 1. Overriding the default instance view.
 2. Add a instances view tabs.
