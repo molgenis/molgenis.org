@@ -83,6 +83,10 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
 		
+* [MOLGENIS modules](#molgenis-modules)
+	*  [Upload](#upload)
+
+		
 * [End note](#end-note)
 
 ## <a name="introduction"></a> Introduction
@@ -946,6 +950,169 @@ Using the Theme manager, you can select between multiple bootstrap styles.
 To get the feel of how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
 
 For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
+
+## <a name="molgenis-modules"></a>MOLGENIS modules
+### <a name="upload"></a>Upload
+The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application.
+
+#### <a name="upload-possibilities"></a>Upload possibilities
+The MOLGENIS upload module supports the following file formats and data:
+	
+|file format		|file extention             |data formats|
+||
+|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
+|Excel            	|".xls" ".xlsx"             |EMX|
+|OWL              	|".owl.zip"                 |OWL|
+|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
+
+##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
+
+* CSV: Comma Seperated Value
+* OWL: Web Ontology Language
+* VCF: Variant Call Format
+* EMX: Entity Model Extensible
+
+#### <a name="upload-screens"></a>Upload pages
+The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
+
+The pages are: 
+
+1. Upload file
+2. Options
+3. Packages
+4. Validation
+5. Result
+
+Navigation buttons at the bottom of the pages:
+
+* Previous: Go to the previous page.
+* Next: Go to the next page.
+* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
+* Finish: The same as Restart.
+
+
+##### <a name="upload-screens-upload-file"></a>Upload file page
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Select a file to upload.
+2. Click on the next button.
+
+![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
+
+##### <a name="upload-screens-options"></a>Options page
+Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+It is important to understand that this selection is about the data and not the meta data of the data set.
+
+###### <a name="upload-screens-options-options"></a>Options
+
+1. Add entities: Importer adds new entities or fails if entity exists.
+2. Add entities / update existing: Importer adds new entities or updates existing entities.
+3. Update entities: Importer updates existing entities or fails if entity does not exist.
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
+
+##### <a name="upload-screens-packages"></a>Packages page
+Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
+
+###### <a name="upload-screens-packages-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
+
+##### <a name="upload-screens-validation"></a>Validation page
+When you see this page the validation is already done. This page validates the structure of the meta data.
+
+"Entities" table where all the entities (tables) are defined.
+
+* Name: Name of entity
+* Importable: Is this entity inportable or not. Two options (Yes, No) 
+
+"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
+
+* Name: Name of entity
+* Detected: A comma separated list of fields that were found for this entity
+* Required: Are there required fields defined in the meta data that are missing in the entity?
+* Available: Are there fields in the meta data that are optionel and were not found in the entity?
+* Unknown: Are there fields defined in the entity that were undefined in the meta data?
+
+###### <a name="upload-screens-validation-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
+
+##### <a name="upload-screens-result"></a>Result page
+
+When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
+
+After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
+
+In the permissions view you can:
+
+1. Select a group: which user group will get these permissions.
+2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
+
+###### <a name="upload-screens-result-steps"></a>Steps
+
+1. [Optional] Select the view permission for the root_hospital_cities entity.
+2. [Optional] Click on the save button.
+3. Click on the finish button.
+
+![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
+
+##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
+The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
+
+There are two ways to create your own reports: 
+
+1. Overriding the default instance view.
+2. Add a instances view tabs.
+
+You will need:
+
+1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
+
+###### Override the entity view
+
+Steps:
+
+1. Go to the data explorer
+2. Select the "cities" entity via the entity select dropdown.
+3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
+4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
+5. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
+		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
+	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
+6. Repeat steps 2 and 3. 
+7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
+
+###### Add a instances view tab
+1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
+2. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
+		* Value: "\<div>My cities\</div>"
+		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
+3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
+	a. Check: Modules -> Data -> Reports -> Yes
+	b. Set: Reports -> Reports -> root_hospital_cities:Cities
+		* root_hospital_cities is the entity name.
+		* Cities is the template name.
+	
+	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
+4. Refresh the page and repeat step 1.
+5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
+	
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
