@@ -1,26 +1,3 @@
-## Using technical documentation structure proposed in this [blog](http://stevelosh.com/blog/2013/09/teach-dont-tell/)
-
-### First contact (What is MOLGENIS good for)
-
-1. What is this thing?
-2. Why would I care about this thing?
-3. Is it worth the effort to learn this thing?
-
-### Black triangle (installation manual and small example)
-
-Your “black triangle” documentation should be a short guide that runs the user through the process of retrieving, installing, and poking your project or language.
-
-### Hairball (aka MOLGENIS in depth explanations of all the plugins)
-
-The “hairball” is the twisted, tangled maze of teaching that is going to take these novices and turn them into expert users. It’s going to mold their brains, one nudge at a time, until they have a pretty good understanding of how your project works.
-
-### The Reference (In depth API and script interfaces.)
-* “API documentation” for every user-facing part of your project.
-* A full changelog, with particular attention to backwards-incompatible changes between versions.
-* Details about the internal implementation of the project.
-* Contribution policies (if your project accepts outside contributions).
-
-
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
 ## <a name="table-of-contents"></a> Table of contents
