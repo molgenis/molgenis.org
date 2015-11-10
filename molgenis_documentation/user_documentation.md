@@ -1089,7 +1089,7 @@ Steps:
 5. Lets upload our own template. 
 	a. Go to the data explorer and select the FreemarkerTemplate entity.
 	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-<Full entity name>.ftl)
+		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
 		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
 	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
 6. Repeat steps 2 and 3. 
@@ -1100,7 +1100,7 @@ Steps:
 2. Lets upload our own template. 
 	a. Go to the data explorer and select the FreemarkerTemplate entity.
 	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-Cities-entitiesreport.ftl (view-<template name>-entitiesreport.ftl)
+		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
 		* Value: "\<div>My cities\</div>"
 		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
 3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
