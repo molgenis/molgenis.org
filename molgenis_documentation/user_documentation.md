@@ -1,3 +1,93 @@
+## TODO [Outline of what needed](https://docs.google.com/document/d/1vP1WYGh3EsI4M1tZ47o3Ws6jK3iKbGa-1OgCPcU9Zv0/edit#)
+
+This document aims to compile documentation on the current working of MOLGENIS, also to reach the BioSHARE D4.2 deliverable. The text can be used for future design and to feed into the website.
+
+### Outline
+
+* Introduction
+	* Happy user example
+	* Understanding what MOLGENIS can be used for
+		* how to create a biobank catalogue
+		* NGS data annotation/interpretation
+		* Portal for research groups/consortia
+		* Online analysis + pipelines
+		* ...
+	* Understanding MOLGENIS working
+		* architecture overview
+			* core
+			* extension points
+			* dependencies
+		* service overview
+			* data
+			* account
+			* permission
+			* …
+* Getting your own MOLGENIS
+	* Happy install example
+	* How to install
+		* Download VM, ready, go
+		* Download war, install mysql + tomcat, go
+		* How to upgrade (upgrade war, clean database, delete index)
+	* How to configure your MOLGENIS
+		* Menu manager
+		* Permissions
+		* User management
+		* Static content
+		* Themes
+
+* How to get your data into MOLGENIS
+	* Happy upload example
+	* Flexible ‘Meta model’ concepts
+	* EMX reference
+	* CSV, XLS
+
+* How to use MOLGENIS user interface
+	* data explorer
+		* search and filter
+		* aggregates
+		* export
+		* genome browser
+	* import
+	* biobankconnect
+	* questionnaire
+	* annotators
+	* catalogue
+	* model registry
+
+* How to script interface
+	* REST
+	* R
+	* Python
+
+* How to develop 
+	* Download code, eclipse, compile, run
+	* How to create a UI plugin
+		* React only (F): upload a zip as ‘app’
+		* Controller, template, javascript, html
+		* (see REST interface)
+	* How to create a backend plugin
+	* How to create an annotator
+	* Advanced topics
+		* How to test: selenium, integration, performance, unit
+		* How to migrations
+		* How to generate a deploy (F) 
+
+### Snippets
+
+* Outline
+* Architecture
+* Data Service
+	* Repositories
+	* AttributeMetaData
+	* EntityMetaData
+	* How to write a backend plugin?
+* Continuous deployment
+* Discussion
+	* Can we simplify/modularize data api further?
+	* Some questions on our dependencies	
+
+
+
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
 ## <a name="table-of-contents"></a> Table of contents
@@ -11,7 +101,8 @@
 		* [Research portals](#research-portal-example)
 		* [Pipeline computing](#compute-example)
 	* [Who is using MOLGENIS](#who-uses-molgenis)
-		* [Service overview](#service-overview)  
+		* [Service overview](#service-overview) 
+	* [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
 		
 * [Trying out MOLGENIS](#trying-out-molgenis)
 	* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo)
@@ -935,7 +1026,7 @@ The MOLGENIS upload module supports the following file formats and data:
 * EMX: Entity Model Extensible
 
 #### <a name="upload-screens"></a>Upload pages
-The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
+The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)) example data set.
 
 The pages are: 
 
@@ -1038,7 +1129,7 @@ There are two ways to create your own reports:
 
 You will need:
 
-1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
+1. A data set: "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
 
 ###### Override the entity view
 
@@ -1077,7 +1168,7 @@ Steps:
 	
 
 ## <a name="end-note"></a> End note
-If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
+If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
 
-If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>.
+If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>. TODO
 
