@@ -88,6 +88,7 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 
 ### TODO
 * [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
+* M3891 new story, Entity and Entity are not the same
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
 
 
