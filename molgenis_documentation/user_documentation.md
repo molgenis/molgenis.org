@@ -92,10 +92,7 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
 * [Trying out MOLGENIS](#trying-out-molgenis) We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
-
-
-TODO : Dataexplorer and reports.
-
+* Add: Questionnaire; catalogue; mapping service; pathways; Account
 
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
@@ -632,8 +629,52 @@ For the boxplot 1 attribute (feature) is to be selected to make the plot, option
 
 ![Dataexplorer charts boxplot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
 
+##### <a name="dataexplorer-reports"></a>Data Explorer "Reports"
+The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
 
+There are two ways to create your own reports: 
 
+1. Overriding the default instance view.
+2. Add a instances view tabs.
+
+You will need:
+
+1. A data set: "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
+
+###### Override the entity view
+
+Steps:
+
+1. Go to the Data Explorer
+2. Select the "cities" entity via the entity select dropdown.
+3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
+4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
+5. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
+		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
+	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
+6. Repeat steps 2 and 3. 
+7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
+
+###### Add a instances view tab
+1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
+2. Lets upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
+		* Value: "\<div>My cities\</div>"
+		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
+3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
+	a. Check: Modules -> Data -> Reports -> Yes
+	b. Set: Reports -> Reports -> root_hospital_cities:Cities
+		* root_hospital_cities is the entity name.
+		* Cities is the template name.
+	
+	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
+4. Refresh the page and repeat step 1.
+5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
 
 
 #### <a name="model-registry"></a> The model registry
@@ -662,23 +703,6 @@ Navigate to the UML tab to see a UML representation of your model. You can zoom 
 
 **Printing**
 You can print your model to review it on paper by pressing the print button at the top right of the screen.
-
-
-
-* data explorer
-	* download
-	* search and filter
-	* aggregates
-	* annotators
-	* genome browser
-	* charts
-	* disease matcher
-
-* questionnaire
-* catalogue
-* mapping service
-* pathways
-* Account
 
 ### <a name="how-to-interact-with-data"></a> Interacting with your data, MOLGENIS script interfaces
 
@@ -1292,58 +1316,7 @@ Using the Theme manager, you can select between multiple bootstrap styles.
 To get the feel of how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
 
 For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
-
-## <a name="molgenis-modules"></a>MOLGENIS modules
-
-
-##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
-The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
-
-There are two ways to create your own reports: 
-
-1. Overriding the default instance view.
-2. Add a instances view tabs.
-
-You will need:
-
-1. A data set: "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
-
-###### Override the entity view
-
-Steps:
-
-1. Go to the data explorer
-2. Select the "cities" entity via the entity select dropdown.
-3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
-4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-5. Lets upload our own template. 
-	a. Go to the data explorer and select the FreemarkerTemplate entity.
-	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
-		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
-	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
-6. Repeat steps 2 and 3. 
-7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
-
-###### Add a instances view tab
-1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
-2. Lets upload our own template. 
-	a. Go to the data explorer and select the FreemarkerTemplate entity.
-	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
-		* Value: "\<div>My cities\</div>"
-		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
-3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
-	a. Check: Modules -> Data -> Reports -> Yes
-	b. Set: Reports -> Reports -> root_hospital_cities:Cities
-		* root_hospital_cities is the entity name.
-		* Cities is the template name.
 	
-	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
-4. Refresh the page and repeat step 1.
-5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
-	
-
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
 
