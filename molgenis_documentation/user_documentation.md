@@ -161,6 +161,9 @@ This document is a detailed description of the web-based MOLGENIS software. Here
 ### <a name="what-is-molgenis"></a> What is MOLGENIS?
 Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
+![molgenis overview](images/molgenis-overview.png?raw=true, "molgenis overview")
+
+
 ### <a name="why-molgenis"></a> Why MOLGENIS?
 Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing you to model your data however you want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
