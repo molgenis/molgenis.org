@@ -2,7 +2,7 @@
 
 This document aims to compile documentation on the current working of MOLGENIS, also to reach the BioSHARE D4.2 deliverable. The text can be used for future design and to feed into the website.
 
-### Outline
+### Original acceptance criteria, Outline
 
 * Introduction
 	* Happy user example
@@ -93,6 +93,14 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 * [Trying out MOLGENIS](#trying-out-molgenis) We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
 * Add: Questionnaire; catalogue; mapping service; pathways; Account
+* [Service overview](#service-overview) Fill in more of our projects in the table
+* [Research portals](#research-portal-example) TODO Research port.
+* [Analysis pipelines and online computing](#compute-example) TODO.
+* [Who is using MOLGENIS?](#who-uses-molgenis) TODO.
+* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
+* [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
+* [Python](#python) TODO: Merge to molgenis master, show how to install.
+* [Menu manager](#menu-manager) find out if there are more query string possibilities for data explorer and / or other modules.
 
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
@@ -189,20 +197,18 @@ Next generation sequencing (NGS) data often results in mutation data. thousands 
 MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
 
 #### <a name="research-portal-example"></a> Research portals
-<!--TODO-->
-Research port.
+TODO
 
 #### <a name="compute-example"></a> Analysis pipelines and online computing
-<!--TODO-->
+TODO
 
 ### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
 There are several research groups already.
-<!--TODO-->
+TODO
 
 #### <a name="service-overview"></a> Service overview
 Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
 
-<!--TODO: Fill in more of our projects-->
 |Project name | Pubmed                                            | Project URL                                 |Project description          |
 |-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
 |ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
@@ -221,6 +227,7 @@ The fastest and easiest way to get MOLGENIS running on a machine, is using our c
 <!--
 TODO: Get this project to the molgenis repository, so I do not have to link to the Github of fleur
 -->
+
 [Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
 
 **Setting your molgenis-server.properties**   
