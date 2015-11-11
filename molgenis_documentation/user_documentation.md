@@ -36,7 +36,7 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 		* Themes
 
 * How to get your data into MOLGENIS
-	* Happy upload example
+	* Happy upload example (DONE)
 	* Flexible ‘Meta model’ concepts
 	* EMX reference
 	* CSV, XLS
@@ -113,7 +113,7 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 	
 		
 * [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
-	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
+	* [Upload data](#upload)
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
 		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
@@ -150,10 +150,6 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 		* [Setting permissions](#permissions)
 		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
-		
-* [MOLGENIS modules](#molgenis-modules)
-	*  [Upload](#upload)
-
 		
 * [End note](#end-note)
 
@@ -339,10 +335,121 @@ In this section you will learn about all the different modules MOLGENIS has to o
 
 <!--TODO--> complete list of EMX options and parameters available to you!
 
-### <a name="importing-advanced"></a> Becoming an expert MOLGENIS data importer
-<!--
-TODO: Put Jonathan his text here
---> TODO JJ
+### <a name="upload"></a> Data upload
+The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. When you have the permissions, you will see the upload menu item.
+
+![Upload menu item](images/upload/upload-menu-item.png?raw=true, "upload menu item")
+
+#### <a name="upload-possibilities"></a>Upload possibilities
+The MOLGENIS upload module supports the following file formats and data:
+	
+|file format		|file extention             |data formats|
+||
+|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
+|Excel            	|".xls" ".xlsx"             |EMX|
+|OWL              	|".owl.zip"                 |OWL|
+|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
+
+##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
+
+* CSV: Comma Seperated Value
+* OWL: Web Ontology Language
+* VCF: Variant Call Format
+* EMX: Entity Model Extensible
+
+#### <a name="upload-screens"></a>Upload pages
+The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)) example data set.
+
+The pages are: 
+
+1. Upload file
+2. Options
+3. Packages
+4. Validation
+5. Result
+
+Navigation buttons at the bottom of the pages:
+
+* Previous: Go to the previous page.
+* Next: Go to the next page.
+* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
+* Finish: The same as Restart.
+
+
+##### <a name="upload-screens-upload-file"></a>Upload file page
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Select a file to upload.
+2. Click on the next button.
+
+![Upload file screen](images/upload/upload-file-screen.png?raw=true, "Upload file")
+
+##### <a name="upload-screens-options"></a>Options page
+Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+It is important to understand that this selection is about the data and not the meta data of the data set.
+
+###### <a name="upload-screens-options-options"></a>Options
+
+1. Add entities: Importer adds new entities or fails if entity exists.
+2. Add entities / update existing: Importer adds new entities or updates existing entities.
+3. Update entities: Importer updates existing entities or fails if entity does not exist.
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/options-screen.png?raw=true, "Options")
+
+##### <a name="upload-screens-packages"></a>Packages page
+Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
+
+###### <a name="upload-screens-packages-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/packages-screen.png?raw=true, "Packages")
+
+##### <a name="upload-screens-validation"></a>Validation page
+When you see this page the validation is already done. This page validates the structure of the meta data.
+
+"Entities" table where all the entities (tables) are defined.
+
+* Name: Name of entity
+* Importable: Is this entity inportable or not. Two options (Yes, No) 
+
+"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
+
+* Name: Name of entity
+* Detected: A comma separated list of fields that were found for this entity
+* Required: Are there required fields defined in the meta data that are missing in the entity?
+* Available: Are there fields in the meta data that are optionel and were not found in the entity?
+* Unknown: Are there fields defined in the entity that were undefined in the meta data?
+
+###### <a name="upload-screens-validation-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/validation-screen.png?raw=true, "Validation")
+
+##### <a name="upload-screens-result"></a>Result page
+
+When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
+
+After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
+
+In the permissions view you can:
+
+1. Select a group: which user group will get these permissions.
+2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
+
+###### <a name="upload-screens-result-steps"></a>Steps
+
+1. [Optional] Select the view permission for the root_hospital_cities entity.
+2. [Optional] Click on the save button.
+3. Click on the finish button.
+
+![Upload file screen](images/upload/result-screen.png?raw=true, "Result")
 
 ### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
 MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
@@ -1005,119 +1112,7 @@ To get the feel of how certain styles look, you can select it in the dropdown me
 For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
 
 ## <a name="molgenis-modules"></a>MOLGENIS modules
-### <a name="upload"></a>Upload
-The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application.
 
-#### <a name="upload-possibilities"></a>Upload possibilities
-The MOLGENIS upload module supports the following file formats and data:
-	
-|file format		|file extention             |data formats|
-||
-|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
-|Excel            	|".xls" ".xlsx"             |EMX|
-|OWL              	|".owl.zip"                 |OWL|
-|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
-
-##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
-
-* CSV: Comma Seperated Value
-* OWL: Web Ontology Language
-* VCF: Variant Call Format
-* EMX: Entity Model Extensible
-
-#### <a name="upload-screens"></a>Upload pages
-The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)) example data set.
-
-The pages are: 
-
-1. Upload file
-2. Options
-3. Packages
-4. Validation
-5. Result
-
-Navigation buttons at the bottom of the pages:
-
-* Previous: Go to the previous page.
-* Next: Go to the next page.
-* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
-* Finish: The same as Restart.
-
-
-##### <a name="upload-screens-upload-file"></a>Upload file page
-
-###### <a name="upload-screens-options-steps"></a>Steps
-
-1. Select a file to upload.
-2. Click on the next button.
-
-![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
-
-##### <a name="upload-screens-options"></a>Options page
-Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
-It is important to understand that this selection is about the data and not the meta data of the data set.
-
-###### <a name="upload-screens-options-options"></a>Options
-
-1. Add entities: Importer adds new entities or fails if entity exists.
-2. Add entities / update existing: Importer adds new entities or updates existing entities.
-3. Update entities: Importer updates existing entities or fails if entity does not exist.
-
-###### <a name="upload-screens-options-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
-
-##### <a name="upload-screens-packages"></a>Packages page
-Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
-
-###### <a name="upload-screens-packages-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
-
-##### <a name="upload-screens-validation"></a>Validation page
-When you see this page the validation is already done. This page validates the structure of the meta data.
-
-"Entities" table where all the entities (tables) are defined.
-
-* Name: Name of entity
-* Importable: Is this entity inportable or not. Two options (Yes, No) 
-
-"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
-
-* Name: Name of entity
-* Detected: A comma separated list of fields that were found for this entity
-* Required: Are there required fields defined in the meta data that are missing in the entity?
-* Available: Are there fields in the meta data that are optionel and were not found in the entity?
-* Unknown: Are there fields defined in the entity that were undefined in the meta data?
-
-###### <a name="upload-screens-validation-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
-
-##### <a name="upload-screens-result"></a>Result page
-
-When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
-
-After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
-
-In the permissions view you can:
-
-1. Select a group: which user group will get these permissions.
-2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
-
-###### <a name="upload-screens-result-steps"></a>Steps
-
-1. [Optional] Select the view permission for the root_hospital_cities entity.
-2. [Optional] Click on the save button.
-3. Click on the finish button.
-
-![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
 
 ##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
 The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
@@ -1170,5 +1165,6 @@ Steps:
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
 
-If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>. TODO
+<!-- TODO to add in the future
+If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>. -->
 
