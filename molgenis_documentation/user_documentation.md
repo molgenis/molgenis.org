@@ -90,6 +90,9 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 * [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
 * M3891 new story, Entity and Entity are not the same
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
+* [Trying out MOLGENIS](#trying-out-molgenis) We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
+Need to think this through a bit more, but for now this section contains a more technical installation guide.
+
 
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
@@ -105,20 +108,19 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 		* [Research portals](#research-portal-example)
 		* [Pipeline computing](#compute-example)
 	* [Who is using MOLGENIS](#who-uses-molgenis)
-		* [Service overview](#service-overview) 
-	* [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
+		* [Service overview](#service-overview)
 		
 * [Trying out MOLGENIS](#trying-out-molgenis)
 	* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo)
 	* [Installing MOLGENIS using apache-tomcat](#installing-molgenis-apache-tomcat)
-	* [Getting your first data into MOLGENIS](#)
+	* [Getting your first data into MOLGENIS](#first-data-upload)
 		* [Creating an EMX file](#creating-emx-file)
 		* [Importing your EMX file into MOLGENIS](#importing-simple)
 	
 		
 * [MOLGENIS step-by-step](#molgenis-step-by-step)
 	* [Terminology of MOLGENIS](#terminology)
-	* [Upload data](#upload)
+	* [Upload data](#upload)	
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
 		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
@@ -206,15 +208,11 @@ Several research groups and organisations are already using MOLGENIS for their p
 |COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
 
 
+
+
 ## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
 The first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
-But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that. 
-
-<!--
-TODO: We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
-
-Need to think this through a bit more, but for now this section contains a more technical installation guide.
--->
+But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that.
 ### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
 The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
 
@@ -338,7 +336,7 @@ Congratulations! You have now deployed MOLGENIS either locally or on a server, a
 Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following [section](#from-user-to-expert), we will take you from being a simple user, and teach you on how to be an expert.
 
 
-## <a name="from-user-to-expert"></a> From user to expert, MOLGENIS step-by-step
+## <a name="molgenis-step-by-step"></a> MOLGENIS step-by-step
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
 <!--TODO--> complete list of EMX options and parameters available to you!
@@ -471,7 +469,7 @@ In the permissions view you can:
 
 ![Upload file screen](images/upload/result-screen.png?raw=true, "Result")
 
-### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
+### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules
 MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
 
 #### <a name="model-registry"></a> The model registry
@@ -980,7 +978,7 @@ For instance, if you have an entity with a SNP_ID attribute, it's as easy as add
 
 This will allow you to generate one or more plots for entities you select in the Data Explorer. See the documentation for Entity Report.
 
-### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration (Hairball)
+### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration
 Once you have a server running and data loaded, you are probably eager to share your data with the world. However, you might want to only show your data to a select few, or you are not happy with the basic style MOLGENIS offers you. And of course you want people to land on a nice homepage when they navigate to your newly created web-based database. 
 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
