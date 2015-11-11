@@ -86,6 +86,9 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 	* Can we simplify/modularize data api further?
 	* Some questions on our dependencies	
 
+### TODO
+* [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
+* [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
 
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
@@ -112,7 +115,8 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 		* [Importing your EMX file into MOLGENIS](#importing-simple)
 	
 		
-* [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
+* [MOLGENIS step-by-step](#molgenis-step-by-step)
+	* [Terminology of MOLGENIS](#terminology)
 	* [Upload data](#upload)
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
 		* [Model registry](#model-registry)
@@ -337,6 +341,18 @@ Of course, simply uploading and showing data is not the only thing you can do wi
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
 <!--TODO--> complete list of EMX options and parameters available to you!
+
+### <a name="terminology"></a> Terminology of Molgenis
+In this section we introduce and explian the terminolegy of MOLGENIS
+
+| Term     |Explanation| Example| Comments
+||
+| Package| A namespace item. Multiple packages can create a namspace where entities can live in || The default namespace in molgenis is called "default"|
+| Data set | A collections of entities that are contextual related| An file can contain multiple entities  | |
+| Entity | An entity is the template and collection of a subject | Like a table in a database| |
+| Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complicity and double use of the same term|
+| Attribute| An attribute describes the charcteristics of a data item in a entity |Like a column in a database||
+<!-- TODO ### <a name="terminology_todo"></a> add more terms in to this table-->
 
 ### <a name="upload"></a> Data upload
 The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. When you have the permissions, you will see the upload menu item.
@@ -1167,7 +1183,4 @@ Steps:
 
 ## <a name="end-note"></a> End note
 If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
-
-<!-- TODO to add in the future
-If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>. -->
 
