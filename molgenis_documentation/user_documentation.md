@@ -94,6 +94,9 @@ This document aims to compile documentation on the current working of MOLGENIS, 
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
 
 
+TODO : Dataexplorer and reports.
+
+
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
@@ -122,6 +125,7 @@ Need to think this through a bit more, but for now this section contains a more 
 	* [Terminology of MOLGENIS](#terminology)
 	* [Upload data](#upload)	
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
+		* [Data Explorer](#data-explorer)
 		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
  		* [REST API](#rest-api)
@@ -351,7 +355,6 @@ In this section we introduce and explian the terminolegy of MOLGENIS
 | Entity | An entity is the template and collection of a subject | Like a table in a database| |
 | Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complicity and double use of the same term|
 | Attribute| An attribute describes the charcteristics of a data item in a entity |Like a column in a database||
-<!-- TODO ### <a name="terminology_todo"></a> add more terms in to this table-->
 
 ### <a name="upload"></a> Data upload
 The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. When you have the permissions, you will see the upload menu item.
@@ -471,6 +474,167 @@ In the permissions view you can:
 
 ### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules
 MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
+
+#### <a name="data-explorer"></a> Data Explorer
+
+One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the plugin to use if you wish to take a closer look at the data.
+
+Note that some of the compoments described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
+
+##### Description of the different components on the screen:
+On the top of the data explorer the name of the currently selected entity is shown as well as the description.
+
+At the right side at the top a dropdown is shown which can be used to select the entity you wish to display.
+For admins a delete button is shown at the right side of the entity select, clicking it will allow you to choose if you which to delete only the data or also the metadata for the currently selected entity.
+  
+![Dataexplorer entity select](images/dataexplorer/entitySelect.png?raw=true, "dataexplorer/entitySelect")
+
+In the upper left corner of the data explorer is a search box, this search box can be used to search all your data for a certain search term.
+  
+![Dataexplorer search](images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
+
+Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
+Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. This filter icon can be used to set filters for this specific attribute.
+  
+![Dataexplorer active filters](images/dataexplorer/active_filters.png?raw=true, "dataexplorer/active_filters")
+
+In the area with the active filters you will also find the button to open the filter wizard, this is a popup screen that allows you to add filters for different attributes in one go.
+
+![Dataexplorer filter wizard](images/dataexplorer/filterwizard.png?raw=true, "dataexplorer/filterwizard")
+
+##### mods
+    
+![Dataexplorer tabs](images/dataexplorer/dataexplorer_tabs.png?raw=true, "dataexplorer/dataexplorer_tabs")
+
+The data explorer consists of multiple modules to view or process the data in different ways. These modules are described below:
+
+##### Data mod
+The data mod shows the data in a table, the table can be sorted by clicking on the headers.
+If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
+
+Every line starts, depening on your permissions with some action icons:
+  
+![Dataexplorer action buttons](images/dataexplorer/action_buttons.png?raw=true, "dataexplorer/action_buttons")
+
+- Add row:
+Using this button will open a popup with inputs for all the attributes in the entity, allowing you to create a new entity.
+All fields will be validated based on their datatype, for example "test" is not a valid email adress.
+- Edit row:
+Same as the add row button, but with prefilled inputs to allow you to edit an entity.
+- Inspect row:
+This button will open a popup with a custom made report for this row. Different reports can be created at runtime by a admin.
+- Delete row:
+This button can be used to remove a row from the entity.
+
+  
+![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
+
+At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Depending on the purpose of the download, id's or labels can be used as column headers.
+Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "Galaxy") server.
+
+
+###### genome browser
+  
+![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
+
+When a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the [Dalliance](http://www.biodalliance.org "Dalliance") genome browser.
+Clicking on a row in the data table will make the genome browser zoom to the coordinates of that row.
+A button ('apply filters') is available at the bottom of the genome browser to filter the data table based on the coordinates currently in shown in the genome browser.
+
+
+###### Try it out
+###### Data exploration
+upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
+Lets select a entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
+Let's assume we have a specific location we are interested in, say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
+Let's first use the search box to see if we can find the line that way:
+enter "103214569" in the search box and press enter.
+
+But now we like to take a look at all variation on chromosome 7, as you can imagine searching for "7" in all the attributes in the data will give us a lot of results we are not looking for. So we'd like to filter for this value specifically for the chromosome attribute.
+
+Click the filter icon in front of "#CHROM" in te attribute selection tree and enter "8" in the input field than click "apply"
+However we meant to search for chromosome 7, so lets click the filter in the active filters box, and change the value to 7.
+We now have all the values for chromosome 7 in the table, however the results are divided over several pages of results, we'd like to view them all in one screen; click the "rows per page" dropdown below the table and select "100" this will show 100 results per page.
+The "FILTER" column shows the same value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
+
+Click any header in the table to sort the data based on that column, click again to sort in the other direction.
+Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
+Click the symbol in front of the "SAMPLES" column header to show the columns belonging to the samples.
+
+Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However as stated above all kinds of reports can be added at runtime by an admin.
+
+###### Data manipulation
+
+Click the edit icon and change the chromosome from 7 to 8 and save.
+Adding a row works the same way, only without the prefilled fields.
+Now lets click the red garbage bin icon in front of a line to delete this line from the entity.
+
+##### Annotation mod
+
+The anotator mod of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
+The annotator framework is a system to add data from other resources to your genomic entities. For example pathogenicity prediction, allele frequencies and phenotype information.
+
+![Dataexplorer annotators](images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
+
+The screen shows a list of available annotators that can be used. Clicking the title of the annotator will result in a popup with additional information such as a general description and a listing of the attributes that will be added by this annotator.
+Using the checkboxes multiple annotaotrs can be selected for one run, which is starten by clicking the "annotate" button. If preferred a copy of the dataset can be created with the annotations added to this copy, leaving the original entity as it is.
+Annotated fields will be added to the entity in a compound attribute.
+
+On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
+The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
+
+##### Aggregation mod
+
+The aggregation mod allows you to produce counts for queries on the data.
+
+The screen has 2 area's, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
+
+![Dataexplorer aggregates](images/dataexplorer/aggregate_controls.png?raw=true, "dataexplorer/aggregates")
+
+You can select 1 attribute for simple one dimensional counts, represented as a table with one column, or two attributes to get a 2 dimensional aggregate table.
+A third dropdown allows you to select a attribute by which to group the results.
+
+![Dataexplorer aggregate results](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/aggregateresults")
+
+These functionalities are best explained by the example in the "try it out section below".
+
+###### try it out
+Upload [emx_example_file](/data/Documentation_EMX.xlsx "EMX example file") through the importer.
+Navigate to the data explorer and select the aggregates tab. Select the just uploaded "biobanks" entity.
+
+Now select "patientid" in the entity dropdown.
+You now get an 1 dimensional list of counts, showing you that every patient has 3 entries in the selected entity
+
+Now select "biobank" in the first aggregate dropdown and in the second select "sampletype"
+You now get a table representing the amount of samples in both biobanks per type.
+
+finally select "patientid" in the third dropdown, the distinct attribute. 
+The table will update to show you to show you how many patients with at least one sample of a specific type are available in a biobank.
+
+##### Charts mod
+For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
+
+MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
+![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
+
+###### scatter plot [Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot "Scatter plot")
+![Dataexplorer charts create scatterplot](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/scatterplot")
+
+For the scatterplot 2 attributes are selected to make the plot, optionally a third attribute can be selected to split the dots in groups using different shapes and colours per group. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts scatterplot](images/dataexplorer/scatter plot.png?raw=true, "dataexplorer/scatterplot")
+
+###### box plot [Box_plot](https://en.wikipedia.org/wiki/Box_plot "Box plot")
+
+![Dataexplorer aggregate create boxplot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
+
+For the boxplot 1 attribute (feature) is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts boxplot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
+
+
+
+
 
 #### <a name="model-registry"></a> The model registry
 The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modeled. This is usefull for detecting errors in your model, or if you want to base your own model on something that already exists.
@@ -747,7 +911,7 @@ Let's retrieve the samples for this SNP:
 ```	
 ```
 	pythn [{u'Ref_Counts': u'130', u'href': u'/api/v1/SampleAse/1418785', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418785/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418785/SNP_ID'}, u'Alt_Counts': u'121', u'ID': u'1418785', u'Chromosome': u'19'}, {u'Ref_Counts': u'4142', u'href': u'/api/v1/SampleAse/1418786', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418786/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418786/SNP_ID'}, u'Alt_Counts': u'4791', u'ID': u'1418786', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418787', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418787/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418787/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418787', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418788', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418788/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418788/SNP_ID'}, u'Alt_Counts': u'23', u'ID': u'1418788', u'Chromosome': u'19'}, {u'Ref_Counts': u'32', u'href': u'/api/v1/SampleAse/1418789', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418789/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418789/SNP_ID'}, u'Alt_Counts': u'11', u'ID': u'1418789', u'Chromosome': u'19'}, {u'Ref_Counts': u'639', u'href': u'/api/v1/SampleAse/1418790', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418790/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418790/SNP_ID'}, u'Alt_Counts': u'572', u'ID': u'1418790', u'Chromosome': u'19'}, {u'Ref_Counts': u'202', u'href': u'/api/v1/SampleAse/1418791', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418791/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418791/SNP_ID'}, u'Alt_Counts': u'309', u'ID': u'1418791', u'Chromosome': u'19'}, {u'Ref_Counts': u'423', u'href': u'/api/v1/SampleAse/1418792', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418792/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418792/SNP_ID'}, u'Alt_Counts': u'401', u'ID': u'1418792', u'Chromosome': u'19'}, {u'Ref_Counts': u'271', u'href': u'/api/v1/SampleAse/1418793', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418793/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418793/SNP_ID'}, u'Alt_Counts': u'234', u'ID': u'1418793', u'Chromosome': u'19'}, {u'Ref_Counts': u'806', u'href': u'/api/v1/SampleAse/1418794', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418794/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418794/SNP_ID'}, u'Alt_Counts': u'1081', u'ID': u'1418794', u'Chromosome': u'19'}, {u'Ref_Counts': u'213', u'href': u'/api/v1/SampleAse/1418795', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418795/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418795/SNP_ID'}, u'Alt_Counts': u'201', u'ID': u'1418795', u'Chromosome': u'19'}, {u'Ref_Counts': u'74', u'href': u'/api/v1/SampleAse/1418796', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418796/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418796/SNP_ID'}, u'Alt_Counts': u'96', u'ID': u'1418796', u'Chromosome': u'19'}, {u'Ref_Counts': u'730', u'href': u'/api/v1/SampleAse/1418797', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418797/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418797/SNP_ID'}, u'Alt_Counts': u'655', u'ID': u'1418797', u'Chromosome': u'19'}, {u'Ref_Counts': u'584', u'href': u'/api/v1/SampleAse/1418798', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418798/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418798/SNP_ID'}, u'Alt_Counts': u'699', u'ID': u'1418798', u'Chromosome': u'19'}, {u'Ref_Counts': u'331', u'href': u'/api/v1/SampleAse/1418799', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418799/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418799/SNP_ID'}, u'Alt_Counts': u'391', u'ID': u'1418799', u'Chromosome': u'19'}, {u'Ref_Counts': u'13', u'href': u'/api/v1/SampleAse/1418800', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418800/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418800/SNP_ID'}, u'Alt_Counts': u'14', u'ID': u'1418800', u'Chromosome': u'19'}, {u'Ref_Counts': u'70', u'href': u'/api/v1/SampleAse/1418801', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418801/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418801/SNP_ID'}, u'Alt_Counts': u'101', u'ID': u'1418801', u'Chromosome': u'19'}, {u'Ref_Counts': u'47', u'href': u'/api/v1/SampleAse/1418802', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418802/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418802/SNP_ID'}, u'Alt_Counts': u'35', u'ID': u'1418802', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418803', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418803/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418803/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418803', u'Chromosome': u'19'}, {u'Ref_Counts': u'44', u'href': u'/api/v1/SampleAse/1418804', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418804/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418804/SNP_ID'}, u'Alt_Counts': u'47', u'ID': u'1418804', u'Chromosome': u'19'}, {u'Ref_Counts': u'60', u'href': u'/api/v1/SampleAse/1418805', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418805/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418805/SNP_ID'}, u'Alt_Counts': u'55', u'ID': u'1418805', u'Chromosome': u'19'
-```}]
+}]```
 
 There they are.
 
