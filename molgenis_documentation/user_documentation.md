@@ -1,18 +1,14 @@
 <!-- 
-# TODO Suggesties voor verbeteringen, voor in de volgende versie van de documentatie.
+# TODO Suggestions for improvements for the next version of the documentation.
 * [Research portals](#research-portal-example) write this section. 
 * [Who is using MOLGENIS](#who-uses-molgenis) Fill in more of our projects in the table
 * [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
 * Add: Questionnaire; catalogue; mapping service; pathways; Account
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
 * [Analysis pipelines and online computing](#compute-example) TODO.
-
-
 -->
 * [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
 * [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
-* [Menu manager](#menu-manager) find out if there are more query string possibilities for data explorer and / or other modules.
-
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
