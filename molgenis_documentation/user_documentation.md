@@ -1,22 +1,17 @@
 <!-- 
 # TODO Suggesties voor verbeteringen, voor in de volgende versie van de documentatie.
 * [Research portals](#research-portal-example) write this section. 
-* [Service overview](#service-overview) Fill in more of our projects in the table
+* [Who is using MOLGENIS](#who-uses-molgenis) Fill in more of our projects in the table
 * [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
 * Add: Questionnaire; catalogue; mapping service; pathways; Account
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
+* [Analysis pipelines and online computing](#compute-example) TODO.
 
 
 -->
-* [Trying out MOLGENIS](#trying-out-molgenis) We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
-Need to think this through a bit more, but for now this section contains a more technical installation guide.
-* [Service overview](#service-overview) Fill in more of our projects in the table
-* [Analysis pipelines and online computing](#compute-example) TODO.
-* [Who is using MOLGENIS?](#who-uses-molgenis) TODO.
 * [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
 * [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
 * [Python](#python) TODO: Merge to molgenis master, show how to install.
-
 * [Menu manager](#menu-manager) find out if there are more query string possibilities for data explorer and / or other modules.
 
 
@@ -27,13 +22,12 @@ Need to think this through a bit more, but for now this section contains a more 
 * [Introduction](#introduction)
 	* [What is MOLGENIS](#what-is-molgenis)
 	* [Why MOLGENIS](#why-molgenis)
+	* [Who is using MOLGENIS](#who-uses-molgenis)
 	* [Should I use MOLGENIS](#should-i-use-molgenis)
 		* [Biobanks](#biobank-example)
-		* [NGS](#ngs-example)
+		* [NGS](#ngs-example)		
 <!-- TODO		* [Research portals](#research-portal-example) -->
-		* [Pipeline computing](#compute-example)
-	* [Who is using MOLGENIS](#who-uses-molgenis)
-		* [Service overview](#service-overview)
+<!-- TODO		* [Pipeline computing](#compute-example) -->
 		
 * [Trying out MOLGENIS](#trying-out-molgenis)
 	* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo)
@@ -102,6 +96,14 @@ Why should you use MOLGENIS? One of the key features is that it uses an extensib
 
 MOLGENIS takes away the hassle of storing data, and makes it highly accessible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
 
+### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
+Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
+
+|Project name | Pubmed                                            | Project URL                                 |Project description          |
+|-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
+|ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
+|COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
+
 ### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
 If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
@@ -114,28 +116,12 @@ Next generation sequencing (NGS) data often results in mutation data. thousands 
 MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
 
 <!-- TODO #### <a name="research-portal-example"></a> Research portals -->
-
-#### <a name="compute-example"></a> Analysis pipelines and online computing
-TODO
-
-### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
-There are several research groups already.
-TODO
-
-#### <a name="service-overview"></a> Service overview
-Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
-
-|Project name | Pubmed                                            | Project URL                                 |Project description          |
-|-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
-|ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
-|COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
-
-
-
+<!-- TODO #### <a name="compute-example"></a> Analysis pipelines and online computing -->
 
 ## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
-The first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
+The first thing you can do is to get some hands-on experience by trying out our [demo server](http://molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
 But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that.
+
 ### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
 The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
 
