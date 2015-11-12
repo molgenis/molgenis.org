@@ -146,17 +146,6 @@ TODO: Get this project to the molgenis repository, so I do not have to link to t
 
 [Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
 
-**Setting your molgenis-server.properties**   
-MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
-
-	db_user=molgenis	
-	db_password=molgenis  
-	db_uri=jdbc:mysql://localhost/omx  
-	admin.password=admin  
-	user.password=admin
-
-Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
-
 **Setting up your MySQL**  
 If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
 	
