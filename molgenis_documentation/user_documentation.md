@@ -1,14 +1,15 @@
 <!-- 
 # TODO Suggestions for improvements for the next version of the documentation.
+
 * [Research portals](#research-portal-example) write this section. 
 * [Who is using MOLGENIS](#who-uses-molgenis) Fill in more of our projects in the table
-* [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
 * Add: Questionnaire; catalogue; mapping service; pathways; Account
-* [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
-* [Analysis pipelines and online computing](#compute-example) TODO.
--->
+by us, contact <name_here> <insert_email_here>"
+* [Analysis pipelines and online computing](#compute-example) TOD
 * [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
-* [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
+* “Creating an EMX file” we need to create a file that can be used as a template when starting to use emx. This template will contain all columns and one or two rows of example.
+* [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted 
+-->
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
@@ -184,8 +185,9 @@ So you have a MOLGENIS application up and running, and your dataset is sitting n
 We wanted researchers to be able to describe their data in a flexible 'meta model'. This sounds really interesting, but what it boils down to, is that you have one separate xlsx sheet that describes your column names, or attributes as we call them. Thats it. Thats all the EMX format is. Keep reading to find a detailed example.
 
 #### <a name="creating-emx-file"></a> Creating an EMX file
-<!--“Creating an EMX file” we need to create a file that can be used as a template when starting to use emx. This template will contain all columns and one or two rows of example.-->
+For the full reference of the EMX upload format please visit this MOLGEIS wiki page: ["EMX upload format"](https://github.com/molgenis/molgenis/wiki/EMX-upload-format).
 If you want to skip this theory lesson and download an excel file right away to use as a template, you can find several of them [on Github](https://github.com/molgenis/molgenis/tree/master/molgenis-app/src/test/resources). Be advised that these are files for testing purposes, and do not have real data in them, so they might not fully represent the complexity of your own data.
+
 Now for the example. Say that you have an existing excel sheet with a couple of thousand rows of data and several columns. This data can look something like this:
 
 **Data sheet**:
@@ -213,8 +215,6 @@ This little bit is all you need. You specify the *name*, which is the name you g
 
 This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query-able.
 
-In the [Becoming an expert MOLGENIS data importer](#importing-advanced) section, you can find the complete list of EMX options and parameters available to you.
-
 #### <a name="importing-simple"></a> Importing your EMX file into MOLGENIS
 So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
 
@@ -223,24 +223,21 @@ Go to the Upload menu. You now should see something like this:
 
 ![Importer first screen](images/importer_first_screen.png?raw=true, "importer")
 
-To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those [later in this document](#importing-advanced). After your import is done, you can view your data in the data explorer. Go there by clicking the 'Data Explorer' link in the menu.
+To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those [upload section](#upload). After your import is done, you can view your data in the data explorer. Go there by clicking the 'Data Explorer' link in the menu.
 
 Congratulations! You have now deployed MOLGENIS either locally or on a server, and you have made the first steps on getting your data into the MOLGENIS database. Play around a bit with the different data explorer filters to get a feel on how MOLGENIS works.
 
-Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following [section](#from-user-to-expert), we will take you from being a simple user, and teach you on how to be an expert.
-
+Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following MOLGENIS step-by-step section, we will take you from being a simple user, and teach you on how to be an expert.
 
 ## <a name="molgenis-step-by-step"></a> MOLGENIS step-by-step
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
-<!--TODO--> complete list of EMX options and parameters available to you!
-
 ### <a name="terminology"></a> Terminology of Molgenis
 In this section we introduce and explian the terminolegy of MOLGENIS
 
-| Term     |Explanation| Example| Comments
-||
-| Package| A namespace item. Multiple packages can create a namspace where entities can live in || The default namespace in molgenis is called "default"|
+| Term     |Explanation       |Example |Comments|
+|----------|------------------|--------|--------|
+| Package  | A namespace item. Multiple packages can create a namspace where entities can live in || The default namespace in molgenis is called "default"|
 | Data set | A collections of entities that are contextual related| An file can contain multiple entities  | |
 | Entity | An entity is the template and collection of a subject | Like a table in a database| |
 | Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complicity and double use of the same term|
