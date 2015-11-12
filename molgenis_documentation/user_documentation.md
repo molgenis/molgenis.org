@@ -772,7 +772,7 @@ local({
 You can manage your data using the other `molgenis.*` methods. See [the technical reference documentation](https://github.com/molgenis/molgenis/wiki/R-project-API-v1).
 
 #### <a name="python"></a> Python
-The Python API is currently in development. But scriptinng in Python is possible via the Scripts plugin.
+The Python API is currently in development. Scripting in Python is possible via the Scripts plugin.
 
 ##### <a name="example-rest-python"></a> Plotting Allele-Specific Expression data from MOLGENIS in Python
 As an example, let's create a plot for publicly available ASE data available on https://molgenis56.target.rug.nl/. For a description of the data, take a look at [http://molgenis.org/ase](http://molgenis.org/ase).
