@@ -1,17 +1,22 @@
-### TODO
+<!-- 
+# TODO Suggesties voor verbeteringen, voor in de volgende versie van de documentatie.
+* [Research portals](#research-portal-example) write this section. 
+* [Service overview](#service-overview) Fill in more of our projects in the table
 * [Terminology of MOLGENIS](#terminology) Add more terms in to terminology table
-* M3891 new story, Entity and Entity are not the same
+* Add: Questionnaire; catalogue; mapping service; pathways; Account
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>"
+
+
+-->
 * [Trying out MOLGENIS](#trying-out-molgenis) We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
 Need to think this through a bit more, but for now this section contains a more technical installation guide.
-* Add: Questionnaire; catalogue; mapping service; pathways; Account
 * [Service overview](#service-overview) Fill in more of our projects in the table
-* [Research portals](#research-portal-example) TODO Research port.
 * [Analysis pipelines and online computing](#compute-example) TODO.
 * [Who is using MOLGENIS?](#who-uses-molgenis) TODO.
 * [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
 * [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
 * [Python](#python) TODO: Merge to molgenis master, show how to install.
+
 * [Menu manager](#menu-manager) find out if there are more query string possibilities for data explorer and / or other modules.
 
 
@@ -25,7 +30,7 @@ Need to think this through a bit more, but for now this section contains a more 
 	* [Should I use MOLGENIS](#should-i-use-molgenis)
 		* [Biobanks](#biobank-example)
 		* [NGS](#ngs-example)
-		* [Research portals](#research-portal-example)
+<!-- TODO		* [Research portals](#research-portal-example) -->
 		* [Pipeline computing](#compute-example)
 	* [Who is using MOLGENIS](#who-uses-molgenis)
 		* [Service overview](#service-overview)
@@ -108,8 +113,7 @@ MOLGENIS has been used to host biobank data for several major Dutch and European
 Next generation sequencing (NGS) data often results in mutation data. thousands of single SNPs...
 MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
 
-#### <a name="research-portal-example"></a> Research portals
-TODO
+<!-- TODO #### <a name="research-portal-example"></a> Research portals -->
 
 #### <a name="compute-example"></a> Analysis pipelines and online computing
 TODO
