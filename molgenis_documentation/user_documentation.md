@@ -1183,12 +1183,13 @@ Edit the existing data explorer item by pressing the pencil, and add the the fol
 
 Save and when you now press the *Data explorer* in your menu then you will be taken to the dataexplorer with the example_data_table data set selected.
 
-A complete list of all the Query strings available per module:
+A complete list of all the Query strings available at the Data Explorer:
 
-* Data Explorer
-	* *entity=*: Using this Query string you can open the data explorer with the specified entity selected. If we have a 	  data set called 'test_data', then you can set the url to *entity=test_data*.
-	* *hideselect=*: Using this Query string you can hide the drop down for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
-* Are there more? <!--TODO: find out if there are more query string possibilities for data explorer and / or other modules-->
+|Query string|Options|Use|Example|
+|
+| ***entity*** | All existing entities |Using this query string you can open the data explorer with the specified entity selected. |entity=test_data|
+| ***hideselect*** | true, false|Hide the drop down for selecting data sets. Use this if you want users to focus on only one data set. Combined with the ***entity*** query string, you can create a Data Explorer that only shows one 	data set to users.|entity=test_data&hideselect=true|
+| ***mod***|data, aggregates, charts, annotators|Select a Data Explorer tab to show|entity=test_data&hideselect=true&mod=data|
 
 **Creating redirects to URLs outside MOLGENIS**  
 Using the redirect plugin as a menu item, you are able to create a link to an outside source. To show how this works, we will create a menu item that links to wikipedia.
