@@ -11,7 +11,6 @@
 -->
 * [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
 * [MOLGENIS step-by-step](#molgenis-step-by-step) complete list of EMX options and parameters available to you!
-* [Python](#python) TODO: Merge to molgenis master, show how to install.
 * [Menu manager](#menu-manager) find out if there are more query string possibilities for data explorer and / or other modules.
 
 
@@ -780,7 +779,7 @@ local({
 You can manage your data using the other `molgenis.*` methods. See [the technical reference documentation](https://github.com/molgenis/molgenis/wiki/R-project-API-v1).
 
 #### <a name="python"></a> Python
-TODO: Merge to molgenis master, show how to install.
+The Python API is currently in development. But scriptinng in Python is possible via the Scripts plugin.
 
 ##### <a name="example-rest-python"></a> Plotting Allele-Specific Expression data from MOLGENIS in Python
 As an example, let's create a plot for publicly available ASE data available on https://molgenis56.target.rug.nl/. For a description of the data, take a look at [http://molgenis.org/ase](http://molgenis.org/ase).
