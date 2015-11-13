@@ -5,8 +5,7 @@
 * [Who is using MOLGENIS](#who-uses-molgenis) Fill in more of our projects in the table
 * Add: Questionnaire; catalogue; mapping service; pathways; Account
 by us, contact <name_here> <insert_email_here>"
-* [Analysis pipelines and online computing](#compute-example) TOD
-* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo) Download the cargo project TODO.
+* [Analysis pipelines and online computing](#compute-example) TODO
 * “Creating an EMX file” we need to create a file that can be used as a template when starting to use emx. This template will contain all columns and one or two rows of example.
 * [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted 
 -->
@@ -122,11 +121,8 @@ But perhaps you want to see how your own data looks like, but not upload it for 
 The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
 
 **Download the cargo project**
-<!--
-TODO: Get this project to the molgenis repository, so I do not have to link to the Github of fleur
--->
 
-[Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
+[Download](https://github.com/molgenis/molgenis-cargo) the entire project from GitHub.
 
 **Setting up your MySQL**  
 If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
