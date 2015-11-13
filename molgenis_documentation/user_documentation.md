@@ -237,7 +237,7 @@ In this section we introduce and explain, terminology of MOLGENIS
 | Data set | A collections of entities that are contextually related| An file can contain multiple entities  | |
 | Entity | An entity is the template and collection of a subject | Like a table in a database| |
 | Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complexity and double use of the same term|
-| Attribute| An attribute describes the charcteristics of a data item in a entity |Like a column in a database||
+| Attribute| An attribute describes the charcteristics of a data item in an entity |Like a column in a database||
 
 ### <a name="upload"></a> Data upload
 The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. When you have the permissions, you will see the upload menu item.
@@ -322,7 +322,7 @@ When you see this page the validation is already done. This page validates the s
 * Name: Name of entity
 * Importable: Is this entity inportable or not. Two options (Yes, No) 
 
-"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
+"Entity fields" table that will contain information about the fields of an entity (Columns of the table)
 
 * Name: Name of entity
 * Detected: A comma separated list of fields that were found for this entity
@@ -345,7 +345,7 @@ After the data is uploaded into MOLGENIS, you can change some permissions for th
 In the permissions view you can:
 
 1. Select a group: which user group will get these permissions.
-2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
+2. Select permission for an entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
 
 ###### <a name="upload-screens-result-steps"></a>Steps
 
@@ -428,7 +428,7 @@ A button ('apply filters') is available at the bottom of the genome browser to f
 ###### Try it out
 ###### Data exploration
 upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
-Lets select a entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
+Lets select an entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
 Let's assume we have a specific location we are interested in, say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
 Let's first use the search box to see if we can find the line that way:
 enter "103214569" in the search box and press enter.
