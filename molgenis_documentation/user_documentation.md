@@ -306,7 +306,7 @@ It is important to understand that this selection is about the data and not the 
 ![Upload file screen](images/upload/options-screen.png?raw=true, "Options")
 
 ##### <a name="upload-screens-packages"></a>Packages page
-Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
+Because the entity (table) persons has no package defined, we get the option to choose another package different from the MOLGENIS default package. The select options list the available packages in the data set.
 
 ###### <a name="upload-screens-packages-steps"></a>Steps
 
