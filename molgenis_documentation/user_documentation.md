@@ -338,7 +338,7 @@ When you see this page the validation is already done. This page validates the s
 
 ##### <a name="upload-screens-result"></a>Result page
 
-When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
+When this page is shown with the "import succes" message, then you know that your data and metadata have been uploaded correctly.
 
 After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
 
