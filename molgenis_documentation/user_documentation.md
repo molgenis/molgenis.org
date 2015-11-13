@@ -256,7 +256,7 @@ The MOLGENIS upload module supports the following file formats and data:
 
 ##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
 
-* CSV: Comma Seperated Value
+* CSV: Comma Separated Value
 * OWL: Web Ontology Language
 * VCF: Variant Call Format
 * EMX: Entity Model Extensible
@@ -276,7 +276,7 @@ Navigation buttons at the bottom of the pages:
 
 * Previous: Go to the previous page.
 * Next: Go to the next page.
-* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
+* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will restart the wizard. The upload job continues to upload the data set.
 * Finish: The same as Restart.
 
 
