@@ -395,24 +395,24 @@ The data explorer consists of multiple modules to view or process the data in di
 The data module shows the data in a table, the table can be sorted by clicking on the headers.
 If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
 
-Every line starts, depening on your permissions with some action icons:
+Every line starts, depending on your permissions with some action icons:
   
 ![Dataexplorer action buttons](images/dataexplorer/action_buttons.png?raw=true, "dataexplorer/action_buttons")
 
 - Add row:
-Using this button will open a popup with inputs for all the attributes in the entity, allowing you to create a new entity.
+Using this button will open a form with inputs for all the attributes in the entity, allowing you to create a new entity.
 All fields will be validated based on their datatype, for example "test" is not a valid email adress.
 - Edit row:
 Same as the add row button, but with prefilled inputs to allow you to edit an entity.
 - Inspect row:
-This button will open a popup with a custom made report for this row. Different reports can be created at runtime by a admin.
+This button will open a form with a custom made report for this row. Different reports can be created, when you have a permission to write to the FreemarkerTemplate entity.
 - Delete row:
 This button can be used to remove a row from the entity.
 
   
 ![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
 
-At the bottom of the table there is a download button, which will allow you to safe the data to a CSV of XLS file. Depending on the purpose of the download, id's or labels can be used as column headers.
+At the bottom of the table there is a download button, which will allow you to save the data to a CSV of XLS file. Depending on the purpose of the download, identifiers or labels can be used as column headers. Probably the data is safest inside molgenis!
 Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "Galaxy") server.
 
 
