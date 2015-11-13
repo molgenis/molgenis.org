@@ -440,11 +440,11 @@ However we meant to search for chromosome 7, so let's click the filter in the ac
 We now have all the values for chromosome 7 in the table, however the results are divided over several pages of results, we'd like to view them all in one screen; click the "rows per page" dropdown below the table and select "100" this will show 100 results per page.
 The "FILTER" column shows the same value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
 
-Click any header in the table to sort the data based on that column, click again to sort in the other direction.
+Click any column header in the table to sort the data based on that column, click again to sort in the opposite direction.
 Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
 Click the symbol in front of the "SAMPLES" column header to show the columns belonging to the samples.
 
-Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However as stated above all kinds of reports can be added at runtime by an admin.
+Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However, as stated above, all kinds of reports can be added at runtime.
 
 ###### Data manipulation
 
@@ -452,9 +452,9 @@ Click the edit icon and change the chromosome from 7 to 8 and save.
 Adding a row works the same way, only without the prefilled fields.
 Now let's click the red garbage bin icon in front of a line to delete this line from the entity.
 
-##### Annotation mod
+##### Annotation module
 
-The anotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
+The anotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used from the command-line.
 The annotator framework is a system to add data from other resources to your genomic entities. For example pathogenicity prediction, allele frequencies and phenotype information.
 
 ![Dataexplorer annotators](images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
@@ -466,9 +466,9 @@ Annotated fields will be added to the entity in a compound attribute.
 On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
 The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
 
-##### Aggregation mod
+##### Aggregation module
 
-The aggregation module allows you to produce counts for queries on the data.
+The aggregation module allows you to produce aggregated counts for queries on the data.
 
 The screen has 2 area's, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
 
@@ -494,7 +494,7 @@ You now get a table representing the amount of samples in both biobanks per type
 finally select "patientid" in the third dropdown, the distinct attribute. 
 The table will update to show you to show you how many patients with at least one sample of a specific type are available in a biobank.
 
-##### Charts mod
+##### Charts module
 For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
 
 MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
