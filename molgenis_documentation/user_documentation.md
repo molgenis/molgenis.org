@@ -100,11 +100,11 @@ Several research groups and organisations are already using MOLGENIS for their p
 |COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
 
 ### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
-If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
+If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster than ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
 #### <a name="biobank-example"></a> Biobank catalogue
 Biobanks are collections of data from samples.
-MOLGENIS has been used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects.
+MOLGENIS is being used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects.
 
 #### <a name="ngs-example"></a> NGS data annotation and interpretation
 Next generation sequencing (NGS) data often results in mutation data. thousands of single SNPs...
@@ -259,7 +259,7 @@ The MOLGENIS upload module supports the following file formats and data:
 * CSV: Comma Separated Value
 * OWL: Web Ontology Language
 * VCF: Variant Call Format
-* EMX: Entity Model Extensible
+* EMX: Entity Model eXtensible
 
 #### <a name="upload-screens"></a>Upload pages
 The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)) example data set.
@@ -570,7 +570,7 @@ The model registry is a module that can display the entire meta data model of a 
 
 The following paragraphs will explain how the model registry works, but it is more fun to learn how it works with some actual models. So for this part, you can go to [The BioMedBridges](https://molgenis08.target.rug.nl/menu/main/standardsregistry) website, and navigate to the model registry module, you do not even have to log in!
 
-Now that we have some actual models on our screen, let's get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
+Now that we have some actual models on our screen, let's get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model eXtensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Upload data](#upload) section again. The label beneath the Tags tells you why this model was returned for your search.
 
 This part is not telling us much about the content of the EMX model yet, so let's see what it holds! Click the *View Model Details* button to get to the details page.
 
@@ -768,7 +768,7 @@ local({
 You can manage your data using the other `molgenis.*` methods. See [the technical reference documentation](https://github.com/molgenis/molgenis/wiki/R-project-API-v1).
 
 #### <a name="python"></a> Python
-The Python API is currently in development. Scripting in Python is possible via the Scripts plugin.
+The Python API is currently in development. Scripting is separately described.
 
 ##### <a name="example-rest-python"></a> Plotting Allele-Specific Expression data from MOLGENIS in Python
 As an example, let's create a plot for publicly available ASE data available on https://molgenis56.target.rug.nl/. For a description of the data, take a look at [http://molgenis.org/ase](http://molgenis.org/ase).
