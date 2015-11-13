@@ -470,7 +470,7 @@ The gear icon trailing every annotator in the list can be used to configure the 
 
 The aggregation module allows you to produce aggregated counts for queries on the data.
 
-The screen has 2 area's, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
+The screen has 2 areas, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
 
 ![Dataexplorer aggregates](images/dataexplorer/aggregate_controls.png?raw=true, "dataexplorer/aggregates")
 
