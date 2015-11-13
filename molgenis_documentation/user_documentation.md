@@ -342,7 +342,7 @@ When this page is shown with the "import succes" message, then you know that you
 
 After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
 
-In the permissions view you can:
+In the permissions view you can do this repeatedely for multiple groups:
 
 1. Select a group: which user group will get these permissions.
 2. Select permission for an entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
