@@ -367,7 +367,7 @@ Note that some of the compoments described below are only shown if they are enab
 ##### Description of the different components on the screen:
 At the top of the data explorer the name of the currently selected entity is shown as well as the description.
 
-At the right side at the top a dropdown is shown which can be used to select the entity you wish to display.
+In the top right corner, a dropdown is shown which can be used to select the entity you wish to display.
 For admins a delete button is shown at the right side of the entity select, clicking it will allow you to choose if you which to delete only the data or also the metadata for the currently selected entity.
   
 ![Dataexplorer entity select](images/dataexplorer/entitySelect.png?raw=true, "dataexplorer/entitySelect")
