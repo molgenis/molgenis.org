@@ -486,22 +486,22 @@ Upload [emx_example_file](/data/Documentation_EMX.xlsx "EMX example file") throu
 Navigate to the data explorer and select the aggregates tab. Select the just uploaded "biobanks" entity.
 
 Now select "patientid" in the entity dropdown.
-You now get an 1 dimensional list of counts, showing you that every patient has 3 entries in the selected entity
+You now get a 1 dimensional list of counts, showing you that every patient has 3 entries in the selected entity
 
 Now select "biobank" in the first aggregate dropdown and in the second select "sampletype"
 You now get a table representing the amount of samples in both biobanks per type.
 
-finally select "patientid" in the third dropdown, the distinct attribute. 
+Finally select "patientid" in the third dropdown, the distinct attribute. 
 The table will update to show you to show you how many patients with at least one sample of a specific type are available in a biobank.
 
 ##### Charts module
 For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
 
-MOLGENIS currently offers two types of plots for your data, the scatter plot and the boxplot.
+MOLGENIS currently offers two types of plots for your data, the scatter plot and the box plot.
 ![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
 
 ###### scatter plot [Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot "Scatter plot")
-![Dataexplorer charts create scatterplot](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/scatterplot")
+![Dataexplorer charts create scatterplot](images/dataexplorer/create scatter plot.png?raw=true, "dataexplorer/scatterplot")
 
 For the scatterplot 2 attributes are selected to make the plot, optionally a third attribute can be selected to split the dots in groups using different shapes and colours per group. Optionally you can provide a title for your plot.
 
@@ -509,11 +509,11 @@ For the scatterplot 2 attributes are selected to make the plot, optionally a thi
 
 ###### box plot [Box_plot](https://en.wikipedia.org/wiki/Box_plot "Box plot")
 
-![Dataexplorer aggregate create boxplot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
+![Dataexplorer aggregate create box plot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
 
-For the boxplot 1 attribute (feature) is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
+For the box plot 1 attribute (feature) is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
 
-![Dataexplorer charts boxplot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
+![Dataexplorer charts box plot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
 
 ##### <a name="dataexplorer-reports"></a>Data Explorer "Reports"
 The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
