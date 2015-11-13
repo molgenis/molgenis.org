@@ -377,7 +377,7 @@ In the upper left corner of the data explorer is a search box, this search box c
 ![Dataexplorer search](images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
 
 Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
-Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. This filter icon can be used to set filters for this specific attribute.
+Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. The filter icon can be used to set filters for this specific attribute.
   
 ![Dataexplorer active filters](images/dataexplorer/active_filters.png?raw=true, "dataexplorer/active_filters")
 
@@ -385,14 +385,14 @@ In the area with the active filters you will also find the button to open the fi
 
 ![Dataexplorer filter wizard](images/dataexplorer/filterwizard.png?raw=true, "dataexplorer/filterwizard")
 
-##### mods
+##### modules
     
 ![Dataexplorer tabs](images/dataexplorer/dataexplorer_tabs.png?raw=true, "dataexplorer/dataexplorer_tabs")
 
 The data explorer consists of multiple modules to view or process the data in different ways. These modules are described below:
 
-##### Data mod
-The data mod shows the data in a table, the table can be sorted by clicking on the headers.
+##### Data module
+The data module shows the data in a table, the table can be sorted by clicking on the headers.
 If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
 
 Every line starts, depening on your permissions with some action icons:
@@ -454,7 +454,7 @@ Now lets click the red garbage bin icon in front of a line to delete this line f
 
 ##### Annotation mod
 
-The anotator mod of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
+The anotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used as a standalone commandline jar.
 The annotator framework is a system to add data from other resources to your genomic entities. For example pathogenicity prediction, allele frequencies and phenotype information.
 
 ![Dataexplorer annotators](images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
@@ -468,7 +468,7 @@ The gear icon trailing every annotator in the list can be used to configure the 
 
 ##### Aggregation mod
 
-The aggregation mod allows you to produce counts for queries on the data.
+The aggregation module allows you to produce counts for queries on the data.
 
 The screen has 2 area's, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
 
