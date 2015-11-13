@@ -365,7 +365,7 @@ One of the central plugins for many of the MOLGENIS databases is the data explor
 Note that some of the compoments described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
 
 ##### Description of the different components on the screen:
-On the top of the data explorer the name of the currently selected entity is shown as well as the description.
+At the top of the data explorer the name of the currently selected entity is shown as well as the description.
 
 At the right side at the top a dropdown is shown which can be used to select the entity you wish to display.
 For admins a delete button is shown at the right side of the entity select, clicking it will allow you to choose if you which to delete only the data or also the metadata for the currently selected entity.
