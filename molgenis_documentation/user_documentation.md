@@ -360,7 +360,7 @@ MOLGENIS is a web-based application with many different modules allowing you to 
 
 #### <a name="data-explorer"></a> Data Explorer
 
-One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the plugin to use if you wish to take a closer look at the data.
+One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the plugin to use if you wish to take a closer look at your data.
 
 Note that some of the compoments described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
 
