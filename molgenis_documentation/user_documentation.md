@@ -1,25 +1,14 @@
-## Using technical documentation structure proposed in this [blog](http://stevelosh.com/blog/2013/09/teach-dont-tell/)
+<!-- 
+# TODO Suggestions for improvements for the next version of the documentation.
 
-### First contact (What is MOLGENIS good for)
-
-1. What is this thing?
-2. Why would I care about this thing?
-3. Is it worth the effort to learn this thing?
-
-### Black triangle (installation manual and small example)
-
-Your “black triangle” documentation should be a short guide that runs the user through the process of retrieving, installing, and poking your project or language.
-
-### Hairball (aka MOLGENIS in depth explanations of all the plugins)
-
-The “hairball” is the twisted, tangled maze of teaching that is going to take these novices and turn them into expert users. It’s going to mold their brains, one nudge at a time, until they have a pretty good understanding of how your project works.
-
-### The Reference (In depth API and script interfaces.)
-* “API documentation” for every user-facing part of your project.
-* A full changelog, with particular attention to backwards-incompatible changes between versions.
-* Details about the internal implementation of the project.
-* Contribution policies (if your project accepts outside contributions).
-
+* [Research portals](#research-portal-example) write this section. 
+* [Who is using MOLGENIS](#who-uses-molgenis) Fill in more of our projects in the table
+* Add: Questionnaire; catalogue; mapping service; pathways; Account
+by us, contact <name_here> <insert_email_here>"
+* [Analysis pipelines and online computing](#compute-example) TODO
+* “Creating an EMX file” we need to create a file that can be used as a template when starting to use emx. This template will contain all columns and one or two rows of example.
+* [End note](#end-note) add in the future: "If you have questions, or if you are interested in having a server hosted 
+-->
 
 # <a name="top"></a> MOLGENIS v1.12 user documentation
 
@@ -28,25 +17,26 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 * [Introduction](#introduction)
 	* [What is MOLGENIS](#what-is-molgenis)
 	* [Why MOLGENIS](#why-molgenis)
+	* [Who is using MOLGENIS](#who-uses-molgenis)
 	* [Should I use MOLGENIS](#should-i-use-molgenis)
 		* [Biobanks](#biobank-example)
-		* [NGS](#ngs-example)
-		* [Research portals](#research-portal-example)
-		* [Pipeline computing](#compute-example)
-	* [Who is using MOLGENIS](#who-uses-molgenis)
-		* [Service overview](#service-overview)  
+		* [NGS](#ngs-example)		
+<!-- TODO		* [Research portals](#research-portal-example) -->
+<!-- TODO		* [Pipeline computing](#compute-example) -->
 		
 * [Trying out MOLGENIS](#trying-out-molgenis)
 	* [Installing MOLGENIS using maven cargo](#installing-molgenis-cargo)
 	* [Installing MOLGENIS using apache-tomcat](#installing-molgenis-apache-tomcat)
-	* [Getting your first data into MOLGENIS](#)
+	* [Getting your first data into MOLGENIS](#first-data-upload)
 		* [Creating an EMX file](#creating-emx-file)
 		* [Importing your EMX file into MOLGENIS](#importing-simple)
 	
 		
-* [From user to expert, MOLGENIS step-by-step](#from-user-to-expert)
-	* [Becoming an expert MOLGENIS data importer](#importing-advanced)
+* [MOLGENIS step-by-step](#molgenis-step-by-step)
+	* [Terminology of MOLGENIS](#terminology)
+	* [Upload data](#upload)	
 	* [How to use the MOLGENIS user interface modules](#molgenis-interface-modules)
+		* [Data Explorer](#data-explorer)
 		* [Model registry](#model-registry)
 	* [Interacting with your data, MOLGENIS script interfaces](#how-to-interact-with-data)
  		* [REST API](#rest-api)
@@ -83,10 +73,6 @@ The “hairball” is the twisted, tangled maze of teaching that is going to tak
 		* [Menu manager](#menu-manager)
 		* [Styling your MOLGENIS application](#themes)
 		
-* [MOLGENIS modules](#molgenis-modules)
-	*  [Upload](#upload)
-
-		
 * [End note](#end-note)
 
 ## <a name="introduction"></a> Introduction
@@ -97,89 +83,53 @@ This document is a detailed description of the web-based MOLGENIS software. Here
 ### <a name="what-is-molgenis"></a> What is MOLGENIS?
 Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
+![molgenis overview](images/molgenis-overview.png?raw=true, "molgenis overview")
+
+
 ### <a name="why-molgenis"></a> Why MOLGENIS?
 Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing you to model your data however you want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
 MOLGENIS takes away the hassle of storing data, and makes it highly accessible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
 
-### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
-If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster then ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
-
-<!--
-TODO, we need to paint a clear picture on how MOLGENIS is very suitable to handle the use cases described below. The reader should get the feeling that MOLGENIS is perfect for his or her project
--->
-#### <a name="biobank-example"></a> Biobank catalogue
-Biobanks are collections of data from samples...
-MOLGENIS has been used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects....
-
-#### <a name="ngs-example"></a> NGS data annotation and interpretation
-Next generation sequencing data often results in mutation data. thousands of single SNPs...
-MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
-
-#### <a name="research-portal-example"></a> Research portals
-Research portals....
-
-
-#### <a name="compute-example"></a> Analysis pipelines and online computing
-<!--
-I don't know :( do we have any examples for this? Can we even do this?
--->
-
-Some text...
-
 ### <a name="who-uses-molgenis"></a> Who is using MOLGENIS?
-There are several research groups already...
-
-#### <a name="service-overview"></a> Service overview
 Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
 
-<!--
-TODO: Fill in more of our projects
--->
 |Project name | Pubmed                                            | Project URL                                 |Project description          |
 |-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
 |ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
 |COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
 
----
----
+### <a name="should-i-use-molgenis"></a> Should I use MOLGENIS?
+If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster than ever before. If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
+
+#### <a name="biobank-example"></a> Biobank catalogue
+Biobanks are collections of data from samples.
+MOLGENIS is being used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects.
+
+#### <a name="ngs-example"></a> NGS data annotation and interpretation
+Next generation sequencing (NGS) data often results in mutation data. thousands of single SNPs...
+MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
+
+<!-- TODO #### <a name="research-portal-example"></a> Research portals -->
+<!-- TODO #### <a name="compute-example"></a> Analysis pipelines and online computing -->
 
 ## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
-If you have decided to use MOLGENIS for your project, the first thing you can do is to get some hands-on experience by trying out our [demo server](https://www.molgenis.org/demo). This server contains several datasets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
+The first thing you can do is to get some hands-on experience by trying out our [demo server](http://molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
+But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So let's jump right into that.
 
-But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that. 
-
-<!--
-TODO: We want to write a more easy way of getting MOLGENIS running locally. The MOLGENIS-cargo pom that Fleur made is a good example. It removes the apache-tomcat installation step. Sending people to the demo server is a good option as well but if we provide some example data then people will run into the "This entity already exists" errors.
-
-Need to think this through a bit more, but for now this section contains a more technical installation guide.
--->
 ### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
 The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
 
 **Download the cargo project**
-<!--
-TODO: Get this project to the molgenis repository, so I do not have to link to the Github of fleur
--->
-[Download](https://github.com/fdlk/molgenis-cargo) the entire project from GitHub.
 
-**Setting your molgenis-server.properties**   
-MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
-
-> db_user=molgenis  
-> db_password=molgenis  
-> db_uri=jdbc:mysql://localhost/omx  
-> admin.password=admin  
-> user.password=admin  
-
-Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
+[Download](https://github.com/molgenis/molgenis-cargo) the entire project from GitHub.
 
 **Setting up your MySQL**  
 If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
-
-> create database omx;  
-> grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
-> flush privileges;  
+	
+	create database omx;
+	grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';
+	flush privileges;
 
 If your MySQL has been configured correctly, and your molgenis-server.properties set, then you have to navigate to the location of the cargo and start MOLGENIS with the following command:
 
@@ -203,20 +153,20 @@ Now that your apache-tomcat is running and MOLGENIS is deployed, you will notice
 **Setting your molgenis-server.properties**   
 MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Create this folder, and create the molgenis-server.properties file. Open the file and write the following lines:
 
-> db_user=molgenis  
-> db_password=molgenis  
-> db_uri=jdbc:mysql://localhost/omx  
-> admin.password=admin  
-> user.password=admin  
+	db_user=molgenis  
+	db_password=molgenis  
+	db_uri=jdbc:mysql://localhost/omx  
+	admin.password=admin  
+	user.password=admin  
 
 Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
 
 **Setting up your MySQL**  
 If you are unfamiliar with MySQL, follow one of their [MySQL installation guides](http://dev.mysql.com/doc/refman/5.7/en/windows-installation.html). Once you have a MySQL server running, login as admin user and type the following commands:
 
-> create database omx;  
-> grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
-> flush privileges;  
+	create database omx;  
+	grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';  
+	flush privileges;  
 
 Now that your MySQL server and properties file have been configured, restart the apache tomcat server.
 If you open up a web browser and navigate to where your apache-tomcat applications are deployed (often this is localhost:8080) you should see the following:  
@@ -231,6 +181,7 @@ So you have a MOLGENIS application up and running, and your dataset is sitting n
 We wanted researchers to be able to describe their data in a flexible 'meta model'. This sounds really interesting, but what it boils down to, is that you have one separate xlsx sheet that describes your column names, or attributes as we call them. Thats it. Thats all the EMX format is. Keep reading to find a detailed example.
 
 #### <a name="creating-emx-file"></a> Creating an EMX file
+For the full reference of the EMX upload format please visit this MOLGEIS wiki page: ["EMX upload format"](https://github.com/molgenis/molgenis/wiki/EMX-upload-format).
 If you want to skip this theory lesson and download an excel file right away to use as a template, you can find several of them [on Github](https://github.com/molgenis/molgenis/tree/master/molgenis-app/src/test/resources). Be advised that these are files for testing purposes, and do not have real data in them, so they might not fully represent the complexity of your own data.
 
 Now for the example. Say that you have an existing excel sheet with a couple of thousand rows of data and several columns. This data can look something like this:
@@ -260,8 +211,6 @@ This little bit is all you need. You specify the *name*, which is the name you g
 
 This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query-able.
 
-In the [Becoming an expert MOLGENIS data importer](#importing-advanced) section, you can find the complete list of EMX options and parameters available to you.
-
 #### <a name="importing-simple"></a> Importing your EMX file into MOLGENIS
 So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
 
@@ -270,25 +219,349 @@ Go to the Upload menu. You now should see something like this:
 
 ![Importer first screen](images/importer_first_screen.png?raw=true, "importer")
 
-To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those [later in this document](#importing-advanced). After your import is done, you can view your data in the data explorer. Go there by clicking the 'Data Explorer' link in the menu.
+To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those in the [upload section](#upload). After your import is done, you can view your data in the data explorer. Go there by clicking the 'Data Explorer' link in the menu.
 
 Congratulations! You have now deployed MOLGENIS either locally or on a server, and you have made the first steps on getting your data into the MOLGENIS database. Play around a bit with the different data explorer filters to get a feel on how MOLGENIS works.
 
-Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following [section](#from-user-to-expert), we will take you from being a simple user, and teach you on how to be an expert.
+Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following MOLGENIS step-by-step section, we will take you from being a simple user, and teach you on how to be an expert.
 
----
----
-
-## <a name="from-user-to-expert"></a> From user to expert, MOLGENIS step-by-step
+## <a name="molgenis-step-by-step"></a> MOLGENIS step-by-step
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
-### <a name="importing-advanced"></a> Becoming an expert MOLGENIS data importer
-<!--
-TODO: Put Jonathan his text here
--->
+### <a name="terminology"></a> Terminology of Molgenis
+In this section we introduce and explain, terminology of MOLGENIS
 
-### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules (Hairball)
+| Term     |Explanation       |Example |Comments|
+|----------|------------------|--------|--------|
+| Package  | A namespace item. Multiple packages can create a namspace where entities can live in || The default namespace in molgenis is called "default"|
+| Data set | A collections of entities that are contextually related| An file can contain multiple entities  | |
+| Entity | An entity is the template and collection of a subject | Like a table in a database| |
+| Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complexity and double use of the same term|
+| Attribute| An attribute describes the charcteristics of a data item in an entity |Like a column in a database||
+
+### <a name="upload"></a> Data upload
+The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. If you have the permissions, you will see the upload menu item.
+
+![Upload menu item](images/upload/upload-menu-item.png?raw=true, "upload menu item")
+
+#### <a name="upload-possibilities"></a>Upload possibilities
+The MOLGENIS upload module supports the following file formats and data:
+	
+|file format		|file extention             |data formats|
+||
+|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
+|Excel            	|".xls" ".xlsx"             |EMX|
+|OWL              	|".owl.zip"                 |OWL|
+|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VCF (version 4.0)|:
+
+##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
+
+* CSV: Comma Separated Value
+* OWL: Web Ontology Language
+* VCF: Variant Call Format
+* EMX: Entity Model eXtensible
+
+#### <a name="upload-screens"></a>Upload pages
+The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)) example data set.
+
+The pages are: 
+
+1. Upload file
+2. Options
+3. Packages
+4. Validation
+5. Result
+
+Navigation buttons at the bottom of the pages:
+
+* Previous: Go to the previous page.
+* Next: Go to the next page.
+* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will restart the wizard. The upload job continues to upload the data set.
+* Finish: The same as Restart.
+
+
+##### <a name="upload-screens-upload-file"></a>Upload file page
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Select a file to upload.
+2. Click on the next button.
+
+![Upload file screen](images/upload/upload-file-screen.png?raw=true, "Upload file")
+
+##### <a name="upload-screens-options"></a>Options page
+Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
+It is important to understand that this selection is about the data and not the meta data of the data set.
+
+###### <a name="upload-screens-options-options"></a>Options
+
+1. Add entities: Importer adds new entities or fails if entity exists.
+2. Add entities / update existing: Importer adds new entities or updates existing entities.
+3. Update entities: Importer updates existing entities or fails if entity does not exist.
+
+###### <a name="upload-screens-options-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/options-screen.png?raw=true, "Options")
+
+##### <a name="upload-screens-packages"></a>Packages page
+Because the entity (table) persons has no package defined, we get the option to choose another package different from the MOLGENIS default package. The select options list the available packages in the data set.
+
+###### <a name="upload-screens-packages-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/packages-screen.png?raw=true, "Packages")
+
+##### <a name="upload-screens-validation"></a>Validation page
+When you see this page the validation is already done. This page validates the structure of the meta data.
+
+"Entities" table where all the entities (tables) are defined.
+
+* Name: Name of entity
+* Importable: Is this entity inportable or not. Two options (Yes, No) 
+
+"Entity fields" table that will contain information about the fields of an entity (Columns of the table)
+
+* Name: Name of entity
+* Detected: A comma separated list of fields that were found for this entity
+* Required: Are there required fields defined in the meta data that are missing in the entity?
+* Available: Are there fields in the meta data that are optionel and were not found in the entity?
+* Unknown: Are there fields defined in the entity that were undefined in the meta data?
+
+###### <a name="upload-screens-validation-steps"></a>Steps
+
+1. Click on the next Button.
+
+![Upload file screen](images/upload/validation-screen.png?raw=true, "Validation")
+
+##### <a name="upload-screens-result"></a>Result page
+
+When this page is shown with the "import succes" message, then you know that your data and metadata have been uploaded correctly.
+
+After the data is uploaded into MOLGENIS, you can change the permissions for the entities.
+
+In the permissions view you can do this repeatedely for multiple groups:
+
+1. Select a group: which user group will get these permissions.
+2. Select permission for an entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
+
+###### <a name="upload-screens-result-steps"></a>Steps
+
+1. [Optional] Select the view permission for the root_hospital_cities entity.
+2. [Optional] Click on the save button.
+3. Click on the finish button.
+
+![Upload file screen](images/upload/result-screen.png?raw=true, "Result")
+
+### <a name="molgenis-interface-modules"></a> How to use MOLGENIS user interface modules
 MOLGENIS is a web-based application with many different modules allowing you to approach your data in different ways. One module focuses on showing you how a certain data set is modeled, one focuses purely on filtering and querying your data, while another module allows for filling in questionnaires created in EMX. This diversity can be confusing at times, so the following sections will take you through each module one by one, showing you the how they work and what you can do with them.
+
+#### <a name="data-explorer"></a> Data Explorer
+
+One of the central plugins for many of the MOLGENIS databases is the data explorer, as the name suggests this is the plugin to use if you wish to take a closer look at your data.
+
+Note that some of the compoments described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
+
+##### Description of the different components on the screen:
+At the top of the data explorer the name of the currently selected entity is shown as well as the description.
+
+In the top right corner, a dropdown is shown which can be used to select the entity you wish to display.
+For admins a delete button is shown at the right side of the entity select, clicking it will allow you to choose if you which to delete only the data or also the metadata for the currently selected entity.
+  
+![Dataexplorer entity select](images/dataexplorer/entitySelect.png?raw=true, "dataexplorer/entitySelect")
+
+In the upper left corner of the data explorer is a search box, this search box can be used to search all your data for a certain search term.
+  
+![Dataexplorer search](images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
+
+Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
+Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. The filter icon can be used to set filters for this specific attribute.
+  
+![Dataexplorer active filters](images/dataexplorer/active_filters.png?raw=true, "dataexplorer/active_filters")
+
+In the area with the active filters you will also find the button to open the filter wizard, this is a popup screen that allows you to add filters for different attributes in one go.
+
+![Dataexplorer filter wizard](images/dataexplorer/filterwizard.png?raw=true, "dataexplorer/filterwizard")
+
+##### modules
+    
+![Dataexplorer tabs](images/dataexplorer/dataexplorer_tabs.png?raw=true, "dataexplorer/dataexplorer_tabs")
+
+The data explorer consists of multiple modules to view or process the data in different ways. These modules are described below:
+
+##### Data module
+The data module shows the data in a table, the table can be sorted by clicking on the headers.
+If your data contains references to other entities, an icon is shown to expand this reference to show the data from the referenced entity.
+
+Every line starts, depending on your permissions with some action icons:
+  
+![Dataexplorer action buttons](images/dataexplorer/action_buttons.png?raw=true, "dataexplorer/action_buttons")
+
+- Add row:
+Using this button will open a form with inputs for all the attributes in the entity, allowing you to create a new entity.
+All fields will be validated based on their datatype, for example "test" is not a valid email adress.
+- Edit row:
+Same as the add row button, but with prefilled inputs to allow you to edit an entity.
+- Inspect row:
+This button will open a form with a custom made report for this row. Different reports can be created, when you have a permission to write to the FreemarkerTemplate entity.
+- Delete row:
+This button can be used to remove a row from the entity.
+
+  
+![Dataexplorer download](images/dataexplorer/download_export.png?raw=true, "dataexplorer/download_export")
+
+At the bottom of the table there is a download button, which will allow you to save the data to a CSV of XLS file. Depending on the purpose of the download, identifiers or labels can be used as column headers. Probably the data is safest inside molgenis!
+Another button will allow you to send your data to a [galaxy](https://galaxyproject.org/ "Galaxy") server.
+
+
+###### genome browser
+  
+![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
+
+If a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the [Dalliance](http://www.biodalliance.org "Dalliance") genome browser.
+Clicking on a row in the data table will make the genome browser zoom to the coordinates of that row.
+A button ('apply filters') is available at the bottom of the genome browser to filter the data table based on the coordinates currently in shown in the genome browser.
+
+
+###### Try it out
+###### Data exploration
+Upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
+Let's select an entity containing genomic variants by selecting the entity name you just chose for the upload in the entity select.
+Let's assume we have a specific location we are interested in, say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
+Let's first use the search box to see if we can find the line that way:
+enter "103214569" in the search box and press enter.
+
+But now we like to take a look at all variation on chromosome 7. As you can imagine searching for "7" in all the attributes in the data will give us a lot of results we are not looking for. So we'd like to filter for this value specifically for the chromosome attribute.
+
+Click the filter icon in front of "#CHROM" in the attribute selection tree and enter "8" in the input field then click "apply"
+However we meant to search for chromosome 7, so let's click the filter in the active filters box, and change the value to 7.
+We now have all the values for chromosome 7 in the table, however the results are divided over several pages of results, we'd like to view them all in one screen; click the "rows per page" dropdown below the table and select "100" this will show 100 results per page.
+The "FILTER" column shows the same value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
+
+Click any column header in the table to sort the data based on that column, click again to sort in the opposite direction.
+Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
+Click the symbol in front of the "SAMPLES" column header to show the columns belonging to the samples.
+
+Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However, as stated above, all kinds of reports can be added at runtime.
+
+###### Data manipulation
+
+Click the edit icon and change the chromosome from 7 to 8 and save.
+Adding a row works the same way, only without the prefilled fields.
+Now let's click the red garbage bin icon in front of a line to delete this line from the entity.
+
+##### Annotation module
+
+The anotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used from the command-line.
+The annotator framework is a system to add data from other resources to your genomic entities. For example pathogenicity prediction, allele frequencies and phenotype information.
+
+![Dataexplorer annotators](images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
+
+The screen shows a list of available annotators that can be used. Clicking the title of the annotator will result in a popup with additional information such as a general description and a listing of the attributes that will be added by this annotator.
+Using the checkboxes multiple annotaotrs can be selected for one run, which is starten by clicking the "annotate" button. If preferred a copy of the dataset can be created with the annotations added to this copy, leaving the original entity as it is.
+Annotated fields will be added to the entity in a compound attribute.
+
+On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
+The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
+
+##### Aggregation module
+
+The aggregation module allows you to produce aggregated counts for queries on the data.
+
+The screen has 2 areas, the controls and the results, the controls allow you to choose the attributes you wish to use for the aggregation.
+
+![Dataexplorer aggregates](images/dataexplorer/aggregate_controls.png?raw=true, "dataexplorer/aggregates")
+
+You can select 1 attribute for simple one dimensional counts, represented as a table with one column, or two attributes to get a 2 dimensional aggregate table.
+A third dropdown allows you to select a attribute by which to group the results.
+
+![Dataexplorer aggregate results](images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/aggregateresults")
+
+These functionalities are best explained by the example in the "try it out section below".
+
+###### try it out
+Upload [emx_example_file](/data/Documentation_EMX.xlsx "EMX example file") through the importer.
+Navigate to the data explorer and select the aggregates tab. Select the just uploaded "biobanks" entity.
+
+Now select "patientid" in the entity dropdown.
+You now get a 1 dimensional list of counts, showing you that every patient has 3 entries in the selected entity
+
+Now select "biobank" in the first aggregate dropdown and in the second select "sampletype"
+You now get a table representing the amount of samples in both biobanks per type.
+
+Finally select "patientid" in the third dropdown, the distinct attribute. 
+The table will update to show you to show you how many patients with at least one sample of a specific type are available in a biobank.
+
+##### Charts module
+For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
+
+MOLGENIS currently offers two types of plots for your data, the scatter plot and the box plot.
+![Dataexplorer charts](images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
+
+###### scatter plot [Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot "Scatter plot")
+![Dataexplorer charts create scatterplot](images/dataexplorer/create scatter plot.png?raw=true, "dataexplorer/scatterplot")
+
+For the scatterplot 2 attributes are selected to make the plot, optionally a third attribute can be selected to split the dots in groups using different shapes and colours per group. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts scatterplot](images/dataexplorer/scatter plot.png?raw=true, "dataexplorer/scatterplot")
+
+###### box plot [Box_plot](https://en.wikipedia.org/wiki/Box_plot "Box plot")
+
+![Dataexplorer aggregate create box plot](images/dataexplorer/create box plot.png?raw=true, "dataexplorer/createboxplot")
+
+For the box plot 1 attribute (feature) is to be selected to make the plot, optionally a second attribute can be selected to split the dots in groups. Optionally you can provide a title for your plot.
+
+![Dataexplorer charts box plot](images/dataexplorer/boxplot.png?raw=true, "dataexplorer/boxplot")
+
+##### <a name="dataexplorer-reports"></a>Data Explorer "Reports"
+The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
+
+There are two ways to create your own reports: 
+
+1. Overriding the default instance view.
+2. Add one or more instances view tabs.
+
+You will need:
+
+1. A data set: "Advanced data example" ([download](data/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
+
+###### Override the entity view
+
+Steps:
+
+1. Go to the Data Explorer
+2. Select the "cities" entity via the entity select dropdown.
+3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
+4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
+5. Let's upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
+		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
+	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
+6. Repeat steps 2 and 3. 
+7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
+
+###### Add a instances view tab
+1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
+2. Let's upload our own template. 
+	a. Go to the data explorer and select the FreemarkerTemplate entity.
+	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
+		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
+		* Value: "\<div>My cities\</div>"
+		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
+3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
+	a. Check: Modules -> Data -> Reports -> Yes
+	b. Set: Reports -> Reports -> root_hospital_cities:Cities
+		* root_hospital_cities is the entity name.
+		* Cities is the template name.
+	
+	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
+4. Refresh the page and repeat step 1.
+5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
+
 
 #### <a name="model-registry"></a> The model registry
 The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modeled. This is usefull for detecting errors in your model, or if you want to base your own model on something that already exists.
@@ -297,9 +570,9 @@ The model registry is a module that can display the entire meta data model of a 
 
 The following paragraphs will explain how the model registry works, but it is more fun to learn how it works with some actual models. So for this part, you can go to [The BioMedBridges](https://molgenis08.target.rug.nl/menu/main/standardsregistry) website, and navigate to the model registry module, you do not even have to log in!
 
-Now that we have some actual models on our screen, lets get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
+Now that we have some actual models on our screen, let's get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model eXtensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Upload data](#upload) section again. The label beneath the Tags tells you why this model was returned for your search.
 
-This part is not telling us much about the content of the EMX model yet, so lets see what it holds! Click the *View Model Details* button to get to the details page.
+This part is not telling us much about the content of the EMX model yet, so let's see what it holds! Click the *View Model Details* button to get to the details page.
 
 ![Model registry screen 2](images/model_registry_screen2.png?raw=true, "model registry screen 2")
 
@@ -316,23 +589,6 @@ Navigate to the UML tab to see a UML representation of your model. You can zoom 
 
 **Printing**
 You can print your model to review it on paper by pressing the print button at the top right of the screen.
-
-
-
-* data explorer
-	* download
-	* search and filter
-	* aggregates
-	* annotators
-	* genome browser
-	* charts
-	* disease matcher
-
-* questionnaire
-* catalogue
-* mapping service
-* pathways
-* Account
 
 ### <a name="how-to-interact-with-data"></a> Interacting with your data, MOLGENIS script interfaces
 
@@ -512,7 +768,7 @@ local({
 You can manage your data using the other `molgenis.*` methods. See [the technical reference documentation](https://github.com/molgenis/molgenis/wiki/R-project-API-v1).
 
 #### <a name="python"></a> Python
-TODO: Merge to molgenis master, show how to install.
+The Python API is currently in development. Scripting is separately described.
 
 ##### <a name="example-rest-python"></a> Plotting Allele-Specific Expression data from MOLGENIS in Python
 As an example, let's create a plot for publicly available ASE data available on https://molgenis56.target.rug.nl/. For a description of the data, take a look at [http://molgenis.org/ase](http://molgenis.org/ase).
@@ -557,19 +813,16 @@ print c.get("ASE", q=[{"field":"SNP_ID", "operator":"EQUALS", "value":"rs1246089
 ```
 ```python
 [{u'Alternative_allele': u'T', u'P_Value': 7.1708540619282e-14, u'Genes': {u'href': u'/api/v1/ASE/rs12460890/Genes'}, u'Fraction_alternative_allele': 0.527, u'Pos': 829568, u'Reference_allele': u'C', u'Chr': u'19', u'href': u'/api/v1/ASE/rs12460890', u'Samples': u'21', u'Likelihood_ratio_test_D': 56.0207947348388, u'SNP_ID': u'rs12460890'}]
-```
+```	
 This SNP has a mild but significant allele-specific expression, based on expression counts in 21 samples.
 
 Let's retrieve the samples for this SNP:
-
 ```python
-samples = c.get("SampleAse", q=[{"field":"SNP_ID", "operator":"EQUALS", "value":"rs12460890"}])
-print samples
-```
-
+samples = c.get("SampleAse", q=[{"field":"SNP_ID", "operator":"EQUALS", "value":"rs12460890"}])	print sample
+```	
 ```python
-[{u'Ref_Counts': u'130', u'href': u'/api/v1/SampleAse/1418785', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418785/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418785/SNP_ID'}, u'Alt_Counts': u'121', u'ID': u'1418785', u'Chromosome': u'19'}, {u'Ref_Counts': u'4142', u'href': u'/api/v1/SampleAse/1418786', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418786/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418786/SNP_ID'}, u'Alt_Counts': u'4791', u'ID': u'1418786', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418787', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418787/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418787/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418787', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418788', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418788/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418788/SNP_ID'}, u'Alt_Counts': u'23', u'ID': u'1418788', u'Chromosome': u'19'}, {u'Ref_Counts': u'32', u'href': u'/api/v1/SampleAse/1418789', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418789/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418789/SNP_ID'}, u'Alt_Counts': u'11', u'ID': u'1418789', u'Chromosome': u'19'}, {u'Ref_Counts': u'639', u'href': u'/api/v1/SampleAse/1418790', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418790/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418790/SNP_ID'}, u'Alt_Counts': u'572', u'ID': u'1418790', u'Chromosome': u'19'}, {u'Ref_Counts': u'202', u'href': u'/api/v1/SampleAse/1418791', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418791/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418791/SNP_ID'}, u'Alt_Counts': u'309', u'ID': u'1418791', u'Chromosome': u'19'}, {u'Ref_Counts': u'423', u'href': u'/api/v1/SampleAse/1418792', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418792/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418792/SNP_ID'}, u'Alt_Counts': u'401', u'ID': u'1418792', u'Chromosome': u'19'}, {u'Ref_Counts': u'271', u'href': u'/api/v1/SampleAse/1418793', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418793/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418793/SNP_ID'}, u'Alt_Counts': u'234', u'ID': u'1418793', u'Chromosome': u'19'}, {u'Ref_Counts': u'806', u'href': u'/api/v1/SampleAse/1418794', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418794/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418794/SNP_ID'}, u'Alt_Counts': u'1081', u'ID': u'1418794', u'Chromosome': u'19'}, {u'Ref_Counts': u'213', u'href': u'/api/v1/SampleAse/1418795', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418795/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418795/SNP_ID'}, u'Alt_Counts': u'201', u'ID': u'1418795', u'Chromosome': u'19'}, {u'Ref_Counts': u'74', u'href': u'/api/v1/SampleAse/1418796', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418796/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418796/SNP_ID'}, u'Alt_Counts': u'96', u'ID': u'1418796', u'Chromosome': u'19'}, {u'Ref_Counts': u'730', u'href': u'/api/v1/SampleAse/1418797', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418797/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418797/SNP_ID'}, u'Alt_Counts': u'655', u'ID': u'1418797', u'Chromosome': u'19'}, {u'Ref_Counts': u'584', u'href': u'/api/v1/SampleAse/1418798', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418798/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418798/SNP_ID'}, u'Alt_Counts': u'699', u'ID': u'1418798', u'Chromosome': u'19'}, {u'Ref_Counts': u'331', u'href': u'/api/v1/SampleAse/1418799', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418799/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418799/SNP_ID'}, u'Alt_Counts': u'391', u'ID': u'1418799', u'Chromosome': u'19'}, {u'Ref_Counts': u'13', u'href': u'/api/v1/SampleAse/1418800', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418800/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418800/SNP_ID'}, u'Alt_Counts': u'14', u'ID': u'1418800', u'Chromosome': u'19'}, {u'Ref_Counts': u'70', u'href': u'/api/v1/SampleAse/1418801', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418801/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418801/SNP_ID'}, u'Alt_Counts': u'101', u'ID': u'1418801', u'Chromosome': u'19'}, {u'Ref_Counts': u'47', u'href': u'/api/v1/SampleAse/1418802', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418802/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418802/SNP_ID'}, u'Alt_Counts': u'35', u'ID': u'1418802', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418803', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418803/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418803/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418803', u'Chromosome': u'19'}, {u'Ref_Counts': u'44', u'href': u'/api/v1/SampleAse/1418804', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418804/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418804/SNP_ID'}, u'Alt_Counts': u'47', u'ID': u'1418804', u'Chromosome': u'19'}, {u'Ref_Counts': u'60', u'href': u'/api/v1/SampleAse/1418805', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418805/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418805/SNP_ID'}, u'Alt_Counts': u'55', u'ID': u'1418805', u'Chromosome': u'19'}]
-```
+[{u'Ref_Counts': u'130', u'href': u'/api/v1/SampleAse/1418785', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418785/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418785/SNP_ID'}, u'Alt_Counts': u'121', u'ID': u'1418785', u'Chromosome': u'19'}, {u'Ref_Counts': u'4142', u'href': u'/api/v1/SampleAse/1418786', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418786/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418786/SNP_ID'}, u'Alt_Counts': u'4791', u'ID': u'1418786', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418787', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418787/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418787/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418787', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418788', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418788/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418788/SNP_ID'}, u'Alt_Counts': u'23', u'ID': u'1418788', u'Chromosome': u'19'}, {u'Ref_Counts': u'32', u'href': u'/api/v1/SampleAse/1418789', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418789/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418789/SNP_ID'}, u'Alt_Counts': u'11', u'ID': u'1418789', u'Chromosome': u'19'}, {u'Ref_Counts': u'639', u'href': u'/api/v1/SampleAse/1418790', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418790/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418790/SNP_ID'}, u'Alt_Counts': u'572', u'ID': u'1418790', u'Chromosome': u'19'}, {u'Ref_Counts': u'202', u'href': u'/api/v1/SampleAse/1418791', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418791/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418791/SNP_ID'}, u'Alt_Counts': u'309', u'ID': u'1418791', u'Chromosome': u'19'}, {u'Ref_Counts': u'423', u'href': u'/api/v1/SampleAse/1418792', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418792/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418792/SNP_ID'}, u'Alt_Counts': u'401', u'ID': u'1418792', u'Chromosome': u'19'}, {u'Ref_Counts': u'271', u'href': u'/api/v1/SampleAse/1418793', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418793/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418793/SNP_ID'}, u'Alt_Counts': u'234', u'ID': u'1418793', u'Chromosome': u'19'}, {u'Ref_Counts': u'806', u'href': u'/api/v1/SampleAse/1418794', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418794/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418794/SNP_ID'}, u'Alt_Counts': u'1081', u'ID': u'1418794', u'Chromosome': u'19'}, {u'Ref_Counts': u'213', u'href': u'/api/v1/SampleAse/1418795', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418795/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418795/SNP_ID'}, u'Alt_Counts': u'201', u'ID': u'1418795', u'Chromosome': u'19'}, {u'Ref_Counts': u'74', u'href': u'/api/v1/SampleAse/1418796', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418796/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418796/SNP_ID'}, u'Alt_Counts': u'96', u'ID': u'1418796', u'Chromosome': u'19'}, {u'Ref_Counts': u'730', u'href': u'/api/v1/SampleAse/1418797', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418797/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418797/SNP_ID'}, u'Alt_Counts': u'655', u'ID': u'1418797', u'Chromosome': u'19'}, {u'Ref_Counts': u'584', u'href': u'/api/v1/SampleAse/1418798', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418798/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418798/SNP_ID'}, u'Alt_Counts': u'699', u'ID': u'1418798', u'Chromosome': u'19'}, {u'Ref_Counts': u'331', u'href': u'/api/v1/SampleAse/1418799', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418799/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418799/SNP_ID'}, u'Alt_Counts': u'391', u'ID': u'1418799', u'Chromosome': u'19'}, {u'Ref_Counts': u'13', u'href': u'/api/v1/SampleAse/1418800', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418800/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418800/SNP_ID'}, u'Alt_Counts': u'14', u'ID': u'1418800', u'Chromosome': u'19'}, {u'Ref_Counts': u'70', u'href': u'/api/v1/SampleAse/1418801', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418801/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418801/SNP_ID'}, u'Alt_Counts': u'101', u'ID': u'1418801', u'Chromosome': u'19'}, {u'Ref_Counts': u'47', u'href': u'/api/v1/SampleAse/1418802', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418802/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418802/SNP_ID'}, u'Alt_Counts': u'35', u'ID': u'1418802', u'Chromosome': u'19'}, {u'Ref_Counts': u'19', u'href': u'/api/v1/SampleAse/1418803', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418803/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418803/SNP_ID'}, u'Alt_Counts': u'28', u'ID': u'1418803', u'Chromosome': u'19'}, {u'Ref_Counts': u'44', u'href': u'/api/v1/SampleAse/1418804', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418804/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418804/SNP_ID'}, u'Alt_Counts': u'47', u'ID': u'1418804', u'Chromosome': u'19'}, {u'Ref_Counts': u'60', u'href': u'/api/v1/SampleAse/1418805', u'SampleIds': {u'href': u'/api/v1/SampleAse/1418805/SampleIds'}, u'Position': 829568, u'SNP_ID': {u'href': u'/api/v1/SampleAse/1418805/SNP_ID'}, u'Alt_Counts': u'55', u'ID': u'1418805', u'Chromosome': u'19'
+}]```
 
 There they are.
 
@@ -800,7 +1053,7 @@ For instance, if you have an entity with a SNP_ID attribute, it's as easy as add
 
 This will allow you to generate one or more plots for entities you select in the Data Explorer. See the documentation for Entity Report.
 
-### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration (Hairball)
+### <a name="advanced-molgenis-app-configuration"></a> Advanced MOLGENIS application configuration
 Once you have a server running and data loaded, you are probably eager to share your data with the world. However, you might want to only show your data to a select few, or you are not happy with the basic style MOLGENIS offers you. And of course you want people to land on a nice homepage when they navigate to your newly created web-based database. 
 
 In the following paragraphs we explain on how to use different modules to configure your application the way you want to.
@@ -821,7 +1074,7 @@ User management is crucial for keeping an overview of people visiting your onlin
 
 ![Menu manager screen](images/user_manager.png?raw=true, "user manager")
 
-The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
+The user management menu allows you to create new users and groups. But also let's you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
 
 **Try it out**  
 To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
@@ -873,7 +1126,7 @@ You can navigate to the permission module under the Admin menu, and then navigat
 Here you can set permissions for different groups and users. These permission allow users to either Edit, View, Count, or do nothing with the different data sets and modules in MOLGENIS.
 
 **Try it out**  
-Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change it so that our test_group has the permission to open the Data explorer, and the molgenis_user will be able to see the example_data_table data set, which we created in the [Creating an EMX file](#creating-emx-file) section.
+Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Let's change it so that our test_group has the permission to open the Data explorer, and the molgenis_user will be able to see the example_data_table data set, which we created in the [Creating an EMX file](#creating-emx-file) section.
 
 **Setting group permissions**  
 As you open the permission manager, the groups tab is already selected. For the group *test_group* we want to set the permissions in such a way to the members of that group can use the data explorer to look at data sets. To do this, select the test_group from the drop down. Next you will want to lookup dataexplorer in the Plugin column, and set the permission to *View*. Press the Save button which is below the table to save your change. 
@@ -901,7 +1154,7 @@ When you enter the menu manager screen, it can be a bit overwhelming. But do not
 
 First, pay attention to the large list on the left. As you can see, this block represents the current menu structure. You can change the structure by moving items around, you can change the name of a menu item by pressing the pencil, and you can remove items by pressing the trash can. Remember to save your changes before leaving this screen by pressing the 'Save the new menu layout' button. If you do not, then your changes will not be applied to the menu.
 
-The block to the right gives you the options to add new menu items, or to add an entirely new menu. Try it by creating a new menu with 'test_plugin' as ID and 'Test' as the Name, then press 'Create'. You will see that a new item, called Test, is added to your list of items on the left. Now that you have created a new menu, lets add an item to that menu.
+The block to the right gives you the options to add new menu items, or to add an entirely new menu. Try it by creating a new menu with 'test_plugin' as ID and 'Test' as the Name, then press 'Create'. You will see that a new item, called Test, is added to your list of items on the left. Now that you have created a new menu, let's add an item to that menu.
 
 Fill in the Create Menu Item form with the following data:
 
@@ -909,7 +1162,7 @@ Fill in the Create Menu Item form with the following data:
 * Name: Contact information
 * Query string: 
 
-Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
+Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it let's you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
 Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [Creating an EMX file](#creating-emx-file) section will be selected at the start.
@@ -920,12 +1173,13 @@ Edit the existing data explorer item by pressing the pencil, and add the the fol
 
 Save and when you now press the *Data explorer* in your menu then you will be taken to the dataexplorer with the example_data_table data set selected.
 
-A complete list of all the Query strings available per module:
+A complete list of all the Query strings available at the Data Explorer:
 
-* Data Explorer
-	* *entity=*: Using this Query string you can open the data explorer with the specified entity selected. If we have a 	  data set called 'test_data', then you can set the url to *entity=test_data*.
-	* *hideselect=*: Using this Query string you can hide the drop down for selecting data sets. Use this if you want users to 	  focus on only one data set. Combined with the *entity=* Query string, you can create a dataexplorer that only shows one 	  data set to users.
-* Are there more? <!--TODO: find out if there are more query string possibilities for data explorer and / or other modules-->
+|Query string|Options|Use|Example|
+|
+| ***entity*** | All existing entities |Using this query string you can open the data explorer with the specified entity selected. |entity=test_data|
+| ***hideselect*** | true, false|Hide the drop down for selecting data sets. Use this if you want users to focus on only one data set. Combined with the ***entity*** query string, you can create a Data Explorer that only shows one 	data set to users.|entity=test_data&hideselect=true|
+| ***mod***|data, aggregates, charts, annotators|Select a Data Explorer tab to show|entity=test_data&hideselect=true&mod=data|
 
 **Creating redirects to URLs outside MOLGENIS**  
 Using the redirect plugin as a menu item, you are able to create a link to an outside source. To show how this works, we will create a menu item that links to wikipedia.
@@ -950,172 +1204,7 @@ Using the Theme manager, you can select between multiple bootstrap styles.
 To get the feel of how certain styles look, you can select it in the dropdown menu. The style will not be applied to the application unless you press the 'Save current theme' button.
 
 For an overview of all the different themes offered, visit the [Bootswatch](https://bootswatch.com/) website. It is currently not yet possible to submit your own CSS sheets to update the styling. We do however plan to implement this in the future, giving you even more control to add your own personal style to your MOLGENIS research database.
-
-## <a name="molgenis-modules"></a>MOLGENIS modules
-### <a name="upload"></a>Upload
-The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application.
-
-#### <a name="upload-possibilities"></a>Upload possibilities
-The MOLGENIS upload module supports the following file formats and data:
 	
-|file format		|file extention             |data formats|
-||
-|CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
-|Excel            	|".xls" ".xlsx"             |EMX|
-|OWL              	|".owl.zip"                 |OWL|
-|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
-
-##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
-
-* CSV: Comma Seperated Value
-* OWL: Web Ontology Language
-* VCF: Variant Call Format
-* EMX: Entity Model Extensible
-
-#### <a name="upload-screens"></a>Upload pages
-The different pages will be explained by uploading the<a name="advanced-data-example"></a> "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)) example data set.
-
-The pages are: 
-
-1. Upload file
-2. Options
-3. Packages
-4. Validation
-5. Result
-
-Navigation buttons at the bottom of the pages:
-
-* Previous: Go to the previous page.
-* Next: Go to the next page.
-* Restart: Push this button when you want to start importing a new data set. It will redirect you to the start of this wizard. Pushing this button will kill the session but not the importing job.
-* Finish: The same as Restart.
-
-
-##### <a name="upload-screens-upload-file"></a>Upload file page
-
-###### <a name="upload-screens-options-steps"></a>Steps
-
-1. Select a file to upload.
-2. Click on the next button.
-
-![Upload file screen](images/plugin-upload/upload-file-screen.png?raw=true, "Upload file")
-
-##### <a name="upload-screens-options"></a>Options page
-Select a data upload option. On this page you can select the rules of how to upload your data into MOLGENIS. Because this dataset is an new data set to the application we leave the default option "Add entities" selected. In tabular data sets, the term entities refers to data-rows.
-It is important to understand that this selection is about the data and not the meta data of the data set.
-
-###### <a name="upload-screens-options-options"></a>Options
-
-1. Add entities: Importer adds new entities or fails if entity exists.
-2. Add entities / update existing: Importer adds new entities or updates existing entities.
-3. Update entities: Importer updates existing entities or fails if entity does not exist.
-
-###### <a name="upload-screens-options-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/options-screen.png?raw=true, "Options")
-
-##### <a name="upload-screens-packages"></a>Packages page
-Because the entity (table) persons has no package defined, we get the option to choose another package then the MOLGENIS default package. The select options are generated from the available packages in the data set.
-
-###### <a name="upload-screens-packages-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/packages-screen.png?raw=true, "Packages")
-
-##### <a name="upload-screens-validation"></a>Validation page
-When you see this page the validation is already done. This page validates the structure of the meta data.
-
-"Entities" table where all the entities (tables) are defined.
-
-* Name: Name of entity
-* Importable: Is this entity inportable or not. Two options (Yes, No) 
-
-"Entity fields" table that will contain information about the fields of a entity (Columns of the table)
-
-* Name: Name of entity
-* Detected: A comma separated list of fields that were found for this entity
-* Required: Are there required fields defined in the meta data that are missing in the entity?
-* Available: Are there fields in the meta data that are optionel and were not found in the entity?
-* Unknown: Are there fields defined in the entity that were undefined in the meta data?
-
-###### <a name="upload-screens-validation-steps"></a>Steps
-
-1. Click on the next Button.
-
-![Upload file screen](images/plugin-upload/validation-screen.png?raw=true, "Validation")
-
-##### <a name="upload-screens-result"></a>Result page
-
-When this page is shown with the "import succes" message, than you know that your data and metadata are uploaded correctly.
-
-After the data is uploaded into MOLGENIS, you can change some permissions for the entities.
-
-In the permissions view you can:
-
-1. Select a group: which user group will get these permissions.
-2. Select permission for a entity (table). You can choose between: Edit, View, Count and None. For more information about permissions visit this section: [Setting permissions](#permissions)
-
-###### <a name="upload-screens-result-steps"></a>Steps
-
-1. [Optional] Select the view permission for the root_hospital_cities entity.
-2. [Optional] Click on the save button.
-3. Click on the finish button.
-
-![Upload file screen](images/plugin-upload/result-screen.png?raw=true, "Result")
-
-##### <a name="dataexplorer-reports"></a>Data-explorer "Reports"
-The reports functionality is made for overriding the default instance view or to add a instances tab in the Data-explorer. Overriding the views or adding a tab is possible by creating a new FreemarkerTemplate entity with the right name convention. In this short tutorial I will show you how to achieve this.
-
-There are two ways to create your own reports: 
-
-1. Overriding the default instance view.
-2. Add a instances view tabs.
-
-You will need:
-
-1. A data set: "Advanced data example" ([download](download/advanced_data_example_v20151104.xlsx)). Upload this dataset into your MOLGENIS instance see the [Upload](#upload) section.
-
-###### Override the entity view
-
-Steps:
-
-1. Go to the data explorer
-2. Select the "cities" entity via the entity select dropdown.
-3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
-4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-5. Lets upload our own template. 
-	a. Go to the data explorer and select the FreemarkerTemplate entity.
-	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
-		* Value: "\<div>City name: ${entity.get('cityName')}\</div>"
-	![view-Cities-entitiesreport](images/reports/view-entityreport-specific-root_hospital_cities.png?raw=true, "view-Cities-entitiesreport")
-6. Repeat steps 2 and 3. 
-7. The new view will be: ![View entity report custom](images/reports/custom-entityreport-view.png?raw=true, "Entity view")
-
-###### Add a instances view tab
-1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
-2. Lets upload our own template. 
-	a. Go to the data explorer and select the FreemarkerTemplate entity.
-	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
-		* Value: "\<div>My cities\</div>"
-		![view-Cities-entitiesreport](images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
-3. Click on the settings icon ![Settings](images/settings.png?raw=true, "Settings")
-	a. Check: Modules -> Data -> Reports -> Yes
-	b. Set: Reports -> Reports -> root_hospital_cities:Cities
-		* root_hospital_cities is the entity name.
-		* Cities is the template name.
-	
-	![Entities report settings](images/reports/entities-report-correct-settings.png?raw=true, "Entities report settings")
-4. Refresh the page and repeat step 1.
-5. The result:![Custom entities report](images/reports/custom-entities-report.png?raw=true, "Custom entities report")
-	
-
 ## <a name="end-note"></a> End note
-If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [technical documentation](url/here)
-
-If you have questions, or if you are interested in having a server hosted by us, contact <name_here> <insert_email_here>.
+If you made it all the way through this document, then congratulations! You are now a certified MOLGENIS expert. If you feel the need to contribute to our software, you can find us on [GitHub](https://github.com/molgenis/molgenis). For technical documentation, containing information on the technologies we use and an architectural overview, take a look at our [MOLGENIS v1.12 technical documentation](./technical_documentation.md)
 
