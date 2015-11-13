@@ -236,7 +236,7 @@ In this section we introduce and explain, terminology of MOLGENIS
 | Package  | A namespace item. Multiple packages can create a namspace where entities can live in || The default namespace in molgenis is called "default"|
 | Data set | A collections of entities that are contextually related| An file can contain multiple entities  | |
 | Entity | An entity is the template and collection of a subject | Like a table in a database| |
-| Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complicity and double use of the same term|
+| Entity | An entity is the actual data that is collected based on the template from an entity (Term above)| Like a row in a database| In the future we will change this term to "instance" to avoid complexity and double use of the same term|
 | Attribute| An attribute describes the charcteristics of a data item in a entity |Like a column in a database||
 
 ### <a name="upload"></a> Data upload
