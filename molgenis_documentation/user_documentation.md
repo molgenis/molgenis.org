@@ -252,7 +252,7 @@ The MOLGENIS upload module supports the following file formats and data:
 |CSV              	|".csv" ".txt" ".tsv" ".zip"|EMX|
 |Excel            	|".xls" ".xlsx"             |EMX|
 |OWL              	|".owl.zip"                 |OWL|
-|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VVCF (version 4.0)|:
+|VCF (version 4.0)	|"vcf" ".vcf.gz"            |VCF (version 4.0)|:
 
 ##### <a name="upload-possibilities-abbreviations"></a>Abbreviations:
 
