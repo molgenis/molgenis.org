@@ -115,7 +115,7 @@ MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the
 
 ## <a name="trying-out-molgenis"></a> Trying out MOLGENIS
 The first thing you can do is to get some hands-on experience by trying out our [demo server](http://molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
-But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So lets jump right into that.
+But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So let's jump right into that.
 
 ### <a name="installing-molgenis-cargo"></a> Installing MOLGENIS using maven cargo
 The fastest and easiest way to get MOLGENIS running on a machine, is using our cargo project. This is collection of files that you can use to deploy MOLGENIS for you. There are three steps you need to do before this will work: 
@@ -433,10 +433,10 @@ Let's assume we have a specific location we are interested in, say position 1032
 Let's first use the search box to see if we can find the line that way:
 enter "103214569" in the search box and press enter.
 
-But now we like to take a look at all variation on chromosome 7, as you can imagine searching for "7" in all the attributes in the data will give us a lot of results we are not looking for. So we'd like to filter for this value specifically for the chromosome attribute.
+But now we like to take a look at all variation on chromosome 7. As you can imagine searching for "7" in all the attributes in the data will give us a lot of results we are not looking for. So we'd like to filter for this value specifically for the chromosome attribute.
 
-Click the filter icon in front of "#CHROM" in te attribute selection tree and enter "8" in the input field than click "apply"
-However we meant to search for chromosome 7, so lets click the filter in the active filters box, and change the value to 7.
+Click the filter icon in front of "#CHROM" in the attribute selection tree and enter "8" in the input field then click "apply"
+However we meant to search for chromosome 7, so let's click the filter in the active filters box, and change the value to 7.
 We now have all the values for chromosome 7 in the table, however the results are divided over several pages of results, we'd like to view them all in one screen; click the "rows per page" dropdown below the table and select "100" this will show 100 results per page.
 The "FILTER" column shows the same value for every line, we are not interested in this column so let's hide it by clicking the checkbox in front of "#CHROM" in the attribute selection tree.
 
@@ -450,7 +450,7 @@ Click the magnifing glass in front of the dataline to show a report for that lin
 
 Click the edit icon and change the chromosome from 7 to 8 and save.
 Adding a row works the same way, only without the prefilled fields.
-Now lets click the red garbage bin icon in front of a line to delete this line from the entity.
+Now let's click the red garbage bin icon in front of a line to delete this line from the entity.
 
 ##### Annotation mod
 
@@ -535,7 +535,7 @@ Steps:
 2. Select the "cities" entity via the entity select dropdown.
 3. The entity view modal is opened when you click on the ![View entity report button](images/reports/view-entityreport-button.png?raw=true, "Entity view") button".
 4. The default view will be: ![View entity report default](images/reports/default-entityreport-view.png?raw=true, "Entity view")
-5. Lets upload our own template. 
+5. Let's upload our own template. 
 	a. Go to the data explorer and select the FreemarkerTemplate entity.
 	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
 		* Name: view-entityreport-specific-root_hospital_cities.ftl (view-entityreport-specific-\<Full entity name>.ftl)
@@ -546,7 +546,7 @@ Steps:
 
 ###### Add a instances view tab
 1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
-2. Lets upload our own template. 
+2. Let's upload our own template. 
 	a. Go to the data explorer and select the FreemarkerTemplate entity.
 	b. Click on the ![add](images/add.png?raw=true, "add") button. In the modal you fill in:
 		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
@@ -570,9 +570,9 @@ The model registry is a module that can display the entire meta data model of a 
 
 The following paragraphs will explain how the model registry works, but it is more fun to learn how it works with some actual models. So for this part, you can go to [The BioMedBridges](https://molgenis08.target.rug.nl/menu/main/standardsregistry) website, and navigate to the model registry module, you do not even have to log in!
 
-Now that we have some actual models on our screen, lets get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
+Now that we have some actual models on our screen, let's get started by finding some models. I know! Why don't we search for the EMX model? You should be familiar with it since you probably imported your own data already. In the main model registry screen, search for EMX. You should get one model back, namely emx (Entity Model Extensible). As you can see there are a few links mentioned as well. These are *Tags*, if you do not know the term, I suggest you look at the [Advanced importing](#importing-advanced) section again. The label beneath the Tags tells you why this model was returned for your search.
 
-This part is not telling us much about the content of the EMX model yet, so lets see what it holds! Click the *View Model Details* button to get to the details page.
+This part is not telling us much about the content of the EMX model yet, so let's see what it holds! Click the *View Model Details* button to get to the details page.
 
 ![Model registry screen 2](images/model_registry_screen2.png?raw=true, "model registry screen 2")
 
@@ -1073,7 +1073,7 @@ User management is crucial for keeping an overview of people visiting your onlin
 
 ![Menu manager screen](images/user_manager.png?raw=true, "user manager")
 
-The user management menu allows you to create new users and groups. But also lets you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
+The user management menu allows you to create new users and groups. But also let's you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
 
 **Try it out**  
 To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
@@ -1125,7 +1125,7 @@ You can navigate to the permission module under the Admin menu, and then navigat
 Here you can set permissions for different groups and users. These permission allow users to either Edit, View, Count, or do nothing with the different data sets and modules in MOLGENIS.
 
 **Try it out**  
-Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Lets change it so that our test_group has the permission to open the Data explorer, and the molgenis_user will be able to see the example_data_table data set, which we created in the [Creating an EMX file](#creating-emx-file) section.
+Remember that molgenis_user that we created in the [user management](#user-management) section? If you go to the users tab and look for molgenis_user, you will find it does not have any permissions yet, except for those inherited from the All users group. Let's change it so that our test_group has the permission to open the Data explorer, and the molgenis_user will be able to see the example_data_table data set, which we created in the [Creating an EMX file](#creating-emx-file) section.
 
 **Setting group permissions**  
 As you open the permission manager, the groups tab is already selected. For the group *test_group* we want to set the permissions in such a way to the members of that group can use the data explorer to look at data sets. To do this, select the test_group from the drop down. Next you will want to lookup dataexplorer in the Plugin column, and set the permission to *View*. Press the Save button which is below the table to save your change. 
@@ -1153,7 +1153,7 @@ When you enter the menu manager screen, it can be a bit overwhelming. But do not
 
 First, pay attention to the large list on the left. As you can see, this block represents the current menu structure. You can change the structure by moving items around, you can change the name of a menu item by pressing the pencil, and you can remove items by pressing the trash can. Remember to save your changes before leaving this screen by pressing the 'Save the new menu layout' button. If you do not, then your changes will not be applied to the menu.
 
-The block to the right gives you the options to add new menu items, or to add an entirely new menu. Try it by creating a new menu with 'test_plugin' as ID and 'Test' as the Name, then press 'Create'. You will see that a new item, called Test, is added to your list of items on the left. Now that you have created a new menu, lets add an item to that menu.
+The block to the right gives you the options to add new menu items, or to add an entirely new menu. Try it by creating a new menu with 'test_plugin' as ID and 'Test' as the Name, then press 'Create'. You will see that a new item, called Test, is added to your list of items on the left. Now that you have created a new menu, let's add an item to that menu.
 
 Fill in the Create Menu Item form with the following data:
 
@@ -1161,7 +1161,7 @@ Fill in the Create Menu Item form with the following data:
 * Name: Contact information
 * Query string: 
 
-Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
+Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it let's you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
 Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [Creating an EMX file](#creating-emx-file) section will be selected at the start.
