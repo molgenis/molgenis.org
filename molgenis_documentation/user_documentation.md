@@ -240,7 +240,7 @@ In this section we introduce and explain, terminology of MOLGENIS
 | Attribute| An attribute describes the charcteristics of a data item in an entity |Like a column in a database||
 
 ### <a name="upload"></a> Data upload
-The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. When you have the permissions, you will see the upload menu item.
+The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. If you have the permissions, you will see the upload menu item.
 
 ![Upload menu item](images/upload/upload-menu-item.png?raw=true, "upload menu item")
 
