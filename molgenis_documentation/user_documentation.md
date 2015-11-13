@@ -229,7 +229,7 @@ Of course, simply uploading and showing data is not the only thing you can do wi
 In this section you will learn about all the different modules MOLGENIS has to offer, step-by-step. Every module will be explained through a simple use case, going from a light explanation into a an example using every module at its full capabilities. Let us not wait any longer! We will start off with the most basic step, importing your data.
 
 ### <a name="terminology"></a> Terminology of Molgenis
-In this section we introduce and explian the terminolegy of MOLGENIS
+In this section we introduce and explain, terminology of MOLGENIS
 
 | Term     |Explanation       |Example |Comments|
 |----------|------------------|--------|--------|
