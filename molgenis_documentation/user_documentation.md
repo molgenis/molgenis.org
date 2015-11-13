@@ -420,15 +420,15 @@ Another button will allow you to send your data to a [galaxy](https://galaxyproj
   
 ![Dataexplorer first screen](images/dataexplorer/genome_browser.png?raw=true, "dataexplorer/genome_browser")
 
-When a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the [Dalliance](http://www.biodalliance.org "Dalliance") genome browser.
+If a selected entity has chromosome and position attribute the genome browser will be shown. The browser used by MOLGENIS is the [Dalliance](http://www.biodalliance.org "Dalliance") genome browser.
 Clicking on a row in the data table will make the genome browser zoom to the coordinates of that row.
 A button ('apply filters') is available at the bottom of the genome browser to filter the data table based on the coordinates currently in shown in the genome browser.
 
 
 ###### Try it out
 ###### Data exploration
-upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
-Lets select an entity containing genomic variants by selecting the entityname you just chose for the upload in the entity select.
+Upload the [vcf_example_file](/data/Documentation_VCF.vcf "VCF example file") using the importer.
+Let's select an entity containing genomic variants by selecting the entity name you just chose for the upload in the entity select.
 Let's assume we have a specific location we are interested in, say position 103214569 at chromosome 7, so we'd like to search for that specific line in the entity.
 Let's first use the search box to see if we can find the line that way:
 enter "103214569" in the search box and press enter.
