@@ -1,209 +1,112 @@
-# Online demo
+**
+Here you will learn, step-by-step, what MOLGENIS is, how to install it, and first glance on the options it offers you to manage and explore your data.
+**
 
-For a quick view on MOLGENIS we recommend to use the online demo.
+# What is MOLGENIS?
+Molecular Genetics Information Systems, or MOLGENIS for short, is a web-based software toolkit designed to provide biologists with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
-## Latest stable release
+![molgenis overview](res/images/molgenis-overview.png?raw=true, "molgenis overview")
 
-For the latest stable version browse to
 
-https://molgenis.org/demo
+## Why MOLGENIS?
+Why should you use MOLGENIS? One of the key features is that it uses an extensible model system, allowing you to model your data however you want. This creates flexibility that other, more static, database applications often lack. It's web-based, meaning you setup a server, install and configure MOLGENIS, load your data and share it with the world. If your data is ready, setting up a useful online research database can be done in a matter of days. Besides storing your data, MOLGENIS also allows for the creation of R and Python scripts that interact with your data. This enables you to run statistical analysis, or create plots based on your data within the online environment.
 
-username: admin
-password: admin
+MOLGENIS takes away the hassle of storing data, and makes it highly accessible with filters and fast search capabilities. This enables you as a researcher to focus on the data itself.
 
-This version is updated approx. every three months so may not offer the latest and greatest.
 
-## Nightly build
+## Who is using MOLGENIS?
+Several research groups and organisations are already using MOLGENIS for their projects. Below is a list of all the projects currently hosted by us.
 
-For the bleeding edge browse to
+|Project name | Pubmed                                            | Project URL                                 |Project description          |
+|-------------|---------------------------------------------------|---------------------------------------------|-----------------------------|
+|ASE          |[link](http://www.ncbi.nlm.nih.gov/pubmed/25954321)|[Database](molgenis.org/ase)                 |Database for measured ASEs   |
+|COL7A1       |[link](http://www.ncbi.nlm.nih.gov/pubmed/21681854)|[Database](https://molgenis03.target.rug.nl/)|Database for COL7A1 mutations|
 
-https://molgenis01.target.rug.nl
+BIG TODO summarize more examples
 
-username: admin
-password: admin
+## Should I use it?
+If you are a biologist, a bioinformatician, a researcher, or anyone else who has a lot of biological data on their hands, then MOLGENIS is a software package that will help you in setting up an online research database in no time at all, making your data query-able and allowing you to share your data with collaborators effortlessly. By mastering the MOLGENIS software toolkit you will be able to store, edit, analyse, and share your data faster than ever before. 
 
-This version may be broken because it is currently under development. Also it may lack nice example data. So this is not for the faint of hearted.
+<!-- If one of the following use cases applies to you, then yes it is worth the effort to learn MOLGENIS.
 
-# Cloud installation
+#### <a name="biobank-example"></a> Biobank catalogue
+Biobanks are collections of data from samples.
+MOLGENIS is being used to host biobank data for several major Dutch and European biobanking projects. The BBMRI-NL and BBMRI-ERIC projects.
+
+#### <a name="ngs-example"></a> NGS data annotation and interpretation
+Next generation sequencing (NGS) data often results in mutation data. thousands of single SNPs...
+MOLGENIS is hosting multiple mutation databases like the COL7A1 database and the CHD7 database.
+-->
+<!-- TODO #### <a name="research-portal-example"></a> Research portals -->
+<!-- TODO #### <a name="compute-example"></a> Analysis pipelines and online computing -->
+
+# Try online
+
+## Using our demo server
+The first thing you can do is to get some hands-on experience by trying out our [demo server](http://molgenis.org/demo). This server contains several data sets including biobank data and genetic data. If you want to try importing some example files, then the only thing needed from your end is that you create an account. An email will be sent containing your login in credentials.
+But perhaps you want to see how your own data looks like, but not upload it for other people to see, not yet anyway. So let's jump right into that.  
+
+## Getting your first data in
+So you have a MOLGENIS application up and running, and your dataset is sitting nice and cozy on your computer somewhere, now what? We upload the data of course! As mentioned before, MOLGENIS uses an extensible model format allowing you to model your data however you want. This is done via the **EMX** format. Now I know a custom format sounds scary, but if you keep reading for a bit, you will find out it's not scary at all.
+
+We wanted researchers to be able to describe their data in a flexible 'meta model'. This sounds really interesting, but what it boils down to, is that you have one separate xlsx sheet that describes your column names, or attributes as we call them. Thats it. Thats all the EMX format is. Keep reading to find a detailed example.
+
+## <a name="creating-emx-file"></a> Creating an EMX file
+If you want to skip this theory lesson and download an excel file right away to use as a template, you can find several of them [on Github](https://github.com/molgenis/molgenis/tree/master/molgenis-app/src/test/resources). Be advised that these are files for testing purposes, and do not have real data in them, so they might not fully represent the complexity of your own data.
+
+Now for the example. Say that you have an existing excel sheet with a couple of thousand rows of data and several columns. This data can look something like this:
+
+**Data sheet**:
+ 
+|Identifier|Gene    |Protein measured|Protein count|
+|----------|--------|----------------|-------------|
+|A12345_Z  |BRCA2   |P51587          |321          |
+|B12345_Y  |BRCA2   |Q86YC2          |123          |
+|C12345_X  |BRCA2   |Q9P287          |213          |
+|D12345_W  |BRCA2   |P46736          |231          |
+|E12345_V  |BRCA2   |Q8MKI9          |312          |
+
+Now to make this into a full fledged EMX file, all you have to do is create a new sheet within the same file and call it *attributes*. To give an idea on what the purpose of this sheet is, it will describe the columns that you have set for your data. This description allows MOLGENIS to properly store and display it. An attribute sheet will look something like this:
+
+**Attribute sheet**
+
+|name            |entity            |dataType|description                     |refEntity|idAttribute|nillable|
+|----------------|------------------|--------|--------------------------------|---------|-----------|--------|
+|Identifier      |example_data_table|string  |The identifier for this table   |         |TRUE       |FALSE   |
+|Gene            |example_data_table|string  |The HGNC Gene identifier        |         |FALSE      |TRUE    |
+|Protein measured|example_data_table|string  |The protein that was measured   |         |FALSE      |TRUE    |
+|Protein count   |example_data_table|int     |Number of proteins measured     |         |FALSE      |TRUE    |
+
+This little bit is all you need. You specify the *name*, which is the name you gave to the column already. The *entity* is the name the table will get when it is stored in the database. The *dataType* is, as you might have guessed, the type of data that is present in each column. The *description* column allows you to describe your attribute. If you want to have a value point to another table, you can use the *refEntity* column. Complex data structures do not always consist of a single table, we support multiple table models through this system of reference entities. The *idAttribute* parameter will tell MOLGENIS that this is the primary key. It has to be unique, and it is not allowed to be null or missing. With the *nillable* parameter you can enforce whether an attribute is allowed to be missing or not.  
+
+This is a minimal example of how you can use one extra sheet and a few columns to properly define your *meta data*. MOLGENIS is now capable of importing your data, storing it, displaying it, and making the data query-able.
+
+## Importing your EMX file
+So you have a MOLGENIS application running locally or on the server, and working with the example in the previous paragraph you have now converted your dataset into the EMX format. So I guess it is time to upload!
+
+Browse to wherever your application is running, and login as admin user.
+Go to the Upload menu. You now should see something like this:
+
+![Importer first screen](res/images/importer_first_screen.png?raw=true, "importer")
+
+To keep it simple, all you need to do is click the 'select a file' button, select your newly made EMX file, and press the next button until it starts importing. Don't worry about all the options you are skipping, we will handle those in the [upload guide](documentation/guide-upload). After your import is done, you can view your data in the data explorer. Go there by clicking the 'Data Explorer' link in the menu.
+
+Congratulations! You have now deployed MOLGENIS either locally or on a server, and you have made the first steps on getting your data into the MOLGENIS database. Play around a bit with the different data explorer filters to get a feel on how MOLGENIS works.
+
+Of course, simply uploading and showing data is not the only thing you can do with the MOLGENIS software. In the following MOLGENIS step-by-step section, we will take you from being a simple user, and teach you on how to be an expert.
+
+# What is next?
+
+## Download & install
+
+You can download and install MOLGENIS for free. See [Download & Intall guide](/download)
+
+## Request cloud installation
 
 We host MOLGENIS for our partners. Email m.a.swertz@rug.nl for more information.
 
-TODO: create amazon image.
+## Become a MOLGENIS guru
 
-# Download
+You can use the [Documentation](../documentation) to become a MOLGENIS guru.
+Or you can see whether you are interested in [MOLGENIS compute](../compute).    
 
-For MOLGENIS to work you need
-* MySQL 
-* Tomcat
-* MOLGENIS - http://mvnrepository.com/artifact/org.molgenis/molgenis-app
-
-TODO: standalone MOLGENIS.
-
-## On Mac
-
-TODO: manual
-
-## On Linux
-
-TODO: packages for Ubuntu, CenTOS
-
-## On Windows
-
-TODO: howto
-
-# Compile yourself
-
-This section explains how to install MOLGENIS from sources
-
-## Software needed
-
-install java8 JDK (not JRE) from http://www.oracle.com/technetwork/java/javase/downloads/index.html
-
-install eclipse (we used Luna) from https://www.eclipse.org/downloads/
-
-install mysql from (we used 5.6.23 DMG) http://dev.mysql.com/downloads/mysql/
-
-install git from http://git-scm.com/download/
-
-## Configure mysql
-
-open terminal and start mysql client (command differs in Windows, Linux, Mac): 
-
-    /usr/local/mysql/bin/mysql -u root
-    
-Note, if not running you can start the MySQL server from the System Preferences
-
-in mysql client create database and permissions via command:
-
-    create database omx;
-    grant all privileges on omx.* to molgenis@localhost identified by 'molgenis';
-    flush privileges;
-
-## Configure Eclipse
-
-start Eclipse
-
-when asked, create fresh workspace folder (not same folder as git!)
-
-go to 'Help' -> 'Eclipse market place'
-
-find and install plugins:
-* 'JBoss Tools', during install only select Freemarker IDE
-* 'TestNG for Eclipse'
-* 'm2e-apt'
-
-go to 'Eclipse' -> 'Preferences' 
-* 'installed JREs' and select 'java 8'
-* 'Maven' -> 'Annotation Processing' and select 'Automatically Configure JDT APT'
-
-Restart
-
-## Get the code
-
-create acount on github.com 
-
-'fork' on http://github.com/molgenis/molgenis
-
-copy the cloneURL
-
-open terminal (mkdir if needed) and type 
-
-    cd ~/git 
-    git clone http://github.com/[YOURACCOUNT]/molgenis
-    
-Optionally select stable molgenis version:
-
-    git fetch --tags origin
-    git checkout -b <tag name: see https://github.com/molgenis/molgenis/releases>
-
-More information about forking can be found here: https://help.github.com/articles/fork-a-repo
-
-## Set admin password
-
-Create the file ~/.molgenis/omx/molgenis-server.properties and add user and database properties:
-
-    db_user=molgenis
-    db_password=molgenis
-    db_uri=jdbc:mysql://localhost/omx
-    admin.password=admin
-    user.password=admin
-
-If these properties are not present, the MolgenisDatabasePopulator will fail (RuntimeException). This properties-file should be in your home folder, if the file is not there yet, just create it.    
-
-If you are developing you might want to add the following
-	
-	environment=development
-
-This property allows for at runtime javascript editing and makes sure the javascript files do not get minified and bundled.
-
-
-## Start MOLGENIS
-
-In eclipse, if still open, close the 'Welcome' screen.
-
-Choose 'File' -> 'Import' -> 'Import existing Maven projects'
-
-Browse to your /git/molgenis directory 
-
-Select it, you will then be prompted to install some maven connectors, accept these 
-(else MOLGENIS will not build properly in eclipse)
-
-Right mouse 'molgenis' -> Run as -> Maven build ... 
-	In Goals type: clean install. 
-	Under Goals check Update Snapshots and Resolve Workspace artifacts. 
-	In the JRE tab, add the VM argument; -Xmx2g
-	Click run
-
-Right mouse 'molgenis-app' -> Run as -> Maven build ... 
-	in goals type 'jetty:run' 
-	In the JRE tab, add the VM argument; -Xmx2g
-	Click run
-
-Open your browser at http://localhost:8080/
-
-You should see the application. Login as 'admin', 'admin' to be able to upload and view data, create users, etc etc.
-
-## Update your code
-
-Add the original molgenis repository as a remote location.
-
-    cd ~/git/molgenis
-    git remote add blessed https://github.com/molgenis/molgenis.git
-    
-Perform regular updates so the latest changes are merged with your local clone.
-
-    git pull blessed master
-    
-And push back any merges or commits of your own to your online fork.
-
-    git push origin master
-
-## Troubleshooting
-
-### When I build I get maven build error 'env not available'. 
-
-Solution: start Eclipse from commandline.
-
-### When I try to start an application, the console tells me 'Address already in use'!
-
-Run the Maven target 'jetty:stop'. If that does not help, use your operating systems process manager to kill anything running on port 8080. For example:
-
-    kill -9 `lsof -i :8080 -t`
-
-## Third-party software
-For some modules in Molgenis, third-party software is in use. It is important to know that some of these licenses are different than the Molgenis license.
-
-In this section you can find a list of remarks about third-party software in Molgenis modules.
-
-### molgenis-charts module
-As a non-profit organisation we are using the Highsoft software 'highstock version 1.3.6', in the molgenis-charts module to build some charts.
-
-Important! The Highsoft software product is not free for commercial use. For Highsoft products and pricing go to: http://shop.highsoft.com/
-
-To turn-off/deactivate this functionality you can set the RuntimeProperty “plugin.dataexplorer.mod.charts” to false:
-    1. You can find the RuntimeProperty via the menu Entities -> RuntimeProperty.
-    2. Search for the RuntimeProperty "plugin.dataexplorer.mod.charts" and update to false.
-    3. If it does not exists:
-        a. Create a new RuntimeProperty
-        b. Name -> plugin.dataexplorer.mod.charts
-        c. Value -> false

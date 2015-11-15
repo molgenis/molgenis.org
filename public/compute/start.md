@@ -1,30 +1,30 @@
-#Quickstart
-
+**
 In this quickstart you will learn to:
 1. create a workflow
 2. create a workflow run
 3. execute the run
+**
 
 # 1. Create a workflow
 
-We assume you downloaded and unzipped molgenis compute commandline and are now in the directory you downloaded.
+We assume you   downloaded and unzipped molgenis compute commandline and are now in the directory you downloaded.
 
 You can generate a template for a new workflow using command:
 
-```
+```bash
   sh molgenis_compute.sh --create myfirst_workflow
 ```
 
 This will create a new directory for the workflow:
 
-```
+```bash
   cd myfirst_workflow
   ls
 ```
 
 The directory contains a typical Molgenis Compute workflow structure
 
-```
+```bash
   /protocols              #folder with bash script 'protocols'
   /protocols/step1.sh     #example of a protocol shell script
   /protocols/step2.sh     #example of a protocol shell script
@@ -69,7 +69,7 @@ To feed parameter values to your workflow you can also use simple csv files. In 
 Finally, you need to implement what needs to happen at each step. We therefor define for each step a 'protocol'. Protocols are simply bash scripts containing the commands you want to run
 
 For example protocols/step1.sh:
-```
+```bash
   #string in
   #output out
   echo ${in}_hasBeenInStep1
@@ -83,7 +83,7 @@ Inputs can either be '#string' for variables with a single value or '#list' for 
 
 In the same way, we can map outputs of one step to the inputs of the next steps. In our example, 'strings' in the 'step2', which has protocol step2.ftl
 
-```
+```bash
   #string wf
   #string date
   #list strings
@@ -114,37 +114,42 @@ parameters, they should use the same names in protocols and parameters files. Th
 
 Once you defined your workflow you can generate 1000s of jobs. Just change the parameter values to have different runs. 
 
-```
+```bash
   sh molgenis_compute.sh --generate --parameters myfirst_workflow/parameters.csv --workflow myfirst_workflow/workflow.csv --defaults myfirst_workflow/workflow.defaults.csv
 ```
 
 or with a short command-line version
 
-```
+```bash
   sh molgenis_compute.sh -g -p myfirst_workflow/parameters.csv -w myfirst_workflow/workflow.csv -defaults myfirst_workflow/workflow.defaults.csv
 ```
 
 The directory ```rundir``` is created.
 
-```
+```bash
   ls rundir/
 ```
 
 It contains a number of files
 
-```
-  doc		step1_0.sh	step1_1.sh	step2_0.sh	submit.sh	user.env
+```bash
+  doc		
+  step1_0.sh	
+  step1_1.sh	
+  step2_0.sh	
+  submit.sh	
+  user.env
 ```
 
 .sh are actual scripts generated from the specified workflow. 'step1' has two scripts and 'step2' has only one, because it treats
 outputs from scripts of the 'step1' as a list, which is specified in step2.sh by
 
-```
+```bash
     #list strings
 ```
 user.env contains all actual parameters mappings. In this example:
 
-```
+```bash
   #
   ## User parameters
   #
@@ -160,7 +165,7 @@ Parameters, which are known before hand can be connected to the environment file
 the 'step1'. The weaved version of generated files are shown below.
 
 step1_0.sh:
-```
+```bash
   #string in
   #output out
   # Let's do something with string 'in'
@@ -169,7 +174,7 @@ step1_0.sh:
 ```
 
 and step1_1.sh
-```
+```bash
   #string in
   #output out
   # Let's do something with string 'in'
@@ -180,7 +185,7 @@ and step1_1.sh
 The output values of the first steps are not known beforehand, so, 'string' cannot be weaved and will stay in the generated for the 'step2' script as it was. However, the 'wf' and 'date' values are weaved.
 
 step2_0.sh:
-```
+```bash
   #string wf
   #string date
   #list strings
@@ -196,7 +201,7 @@ step2_0.sh:
 If values can be known, the script will have the following content 
 
 step2_0.sh with all known values:
-```
+```bash
   #string wf
   #string date
   #list strings
@@ -210,7 +215,7 @@ step2_0.sh with all known values:
 ```
 
 If 'weaved' flag is not set, +step1_0.sh+ file, for example looks as follows:
-```
+```bash
   # Connect parameters to environment
   input="bye"
   #string input
@@ -229,29 +234,42 @@ If values cannot be known at run-time, compute will give a generation error.
 ## Execute locally
 Compute can execute the jobs locally with command:
 
-```
+```bash
   sh molgenis_compute.sh --run
   ls rundir/
 ```
 
 Now, rundir contains more files
-```
-  doc				step1_0.sh.finished		step1_1.sh.finished		step2_0.sh.finished
-  molgenis.bookkeeping.log	step1_0.sh.started		step1_1.sh.started		step2_0.sh.started
-  step1_0.env			step1_1.env			step2_0.env			submit.sh
-  step1_0.sh			step1_1.sh			step2_0.sh			user.env
+```bash
+  doc				
+  step1_0.sh			
+  step1_1.sh			
+  step2_0.sh
+  submit.sh
+  step1_0.sh.started		
+  step1_1.sh.started		
+  step2_0.sh.started
+  step1_0.env			
+  step1_1.env			
+  step2_0.env	
+  step1_0.sh.finished		
+  step1_1.sh.finished		
+  step2_0.sh.finished
+  molgenis.bookkeeping.log		
+  user.env
 ```
 .started and .finished files are created, when certain jobs are started and finished respectively. 
 
 In our example, 'strings' variable from 'step2' requires run-time values produced in 'step1'. These values are taken from step1_X.env files. For example:
 
 step1_0.env:
-```
+```bash
   step1__has__out[0]=hello_hasBeenInStep1
 ```
 
 In the workflow.csv file, it is specified with a simple '.' 
-
+```bash
   strings=step1.out
+```
 
 and substituted with '__has__' in generated script files.

@@ -2,26 +2,26 @@
   "index" : {"title":"home","description":"Welcome to MOLGENIS home page"},    
   "start": {
     "title": "Start",
-    "description": "Quick start for installing and using MOLGENIS."
+    "description": "Quick start for using MOLGENIS."
   },
-  "learn": {
-    "title": "Data",
-    "description": "Using MOLGENIS data management toolbox"
+  "documentation": {
+    "title": "Documentation",
+    "description": "Documentation to using MOLGENIS tools"
   },
   "compute": {
     "title": "Compute",
     "description": "Using MOLGENIS analysis pipeline toolbox"
-  },        
+  }, 
   "develop": {
     "title": "Develop",
-    "description": "Extensive documentation for contributing new code."
+    "description": "Download source and code your own MOLGENIS components"
+  },
+  "download": {
+    "title": "Download",
+    "description": "Download for free and install yourself"
   },
   "about": {
     "title": "About",
     "description": "Information about MOLGENIS, publications, team and history."
-  },  
-  "sitemap": {
-    "title": "Sitemap",
-    "description": "Complete index of all pages in this website."
   }
 }

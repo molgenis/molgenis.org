@@ -1,15 +1,22 @@
+**
 The MOLGENIS REST API allows you to retrieve and modify your data model entities and entity collections. The API supports all CRUD (create, read, update and delete) methods as well as resource collections paging & filtering and resource field expansion. At the moment of writing JSON and form data are supported as request content types and JSON is the only supported response content type.
-
-# Set operations
+**
 
 Your MOLGENIS data model defines the resources and resource collections that can be accessed and modified. Lets assume that your data model contains the entities DataSet, Protocol and Feature. The REST API will consist of the following endpoints:
+
+# Collections
+
+MOLGENIS entity collections are available as end-points:
 
 *Endpoints*
 * http://your.molgenis.url/api/v1/dataset
 * http://your.molgenis.url/api/v1/protocol
 * http://your.molgenis.url/api/v1/feature
 
-## Retrieve set
+## Retrieve collection
+
+Each entity collection has its own end-point:
+
 *Request*
 ```
 GET http://your.molgenis.url/api/v1/dataset 
@@ -37,10 +44,20 @@ GET http://your.molgenis.url/api/v1/dataset
     }]
 }
 ```
+## Delete collection
 
-## Search set
+Datasets can be completely deleted (Nb. the meta data will be kept):
 
-Parameters:
+*Request*
+```
+DELETE http://your.molgenis.url/api/v1/dataset 
+```
+*Response*
+```javascript
+204 No Content
+```
+
+## Query a collection
 
 Key | Type | Description
 --- | --- | ---
@@ -107,45 +124,17 @@ Content-Type: application/json
 }
 ```
 
+# Instances
 
-## Delete set
-*Request*
-```
-DELETE http://your.molgenis.url/api/v1/dataset 
-```
-*Response*
-```javascript
-204 No Content
-```
+Each data row within a collection (i.e. entity instance) can be accessed via its identifier:
 
-#Instance operations
+*Endpoints*
+* http://your.molgenis.url/api/v1/dataset/<entity id>
+* http://your.molgenis.url/api/v1/protocol/<entity id>
+* http://your.molgenis.url/api/v1/feature/<entity id>
 
+## Retrieve
 
-## Create instance
-*Request*
-```
-POST http://your.molgenis.url/api/v1/dataset
-Content-Type: application/json
-
-{
-    "name": "my third data set",
-    "protocol": 10
-}
-```
-*Response*
-```javascript
-200 OK
-
-{
-    "href": "/api/v1/dataset/3",
-    "name": "my third data set",
-    "protocol": {
-        "href": "/api/v1/dataset/3/protocol"
-    }
-}
-```
-
-## Retrieve instance
 *Request*
 ```
 GET http://your.molgenis.url/api/v1/dataset/1
@@ -163,9 +152,33 @@ GET http://your.molgenis.url/api/v1/dataset/1
 }
 ```
 *href* is the location of this resource, *name* is a string value and *protocol* is the location of the entity that this dataset refers to.
+ 
+## Create
 
+By psoting a JSON message that matches the meta data attributes you can add new instances:
 
-## Update instance
+*Request*
+```
+POST http://your.molgenis.url/api/v1/person
+Content-Type: application/json
+
+{
+    "age": "17",
+    "driverslicence": true
+}
+
+```
+*Response*
+```
+201 Created
+
+In the response headers you can find the id of the newly created resource:
+Example: Location: /api/v1/person/AAAACTUMDL2N4BTTSWWS6PQAAE 
+```
+## Update
+
+Existing instances can be updated by putting a complete changed record to the entity instance endpoint:
+
 *Request*
 ```
 PUT http://your.molgenis.url/api/v1/dataset/3
@@ -179,8 +192,10 @@ Content-Type: application/json
 ```
 204 No Content
 ```
-#### Update only one attribute value of entity instance
-Context: if you only want to change one attribute without needing to provide all other attributes:
+
+## Update one value
+
+If you only want to change one attribute without needing to provide all other attributes you can put values to the attributes seperately:
 
 *Request*
 ```
@@ -196,7 +211,8 @@ Content-Type: application/json
 204 No Content
 ```
 
-## Delete instance
+## Delete
+
 *Request*
 ```
 DELETE http://your.molgenis.url/api/v1/dataset/3
@@ -206,19 +222,130 @@ DELETE http://your.molgenis.url/api/v1/dataset/3
 204 No Content
 ```
 
+## Advanced options
+
+Instance end-points have the following options:
+
+Key | Type | Description
+--- | --- | ---
+*attributes* | Comma-separated string | Defines which fields in the API response to select
+*expand* | Comma-separated string | Defines which fields in the API response to (partially) expand
+*_method* | HTTP method | Tunnel request through defined method over default API operation
+*callback* | string | Callback function name used as JSON padding to allow cross domain requests
+
+### select attributes
+
+In a query you can specify what attributes to return, useful when having thousands of attributes:
+
+*Request*
+```
+GET http://your.molgenis.url/api/v1/dataset/1?attributes=identifier,name
+```
+*Response*
+```javascript
+200 OK
+
+{
+    "href": "/api/v1/DataSet/1",
+    "Identifier": "celiacsprue",
+    "Name": "Celiac Sprue"
+}
+```
+### expand xref attributes
+
+MOLGENIS can have attributes of type xref (foreign key) that you can follow and expand attributes of:
+
+*Request*
+```
+GET http://your.molgenis.url/api/v1/dataset/1?expand=protocol
+```
+*Response*
+```javascript
+200 OK
+
+{
+    "href": "/api/v1/dataset/1",
+    "name": "my first data set",
+    "protocol": {
+        "href": "/api/v1/protocol/10",
+        "name": "protocol for dataset #1",
+        "features": {
+            "href":"/api/v1/protocol/37265/features"
+        }
+    }
+}
+```
+### partial expand
+
+Within the expansion you can again specify the attributes to be included:
+
+*Request*
+```
+GET http://your.molgenis.url/api/v1/dataset/1?expand=protocol[name]
+```
+*Response*
+```javascript
+200 OK
+
+{
+    "href": "/api/v1/dataset/1",
+    "name": "my first data set",
+    "protocol": {
+        "href": "/api/v1/protocol/10",
+        "name": "protocol for dataset #1"
+    }
+}
+```
+
+### _method
+Some browsers do not support operations such as PUT and DELETE. The *_method* parameter can be used to tunnel the request over a POST operation.
+
+*Request*
+```
+POST http://your.molgenis.url/api/v1/dataset/3?_method=PUT
+Content-Type: application/json
+
+{
+    "name": "renamed data set"
+}
+```
+*Response*
+```
+204 No Content
+```
+
+### callback
+*Request*
+```
+GET http://your.molgenis.url/api/v1/dataset/1?callback=myfunction
+```
+*Response*
+```javascript
+200 OK
+myfunction(
+{
+    "href": "/api/v1/dataset/1",
+    "name": "my first data set",
+    "protocol": {
+        "href": "/api/v1/dataset/1/protocol"
+    }
+}
+)
+```
+
 # Meta data
-Assuming that you have entities 'datasets', 'protocol' and 'features' then you can retrieve the metadata as follows:
+
+Meta data provides details on the attributes within your collection. This allows for client side generation of user interfaces. Assuming that you have entities 'datasets', 'protocol' and 'features' then you can retrieve the metadata as follows:
 
 *Endpoints*
 * http://your.molgenis.url/api/v1/dataset/meta
 * http://your.molgenis.url/api/v1/protocol/meta
 * http://your.molgenis.url/api/v1/feature/meta
 
-## Create meta data
-
-TODO
-
 ## Retrieve meta data
+
+You can retrieve meta data for each collection:
+
 *Request*
 ```
 GET http://your.molgenis.url/api/v1/dataset/meta
@@ -254,12 +381,8 @@ GET http://your.molgenis.url/api/v1/dataset/meta
     "labelAttribute": "Identifier"
 }
 ```
+## Delete meta data
 
-## Update meta data
-
-TODO
-
-## Delete entity meta data
 Deletes resource meta data and all data associated with this resource.
 
 *Request*
@@ -298,12 +421,11 @@ OR
 401 Unauthorized
 ```
 
-## Token-based authentication
-
 The token can be used as authentication token in subsequent api calls. The token must be added to the http header:
 ```
 x-molgenis-token: 4296ef4fd9324360aa5c-bf8a849003da
 ```
+
 ## Logout
 *Request*
 ```
@@ -328,111 +450,11 @@ Code | Description
 404 | Resource does not exist
 500 | Request ok but something went wrong on the server
 
-# Advanced API usage
+# FAQ
 
-## Options
-Key | Type | Description
---- | --- | ---
-*attributes* | Comma-separated string | Defines which fields in the API response to select
-*expand* | Comma-separated string | Defines which fields in the API response to (partially) expand
-*_method* | HTTP method | Tunnel request through defined method over default API operation
-*callback* | string | Callback function name used as JSON padding to allow cross domain requests
+How to resolve a 400 Bad Request error?
+> Did you specify the Content-Type header if your body contains content?
 
-## attributes
-*Request*
-```
-GET http://your.molgenis.url/api/v1/dataset/1?attributes=identifier,name
-```
-*Response*
-```javascript
-200 OK
+What options exist to define query rules for resource collection requests?
 
-{
-    "href": "/api/v1/DataSet/1",
-    "Identifier": "celiacsprue",
-    "Name": "Celiac Sprue"
-}
-```
-## expand
-*Request*
-```
-GET http://your.molgenis.url/api/v1/dataset/1?expand=protocol
-```
-*Response*
-```javascript
-200 OK
-
-{
-    "href": "/api/v1/dataset/1",
-    "name": "my first data set",
-    "protocol": {
-        "href": "/api/v1/protocol/10",
-        "name": "protocol for dataset #1",
-        "features": {
-            "href":"/api/v1/protocol/37265/features"
-        }
-    }
-}
-```
-## partial expand
-*Request*
-```
-GET http://your.molgenis.url/api/v1/dataset/1?expand=protocol[name]
-```
-*Response*
-```javascript
-200 OK
-
-{
-    "href": "/api/v1/dataset/1",
-    "name": "my first data set",
-    "protocol": {
-        "href": "/api/v1/protocol/10",
-        "name": "protocol for dataset #1"
-    }
-}
-```
-## _method
-Some browsers do not support operations such as PUT and DELETE. The *_method* parameter can be used to tunnel the request over a POST operation.
-
-*Request*
-```
-POST http://your.molgenis.url/api/v1/dataset/3?_method=PUT
-Content-Type: application/json
-
-{
-    "name": "renamed data set"
-}
-```
-*Response*
-```
-204 No Content
-```
-
-## callback
-*Request*
-```
-GET http://your.molgenis.url/api/v1/dataset/1?callback=myfunction
-```
-*Response*
-```javascript
-200 OK
-myfunction(
-{
-    "href": "/api/v1/dataset/1",
-    "name": "my first data set",
-    "protocol": {
-        "href": "/api/v1/dataset/1/protocol"
-    }
-}
-)
-```
-
-## FAQ
-> How to resolve a 400 Bad Request error?
-
-Did you specify the Content-Type header if your body contains content?
-
-> What options exist to define query rules for resource collection requests?
-
-The query rules are serialized Java QueryRule objects, take a look at the source code of the QueryRule class to see what options are available.
+> The query rules are serialized Java QueryRule objects, take a look at the source code of the QueryRule class to see what options are available.
