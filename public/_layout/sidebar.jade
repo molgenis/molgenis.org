@@ -9,7 +9,7 @@ script.
         $(".row h1").each(function() {
             
             //create id for h1
-            var id = (index++) + $(this).text().replace(/\s/gi,"-").toLowerCase();
+            var id = (index++) + $(this).text().replace(/\s/gi,"-").replace(/\W/g,"").toLowerCase();
             $(this).prepend("<a name=\""+id+"\"></a>");
             
             //add h1 to list
@@ -32,7 +32,7 @@ script.
                 $("h2",$(this).parent()).each(function(){
                 
                     //create id for h2
-                    var id = (index++) + $(this).text().replace(/\s/gi,"-").toLowerCase();
+                    var id = (index++) + $(this).text().replace(/\s/gi,"-").replace(/\W/g,"").toLowerCase();
                     $(this).prepend("<a name=\""+id+"\"></a>");
             
                     //wrap h2 into section

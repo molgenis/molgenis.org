@@ -1,9 +1,13 @@
 { 
-    "index":{"title":"Data APIs", "description":"Programming interfaces", "subheading":true},
-    "java":{"title":"Java","description":"Core api we use for all the backend stuff"},
-    "rest":{"title":"REST", "description":"REST/json web services we use to retrieve and modify data"},
-    "r":{"title":"R-project","description":"Access, search and manipulate data from your favorite statistical environment, R"},
-    "create":{"title":"Create","description":"How to create new components","subheading":true},
-    "frontend":{"title": "Frontend", "description":"How to create a new user interface, analogous to the existing tools"},
-    "backends":{"title": "Backend", "description":"How to create a new backend, e.g. for dealing with a particular file format or to integrate the next noSQL database engine"}
+    "overview":{"title":"overview", "description":"Getting to know the code", "subheading":true},
+    "start":{"title":"Start", "description":"Getting, compiling and running the code"},
+    "architecture":{"title":"Architecture", "description":"Summary of the main components"},
+    "technologies":{"title":"Technologies", "description":"Technologies and frameworks we use"},
+
+    "extension":{"title":"Extension points","description":"MOLGENIS is a modular system with extension points","subheading":true},
+    "frontend":{"title": "Frontend", "description":"How to add a new user interface module"},
+    "backend":{"title": "Backend", "description":"How to add a new backend/data store"},
+    "annotators":{"title": "Annotators", "description":"How to add new annotators"},
+    "services":{"title": "Services", "description":"How to add new service endpoint"},
+    "migrations":{"title": "Migrations", "description":"How to add migrations to accomodate model changes you made"}
 }

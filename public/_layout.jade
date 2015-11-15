@@ -19,6 +19,7 @@ html(lang="en")
     meta(http-equiv="cleartype", content="on")
     script(src="/res/js/jquery-1.11.3.min.js") 
     script(src="/res/js/bootstrap.min.js")
+    link(rel="stylesheet",href="/res/css/prism.css")
     link(rel="stylesheet", href="/res/css/application.css", type="text/css")
     link(rel="shortcut icon", href="/favicon.ico")
     link(rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="#{ name }") 
@@ -49,3 +50,5 @@ html(lang="en")
      
     //- footer
     != partial("_layout/footer")
+    
+    script(src="/res/js/prism.js")

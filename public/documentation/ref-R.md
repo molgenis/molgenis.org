@@ -1,10 +1,12 @@
+** 
 The MOLGENIS R API client allows you to retrieve, create, update and delete entities from within the [R](http://r-project.org) environment.
+**
 
 Just add ```source("http://your.molgenis.url/molgenis.R")``` at the top of your script and you can connect to a MOLGENIS server. Typically the first thing you do is login and the last thing is logout.
 
-NOTE: For https connections use ```eval(expr = parse(text = getURL("https://molgenis56.target.rug.nl/molgenis.R?molgenis-token=${molgenisToken}")))```  
+NOTE: For https connections use ```eval(expr = parse(text = getURL("https://your.molgenis.url/molgenis.R?molgenis-token=${molgenisToken}")))```  
 
-**First example**
+# Overview example
 
 ```
 source("http://localhost:8080/molgenis.R")
@@ -23,15 +25,16 @@ molgenis.logout()
 ```
 
 # Methods
-## ```molgenis.login(username,password)```
+## login
+```molgenis.login(username,password)```
 Login to the MOLGENIS REST API
 
-<br />
-## ```molgenis.logout()```
+## logout
+```molgenis.logout()```
 Logout from the MOLGENIS REST API and destroy the session.
 
-<br />
-## ```molgenis.get (entity, q = NULL, start = 0, num = 1000, attributes = NULL)```
+##get
+```molgenis.get (entity, q = NULL, start = 0, num = 1000, attributes = NULL)```
 
 Retrieves entities and returns the result in a dataframe.
 
@@ -73,8 +76,10 @@ molgenis.get("celiacsprue", q = "(celiac_weight>=80;celiac_height<180),(celiac_g
 ```
 
 <br />
-#### ```molgenis.add(entity, ...)```
-Creates an new entity and returns the id.
+## add
+```molgenis.add(entity, ...)```
+
+Creates a new instance of an entity (i.e. a new row of the entity data table) and returns the id.
 
 Parameter|Description|Required
 ---------|-----------|--------
@@ -87,13 +92,15 @@ entity| The entity name of the entity to create|yes
 id <- molgenis.add(entity = "Person", firstName = "Piet", lastName = "Paulusma")
 ```
 
-#### ```molgenis.addAll(entity, rows)```
-Creates an new entity and returns the id.
+## addAll
+```molgenis.addAll(entity, rows)```
+
+Creates new instances of an entity (i.e. adds new rows to the entity data table) and returns the ids.
 
 Parameter|Description|Required
 ---------|-----------|--------
 entity| The entity name of the entity to create|yes
-rows| data frame where each row represents an entity|yes
+rows| data frame where each row represents an entity instance|yes
 
 **Example**
 
@@ -102,11 +109,13 @@ firstName <- c("Piet", "Paulusma")
 lastName <- c("Klaas", "de Vries")
 df <- data.frame(firstName, lastName)
 
-molgenis.updateAll("Person", df)
+molgenis.addAll("Person", df)
 ```
 
 <br />
-#### ```molgenis.update(entity, id, ...)```
+## update
+```molgenis.update(entity, id, ...)```
+
 Updates un existing entity
 
 Parameter|Description|Required
@@ -121,8 +130,9 @@ id| The id of the entity|Yes
 molgenis.update(entity = "Person", id = 8, firstName = "Pietje", lastName = "Paulusma")
 ```
 
-<br />
-#### ```molgenis.delete(entity, id)```
+## delete
+```molgenis.delete(entity, id)```
+
 Deletes an entity.
 
 Parameter|Description|Required
@@ -136,8 +146,9 @@ id| The id of the entity|Yes
 molgenis.delete(entity = "Person", id = 8)
 ```
 
-<br />
-#### ```molgenis.getEntityMetaData(entity)```
+## getEntityMetaData
+```molgenis.getEntityMetaData(entity)```
+
 Gets the entity metadata as list.
 
 **Example**
@@ -147,8 +158,9 @@ meta <- molgenis.getEntityMetaData("celiacsprue")
 meta$label
 ```
 
-<br />
-#### ```molgenis.getAttributeMetaData(entity, attribute)```
+## getAttributeMetaData
+```molgenis.getAttributeMetaData(entity, attribute)```
+
 Gets attribute metadata as list.
 
 Parameter|Description|Required

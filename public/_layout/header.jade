@@ -39,7 +39,14 @@ header.molgenis-docs-header
             .molgenis-docs-titlebar.active
                 .container 
                     h1 404 Page not found
-                    p Sorry this page is not available.
+                    p Sorry this page is not available.  
+                    
+    else if(current.path.length > 1 && public._data[current.path[0]] !=  null)
+        .molgenis-docs-titlebar.active
+            .container 
+                h1 #{title}
+                p #{description}   
+        a(href="blaat" #{public._data[1].title})
     
     else if(public._data[current.path[0]] !=  null)
         .molgenis-docs-titlebar.active
