@@ -1,5 +1,5 @@
 **
-The R API is a script that allows access to your MOLGENIS data via the R-Project statistical package. It is availabelon every MOLGENIS on the URL `http[s]://<your.molgenis.url>/molgenis.R`.
+The R API is a script that allows access to your MOLGENIS data via the R-Project statistical package. It is available on every MOLGENIS on the URL `http[s]://<your.molgenis.url>/molgenis.R`.
 **
 
 ## Example
