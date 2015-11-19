@@ -34,10 +34,10 @@ Lets assume we want to upload multiple data sheets, with relations between them:
 
 Cities:
 
-| cityName   |
-|------------|
-| new york   |
-| metropolis |
+| cityName   |lat       | lng       |
+|------------|----------|-----------|
+| new york   | 40,712784|-74,005941 |
+| metropolis | 37,151165|-88,731998 |
 
 Patients:
 
@@ -66,6 +66,8 @@ Attributes:
 | name        | entity   | dataType | nillable | refEntity | idAttribute | description             |
 |-------------|----------|----------|----------|-----------|-------------|-------------------------|
 | cityName    | cities   |          | FALSE    |           | TRUE        |  unique city name       |
+| lat         | cities   | decimal  |          |           |             | latitude in degrees     |
+| lng         | cities   | decimal  |          |           |             | longitude in degrees    |
 | displayName | persons  |          | FALSE    |           | TRUE        |  unique name            |
 | firstName   | persons  |          |          |           |             |  first name             |
 | lastName    | persons  |          |          |           |             |  family name            |

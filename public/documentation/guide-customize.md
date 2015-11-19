@@ -77,14 +77,14 @@ If you want more control, you can go to tools -> Source code. This opens up an H
 If you need some aspiration for a nice home page, you visit either the [ASE website](http://molgenis.org/ase) or the [COL7A1 website](https://molgenis03.target.rug.nl/).
 
 # Entity report
-You can enable the display of entity reports in the data explorer by setting the runtime property `plugin.dataexplorer.rowClickable` to `true`.
 
-By default, the entity report will be generated using the generic [Freermarker](http://freemarker.incubator.apache.org/docs/index.html) template [`view-entityreport-generic-default.ftl`](https://github.com/molgenis/molgenis/blob/master/molgenis-dataexplorer/src/main/resources/templates/view-entityreport-generic-default.ftl). You can customize this entity report for specific entities by adding Freemarker Templates for those entity. You'll need write permission for the entity Freemarker Template to do this. 
+By default, the entity report will be generated using the generic [Freemarker](http://freemarker.incubator.apache.org/docs/index.html) template [`view-entityreport-generic-default.ftl`](https://github.com/molgenis/molgenis/blob/master/molgenis-dataexplorer/src/main/resources/templates/view-entityreport-generic-default.ftl). You can customize this entity report for specific entities by adding Freemarker Templates for those entity. You'll need write permission for the entity `FreemarkerTemplate` to do this. 
 
-1. In the top menu, go to Entities, Freemarker Template.
-2. Push the plus icon.
-3. The Name is `view-entityreport-specific-<the entity name>.ftl`. So for an entity named `ASE`, the Freemarker Template containing the entity report should be named `view-entityreport-specific-ASE.ftl`
-4. The Value is a [Freemarker](http://freemarker.org/) Template specifying the contents of the report.
+1. In the top menu, select the Data Explorer.
+2. In the pulldown, select the entity FreemarkerTemplate
+3. Push the plus icon.
+4. The Name is `view-entityreport-specific-<the entity name>.ftl`. So for an entity named `ASE`, the Freemarker Template containing the entity report should be named `view-entityreport-specific-ASE.ftl`
+5. The Value is a [Freemarker](http://freemarker.org/) Template specifying the contents of the report.
 
 The HTML you specify in the template will be shown in a modal dialog, so you'll usually want to add a header, a body, and a footer:
 
