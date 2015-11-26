@@ -1,0 +1,5 @@
+-var acknowledgements = {"jetbrains_intellij_idea-bw.png":"https://www.jetbrains.com/idea/", "jetbrains_webstorm-bw.png":"https://www.jetbrains.com/webstorm/", "yourkit-bw.png":"https://www.yourkit.com/java/profiler/index.jsp"}
+    
+each href,img in acknowledgements
+    a(href="#{href}", target="_blank")
+        img.acknowledgement(src="/res/images/#{img}", alt="#{href}" style=" max-height: 100px; max-width: 200px; padding: 20px;")
