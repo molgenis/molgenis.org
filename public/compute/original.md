@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 Made for bioinformatics and life sciences, MOLGENIS compute is a flexible shell script 
 framework to generate big data workflows that can run parallel on clusters and grids. 
 Molgenis Compute Users can:

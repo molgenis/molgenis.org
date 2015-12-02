@@ -26,10 +26,11 @@ html(lang="en")
     != partial("_layout/analytics")
   body
     //- header
-    != partial("_layout/header")
+    if(current.source != 'docs')
+        != partial("_layout/header")
     
     //- contents
-    if(current.source == 'index' && current.path.length == 1 || current.source == 'search-results')
+    if(current.source == 'index' && current.path.length == 1 || current.source == 'search-results' || current.source == 'docs')
         != yield
         br    
         
@@ -49,6 +50,6 @@ html(lang="en")
                                 br
      
     //- footer
-    != partial("_layout/footer")
-    
-    script(src="/res/js/prism.js")
+    if(current.source != 'docs')
+        != partial("_layout/footer")
+        script(src="/res/js/prism.js")
