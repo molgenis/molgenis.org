@@ -3,7 +3,7 @@ Here you will learn, step-by-step, what MOLGENIS is, how to install it, and firs
 **
 
 # What is MOLGENIS?
-Molecular Genetics Information Systems, or MOLGENIS for short, is a modular web application for scientific data. MOLGENIS was born from molecular genetics research and is now, thanks too many sponsors and contributors, also used in other scientifc areas such as biobanking, rare disease research, patient registries and even energy research. MOLGENIS provides researchers with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
+MOLGENIS is a modular web application for scientific data. MOLGENIS was born from molecular genetics research (and was called 'molecular genetics information system') but has grown, thanks too many sponsors and contributors,  to be used in many scientifc areas such as biobanking, rare disease research, patient registries and even energy research. MOLGENIS provides researchers with user friendly and scalable software infrastructures to capture, exchange, and exploit the large amounts of data that is being produced by scientific organisations all around the world. To get an idea of what the software can do, visit our [MOLGENIS YouTube channel](https://www.youtube.com/channel/UCiVR-YZFcBQe0i6RUwE9kyg).
 
 ![molgenis overview](res/images/molgenis-overview.png?raw=true, "molgenis overview")
 

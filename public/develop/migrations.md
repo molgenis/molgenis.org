@@ -2,8 +2,6 @@
 This section describes how to define data model migrations, for if you make changes to core data model
 **
 
-THIS DOCUMENTATION IS UNDER DEVELOPMENT
-
 When you make changes to entity meta data you sometimes need to write migration code in order for updated MOLGENIS web apps to works correctly:
 
 # When to use
