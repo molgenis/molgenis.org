@@ -142,6 +142,7 @@ The table will update to show you to show you how many patients with at least on
 For the chart capabilities of MOLGENIS we use the [Highcharts](http://www.highcharts.com "Highcharts") library.
 
 MOLGENIS currently offers two types of plots for your data, the scatter plot and the box plot.
+
 ![Dataexplorer charts](/res/images/dataexplorer/charts.png?raw=true, "dataexplorer/charts")
 
 ## scatter plot [Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot "Scatter plot")
@@ -188,14 +189,16 @@ Steps:
 6. Repeat steps 2 and 3. 
 7. The new view will be: ![View entity report custom](/res/images/reports/custom-entityreport-view.png?raw=true, "Entity view")
 
-###### Add a instances view tab
+###### Add an instances view tab
 1. Go to the data explorer select the "cities" entity via the th entity select dropdown.
 2. Let's upload our own template. 
 	a. Go to the data explorer and select the FreemarkerTemplate entity.
 	b. Click on the ![add](/res/images/add.png?raw=true, "add") button. In the modal you fill in:
-		* Name: view-Cities-entitiesreport.ftl (view-\<template name>-entitiesreport.ftl)
-		* Value: 
-```js
+
+Name: ```view-Cities-entitiesreport.ftl (view-<template name>-entitiesreport.ftl)```
+
+Value: 
+```javascript
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"/>
 
@@ -223,6 +226,7 @@ Steps:
 ```
 		
 		![view-Cities-entitiesreport](res/images/reports/view-Cities-entitiesreport.png?raw=true, "view-Cities-entitiesreport")
+
 3. Click on the settings icon ![Settings](res/images/settings.png?raw=true, "Settings")
 	a. Check: Modules -> Data -> Reports -> Yes
 	b. Set: Reports -> Reports -> root_hospital_cities:Cities

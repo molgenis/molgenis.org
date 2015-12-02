@@ -9,8 +9,8 @@ User management is crucial for keeping an overview of people visiting your onlin
 
 The user management menu allows you to create new users and groups. But also let's you edit existing users, or add users to certain groups. The users *admin* and *anonymous* always exist. The admin user, as the name suggests, is the administrator user. The anonymous user is used for people navigating to your website. This means that giving rights to the anonymous user will give permissions for everyone, also those that are not registered in your system. Note that it is not possible to delete users! You can only set them to inactive, which will prevent him or her from logging in.
 
-**Try it out**  
-To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](../res/images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
+## Try it out
+To let you get a feel of how the user manager works, we will create a new user called molgenis_user. First, click the ![New button](/res/images/new.png?raw=true, "new button") button. This will open up a form for creating a new MolgenisUser. Most of the fields are pretty self explanatory, but there are a few that we will elaborate on. 
 
 First, there is a destinction between required and non-required fields. Required fields are marked by an asterisk. You can decide to only show the required fields by pressing the eye icon at the top right. This will save you the trouble of scrolling past all the non-required fields.
 

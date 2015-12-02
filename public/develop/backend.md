@@ -1,10 +1,12 @@
 **
-MOLGENIS has a data api behind which there is great flexibility in the backends. Currently we mostly use MySQL and ElasticSearch. This section describes how you can create a new back-end, e.g a NoSQL store or a file reader/writer
+MOLGENIS has a data api behind which there is great flexibility in the data backends. Currently we mostly use MySQL and ElasticSearch. This section describes how you can create a new back-end, e.g a NoSQL store or a file reader/writer
 **
 
-This documentation is in progress
+The best way to learn how backends are created are to first studie the core interfaces and then use one of the existing backends as template.
 
-# Core concepts
+# Core interfaces
+
+MOLGENIS currently has the following 'data' interfaces 
 
 * [Entity](https://github.com/molgenis/molgenis/blob/master/molgenis-data/src/main/java/org/molgenis/data/Entity.java)
 * [DataService](https://github.com/molgenis/molgenis/blob/master/molgenis-data/src/main/java/org/molgenis/data/DataService.java)
@@ -30,6 +32,5 @@ Minimally you need to implement RepositoryCollection and Repository.
 
 Simple example available is [InMemoryRepository](https://github.com/molgenis/molgenis/tree/master/molgenis-data/src/main/java/org/molgenis/data/mem).
 
-If you want users to choose it when uploading EMX you need a Registrator as well.
-
-BIG TODO: how is that done?
+If you want users to choose it when uploading EMX you need to register your backend to MOLGENIS. This is done via Spring framework as specified in:
+* [WebAppConfig](https://github.com/molgenis/molgenis/blob/master/molgenis-app/src/main/java/org/molgenis/app/WebAppConfig.java)
