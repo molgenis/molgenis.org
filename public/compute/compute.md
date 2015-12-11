@@ -65,13 +65,26 @@ step2|protocols/step2.sh|wf=workflowName;date=creationDate;strings=step1.out
 
 ![image](../res/images/compute/Workflow.png?raw=true,"The workflow")
 
-The workflow consists of two steps, step1 and step2.
-step1 has protocol `protocols/step1.sh`, step2 has protocol `protocols/step2.sh`
+The workflow consists of two steps, `step1` and `step2`.
+
+`step1` has protocol `protocols/step1.sh`, `step2` has protocol `protocols/step2.sh`
 
 ### Protocols
 Let's take a look at one of the protocol templates.
 Open `protocols/step1.sh`
 
+```FreeMarker
+#string in
+#output out
+
+# Let's do something with string 'in'
+echo "${in}_hasBeenInStep1"
+out=${in}_hasBeenInStep1
+```
+
+In the header of the template file, the input parameter `in` and output value `out` are declared.
+
+When generating the job scripts for step 1, the value for the input parameter `in` will be filled in where `${in}` is written.
 
 ### Generate
 
