@@ -5,7 +5,6 @@ MOLGENIS Compute is a tool to generate shell script files for big data workflows
 The code is open source and hosted on GitHub.
 http://github.com/molgenis/molgenis-compute
 
-The software is licensed under the LGPL license.
 #The Black Triangle
 
 ## Download
@@ -44,39 +43,22 @@ This will create a new directory for the workflow:
 
 The directory contains a typical Molgenis Compute workflow structure
 
-file | description
----------|----
-`/protocols` |  folder with bash script Protocols
-`/protocols/step1.sh` | Shell script template for the first protocol
-`/protocols/step2.sh` | Shell script template for the second protocol
-`workflow.csv` | file listing steps and parameter flow
-`workflow.defaults.csv` | default parameters for workflow.csv (optional)
-`parameters.csv` | parameters you want to run analysis on
-`header.ftl` | user extra script header (optional)
-`footer.ftl` | user extra script footer (optional)
+```bash
+  /protocols              #folder with bash script 'protocols'
+  /protocols/step1.sh     #example of a protocol shell script
+  /protocols/step2.sh     #example of a protocol shell script
+  workflow.csv            #file listing steps and parameter flow
+  workflow.defaults.csv   #default parameters for workflow.csv (optional)
+  parameters.csv          #parameters you want to run analysis on
+  header.ftl              #user extra script header (optional)
+  footer.ftl              #user extra script footer (optional)
+```
 
 ### Steps
 Take a look at `workflow.csv` generated workflow
 
 step|protocol|dependencies
-----|--------|----------
+------------------------
 step1|protocols/step1.sh|in=input
 step2|protocols/step2.sh|wf=workflowName;date=creationDate;strings=step1.out
-
-![image](../res/images/compute/Workflow.png?raw=true,"The workflow")
-
-The workflow consists of two steps, step1 and step2.
-step1 has protocol `protocols/step1.sh`, step2 has protocol `protocols/step2.sh`
-
-### Protocols
-Let's take a look at one of the protocol templates.
-Open `protocols/step1.sh`
-
-
-### Generate
-
-### Run it
-
-
-
 
