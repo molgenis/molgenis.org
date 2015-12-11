@@ -14,17 +14,6 @@ You can download the [latest version of MOLGENIS Compute](https://github.com/mol
 ## Domain model
 In MOLGENIS Compute, Data is processed using a Workflow that consists of a series of Steps that depend on each other. Each Step follows a Protocol, which is a parameterized template for the shell script for that Step.
 
-In Molgenis Compute, anything can be a parameter.
-
-* the name of a working directory
-* the version number for a tool to use
-* the name of a sample to analyze
-* the amount of memory allocated for a cluster job
-* the name of a report to produce
-
-You can specify parameter values at generation time in parameter files.
-In fact, for some parameters you may want to specify multiple values for some parameters.
-
 ## Trying it out
 ### Create a workflow
 We assume you have downloaded and unzipped molgenis compute commandline and are now in the directory containing the unzipped files.
@@ -84,9 +73,67 @@ out=${in}_hasBeenInStep1
 
 In the header of the template file, the input parameter `in` and output value `out` are declared.
 
-When generating the job scripts for step 1, the value for the input parameter `in` will be filled in where `${in}` is written.
+When generating the job scripts for step 1, the value for the input parameter `in` will be filled in into the template in those places where `${in}` is written.
+
+### Parameters
+In Molgenis Compute, anything can be a parameter.
+
+* the name of a working directory
+* the version number for a tool to use
+* the name of a sample to analyze
+* the amount of memory allocated for a cluster job
+* the name of a report to produce
+
+You can specify parameter values at generation time in parameter files.
+In fact, for some parameters you may want to specify multiple values for some parameters.
+
+In this workflow, the parameter values are listed in two files:
+
+#### parameters.csv
+|input|
+|-----|
+|hello|
+|bye  |
+
+The `input` parameter has two different values, hello and bye.
+In `step1`, the `input` parameter gets mapped to the `in` parameter of `protocols/step1.sh`.
+The parameter file lists two values for this parameter so this script will be created twice, one version for `input=hello`, and one for `input=bye`
+
+#### workflow.defaults.csv
+|workflowName|creationDate|
+|------------|------------|
+|myFirstWorkflow|today    |
+
+These parameter values will be inserted into the template for `step2`.
+Let's take a look at `protocols/step2.sh`
+
+```FreeMarker
+#string wf
+#string date
+#list strings
+
+echo "Workflow name: ${wf}"
+echo "Created: ${date}"
+
+echo "Result of step1.sh:"
+for s in "${strings[@]}"
+do
+    echo ${s}
+done
+
+
+echo "(FOR TESTING PURPOSES: your runid is ${runid})"
+```
+
+The first three lines are the header listing the input parameters of the protocol.
+In `step2` maps the parameter value `workflowName=myFirstWorkflow` from file `workflow.defaults.csv` to protocol input `wf`. So when the script for `step2` gets generated, the value `myFirstWorkflow` will be filled in where it says `${wf}`.
+
+The output from `step1.sh` is parameter value `step1.out`, and `step2` maps it to parameter `strings` of this protocol.
+
+But `step1.sh` will be run twice! So `step1.out` will have two different values, namely `hello_hasBeenInStep1` and `bye_hasBeenInStep1`. Of course, we could run `step2` twice, once for each value of `step1.out`. But the protocol uses `#list` to indicate that it can process multiple values for this input parameter in one single go. So a single instance of `step2.sh` will be generated and its `strings` input parameter will have an array value `strings=hello_hasBeenInStep1,bye_hasBeenInStep1`.
 
 ### Generate
+Let's see MOLGENIS Compute in action!
 
 ### Run it
 

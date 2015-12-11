@@ -1,5 +1,6 @@
 ## The Hairball
 ### Parameters
+#### File formats
 #### Multiple files
 #### i..j
 #### Collapsing (a.k.a. Folding)
