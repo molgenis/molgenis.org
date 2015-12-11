@@ -7,7 +7,7 @@ In this quickstart you will learn to:
 
 # 1. Create a workflow
 
-We assume you   downloaded and unzipped molgenis compute commandline and are now in the directory you downloaded.
+We assume you have downloaded and unzipped molgenis compute commandline and are now in the directory you downloaded.
 
 You can generate a template for a new workflow using command:
 
