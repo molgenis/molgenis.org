@@ -130,13 +130,41 @@ In `step2` maps the parameter value `workflowName=myFirstWorkflow` from file `wo
 
 The output from `step1.sh` is parameter value `step1.out`, and `step2` maps it to parameter `strings` of this protocol.
 
-But `step1.sh` will be run twice! So `step1.out` will have two different values, namely `hello_hasBeenInStep1` and `bye_hasBeenInStep1`. Of course, we could run `step2` twice, once for each value of `step1.out`. But the protocol uses `#list` to indicate that it can process multiple values for this input parameter in one single go. So a single instance of `step2.sh` will be generated and its `strings` input parameter will have an array value `strings=hello_hasBeenInStep1,bye_hasBeenInStep1`.
+But `step1.sh` will be run twice! So `step1.out` will have two different values, namely `hello_hasBeenInStep1` and `bye_hasBeenInStep1`. Of course, we could run `step2` twice, once for each value of `step1.out`. But the protocol uses `#list` to indicate that it can process multiple values for this input parameter in one single go. So a single instance of `step2.sh` will be generated. The `strings` input parameter will have a list value `strings=hello_hasBeenInStep1,bye_hasBeenInStep1`.
 
 ### Generate
 Let's see MOLGENIS Compute in action!
 
+Go back to the molgenis compute directory and generate the scripts:
+
+```bash
+sh molgenis_compute.sh --generate --parameters myfirst_workflow/parameters.csv --workflow myfirst_workflow/workflow.csv --defaults myfirst_workflow/workflow.defaults.csv
+```
+
+Take a look at the generated scripts in `rundir`
+
+file | description
+---------|----
+`step1_0.sh`, `step1_1.sh`|	 the two scripts for `step1`, one for each value of the `input` parameter
+`step2_0.sh`| the script for `step2`
+`submit.sh`| a submission script, which will run the generated script files in the correct order
+`user.env`| the user environment, containing runtime parameter values as input for `step1`
+
 ### Run it
+We've not specified a backend when we generated the scripts. By default the `submit.sh` will be generated for the `localhost` backend which simply calls the generated scripts in the right order.
 
+### Clean up the rundir
+```bash
+sh molgenis_compute.sh --run
+```
 
+The scripts will be run, in particular you can see that the results from `step1` are correctly passed on to `step2` which `echo`s them:
 
-
+```
+Workflow name: myFirstWorkflow
+Created: today
+Result of step1.sh:
+hello_hasBeenInStep1
+bye_hasBeenInStep1
+(FOR TESTING PURPOSES: your runid is oz5N)
+```
