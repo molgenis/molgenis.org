@@ -99,7 +99,7 @@ Of course, simply uploading and showing data is not the only thing you can do wi
 
 ## Download & install
 
-You can download and install MOLGENIS for free. See [Download & Intall guide](/download)
+You can download and install MOLGENIS for free. See [Download & Install guide](/download)
 
 ## Request cloud installation
 
