@@ -1,4 +1,4 @@
-## Getting to know compute
+## How does it work?
 
 ### Parameters
 Parameters can be provided in text files, there are a couple of formats to choose from.
@@ -305,9 +305,10 @@ The generated scripts will be accompanied by a submission script `submit.sh`. Th
 
 #### Backends
 There are three backends
-	* localhost
-	* pbs
-	* slurm
+
+ * localhost
+ * pbs
+ * slurm
 
 The difference between the backends are found in the headers and footers that get added to the Protocol templates 
 ### molgenis-compute.sh

@@ -1,7 +1,5 @@
 {   
-    "start":{"title":"Quickstart","description":"Start"},
-    "parameters":{"title":"Parameters","description":"Save time by joining parameter files"},
-    "reference":{"title":"Reference","description":"Compute reference documentation"},
-    "publications":{"title":"Read more","description":"Publications, presentations and other reading"},
-    "pipelines":{"title":"Pipelines", "description":"Pipelines to use"}
+    "first_contact":{"title":"Getting Started","description":"What is Compute and how can I use it?"},
+    "the_hairball":{"title":"How does it work?","description":"Interesting things to know about Compute"},
+    "reference":{"title":"Reference","description":"Compute reference documentation"}
 }

@@ -1,21 +1,20 @@
-#MOLGENIS Compute
-##What is MOLGENIS Compute?
+# What is MOLGENIS Compute?
+
 MOLGENIS Compute is a tool to generate shell script files for big data workflows that can run in parallel on clusters and grids.
 
 The code is open source and hosted on GitHub.
 http://github.com/molgenis/molgenis-compute
 
 The software is licensed under the LGPL license.
-#Trying it out
 
-## Download
+# Download
 You can download the [latest version of MOLGENIS Compute](https://github.com/molgenis/molgenis-compute/releases) from GitHub.
 
-## Some Terms
+# Some Terms
 In MOLGENIS Compute, **Data** is processed using a **Workflow** that consists of a series of **Steps** that depend on each other. Each **Step** follows a **Protocol**, which is a parameterized **Template** for the shell script for that **Step**.
 
-## Demo
-### Create a workflow
+# Demo
+## Create a workflow
 We assume you have downloaded and unzipped molgenis compute commandline and are now in the directory containing the unzipped files.
 
 You can generate a template for a new workflow using the command:
@@ -44,7 +43,7 @@ file | description
 `header.ftl` | user extra script header (optional)
 `footer.ftl` | user extra script footer (optional)
 
-### Steps
+## Steps
 Take a look at `workflow.csv` generated workflow
 
 step|protocol|dependencies
@@ -58,7 +57,7 @@ The workflow consists of two steps, `step1` and `step2`.
 
 `step1` has protocol `protocols/step1.sh`, `step2` has protocol `protocols/step2.sh`
 
-### Protocols
+## Protocols
 Let's take a look at one of the protocol templates.
 Open `protocols/step1.sh`
 
@@ -75,7 +74,7 @@ In the header of the template file, the input parameter `in` and output value `o
 
 When generating the job scripts for step 1, the value for the input parameter `in` will be filled in into the template in those places where `${in}` is written.
 
-### Parameters
+## Parameters
 In Molgenis Compute, anything can be a parameter.
 
 * the name of a working directory
@@ -89,7 +88,7 @@ In fact, for some parameters you may want to specify multiple values for some pa
 
 In this workflow, the parameter values are listed in two files:
 
-#### parameters.csv
+### parameters.csv
 |input|
 |-----|
 |hello|
@@ -99,7 +98,7 @@ The `input` parameter has two different values, hello and bye.
 In `step1`, the `input` parameter gets mapped to the `in` parameter of `protocols/step1.sh`.
 The parameter file lists two values for this parameter so this script will be created twice, one version for `input=hello`, and one for `input=bye`
 
-#### workflow.defaults.csv
+### workflow.defaults.csv
 |workflowName|creationDate|
 |------------|------------|
 |myFirstWorkflow|today    |
@@ -132,7 +131,7 @@ The output from `step1.sh` is parameter value `step1.out`, and `step2` maps it t
 
 But `step1.sh` will be run twice! So `step1.out` will have two different values, namely `hello_hasBeenInStep1` and `bye_hasBeenInStep1`. Of course, we could run `step2` twice, once for each value of `step1.out`. But the protocol uses `#list` to indicate that it can process multiple values for this input parameter in one single go. So a single instance of `step2.sh` will be generated. The `strings` input parameter will have a list value `strings=hello_hasBeenInStep1,bye_hasBeenInStep1`.
 
-### Generate
+## Generate
 Let's see MOLGENIS Compute in action!
 
 Go back to the molgenis compute directory and generate the scripts:
@@ -150,10 +149,10 @@ file | description
 `submit.sh`| a submission script, which will run the generated script files in the correct order
 `user.env`| the user environment, containing runtime parameter values as input for `step1`
 
-### Run it
+## Run it
 We've not specified a backend when we generated the scripts. By default the `submit.sh` will be generated for the `localhost` backend which simply calls the generated scripts in the right order.
 
-### Clean up the rundir
+## Clean up the rundir
 ```bash
 sh molgenis_compute.sh --run
 ```
