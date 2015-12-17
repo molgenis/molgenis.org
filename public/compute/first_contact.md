@@ -51,7 +51,7 @@ step|protocol|dependencies
 step1|protocols/step1.sh|in=input
 step2|protocols/step2.sh|wf=workflowName;date=creationDate;strings=step1.out
 
-![image](../res/images/compute/Workflow.png?raw=true,"The workflow")
+![image](/res/images/compute/workflow.png?raw=true, "the Workflow")
 
 The workflow consists of two steps, `step1` and `step2`.
 
