@@ -1,4 +1,5 @@
-## The Hairball
+## Getting to know compute
+
 ### Parameters
 Parameters can be provided in text files, there are a couple of formats to choose from.
 
@@ -58,7 +59,7 @@ They will be expanded to
 |project2|2    |
 |project2|3    |
 
-Similarly, a parameter value with a comma-separated list of values will result in multiple rows, one for all values in the list
+Similarly, a parameter value with a comma-separated list of values will result in multiple rows, one for all values in the list. Surround the value with quotes to escape commas, e.g. `"sample2,sample3"`.
 
 So 
 
@@ -236,25 +237,91 @@ if these values can be known at run-time, by analysing all previous steps of the
 If values cannot be known at run-time, compute will give a generation error. 
 
 ### Protocol headers
-#### List and String
-Each Protocol lists its Inputs in the header
-The ``
+#### Inputs and Outputs
+Each Protocol lists its Input parameters and its Output values in the header
 
 
-#### MOLGENIS header
+```
+#string project
+#string dir
+#list sample
+#output out1
+#output out2
+```
+
+This header would declare that this Protocol depends on the values of three Input parameters named `project`, `dir`, and `sample` and that when it is run it produces two Output values, namely `out1` and `out2`.
+The script can handle only a single combination of the `#string` parameters at a time, but the `#list` prefix means it can handle all existing values for out1 and out2. `out1` and `out2` will contain a list of all values.
+
+Multiple inputs may be specified on one line, e.g.
+
+```
+#string project,dir
+```
+
+You can also use this for list inputs:
+
+```
+#list sample,dir
+```
+This is called "Combined lists notation".
+TODO: Find out what's different about this notation
+
+#### Resource parameters
+
+A Protocol can list values for resource parameters in a MOLGENIS header, e.g.
+
+```
+#MOLGENIS walltime=15:00:00 nodes=1 cores=4 mem=6
+```
+
+The values specified in the protocol header will override the parameter values set in the parameter files.
+Valid options are
+	* queue
+	* walltime
+	* nodes
+	* ppn
+	* memory
+	
+#### Compute properties
+Values specified on the command line as compute properties will be added to the parameter combinations and can be referenced in the Protocol Templates.
+	
+#### Description
+A protocol can add a description in a `#description` header.
 
 #### Parameter mapping
 
+The Workflow csv file describes for each Step how the global Parameters are mapped to Protocol Inputs and Outputs. The global name is mapped to a local name that the Protocol understands.
 
 ### Templates
-#### Freemarker
-#### Header and footer
-#### Submit.sh
-#### Backends
+#### Types
+If your protocol file name ends with `.ftl`, the parameter values will be weaved into 
+If it ends with `.sh`, it will be left as is and the values will be inserted at runtime.
 
+If you don't want a particular section of your template to be parsed, you can surround it with `<#noparse>` and `</#noparse>` tags.
+But see (#245)[https://github.com/molgenis/molgenis-compute/issues/245]
+
+#### Submit.sh
+The generated scripts will be accompanied by a submission script `submit.sh`. The submission script will either run the scripts locally or send them to the backend you have selected.
+
+#### Backends
+There are three backends
+	* localhost
+	* pbs
+	* slurm
+
+The difference between the backends are found in the headers and footers that get added to the Protocol templates 
 ### molgenis-compute.sh
-#### cleanen
-#### Parameters overriden
+#### cleaning
+When you are done with your workflow, make sure to run 
+
+```
+sh molgenis-compute.sh --clean
+```
+To clean up the temporary files.
+
+#### Parameter override
+You can override parameter values on the command line using `--override` or `-o`. For example: `-o mem=6GB;queue=long`
 
 ### Github workflows
-
+You can use workflow files that are hosted online.
+Specify the command line parameter `--web workflowRoot` where workflowRoot is the URL that will be prefixed to all of the files.
