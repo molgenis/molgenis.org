@@ -1,4 +1,4 @@
-#First contact
+#MOLGENIS Compute
 ##What is MOLGENIS Compute?
 MOLGENIS Compute is a tool to generate shell script files for big data workflows that can run in parallel on clusters and grids.
 
@@ -6,15 +6,15 @@ The code is open source and hosted on GitHub.
 http://github.com/molgenis/molgenis-compute
 
 The software is licensed under the LGPL license.
-#The Black Triangle
+#Trying it out
 
 ## Download
 You can download the [latest version of MOLGENIS Compute](https://github.com/molgenis/molgenis-compute/releases) from GitHub.
 
-## Domain model
-In MOLGENIS Compute, Data is processed using a Workflow that consists of a series of Steps that depend on each other. Each Step follows a Protocol, which is a parameterized template for the shell script for that Step.
+## Some Terms
+In MOLGENIS Compute, **Data** is processed using a **Workflow** that consists of a series of **Steps** that depend on each other. Each **Step** follows a **Protocol**, which is a parameterized **Template** for the shell script for that **Step**.
 
-## Trying it out
+## Demo
 ### Create a workflow
 We assume you have downloaded and unzipped molgenis compute commandline and are now in the directory containing the unzipped files.
 
