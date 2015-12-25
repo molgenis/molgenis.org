@@ -73,9 +73,11 @@ Create directory ~/.molgenis/omx/
 
     mkdir ~/.molgenis/omx/
     
-Create the file ~/.molgenis/omx/molgenis-server.properties and add user and database properties:
+Create the file ~/.molgenis/omx/molgenis-server.properties 
 
     nano ~/.molgenis/omx/molgenis-server.properties
+    
+... and add user and database properties to this file:
 
     db_user=molgenis
     db_password=molgenis
