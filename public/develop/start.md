@@ -70,9 +70,11 @@ More information about forking can be found here: https://help.github.com/articl
 # Set admin password
 
 Create directory ~/.molgenis/omx/
+
     mkdir ~/.molgenis/omx/
     
 Create the file ~/.molgenis/omx/molgenis-server.properties and add user and database properties:
+
     nano ~/.molgenis/omx/molgenis-server.properties
 
     db_user=molgenis
