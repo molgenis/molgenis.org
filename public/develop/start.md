@@ -71,7 +71,7 @@ More information about forking can be found here: https://help.github.com/articl
 
 Create directory ~/.molgenis/omx/
 
-    mkdir ~/.molgenis/omx/
+    mkdir -p ~/.molgenis/omx/
     
 Create the file ~/.molgenis/omx/molgenis-server.properties 
 
