@@ -39,6 +39,8 @@ find and install plugins:
 * 'TestNG for Eclipse'
 * 'm2e-apt'
 
+Restart (if you didn't do that already)
+
 go to 'Eclipse' -> 'Preferences' 
 * 'installed JREs' and select 'java 8'
 * 'Maven' -> 'Annotation Processing' and select 'Automatically Configure JDT APT'
