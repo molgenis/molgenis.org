@@ -110,7 +110,7 @@ These rules only apply to the technical names, labels are not limited by these r
 
 Required columns:
 * entity : name of the entity this attribute is part of
-* attribute : name of attribute, unique per entity
+* name : name of attribute, unique per entity.
 
 Optional columns (can be omitted):
 
@@ -132,16 +132,23 @@ Optional columns (can be omitted):
 * nillable : whether the column may be left empty. Default: false
 * idAttribute : whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
 * description : free text documentation describing the attribute
+* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
 * rangeMin : used to set range in case of int attributes
 * rangeMax : used to set range in case of int attributes
 * lookupAttribute : true/false to indicate that the attribute should appear in the xref/mref search dropdown in the dataexplorer
 * label : optional human readable name of the attribute
+* label-{languageCode} : label for specified language (can be multiple languages, example: label-nl)
 * aggregateable : true/false to indicate if the user can use this atrribute in an aggregate query
 * labelAttribute : true/false to indicate that the value of this attribute should be used as label for the entity (in the dataexplorer when used in xref/mref). Default: false
 * readOnly true/false to indicate a readOnly attribute
 * tags : ability to tag the data referring to the tags sections, described below
 * validationExpression : javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
 * defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
+
+### Language depended attributes
+You can internationalize attributes by postfixing the name with -{countryCode}.
+Examples: city-en, city-nl. If this is the label attribute,
+you must set all city-xx labelAttribute values to 'TRUE' on the 'entities' tab.
 
 # Entities options
 Required columns:
@@ -154,6 +161,7 @@ Optional columns:
 * package : name of the group this entity is part of
 * abstract : indicate if data can be provided for this entity (abstract entities are only used for data modeling purposes but cannot accept data)
 * description : free text description of the entity
+* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
 * backend: the backend (database) to store the entities in (currently MySQL or ElasticSearch)
 * tags : ability to tag the data referring to the tags sections, described below
 

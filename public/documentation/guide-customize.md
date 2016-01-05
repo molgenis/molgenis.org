@@ -142,4 +142,23 @@ At the bottom of the template, add script tags to instantiate the genome browser
     }, 10);
 </script>
 ```
-	
+
+# Internationalization
+## Adding a new language
+1. In the top menu, select the Data Explorer.
+2. In the pulldown, select the entity 'languages'.
+3. Push the plus icon.
+4. The code must be a lowercase ISO 639 alpha-2 or alpha-3 code.
+5. The name is the name of the language as shown to the user.
+
+If the is more then one language available a dropdown appears next to the 'Sign out' button
+on the right of the menu bar (Maybe you have to refresh the browser page first). You can switch langage by selecting a language
+from the dropdown.
+
+## Editing translations
+1. In the top menu, select the Data Explorer.
+2. In the pulldown, select the entity 'i18nstrings'.
+3. Click on the 'Edit row' icon before the row you want to edit.
+4. Provide a translation for each available language.
+
+Missing translations will show up as #msgid# in the user interface.
