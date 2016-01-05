@@ -126,9 +126,9 @@ Optional columns (can be omitted):
   * xref : cross reference to another entity; requires refEntity to be provided
   * mref : many-to-many relation to another entity; requires refEntity to be provided
   * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options.
-  * compound : way to assemble complex entities from building blocks (will be shown as tree in user interface);   requires refEntity to be provided.
+  * compound : A way to assemble complex entities from building blocks (will be shown as tree in user interface); Don't forget to fill in the partOfAttribute configuration of the attributes that are grouped under this attribute. The partOfAttribute must contain the name of this new created compound attribute.
   * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
-* refEntity : used in combination with xref, mref or compound. Should refer to an entity.
+* refEntity : used in combination with xref, mref or categorical. Should refer to an entity.
 * nillable : whether the column may be left empty. Default: false
 * idAttribute : whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
 * description : free text documentation describing the attribute
@@ -142,6 +142,7 @@ Optional columns (can be omitted):
 * tags : ability to tag the data referring to the tags sections, described below
 * validationExpression : javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
 * defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
+* partOfAttribute: is used to group attributes into a compound attribute.
 
 # Entities options
 Required columns:
