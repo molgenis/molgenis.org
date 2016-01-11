@@ -146,10 +146,6 @@ Optional columns (can be omitted):
 * defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
 * partOfAttribute: is used to group attributes into a compound attribute. Put here the name of the compound attribute.
 
-### Language depended attributes
-You can internationalize attributes by postfixing the name with -{countryCode}.
-Examples: city-en, city-nl. If this is the label attribute,
-you must set all city-xx labelAttribute values to 'TRUE' on the 'entities' tab.
 
 # Entities options
 Required columns:
@@ -195,3 +191,61 @@ Optional columns:
 * relationLabel: human readible label of the relation, e.g. 'Documentation and Help'
 * relationIRI: url to the relation definition, e.g. http://edamontology.org/topic_3061
 * codeSystem: name of the code system used, e.g. EDAM
+
+# Internationalization
+
+You can internationalize attribute labels and descriptions, entity labels and descriptions and
+you can define internationalized versions of entity attributes.
+
+### entities
+
+description-{languageCode} : description for specified language (can be multiple languages)
+label-{languageCode} : label for specified language (can be multiple languages)
+
+Example:
+
+| name     | package  | description-en  | description-nl     | label-en | label-nl |
+|----------|----------|-----------------|--------------------|----------|----------|
+| cities   | hospital | list of cities  | lijst van steden   | Cities   | Steden   |
+| persons  | hospital | list of persons | lijst van personen | Persons  | Personen |
+
+
+### attributes
+
+description-{languageCode} : description for specified language (can be multiple languages)
+label-{languageCode} : label for specified language (can be multiple languages)
+
+Example:
+
+| name        | entity   | idAttribute | description-en           | description-nl                | label-en        | label-nl       |
+|-------------|----------|-------------|--------------------------|-------------------------------|-----------------|----------------|
+| displayName | patients | TRUE        | Patient name             | Naam van de patient           | name            | naam           |
+| firstName   | patients |             | Patient first name       | Voornaam van de patient       | first name      | voornaam       |
+| lastName    | patients |             | Patient family name      | Achternaam van de patient     | family name     | achternaam     |
+
+### Language depended entity attributes
+
+You can internationalize attributes by postfixing the name with -{countryCode}.
+
+If this is the label attribute,
+you must set all city-xx labelAttribute values to 'TRUE' on the 'entities' tab.
+
+Example:
+
+**entities:**
+
+| name           | entity   | idAttribute | label-nl    | label-de      | labelAttribute |
+|----------------|----------|-------------|-------------|---------------|----------------|
+| name           | gender   | TRUE        |             |               |                |
+| genderlabel-nl | gender   |             | Label (nl)  | Etikette (nl) | TRUE           |
+| genderlabel-de | gender   |             | Label (de)  | Etikette (de) | TRUE           |
+
+
+**gender:**
+
+| name    | genderlabel-nl   | genderlabel-de |
+|---------|------------------|----------------|
+| Male    | Man              | Man            |
+| Female  | Vrouw            | Frau           |
+| Unknown | Onbekend         | Unbekannt      |
+
