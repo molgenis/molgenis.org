@@ -54,12 +54,12 @@ The analysis consists of three steps that have to be run separately and is based
 
 CoNVaDING can be started using the following command:
 ```bash
-  perl ./CoNVaDING-0.1.4.17.pl
+  perl ./CoNVaDING-1.1.6.pl
 ```
 
 If no options are used the help menu will appear.
 ```bash
-  Usage: ./countCNV-v0.1.4.17.pl <mode> <parameters>
+  Usage: ./CoNVaDING-1.1.6.pl <mode> <parameters>
   -h			This manual.
   -mode			Mode to run in, one of the following required:
   			StartWithBam :
@@ -141,7 +141,7 @@ If a bam file is used CoNVaDING will use samtools to calculate the mean coverage
 
 The basic analysis starts as follows: 
 ```bash  
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode StartWithBam \
   -inputDir /PATH/TO/INPUTDIR \
   -controlsDir /PATH/TO/CONTROLSDIR \
@@ -227,7 +227,7 @@ An example of a text file that can be used in this mode:
 
 When this mode is used the analysis is started as follows:
 ```bash
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode StartWithAvgCount \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
@@ -254,7 +254,7 @@ If a bam file is used CoNVaDING will use samtools to calculate the mean coverage
 
 The basic analysis starts as follows: 
 ```bash  
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode StartWithMatchScore \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
@@ -297,7 +297,7 @@ The last step in the analysis is the CNV detection itself.
 
 The basic analysis starts as follows: 
 ```bash  
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode StartWithBestScore \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
@@ -346,7 +346,7 @@ To finetune the variant list one can generate a list of targets which in general
 
 To generate the list of targets and corresponding quality thresholds run:
 ```bash
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode GenerateTargetQcList \
   -inputDir /PATH/TO/CONTROLSDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
@@ -359,7 +359,7 @@ For this analysis, the same region threshold, ratio cutoffs and Z-score cutoffs 
 
 To apply the generated list of sample target QCs to the *.best.score.shortlist.txt* files execute:
 ```bash
-  perl ./CoNVaDING-0.1.4.17.pl \
+  perl ./CoNVaDING-1.1.6.pl \
   -mode CreateFinalList \
   -inputDir /PATH/TO/BESTSCOREOUTPUT \
   -targetQcList /PATH/TO/TARGETQCLISTFILE \
@@ -386,6 +386,7 @@ If the following thresholds are exceeded using default settings the CNV calling 
 The target ratio is also used to filter calls for the shortlist. Both QC metrics are used for filtering the final list.
 
 Sample ratio: 0.09
+
 Target ratio: 0.10
 
 
