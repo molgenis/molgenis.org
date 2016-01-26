@@ -60,8 +60,8 @@ CoNVaDING can be started using the following command:
 If no options are used the help menu will appear.
 ```bash
   Usage: ./CoNVaDING-1.1.6.pl <mode> <parameters>
-  -h			This manual.
-  -mode			Mode to run in, one of the following required:
+  -h	  This manual.
+  -mode		Mode to run in, one of the following required:
   			StartWithBam :
   				Start with BAM files as input, to enable duplicate
   				removal use the rmdup variable.
@@ -101,18 +101,18 @@ If no options are used the help menu will appear.
   				OPTIONAL:
   				[-percentageLessReliableTargets]
   PARAMETERS:
-  -inputDir		Input directory, depending on the analysis mode this contains
-  			BAM, AvgCount, normalized coverage or match score files.
+  -inputDir Input directory, depending on the analysis mode this contains
+            BAM, AvgCount, normalized coverage or match score files.
   -bed			Input file specifying regions to analyze in BED format.
-  -outputDir		Output directory to write results to.
-  -controlsDir		Directory containing control samples.
-  -targetQcList		Path to file containing target QC values.
-  -controlSamples	Number of samples to use in Match score analysis. DEFAULT: 30
-  -regionThreshold	Percentage of all control samples differing more than 3
+  -outputDir  Output directory to write results to.
+  -controlsDir  Directory containing control samples.
+  -targetQcList Path to file containing target QC values.
+  -controlSamples Number of samples to use in Match score analysis. DEFAULT: 30
+  -regionThreshold  Percentage of all control samples differing more than 3
   			standard deviations from mean coverage of a region in the specified
   			BED file to exlude from sample ratio calculation. DEFAULT: 20
-  -rmDup		Switch to enable duplicate removal when using BAM files as input.
-  -sexChr		Switch to include sex chromosomes in analysis.
+  -rmDup  Switch to enable duplicate removal when using BAM files as input.
+  -sexChr Switch to include sex chromosomes in analysis.
   -useSampleAsControl	Switch to use samples as control. Example: when using BAM
   			files to create count files and subsequentially use the
   			generated count files as controls.
