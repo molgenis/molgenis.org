@@ -1,8 +1,6 @@
 # CoNVaDING User Guide
 
-Lennart Johansson <l.johansson@umcg.nl> & Freerk van Dijk <f.van.dijk02@umcg.nl>
-v0.2, August 26th 2015:
-Written for release CoNVaDING v0.1.4.17
+Written for release CoNVaDING v1.1.6
 
 
 # Introduction
@@ -26,15 +24,15 @@ The program is written in perl and has dependencies on specific perl libraries a
 
 # Installation
 
-The latest version of CoNVaDING can be downloaded from [[X1]]DOWNLOADSITE[here].
+The latest version of CoNVaDING can be downloaded from the [github](https://github.com/molgenis/CoNVaDING/releases) page.
 
 CoNVaDING has several dependencies:
 
-- [[X1]]https://www.perl.org/[Perl]
+- [Perl](https://www.perl.org/)
 
-- The [[X1]]http://search.cpan.org/~mwendl/Statistics-Normality-0.01/lib/Statistics/Normality.pm[Statistics::Normality package] for perl  
+- The [Statistics::Normality package](http://search.cpan.org/~mwendl/Statistics-Normality-0.01/lib/Statistics/Normality.pm) for perl  
 
-- [[X1]]http://www.htslib.org/[Samtools]
+- [Samtools](http://www.htslib.org/)
 
 After installation the samtools executable has to be added to your local environment using the $PATH variable.
 
@@ -137,7 +135,7 @@ If no options are used the help menu will appear.
 The first step in the analysis is to create normalized count files. This can be done in two ways, from a bam file or from a text file including mean coverage per target.
 
 
-## StartWithBam
+### StartWithBam
 
 If a bam file is used CoNVaDING will use samtools to calculate the mean coverage for each target. For this type of analysis the StartWithBam mode has to be selected.
 
@@ -199,7 +197,7 @@ This is advisable for capturing data, but should not be done for amplicon data.
 
 
 
-## StartWithAvgCount
+### StartWithAvgCount
 
 If no bam files are present the analysis can also start with a text file specifying average counts per target. This file shoud contain the headers as shown in the example below.
 This enables the use of alternative analysis software.
@@ -244,10 +242,10 @@ Also here the following options can be used if the samples should be used as a c
 The -rmdup option is not available in this mode. If necessary the duplicates should have been removed before calculating the mean coverage per target.
 
 
-# Selecting the most informative control samples
+## Selecting the most informative control samples
 
 
-## StartWithMatchScore
+### StartWithMatchScore
 
 The next step in the analysis is selecting the control samples estimated to be the most informative.
 
@@ -290,10 +288,10 @@ On default 30 samples are selected to create the control group. If you wish to u
 to select for instance the 40 best matching samples.
 
 
-# CNV Detection
+## CNV Detection
 
 
-## StartWithBestScore
+### StartWithBestScore
 
 The last step in the analysis is the CNV detection itself.
 
@@ -344,7 +342,7 @@ To call a deletion when the Z-score is below -3 or duplication when the Z-score 
 To finetune the variant list one can generate a list of targets which in general are of lower quality in all possible controlsamples and apply this as a filter to generate a final list of high quality calls. This can be done by executing two steps:
 
 
-## GenerateTargetQcList
+### GenerateTargetQcList
 
 To generate the list of targets and corresponding quality thresholds run:
 ```bash
@@ -357,7 +355,7 @@ To generate the list of targets and corresponding quality thresholds run:
 For this analysis, the same region threshold, ratio cutoffs and Z-score cutoffs as explained above can be altered using their corresponding parameters.
 
 
-## CreateFinalList
+### CreateFinalList
 
 To apply the generated list of sample target QCs to the *.best.score.shortlist.txt* files execute:
 ```bash
