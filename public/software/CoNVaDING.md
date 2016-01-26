@@ -113,21 +113,21 @@ If no options are used the help menu will appear.
                         BED file to exlude from sample ratio calculation. DEFAULT: 20
   -rmDup                Switch to enable duplicate removal when using BAM files as input.
   -sexChr               Switch to include sex chromosomes in analysis.
-  -useSampleAsControl	Switch to use samples as control. Example: when using BAM
-  			            files to create count files and subsequentially use the
-  			            generated count files as controls.
+  -useSampleAsControl   Switch to use samples as control. Example: when using BAM
+                        files to create count files and subsequentially use the
+                        generated count files as controls.
   -ratioCutOffLow       Lower ratio cutoff value. Region ratio values below this
                         threshold are marked as deletion. DEFAULT: 0.65
   -ratioCutOffHigh      Higher ratio cutoff value. Region ratio values above this
                         threshold are marked as duplication. DEFAULT: 1.4
   -zScoreCutOffLow      Lower Z-score cutoff value. Regions with a Z-score below
-  			            this threshold are marked as deletion. DEFAULT: -3
+                        this threshold are marked as deletion. DEFAULT: -3
   -zScoreCutOffHigh     Higher Z-score cutoff value. Regions with a Z-score above
-  			            this threshold are marked as duplication. DEFAULT: 3
+                        this threshold are marked as duplication. DEFAULT: 3
   -sampleRatioScore     Sample ratio z-score cutoff value. Sample with a ratio
-  			            score below this value are excluded from analysis. DEFAULT: 0.09
+                        score below this value are excluded from analysis. DEFAULT: 0.09
   -percentageLessReliableTargets	Target labelled as less reliable in percentage
-  			            of control samples. DEFAULT: 20
+                        of control samples. DEFAULT: 20
 ```
 
 ## Create normalized count files
