@@ -3,11 +3,9 @@ CoNVaDING User Guide
 Lennart Johansson <l.johansson@umcg.nl> & Freerk van Dijk <f.van.dijk02@umcg.nl>
 v0.2, August 26th 2015:
 Written for release CoNVaDING v0.1.4.17
-:toc:
-:icons:
-:numbered:
 
-[[X5]]Introduction
+
+Introduction
 ------------------
 CoNVaDING (Copy Number Variation Detection In Next-generation sequencing Gene panels) was designed for small (single-exon) copy number variation (CNV) detection in high coverage next-generation sequencing (NGS) data, such as obtained by analysis of smaller targeted gene panels. 
 
