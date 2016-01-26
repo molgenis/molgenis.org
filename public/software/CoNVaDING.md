@@ -375,12 +375,12 @@ This produces the following output file:
 *.finallist.txt* contains all final calls, basically a filtered shortlist file.
 
 
-## Test dataset
+# Test dataset
 
 Not yet available
 
  
-## QC Thresholds
+# QC Thresholds
 
 If the following thresholds are exceeded using default settings the CNV calling is less reliable.
 The target ratio is also used to filter calls for the shortlist. Both QC metrics are used for filtering the final list.
@@ -389,7 +389,7 @@ Sample ratio: 0.09
 Target ratio: 0.10
 
 
-## Contact
+# Contact
 
 Mailto: 
 
