@@ -12,6 +12,10 @@
     "title": "Compute",
     "description": "Using MOLGENIS analysis pipeline toolbox"
   }, 
+  "software" : {
+   "title":"Software",
+   "description":"Use MOLGENIS software tools for genetics"
+  },
   "develop": {
     "title": "Develop",
     "description": "Download source and code your own MOLGENIS components"

@@ -1,0 +1,14 @@
+h1 Software
+
+p MOLGENIS delivers the following software tools:
+
+each article, slug in public.software._data
+    if(slug != 'index')
+        if(article.subheading)
+            h1 #{article.title}
+            p #{article.description}:
+        else
+            li
+                p
+                    a(href="#{slug}") #{article.title}
+                    |  - #{article.description}
