@@ -1,12 +1,12 @@
-CoNVaDING User Guide
-====================
+# CoNVaDING User Guide
+
 Lennart Johansson <l.johansson@umcg.nl> & Freerk van Dijk <f.van.dijk02@umcg.nl>
 v0.2, August 26th 2015:
 Written for release CoNVaDING v0.1.4.17
 
 
-Introduction
-------------------
+# Introduction
+
 CoNVaDING (Copy Number Variation Detection In Next-generation sequencing Gene panels) was designed for small (single-exon) copy number variation (CNV) detection in high coverage next-generation sequencing (NGS) data, such as obtained by analysis of smaller targeted gene panels. 
 
 CoNVaDING makes use of a group of (at least 30) possible control samples from which the samples with the most similar overall pattern are selected as control samples. These samples are then used for read-depth normalization on all (autosomal) targets and on all targets per gene. CNV prediction is based on a combination of ratio scores and Z-scores of the sample of interest compared to the selected controlsamples.
@@ -24,8 +24,8 @@ The program is written in perl and has dependencies on specific perl libraries a
 
 
 
-Installation
-------------
+# Installation
+
 The latest version of CoNVaDING can be downloaded from [[X1]]DOWNLOADSITE[here].
 
 CoNVaDING has several dependencies:
@@ -42,25 +42,25 @@ This version is known to be compatible with SAMtools version 0.1.18 and 0.1.19
 
 
 
-General comments
-----------------
+# General comments
+
 Targets, or the region of interest, usually consist of an exon with some flanking bases, but can be anything that you specify, for instance part of an exon.
 
 Because of the fact that the average coverage of the specified targets is used for the calculations, the resolution of the calls is also dependent on those targets. This means that the exact break point can not be determined. It might be within the last target of the call, or in the intron flanking this exon. Sub-exonic CNV's can also be missed if they if they do not have enough effect on the average coverage of the target.
 
 
 
-Analysis
---------
+# Analysis
+
 The analysis consists of three steps that have to be run separately and is based on a list of targets in a bed format.
 
 CoNVaDING can be started using the following command:
-
+```bash
   perl ./CoNVaDING-0.1.4.17.pl
-
+```
 
 If no options are used the help menu will appear.
-
+```bash
   Usage: ./countCNV-v0.1.4.17.pl <mode> <parameters>
   -h			This manual.
   -mode			Mode to run in, one of the following required:
@@ -130,28 +130,26 @@ If no options are used the help menu will appear.
   			score below this value are excluded from analysis. DEFAULT: 0.09
   -percentageLessReliableTargets	Target labelled as less reliable in percentage
   			of control samples. DEFAULT: 20
+```
 
-
-
-Create normalized count files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Create normalized count files
 
 The first step in the analysis is to create normalized count files. This can be done in two ways, from a bam file or from a text file including mean coverage per target.
 
 
-StartWithBam
-^^^^^^^^^^^^
+## StartWithBam
 
 If a bam file is used CoNVaDING will use samtools to calculate the mean coverage for each target. For this type of analysis the StartWithBam mode has to be selected.
 
 The basic analysis starts as follows: 
-  
+```bash  
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode StartWithBam \
   -inputDir /PATH/TO/INPUTDIR \
   -controlsDir /PATH/TO/CONTROLSDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
   -bed /PATH/TO/DIR/target_bedfile.bed
+```
 
 All bamfiles should be stored in the same folder, which can be specified with the 'inputDir' option
 The 'outputDir' option should specify the path to the folder in which the normalized coverage files *.aligned.only.normalized.coverage.txt* should be stored.
@@ -162,7 +160,7 @@ The bed file should contain the regions of interest seperated in four columns sp
 It is important that the gene column has the exact same gene name for every target of the same gene, because these names are used to cluster targets for a normalization based on the targets belonging to the same gene. The bedfile should be sorted on chromosome and start position.
 
 Bed file example: 
-
+```bash
   2       96919506        96919893        TMEM127
   2       96920531        96920775        TMEM127
   2       96930836        96931159        TMEM127
@@ -180,36 +178,35 @@ Bed file example:
   3       10183492        10183911        VHL
   3       10188158        10188360        VHL
   3       10191431        10191689        VHL
-
+```
 
 The analysis options can be further extended:
 
 If a control set is not yet present, or if the samples that are analyzed have to be added to the control set the following options should be added:
-
+```bash
   -useSampleAsControl
   -controlsDir /PATH/TO/CONTROLSDIR
-
+```
 The 'useSampleAsControl' option specifies that the samples have to be used as a control sample later on. The 'controlsDir' is the location where the normalized coverage files of the control samples will be stored.
 
 
 If duplicates have to be removed before coverage calculations use the following option:
-
+```bash
   -rmdup
-
+```
 This is advisable for capturing data, but should not be done for amplicon data.
 
 
 
 
-StartWithAvgCount
-^^^^^^^^^^^^^^^^^
+## StartWithAvgCount
 
 If no bam files are present the analysis can also start with a text file specifying average counts per target. This file shoud contain the headers as shown in the example below.
 This enables the use of alternative analysis software.
 
 
 An example of a text file that can be used in this mode:
-
+```bash
   CHR     START   STOP    GENE    REGION_COV
   2       96919506        96919893        TMEM127 209.606 
   2       96920531        96920775        TMEM127 230.959 
@@ -228,43 +225,43 @@ An example of a text file that can be used in this mode:
   3       10183492        10183911        VHL     174.233 
   3       10188158        10188360        VHL     230.704 
   3       10191431        10191689        VHL     226.012 
-
+```
 
 When this mode is used the analysis is started as follows:
-
+```bash
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode StartWithAvgCount \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
   -bed /PATH/TO/DIR/target_bedfile.bed
-
+```
 
 Also here the following options can be used if the samples should be used as a control set in later steps:
-
+```bash
   -useSampleAsControl
   -controlsDir /PATH/TO/CONTROLSDIR
-
+```
 The -rmdup option is not available in this mode. If necessary the duplicates should have been removed before calculating the mean coverage per target.
 
 
-Selecting the most informative control samples
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Selecting the most informative control samples
 
-StartWithMatchScore
-^^^^^^^^^^^^^^^^^^^
+
+## StartWithMatchScore
+
 The next step in the analysis is selecting the control samples estimated to be the most informative.
 
 
 If a bam file is used CoNVaDING will use samtools to calculate the mean coverage for each target. For this type of analysis the StartWithBam mode has to be selected.
 
 The basic analysis starts as follows: 
-  
+```bash  
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode StartWithMatchScore \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
   -controlsDir /PATH/TO/CONTROLSDIR
-
+```
 
 The 'inputDir' option should specify the path to the folder in which the normalized coverage files *.aligned.only.normalized.coverage.txt* are be stored (the outputfolder of the previous step).
 
@@ -281,33 +278,33 @@ The 'controlsDir' option should show the directory in which the control samples 
 The analysis options can be further extended:
 
 On default only targets located on autosomal chromosomes will be analyzed. If some targets are located on the sex chromosomes the following option should be added:
-
+```bash
   -sexChr
-
+```
 Note that for this option only samples of the same sex as the sample of interest can be used as possible control samples.
 
 On default 30 samples are selected to create the control group. If you wish to use a different number of control samples this can be indicated with the option:
-
+```bash
   -controlSamples 40
-
+```
 to select for instance the 40 best matching samples.
 
 
-CNV Detection
-~~~~~~~~~~~~~~
+# CNV Detection
 
-StartWithBestScore
-^^^^^^^^^^^^^^^^^^
+
+## StartWithBestScore
+
 The last step in the analysis is the CNV detection itself.
 
 The basic analysis starts as follows: 
-  
+```bash  
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode StartWithBestScore \
   -inputDir /PATH/TO/INPUTDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
   -controlsDir /PATH/TO/CONTROLSDIR
-
+```
 
 The 'inputDir' option should specify the path to the folder in which the *.best.match.score.txt* files are stored (the outputfolder of the previous step).
 
@@ -327,69 +324,65 @@ The analysis options can be further extended:
 
 The sample ratio calculation is based on calculation the variation coefficient of the normalized targets of the sample of interest. In this calculation highly variable targets are excluded. On default a target is considered highly variable if after transforming the normalized target ratio's of all samples in the possible control group 20 percent or more of the samples have a Z-score outside the -3 to 3 range. This percentage can be altered using the 'regionTreshold' option.
 For a threshold of 30 percent of the samples for instance the following option can be used:
-
+```bash
   -regionThreshold 30
-
+```
 To alter the ratio thresholds when making a call for a deletion of duplication for a region during the analysis, the ratioCutOffLow and ratioCutOffHigh parameters can be used.
 To apply a threshold of ratio score below 0.65 for a deletion and above 1.4 for duplication use:
-
+```bash
   -ratioCutOffLow 0.65
   -ratioCutOffHigh 1.4
-
+```
 The same thresholds for calling a deletion or duplication can also be applied using the Z-score value cutoff.
 To call a deletion when the Z-score is below -3 or duplication when the Z-score is above 3 use:
-
+```bash
   -zScoreCutOffLow -3
   -zScoreCutOffHigh 3
-
+```
 
 
 To finetune the variant list one can generate a list of targets which in general are of lower quality in all possible controlsamples and apply this as a filter to generate a final list of high quality calls. This can be done by executing two steps:
 
 
-GenerateTargetQcList
-^^^^^^^^^^^^^^^^^^^^
+## GenerateTargetQcList
 
 To generate the list of targets and corresponding quality thresholds run:
-
+```bash
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode GenerateTargetQcList \
   -inputDir /PATH/TO/CONTROLSDIR \
   -outputDir /PATH/TO/OUTPUTDIR \
   -controlsDir /PATH/TO/CONTROLSDIR
-
+```
 For this analysis, the same region threshold, ratio cutoffs and Z-score cutoffs as explained above can be altered using their corresponding parameters.
 
 
-CreateFinalList
-^^^^^^^^^^^^^^^
+## CreateFinalList
 
 To apply the generated list of sample target QCs to the *.best.score.shortlist.txt* files execute:
-
+```bash
   perl ./CoNVaDING-0.1.4.17.pl \
   -mode CreateFinalList \
   -inputDir /PATH/TO/BESTSCOREOUTPUT \
   -targetQcList /PATH/TO/TARGETQCLISTFILE \
   -outputDir /PATH/TO/OUTPUTDIR
-
+```
 
 To change the percentage of samples in which a target can be labelled as less reliabe, for example in 20 percent of the samples, use the option:
-
+```bash
   -percentageLessReliableTargets 20
-
+```
 This produces the following output file:
 
 *.finallist.txt* contains all final calls, basically a filtered shortlist file.
 
 
-Test dataset
-------------
+## Test dataset
 
 Not yet available
 
  
-QC Thresholds
--------------
+## QC Thresholds
 
 If the following thresholds are exceeded using default settings the CNV calling is less reliable.
 The target ratio is also used to filter calls for the shortlist. Both QC metrics are used for filtering the final list.
@@ -398,8 +391,7 @@ Sample ratio: 0.09
 Target ratio: 0.10
 
 
-Contact
--------
+## Contact
 
 Mailto: 
 
