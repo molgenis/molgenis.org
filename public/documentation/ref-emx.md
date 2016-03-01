@@ -1,9 +1,9 @@
-# EMX format
+**
+EMX (entity model extensible) is a flexible spreadsheet format to easily upload any tabular data using Excel or a zipfile of tab-delimited *.tsv files. This works because you can tell MOLGENIS the 'model' of your data via a special sheet named 'attributes'. Optionally, you can also add metadata on entities (i.e., classes, tables), and packages (i.e, models and submodels)
+**
 
-EMX (entity model extensible) is a flexible spreadsheet format to easily upload any tabular data using Excel or a zipfile of tab-delimited *.txt files. This works because you can tell MOLGENIS the 'model' of your data via a special sheet named 'attributes'.
-
-## Minimal example
-[download](example1.xlsx)
+# Minimal example 
+([download](/data/example1.xlsx))
 
 For example, if you want to upload an Excel with sheet 'patients':
 
@@ -27,17 +27,17 @@ Then you must provide a model of your 'patients' via Excel with sheet named 'att
 
 You can first upload the 'model' and then the 'data'. Or you can put the both into one file and upload in one go. What you prefer :-) [todo: provide example files for download]
 
-## Advanced data example
-[download](example2.xlsx)
+# Advanced example 
+([download](/data/example2.xlsx))
 
 Lets assume we want to upload multiple data sheets, with relations between them:
 
 Cities:
 
-| cityName   |
-|------------|
-| new york   |
-| metropolis |
+| cityName   |lat       | lng       |
+|------------|----------|-----------|
+| new york   | 40,712784|-74,005941 |
+| metropolis | 37,151165|-88,731998 |
 
 Patients:
 
@@ -59,16 +59,15 @@ Users:
 
 Note: users looks similar patients, i.e. they are also persons having 'displayName', 'firstName', and 'lastName'. We will use this in the model below. 
 
-## Advanced metadata example
-
 To model the data advanced data example, again you need to provide the 'attributes' (i.e., columns, properties). Optionally, you can also describe entities (i.e., classes, tables), and packages (i.e, models and submodels) which gives you some advanced options.
 
-### 'Attributes' sheet (required)
-The example below defines the model for entities 'city', 'patient' and 'user'. Note that 'users' had some attributes shared with 'patients' so we will use 'object orientation' to say that both 'user' and 'patient' are both a special kind of 'persons'. This will be defined using the 'extends' relation defined in the 'entities' sheet below.
+Attributes:
 
 | name        | entity   | dataType | nillable | refEntity | idAttribute | description             |
 |-------------|----------|----------|----------|-----------|-------------|-------------------------|
 | cityName    | cities   |          | FALSE    |           | TRUE        |  unique city name       |
+| lat         | cities   | decimal  |          |           |             | latitude in degrees     |
+| lng         | cities   | decimal  |          |           |             | longitude in degrees    |
 | displayName | persons  |          | FALSE    |           | TRUE        |  unique name            |
 | firstName   | persons  |          |          |           |             |  first name             |
 | lastName    | persons  |          |          |           |             |  family name            |
@@ -78,8 +77,9 @@ The example below defines the model for entities 'city', 'patient' and 'user'. N
 | userName    | users    |          | FALSE    |           | TRUE        |  unique login name      |
 | active      | users    | bool     |          |           |             |  whether user is active |
 
-### 'Entities' sheet (optional)
-In most cases the 'attributes' sheet is all you need. However, in some cases you may want to add more details on the 'entity'. Here we wanted to show use of 'abstract' (i.e., interfaces) to create model class 'persons' and 'extends' (i.e., subclass, inheritance) to define that 'user' and 'patient' have the same attributes as 'persons'. When data model become larger, or when many data sheets are loaded then the 'package' construct enables you to group your (meta)data. 
+The example below defines the model for entities 'city', 'patient' and 'user'. Note that 'users' had some attributes shared with 'patients' so we will use 'object orientation' to say that both 'user' and 'patient' are both a special kind of 'persons'. This will be defined using the 'extends' relation defined in the 'entities' sheet below.
+
+Entities:
 
 | name     | package  | extends | abstract | description                                                       |
 |----------|----------|---------|----------|-------------------------------------------------------------------|
@@ -88,23 +88,29 @@ In most cases the 'attributes' sheet is all you need. However, in some cases you
 | users    | hospital | persons |          | users extends persons, meaning it 'inherits' attribute definition |
 | patients | hospital | persons |          | patient extends person, adding patientNumber                      |
 
-### 'Packages' sheet (optional)
-Package allow you to create several models in your system, describe the and next them using the 'parent' relationship. For example:
+In most cases the 'attributes' sheet is all you need. However, in some cases you may want to add more details on the 'entity'. Here we wanted to show use of 'abstract' (i.e., interfaces) to create model class 'persons' and 'extends' (i.e., subclass, inheritance) to define that 'user' and 'patient' have the same attributes as 'persons'. When data model become larger, or when many data sheets are loaded then the 'package' construct enables you to group your (meta)data. 
+
+Packages:
 
 | name     | description                                                   | parent |
 |----------|---------------------------------------------------------------|--------|
 | root     | my main package                                               |        |
 | hospital | sub package holding entities to describe all kinds of persons | root   |
 
-# EMX model reference documentation
+# Rules for technical names
+For all technical names in the EMX format, the following rules apply:
+- No special characters, except for; '_' and '#', only letters, numbers are allowed.
+- No names starting with digits. 
+- Maximum length for names is 30 chars.
+- Keywords used by programming languages (e.g. java, javascript, mysql) are not allowed.
 
-Minimally, you need to provide the 'attributes' of your model (i.e., columns, properties). Optionally, you can also add metadata on entities (i.e., classes, tables), and packages (i.e, models and submodels)
+These rules only apply to the technical names, labels are not limited by these rules.
 
-## Attributes
+# Attributes options
 
 Required columns:
 * entity : name of the entity this attribute is part of
-* attribute : name of attribute, unique per entity
+* name : name of attribute, unique per entity.
 
 Optional columns (can be omitted):
 
@@ -119,22 +125,29 @@ Optional columns (can be omitted):
   * datetime : date in yyyy-mm-dd hh:mm:ss
   * xref : cross reference to another entity; requires refEntity to be provided
   * mref : many-to-many relation to another entity; requires refEntity to be provided
-  * compound : way to assemble complex entities from building blocks (will be shown as tree in user interface); requires refEntity to be provided
-* refEntity : used in combination with xref, mref or compound. Should refer to an entity.
+  * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options.
+  * compound : A way to assemble complex entities from building blocks (will be shown as tree in user interface); Don't forget to fill in the partOfAttribute configuration of the attributes that are grouped under this attribute. The partOfAttribute must contain the name of this new created compound attribute.
+  * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
+* refEntity : used in combination with xref, mref or categorical. Should refer to an entity.
 * nillable : whether the column may be left empty. Default: false
 * idAttribute : whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
 * description : free text documentation describing the attribute
+* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
 * rangeMin : used to set range in case of int attributes
 * rangeMax : used to set range in case of int attributes
 * lookupAttribute : true/false to indicate that the attribute should appear in the xref/mref search dropdown in the dataexplorer
 * label : optional human readable name of the attribute
+* label-{languageCode} : label for specified language (can be multiple languages, example: label-nl)
 * aggregateable : true/false to indicate if the user can use this atrribute in an aggregate query
 * labelAttribute : true/false to indicate that the value of this attribute should be used as label for the entity (in the dataexplorer when used in xref/mref). Default: false
 * readOnly true/false to indicate a readOnly attribute
 * tags : ability to tag the data referring to the tags sections, described below
 * validationExpression : javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
+* defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
+* partOfAttribute: is used to group attributes into a compound attribute. Put here the name of the compound attribute.
 
-## Entities
+
+# Entities options
 Required columns:
 
 * entity : unique name of the entity. If packages are provided, name must be unique within a package.
@@ -145,9 +158,11 @@ Optional columns:
 * package : name of the group this entity is part of
 * abstract : indicate if data can be provided for this entity (abstract entities are only used for data modeling purposes but cannot accept data)
 * description : free text description of the entity
+* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
+* backend: the backend (database) to store the entities in (currently MySQL or ElasticSearch)
 * tags : ability to tag the data referring to the tags sections, described below
 
-## Packages
+# Packages options
 Required columns:
 
 * name : unique name of the package. If parent package is provided the name is unique within the parent.
@@ -157,9 +172,8 @@ Optional columns:
 * parent : use when packages is a sub-package of another package
 * tags : mechanism to add flexible meta data such as ontology references, hyperlinks
 
-## BETA feature: tags
+# Tags options (BETA)
 
-### 'Tags' sheet (optional, BETA)
 Optionally, additional information can be provided beyond the standard meta data described above. Therefore all meta-data elements can be tagged in simple or advanced ways (equivalent to using RDF triples). For example, above in the packages example there is a 'homepage' tag provided. For example:
 
 | identifier | label                   | objectIRI               | relationLabel          | codeSystem | relationIRI |
@@ -167,8 +181,6 @@ Optionally, additional information can be provided beyond the standard meta data
 | like       | like                    |                         |                        |            |             |
 | homepage   | http://www.molgenis.org | http://www.molgenis.org | homepage               |            |             |
 | docs       | http://some.url         | http://www.molgenis.org | Documentation and Help | EDAM       | http://edamontology.org/topic_3061 |
-
-### 'Tags' options
 
 Required columns:
 * identifier : unique name of this tag, such that it can be referenced
@@ -180,77 +192,60 @@ Optional columns:
 * relationIRI: url to the relation definition, e.g. http://edamontology.org/topic_3061
 * codeSystem: name of the code system used, e.g. EDAM
 
-Change or change documentation:
+# Internationalization
 
-* 'required' and 'unique' (and xref_entity?) property for attribute?
-* create separate 'unit' list?
-* can we hload dataset without entity / attributes (auto load?)
-* create 'category'
-  * code, label, ismissing, description, ontology
-  * use decorator to automatically produce identifier (optional)
-* validation rules
+You can internationalize attribute labels and descriptions, entity labels and descriptions and
+you can define internationalized versions of entity attributes.
 
-# Import API
+### entities
 
-## Endpoints
+description-{languageCode} : description for specified language (can be multiple languages)
+label-{languageCode} : label for specified language (can be multiple languages)
 
-[SERVER URL]/plugin/importwizard/importFile/
-This endpoint can be used to import a file into MOLGENIS by providing the file by for example the use of a webform.
+Example:
 
-##### Required parameter:
-MultipartFile file
+| name     | package  | description-en  | description-nl     | label-en | label-nl |
+|----------|----------|-----------------|--------------------|----------|----------|
+| cities   | hospital | list of cities  | lijst van steden   | Cities   | Steden   |
+| persons  | hospital | list of persons | lijst van personen | Persons  | Personen |
 
-[SERVER URL]/plugin/importwizard/importByUrl/
-This endpoint can be used to import a file into MOLGENIS by providing a URL to the file.
 
-##### Required parameter:
-String url
+### attributes
 
-##### optional parameters for both endpoints:
-entityName: The name of the entity, this only has effect for VCF files (.vcf and .vcf.gz)
-	Default value is the filename.
+description-{languageCode} : description for specified language (can be multiple languages)
+label-{languageCode} : label for specified language (can be multiple languages)
 
-action: the database action to import with, options are:
-	ADD: add records, error on duplicate records
-	ADD_UPDATE_EXISTING: add, update existing records
-	UPDATE: update records, throw an error if records are missing in the database
-	ADD_IGNORE_EXISTING: Adds new records, ignores existing records
+Example:
 
-Note that for VCF files only "add" is supported
+| name        | entity   | idAttribute | description-en           | description-nl                | label-en        | label-nl       |
+|-------------|----------|-------------|--------------------------|-------------------------------|-----------------|----------------|
+| displayName | patients | TRUE        | Patient name             | Naam van de patient           | name            | naam           |
+| firstName   | patients |             | Patient first name       | Voornaam van de patient       | first name      | voornaam       |
+| lastName    | patients |             | Patient family name      | Achternaam van de patient     | family name     | achternaam     |
 
-Default value is "ADD".
+### Language depended entity attributes
 
-notify: Boolean value to indicate of success and failure should be reported to the user by email.
-	Default value is "false".
+You can internationalize attributes by postfixing the name with -{countryCode}.
 
-## Response:
-The service responds with a statuscode **201 CREATED** if the preliminary checks went well and the import run has been started, it also returns a href to the metadata of the importrun.
-The href can be used to poll the status of the import by checking the status field of the importrun, also the message field of the importrun entity gives some basic feedback on what was imported or what went wrong.
-##Examples
-### importByURL Example:
+If this is the label attribute,
+you must set all city-xx labelAttribute values to 'TRUE' on the 'entities' tab.
 
-    https://molgenis01.gcc.rug.nl/plugin/importwizard/importByURL
-    notify=false&entityName=demo&url=https://raw.githubusercontent.com/bartcharbon/molgenis/feature/importService/
-    molgenis-app/src/test/resources/vcf/test.vcf
+Example:
 
-#####Response:
+**entities:**
 
-    201 CREATED
-    /api/v2/ImportRun/[ImportRunID]
+| name           | entity   | idAttribute | label-nl    | label-de      | labelAttribute |
+|----------------|----------|-------------|-------------|---------------|----------------|
+| name           | gender   | TRUE        |             |               |                |
+| genderlabel-nl | gender   |             | Label (nl)  | Etikette (nl) | TRUE           |
+| genderlabel-de | gender   |             | Label (de)  | Etikette (de) | TRUE           |
 
-### importFile example using cURL(https://curl.haxx.se):
-    curl -H "x-molgenis-token:[TOKEN]" -X POST -F"file=@path/to/file/test.vcf" -Faction=update -FentityName=newName
-    -Fnotify=true http://[SERVER URL]/plugin/importwizard/importFile
 
-#####Response:
+**gender:**
 
-    201 CREATED
-    /api/v2/ImportRun/[ImportRunID]
+| name    | genderlabel-nl   | genderlabel-de |
+|---------|------------------|----------------|
+| Male    | Man              | Man            |
+| Female  | Vrouw            | Frau           |
+| Unknown | Onbekend         | Unbekannt      |
 
-## Exceptions:
-In case anything went wrong even before starting the importrun a **400 BAD REQUEST** is returned.
-
-#### Examples of known exceptions are:
-* Invalid action: [ILLEGAL VALUE] valid values: ADD, ADD_UPDATE_EXISTING, UPDATE, ADD_IGNORE_EXISTING
-* Update mode UPDATE is not supported, only ADD is supported for VCF
-* A repository with name NewEntity already exists
