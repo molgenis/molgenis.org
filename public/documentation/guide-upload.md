@@ -27,7 +27,7 @@ Abbreviations:
 * CSV: Comma Separated Value
 * OWL: Web Ontology Language
 * VCF: Variant Call Format
-* EMX: Entity Model eXtensible        emx
+* EMX: Entity Model eXtensible
 
 # Overview
 The upload module is the place in MOLGENIS where you can upload your data into the MOLGENIS application. If you have the permissions, you will see the upload menu item.
