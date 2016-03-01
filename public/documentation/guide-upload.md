@@ -164,6 +164,7 @@ The href can be used to poll the status of the import by checking the status fie
     -Fnotify=true https://[SERVER URL]/plugin/importwizard/importFile
 
 A token can be obtained using:
+
     curl -H "Content-Type: application/json" -X POST -d '{"username"="USERNAME", "password"="YOURPASSWORD"}' https://[SERVER URL]/api/v1/login
 
 #####Response:
