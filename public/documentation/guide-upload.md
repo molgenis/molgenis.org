@@ -161,7 +161,10 @@ The href can be used to poll the status of the import by checking the status fie
 
 ### importFile example using cURL(https://curl.haxx.se):
     curl -H "x-molgenis-token:[TOKEN]" -X POST -F"file=@path/to/file/test.vcf" -Faction=update -FentityName=newName
-    -Fnotify=true http://[SERVER URL]/plugin/importwizard/importFile
+    -Fnotify=true https://[SERVER URL]/plugin/importwizard/importFile
+
+A token can be obtained using:
+    curl -H "Content-Type: application/json" -X POST -d '{"username"="USERNAME", "password"="YOURPASSWORD"}' https://[SERVER URL]/api/v1/login
 
 #####Response:
 
