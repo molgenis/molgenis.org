@@ -150,7 +150,7 @@ The href can be used to poll the status of the import by checking the status fie
 ##Examples
 ### importByURL Example:
 
-    https://molgenis01.gcc.rug.nl/plugin/importwizard/importByURL
+    https://molgenis01.gcc.rug.nl/plugin/importwizard/importByUrl
     notify=false&entityName=demo&url=https://raw.githubusercontent.com/bartcharbon/molgenis/feature/importService/
     molgenis-app/src/test/resources/vcf/test.vcf
 
