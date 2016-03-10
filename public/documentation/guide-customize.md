@@ -161,4 +161,4 @@ from the dropdown.
 3. Click on the 'Edit row' icon before the row you want to edit.
 4. Provide a translation for each available language.
 
-Missing translations will show up as #msgid# in the user interface.
+Missing translations will show up in English in the user interface.
