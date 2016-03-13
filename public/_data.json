@@ -1,31 +1,18 @@
 {   
   "index" : {"title":"home","description":"Welcome to MOLGENIS home page"},    
-  "start": {
-    "title": "Start",
-    "description": "Quick start for using MOLGENIS."
+  "software" : {
+  "title":"TOOLS",
+   "description":"View & download the tools"
   },
   "documentation": {
-    "title": "Documentation",
+    "title": "DOCS",
     "description": "Documentation to using MOLGENIS tools"
   },
-  "compute": {
-    "title": "Compute",
-    "description": "Using MOLGENIS analysis pipeline toolbox"
-  }, 
-  "software" : {
-   "title":"Software",
-   "description":"Use MOLGENIS software tools for genetics"
-  },
   "develop": {
-    "title": "Develop",
+    "title": "CODE",
     "description": "Download source and code your own MOLGENIS components"
   },
-  "download": {
-    "title": "Download",
-    "description": "Download for free and install yourself"
-  },
-  "about": {
-    "title": "About",
-    "description": "Information about MOLGENIS, publications, team and history."
-  }
+  "support" : {
+  "title":"SUPPORT", 
+  "description" : "Need help? We have developers and data scientists too"}
 }

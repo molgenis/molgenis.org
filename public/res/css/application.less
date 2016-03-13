@@ -39,16 +39,17 @@ html,body {
 }
 
 body, h1, h2, h3, h4, h5, h6, .molgenis-docs-header, .molgenis-docs-body {
-    font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
-    font-weight: 500;
+    font-family: "Avenir", "Roboto", Corbel, "Lucida Grande", "Lucida Sans", sans-serif;
 }
 
 h1 {
     font-size: 3.2rem;
     letter-spacing: -1px;
+    font-weight: 500;
 }
 h2 {
     font-size: 2.4rem;
+    font-weight: 500;
 }
 
 /**
@@ -60,7 +61,8 @@ h2 {
 
 .molgenis-docs-header .navbar {
     margin-bottom: 0;
-    background-color: #fff;
+    background-color: white;
+    color: white;
     border-bottom: 0;
     position:relative;
 }
@@ -80,8 +82,8 @@ h2 {
  */
 @media (min-width: 768px) {
     .molgenis-docs-titlebar {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 30px;
+        padding-bottom: 40px;
         font-size: 24px;
         text-align: left;
     }
@@ -94,13 +96,14 @@ h2 {
 .molgenis-docs-titlebar {
     color: @navbar-default-link-active-bg;
     background: @navbar-default-color;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-size: 24px;
     text-shadow: 0 1px 0 rgba(0,0,0,.1);
 }
 
 .molgenis-docs-titlebar h1 {
     color:#fff;
+    font-weight: 300;
 }
 
 .molgenis-docs-titlebar p {
@@ -112,17 +115,42 @@ h2 {
 /**
  * helper: container with responsive, predictable sizes
  */
-@media (min-width: @screen-md) {
-        .container {
+ @media (min-width: @screen-md) {
+         .container {
+         width: 970px;
+         }
+ }
+ 
+ @media (min-width: @screen-sm) {
+     .container {
+         width: 750px;
+     }
+ }
+ 
+ 
+@media(min-width: @screen-lg-min) {
+    .header-container {
+        width: 1170px;
+    }
+    .navbar-nav {
+        margin-left: 25%;
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .header-container {
         width: 970px;
-        }
+    }
+    .navbar-nav {
+        margin-left: 25%;
+    }
 }
 
-@media (min-width: @screen-sm) {
-    .container {
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .header-container {
         width: 750px;
     }
 }
+
 
 /**
  * body
@@ -216,4 +244,8 @@ h2 {
 .molgenis-docs-sidenav > .active > ul.nav > li > a {
     padding-top: 1px;
     padding-bottom: 1px;
+}
+
+.jumbotron h1, .jumbotron h2 {
+    font-weight: lighter;
 }

@@ -1,10 +1,8 @@
 { 
-    "overview":{"title":"Overview", "description":"Getting to know the code", "subheading":true},
+    "data":{"title":"MOLGENIS/data", "description":"Getting to know the code", "subheading":true},
     "start":{"title":"Start", "description":"Getting, compiling and running the code"},
     "architecture":{"title":"Architecture", "description":"Summary of the main components"},
     "technologies":{"title":"Technologies", "description":"Technologies and frameworks we use"},
-
-    "extension":{"title":"Module systems","description":"MOLGENIS is a modular system with extension points","subheading":true},
     "frontend":{"title": "UX Frontend", "description":"How to add a new user interface module"},
     "backend":{"title": "Data Backend", "description":"How to add a new data backend/data store"},
     "annotators":{"title": "Annotators", "description":"How to add new annotators"},

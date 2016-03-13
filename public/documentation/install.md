@@ -1,8 +1,5 @@
 **
-You can download, install and use MOLGENIS for free under license [LGPLv3](). We here document three approaches
-1. install using apache-tomcat
-2. install using maven cargo
-3. install by compiling the code yourself
+You can download, install and use MOLGENIS for free under license [LGPLv3](). We here document three approaches: (1) install using apache-tomcat, (2) install using maven cargo or (3) install by compiling the code yourself
 **
 
 # Using apache-tomcat
