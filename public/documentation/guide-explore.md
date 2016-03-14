@@ -2,7 +2,7 @@
 One of the central plugins for many of the MOLGENIS databases is the data explorer. As the name suggests this is the plugin to use if you wish to take a close look at your data.
 **
 
-Note that some of the compoments described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
+Note that some of the components described below are only shown if they are enabled in the application settings and to people with the appropriate permissions.
 
 # Select entity
 At the top of the data explorer the name of the currently selected entity is shown as well as the description.
@@ -19,7 +19,7 @@ In the upper left corner of the data explorer is a search box, this search box c
 ![Dataexplorer search](/res/images/dataexplorer/searchbox.png?raw=true, "dataexplorer/searchbox")
 
 Directly below the search box the currently active attribute filters are shown. By clicking on them they can be edited. The cross trailing every filter can be used to delete this filter. Filters can be set from the attribute selection tree which is described below.
-Using the checkbox in front of each attribute the visibilty of this attribute in the table can be managed. The filter icon can be used to set filters for this specific attribute.
+Using the checkbox in front of each attribute the visibility of this attribute in the table can be managed. The filter icon can be used to set filters for this specific attribute.
   
 ![Dataexplorer active filters](/res/images/dataexplorer/active_filters.png?raw=true, "dataexplorer/active_filters")
 
@@ -43,7 +43,7 @@ Every line starts, depending on your permissions with some action icons:
 
 - Add row:
 Using this button will open a form with inputs for all the attributes in the entity, allowing you to create a new entity.
-All fields will be validated based on their datatype, for example "test" is not a valid email adress.
+All fields will be validated based on their datatype, for example "test" is not a valid email address.
 - Edit row:
 Same as the add row button, but with prefilled inputs to allow you to edit an entity.
 - Inspect row:
@@ -86,7 +86,7 @@ Click any column header in the table to sort the data based on that column, clic
 Click one of the lines in the data table to zoom to the position of this variant in the genome browser.
 Click the symbol in front of the "SAMPLES" column header to show the columns belonging to the samples.
 
-Click the magnifing glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However, as stated above, all kinds of reports can be added at runtime.
+Click the magnifying glass in front of the dataline to show a report for that line. The default report is just showing all attribute values in a structured way. However, as stated above, all kinds of reports can be added at runtime.
 
 # Inline editing
 
@@ -98,16 +98,16 @@ TODO: add figure
 
 # Annotators
 
-The anotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used from the command-line.
+The annotator module of the data explorer is the user interface to use the MOLGENIS annotator framework, which can also be used from the command-line.
 The annotator framework is a system to add data from other resources to your genomic entities. For example pathogenicity prediction, allele frequencies and phenotype information.
 
 ![Dataexplorer annotators](/res/images/dataexplorer/annotators.png?raw=true, "dataexplorer/annotators")
 
 The screen shows a list of available annotators that can be used. Clicking the title of the annotator will result in a popup with additional information such as a general description and a listing of the attributes that will be added by this annotator.
-Using the checkboxes multiple annotaotrs can be selected for one run, which is starten by clicking the "annotate" button. If preferred a copy of the dataset can be created with the annotations added to this copy, leaving the original entity as it is.
+Using the checkboxes multiple annotators can be selected for one run, which is started by clicking the "annotate" button. If preferred a copy of the dataset can be created with the annotations added to this copy, leaving the original entity as it is.
 Annotated fields will be added to the entity in a compound attribute.
 
-On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailble or an atrribute needed to map the entity and resource to each other missing.
+On the right hand side of the screen a list of unavailable annotators is shows, the reason why they are unavailable is shown in the list, this can for example be due to a resource being unavailable or an attribute needed to map the entity and resource to each other missing.
 The gear icon trailing every annotator in the list can be used to configure the settings for this annotator.
 
 # Aggregation
@@ -119,7 +119,7 @@ The screen has 2 areas, the controls and the results, the controls allow you to 
 ![Dataexplorer aggregates](/res/images/dataexplorer/aggregate_controls.png?raw=true, "dataexplorer/aggregates")
 
 You can select 1 attribute for simple one dimensional counts, represented as a table with one column, or two attributes to get a 2 dimensional aggregate table.
-A third dropdown allows you to select a attribute by which to group the results.
+A third dropdown allows you to select an attribute by which to group the results.
 
 ![Dataexplorer aggregate results](/res/images/dataexplorer/aggregate_result_table.png?raw=true, "dataexplorer/aggregateresults")
 
@@ -239,7 +239,7 @@ Value:
 
 
 # Model registry
-The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modeled. This is usefull for detecting errors in your model, or if you want to base your own model on something that already exists.
+The model registry is a module that can display the entire meta data model of a data set. This means that you do not look at the actual data, but you can see how the data is modelled. This is useful for detecting errors in your model, or if you want to base your own model on something that already exists.
 
 ![Model registry screen 1](/res/images/model_registry_screen1.png?raw=true, "model registry screen 1")
 
@@ -260,7 +260,7 @@ The tree is a simplified overview of all the tables, or entities, inside a packa
 The details for every entity and attribute is an overview of data types, constraints, default values, and descriptions. 
 
 **UML**
-Navigate to the UML tab to see a UML representation of your model. You can zoom in and out using the + and - buttons. You can also drag around the different boxes to rearange the diagram.
+Navigate to the UML tab to see a UML representation of your model. You can zoom in and out using the + and - buttons. You can also drag around the different boxes to rearrange the diagram.
 
 **Printing**
 You can print your model to review it on paper by pressing the print button at the top right of the screen.
