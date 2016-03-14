@@ -22,16 +22,16 @@ Fill in the Create Menu Item form with the following data:
 * Name: Contact information
 * Query string: 
 
-Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it let's you fill in information via an online editor
+Now press 'Create'. The Contact information item will appear in the list on the right. Move it under the Test menu, and save the layout. You should now have a Test drop down in your menu, and when you open it, it should show you the Contact information item. The contact plugin is similar to the Home plugin as it lets you fill in information via an online editor
 
 **Using Query string to add additional parameters**  
 Some modules, like the data explorer, can be opened with starting parameters. These can be used via the Query string field when creating a new menu item. To test this, we will add a Query string to the existing Data Explorer menu item so that the data set we created in the [Upload guide](guide-upload)will be selected at the start.
 
-Edit the existing data explorer item by pressing the pencil, and add the the following Query string:
+Edit the existing data explorer item by pressing the pencil, and add the following Query string:
 
 * Query string: entity=example_data_table
 
-Save and when you now press the *Data explorer* in your menu then you will be taken to the dataexplorer with the example_data_table data set selected.
+Save and when you now press the *Data explorer* in your menu then you will be taken to the data explorer with the example_data_table data set selected.
 
 A complete list of all the Query strings available at the Data Explorer:
 
@@ -42,7 +42,7 @@ A complete list of all the Query strings available at the Data Explorer:
 | ***mod***|data, aggregates, charts, annotators|Select a Data Explorer tab to show|entity=test_data&hideselect=true&mod=data|
 
 **Creating redirects to URLs outside MOLGENIS**  
-Using the redirect plugin as a menu item, you are able to create a link to an outside source. To show how this works, we will create a menu item that links to wikipedia.
+Using the redirect plugin as a menu item, you are able to create a link to an outside source. To show how this works, we will create a menu item that links to Wikipedia.
 
 First, create a new Menu item that has the following traits:  
 
@@ -52,7 +52,7 @@ First, create a new Menu item that has the following traits:
 
 Second, move the new link below the Home item. Then press the 'Save the new menu layout' button. 
 
-A new menu item will appear which will take you to the bioinformatics wikipedia page.
+A new menu item will appear which will take you to the bioinformatics Wikipedia page.
 
 # Style/theme
 Creating your own research database often comes with the desire to add a unique styling to it. We wanted to give users a way to change the standard [Bootstrap](http://getbootstrap.com/) style that is shipped with MOLGENIS. 
