@@ -5,11 +5,11 @@
    "description":"View & download the tools"
   },
   "documentation": {
-    "title": "DOCS",
+    "title": "DOCUMENTATION",
     "description": "Documentation to using MOLGENIS tools"
   },
   "develop": {
-    "title": "CODE",
+    "title": "DEVELOP",
     "description": "Download source and code your own MOLGENIS components"
   },
   "support" : {

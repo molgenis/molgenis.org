@@ -7,5 +7,6 @@
     "backend":{"title": "Data Backend", "description":"How to add a new data backend/data store"},
     "annotators":{"title": "Annotators", "description":"How to add new annotators"},
     "services":{"title": "Services", "description":"How to add new service endpoint"},
-    "migrations":{"title": "Migrations", "description":"How to add migrations to accomodate model changes you made"}
+    "migrations":{"title": "Migrations", "description":"How to add migrations to accomodate model changes you made"},
+    "jobs":{"title":"Jobs", "description":"How to create and monitor jobs"}
 }
