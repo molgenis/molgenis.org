@@ -6,7 +6,7 @@
     "guide-admin": {"title":"Admin","description":"Change users, groups and permissions"},
     "guide-customize" : {"title":"Customize","description":"Customize menu, theme, homepage"},
     "guide-scripts" : {"title":"Scripts","description":"Make your scripts/visualization available in the UI"},
-    "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically"},
+    "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically", "subheading":true},
     "guide-rest" : {"title":"REST","description":"Access via REST+javascript"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
