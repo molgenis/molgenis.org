@@ -10,7 +10,7 @@
     "guide-rest" : {"title":"REST","description":"Access via REST+javascript"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
-    "ref" : {"title":"Reference","description":"Reference documenation"},
+    "ref" : {"title":"Reference","description":"Reference documenation", "subheading":true},
     "ref-emx" : {"title":"EMX format","description":"EMX format reference"},
     "ref-rest" : {"title":"REST api v1","description":"REST api reference"},
     "ref-rest2" : {"title":"REST api v2","description":"REST v2 api reference (extensions)"},
