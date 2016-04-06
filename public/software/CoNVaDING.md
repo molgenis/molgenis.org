@@ -504,7 +504,7 @@ The totallist contains the information of all targets and shows the ratio's and 
   6	    7577172	   7577296	  DSP	  .. .. 0.094469481 .. .. .. DUP          . 
   6	    7577992	   7578140	  DSP	  .. .. 0.061275822 .. .. .. DUP          .
   ..						
-  12    21997397   21997507	  ABCC9  .. .. 0.120684521 .. .. .. DUP          LOW_QUALITY
+  12    21997397   21997507	  ABCC9   .. .. 0.120684521 .. .. .. DUP          LOW_QUALITY
   ..						
   18    28647961   28648199   DSC2	  .. .. 0.063042636 .. .. .. DEL          .
   18    28648255   28648331   DSC2	  .. .. 0.160488643 .. .. .. DEL          LOW_QUALITY
@@ -572,7 +572,7 @@ Finally the shortlist is filtered usint the targetQClist:
   -targetQcList $DATADIR/results/GenerateTargetQcList/targetQcList.txt
 ```
 
-The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containting both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  
+The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containing both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  
 
 ```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
