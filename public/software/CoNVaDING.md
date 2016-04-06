@@ -387,7 +387,7 @@ Analysis starts from the StartWithAvgCount step:
 ```bash
   CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
-  \
+  
   perl $CONVADINGDIR/CoNVaDING.pl \
   -mode StartWithAvgCount \
   -inputDir $DATADIR/sample \
@@ -405,7 +405,7 @@ Subsequently the best matching samples can be determined using the StartWithMatc
 ```bash
   CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
-  \
+  
   perl $CONVADINGDIR/CoNVaDING.pl \
   -mode StartWithMatchScore \
   -inputDir $DATADIR/results/StartWithAvgCount \
@@ -451,21 +451,32 @@ The best thirty samples should be selected, as shown below:
   Control: Control27.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0966658138493035
   Control: Control32.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.100018174789515
   Control: Control17.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.101351812101807
-  #######################################```
-### StartWithBestScoreNow the CNV detection can be performed, using the StartWithBestScore option:```bash
+  #######################################
+```
+
+### StartWithBestScore
+
+Now the CNV detection can be performed, using the StartWithBestScore option:
+
+```bash
   CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
-  \
+  
   perl $CONVADINGDIR/CoNVaDING.pl \
   -mode StartWithBestScore \
   -outputDir $DATADIR/results/StartWithBestScore \
   -controlsDir $DATADIR/controls \
   -inputDir $DATADIR/results/StartWithMatchScore
-```A StartWithBestScore folder is created in the results folder, containing four files.
-- Sample1.average.counts.best.score.log
+```
+
+A StartWithBestScore folder is created in the results folder, containing four files.
+
+- Sample1.average.counts.best.score.log
 - Sample1.average.counts.best.score.longlist.txt
 - Sample1.average.counts.best.score.shortlist.txt
-- Sample1.average.counts.best.score.totallist.txtThe log file will show the Sample QC: SAMPLE_RATIO: 0.0749944561392519
+- Sample1.average.counts.best.score.totallist.txt
+
+The log file will show the Sample QC: SAMPLE_RATIO: 0.0749944561392519
 
 and the Match QC: MEAN_AVERAGE_BEST_MATCHSCORE: 0.0748225246685803
 
@@ -479,7 +490,11 @@ The longlist should contain six calls:
   12  21997397   21997507   ABCC9   1                   1                                         DUP
   18  28647961   28681955   DSC2    17                  17                                        DEL
   18  29078195   29102233   DSG2    6                   5                                         DEL
-```The totallist contains the information of all targets and shows the ratio's and Z-scores and the coefficient of variation of each target of the control set ratio's. If the coefficient of variation of the target (AUTO_VC) is too high (above 0.10) the target QC fails and the target is labelled low quality. ```bash
+```
+
+The totallist contains the information of all targets and shows the ratio's and Z-scores and the coefficient of variation of each target of the control set ratio's. If the coefficient of variation of the target (AUTO_VC) is too high (above 0.10) the target QC fails and the target is labelled low quality. 
+
+```bash
   CHR	START	   STOP	       GENE	  .. .. AUTO_VC     .. .. .. ABBERATION   QUALITY
   1     156104958  156105124  LMNA	  .. .. 0.06058213  .. .. .. DEL          .
   ..						
@@ -513,39 +528,60 @@ The longlist should contain six calls:
   18    29099746   29099921   DSG2	  .. .. 0.058676083 .. .. .. DEL          .
   18    29100746   29100948   DSG2	  .. .. 0.148595096 .. .. .. DEL          LOW_QUALITY
   18	29101042   29101227   DSG2	  .. .. 0.102009337 .. .. .. DEL          LOW_QUALITY
-  18	29102026   29102233   DSG2	  .. .. 0.091922155 .. .. .. DEL          .```Since the ABCC9 exon in which a duplication was detected has a low quality, this exon is filtered from the shortlist```bash
+  18	29102026   29102233   DSG2	  .. .. 0.091922155 .. .. .. DEL          .
+```
+
+Since the ABCC9 exon in which a duplication was detected has a low quality, this exon is filtered from the shortlist
+
+```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
   1   156104958  156105124  LMNA    1                   1                                         DEL
   2   179511192  179511307  TTN     1                   1                                         DEL
   6   7576507    7578140    DSP     3                   3                                         DUP
   18  28647961   28681955   DSC2    17                  17                                        DEL
   18  29078195   29102233   DSG2    6                   5                                         DEL
-```### GenerateTargetQcList
-For final filtering the TargetQCList is made using all control samples:
-```bash
+```
+
+### GenerateTargetQcList
+
+For final filtering the TargetQCList is made using all control samples:
+
+```bash
   CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
-  \
+  
   perl $CONVADINGDIR/CoNVaDING.pl \
   -mode GenerateTargetQcList \
   -outputDir $DATADIR/results/GenerateTargetQcList \
   -controlsDir $DATADIR/controls \
-  -inputDir $DATADIR/controls```### CreateFinalListFinally the shortlist is filtered usint the targetQClist:
-```bash
+  -inputDir $DATADIR/controls
+```
+
+### CreateFinalList
+
+Finally the shortlist is filtered usint the targetQClist:
+
+```bash
   CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
-  \
+  
   perl $CONVADINGDIR/CoNVaDING.pl \
   -mode CreateFinalList \
   -inputDir $DATADIR/results/StartWithBestScore \
   -outputDir $DATADIR/results/CreateFinalList \
-  -targetQcList $DATADIR/results/GenerateTargetQcList/targetQcList.txt```The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containting both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  ```bash
+  -targetQcList $DATADIR/results/GenerateTargetQcList/targetQcList.txt
+```
+
+The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containting both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  
+
+```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
   1   156104958  156105124  LMNA    1                   1                                         DEL
   6   7576507    7578140    DSP     3                   3                                         DUP
   18  28647961   28681955   DSC2    17                  17                                        DEL
   18  29078195   29102233   DSG2    6                   5                                         DEL
-```
+```
+
 
  
 # QC Thresholds
