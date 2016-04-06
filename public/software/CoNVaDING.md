@@ -482,6 +482,7 @@ and the Match QC: MEAN_AVERAGE_BEST_MATCHSCORE: 0.0748225246685803
 
 The longlist should contain six calls:
 
+*Sample1.average.counts.best.score.longlist.txt*
 ```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
   1   156104958  156105124  LMNA    1                   1                                         DEL
@@ -494,6 +495,7 @@ The longlist should contain six calls:
 
 The totallist contains the information of all targets and shows the ratio's and Z-scores and the coefficient of variation of each target of the control set ratio's. If the coefficient of variation of the target (AUTO_VC) is too high (above 0.10) the target QC fails and the target is labelled low quality. 
 
+*Sample1.average.counts.best.score.totallist.txt*
 ```bash
   CHR	START	   STOP	       GENE	  .. .. AUTO_VC     .. .. .. ABBERATION   QUALITY
   1     156104958  156105124  LMNA	  .. .. 0.06058213  .. .. .. DEL          .
@@ -533,6 +535,7 @@ The totallist contains the information of all targets and shows the ratio's and 
 
 Since the ABCC9 exon in which a duplication was detected has a low quality, this exon is filtered from the shortlist
 
+*Sample1.average.counts.best.score.shortlist.txt*
 ```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
   1   156104958  156105124  LMNA    1                   1                                         DEL
@@ -574,6 +577,7 @@ Finally the shortlist is filtered usint the targetQClist:
 
 The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containing both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  
 
+*Sample1.average.counts.best.score.shortlist.finallist.txt*
 ```bash
   CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
   1   156104958  156105124  LMNA    1                   1                                         DEL
