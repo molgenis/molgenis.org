@@ -385,7 +385,7 @@ The dataset contains one sample and fifty control samples. The scripts described
 Analysis starts from the StartWithAvgCount step:
 
 ```bash
-  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
   
   perl $CONVADINGDIR/CoNVaDING.pl \
@@ -403,7 +403,7 @@ Running this step should create a resultsfolder within the Test_dataset folder c
 Subsequently the best matching samples can be determined using the StartWithMatchScore option:
 
 ```bash
-  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
   
   perl $CONVADINGDIR/CoNVaDING.pl \
@@ -459,7 +459,7 @@ The best thirty samples should be selected, as shown below:
 Now the CNV detection can be performed, using the StartWithBestScore option:
 
 ```bash
-  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
   
   perl $CONVADINGDIR/CoNVaDING.pl \
@@ -553,7 +553,7 @@ Since the ABCC9 exon in which a duplication was detected has a low quality, this
 For final filtering the TargetQCList is made using all control samples:
 
 ```bash
-  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
   
   perl $CONVADINGDIR/CoNVaDING.pl \
@@ -568,7 +568,7 @@ For final filtering the TargetQCList is made using all control samples:
 Finally the shortlist is filtered usint the targetQClist:
 
 ```bash
-  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
   DATADIR="/PATH/TO/Test_dataset/"
   
   perl $CONVADINGDIR/CoNVaDING.pl \
