@@ -205,7 +205,7 @@ This enables the use of alternative analysis software.
 
 An example of a text file that can be used in this mode:
 ```bash
-  CHR     START   STOP    GENE    REGION_COV
+  CHR     START           STOP            GENE    REGION_COV
   2       96919506        96919893        TMEM127 209.606 
   2       96920531        96920775        TMEM127 230.959 
   2       96930836        96931159        TMEM127 127.735 
@@ -320,7 +320,7 @@ The 'outputDir' option should specify the path to output folder. The script will
 The analysis options can be further extended:
 
 
-The sample ratio calculation is based on calculation the variation coefficient of the normalized targets of the sample of interest. In this calculation highly variable targets are excluded. On default a target is considered highly variable if after transforming the normalized target ratio's of all samples in the possible control group 20 percent or more of the samples have a Z-score outside the -3 to 3 range. This percentage can be altered using the 'regionTreshold' option.
+The sample ratio calculation is based on calculation the coefficient of variation of the normalized targets of the sample of interest. In this calculation highly variable targets are excluded. On default a target is considered highly variable if after transforming the normalized target ratio's of all samples in the possible control group 20 percent or more of the samples have a Z-score outside the -3 to 3 range. This percentage can be altered using the 'regionTreshold' option.
 For a threshold of 30 percent of the samples for instance the following option can be used:
 ```bash
   -regionThreshold 30
@@ -377,7 +377,219 @@ This produces the following output file:
 
 # Test dataset
 
-Not yet available
+A test dataset can be downloaded from [here](https://github.com/molgenis/CoNVaDING/tree/master/Test_dataset).
+The dataset contains one sample and fifty control samples. The scripts described above are also included in the test dataset folder.
+
+### StartWithAvgCount
+
+Analysis starts from the StartWithAvgCount step:
+
+```bash
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+  
+  perl $CONVADINGDIR/CoNVaDING.pl \
+  -mode StartWithAvgCount \
+  -inputDir $DATADIR/sample \
+  -bed $DATADIR/bedfile/Test_dataset_bedfile.bed \
+  -outputDir $DATADIR/results/StartWithAvgCount \
+  -controlsDir $DATADIR/controls
+```
+
+Running this step should create a resultsfolder within the Test_dataset folder containing a normalized coverage file. 
+
+### StartWithMatchScore
+
+Subsequently the best matching samples can be determined using the StartWithMatchScore option:
+
+```bash
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+  
+  perl $CONVADINGDIR/CoNVaDING.pl \
+  -mode StartWithMatchScore \
+  -inputDir $DATADIR/results/StartWithAvgCount \
+  -controlsDir $DATADIR/controls \
+  -outputDir $DATADIR/results/StartWithMatchScore
+  CONVADINGDIR="/PATH/TO/CoNVaINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+```
+
+The best thirty samples should be selected, as shown below:
+
+```bash
+  #######################################
+  Selecting best 30 control samples for analysis..
+  #######################################
+  Control: Control39.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0528891755854009
+  Control: Control44.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0534887805765252
+  Control: Control43.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0542475244113742
+  Control: Control36.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0554800052287148
+  Control: Control35.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0562685136912045
+  Control: Control42.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0574222886538507
+  Control: Control40.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0598553222944651
+  Control: Control48.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0600383118556296
+  Control: Control50.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0608676166830126
+  Control: Control45.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0625870879199154
+  Control: Control10.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0666569275813975
+  Control: Control34.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0675543014488717
+  Control: Control28.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0679211728595409
+  Control: Control38.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0691059245241418
+  Control: Control07.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0745447949437231
+  Control: Control23.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0781103186115519
+  Control: Control02.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0792689738060643
+  Control: Control47.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0811643176924381
+  Control: Control15.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.081433371903405
+  Control: Control12.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0821882398310768
+  Control: Control22.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.084360960603957
+  Control: Control24.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0866925360424663
+  Control: Control09.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0894002915947557
+  Control: Control41.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0896640102541329
+  Control: Control37.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0899251768650165
+  Control: Control16.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0915173887217015
+  Control: Control46.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0939866051324493
+  Control: Control27.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.0966658138493035
+  Control: Control32.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.100018174789515
+  Control: Control17.aligned.only.normalized.coverage.txt                 Avg abs diff: 0.101351812101807
+  #######################################
+```
+
+### StartWithBestScore
+
+Now the CNV detection can be performed, using the StartWithBestScore option:
+
+```bash
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+  
+  perl $CONVADINGDIR/CoNVaDING.pl \
+  -mode StartWithBestScore \
+  -outputDir $DATADIR/results/StartWithBestScore \
+  -controlsDir $DATADIR/controls \
+  -inputDir $DATADIR/results/StartWithMatchScore
+```
+
+A StartWithBestScore folder is created in the results folder, containing four files.
+
+- Sample1.average.counts.best.score.log
+- Sample1.average.counts.best.score.longlist.txt
+- Sample1.average.counts.best.score.shortlist.txt
+- Sample1.average.counts.best.score.totallist.txt
+
+The log file will show the Sample QC: SAMPLE_RATIO: 0.0749944561392519
+
+and the Match QC: MEAN_AVERAGE_BEST_MATCHSCORE: 0.0748225246685803
+
+The longlist should contain six calls:
+
+
+*Sample1.average.counts.best.score.longlist.txt*
+```bash
+  CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
+  1   156104958  156105124  LMNA    1                   1                                         DEL
+  2   179511192  179511307  TTN     1                   1                                         DEL
+  6   7576507    7578140    DSP     3                   3                                         DUP
+  12  21997397   21997507   ABCC9   1                   1                                         DUP
+  18  28647961   28681955   DSC2    17                  17                                        DEL
+  18  29078195   29102233   DSG2    6                   5                                         DEL
+```
+
+The totallist contains the information of all targets and shows the ratio's and Z-scores and the coefficient of variation of each target of the control set ratio's. If the coefficient of variation of the target (AUTO_VC) is too high (above 0.10) the target QC fails and the target is labelled low quality. 
+
+
+*Sample1.average.counts.best.score.totallist.txt*
+```bash
+  CHR	START	   STOP	       GENE	  .. .. AUTO_VC     .. .. .. ABBERATION   QUALITY
+  1     156104958  156105124  LMNA	  .. .. 0.06058213  .. .. .. DEL          .
+  ..						
+  2     179511192  179511307  TTN	  .. .. 0.095184824 .. .. .. DEL          .
+  ..
+  6     7576507	   7576710	  DSP	  .. .. 0.051947043 .. .. .. DUP          .
+  6	    7577172	   7577296	  DSP	  .. .. 0.094469481 .. .. .. DUP          . 
+  6	    7577992	   7578140	  DSP	  .. .. 0.061275822 .. .. .. DUP          .
+  ..						
+  12    21997397   21997507	  ABCC9   .. .. 0.120684521 .. .. .. DUP          LOW_QUALITY
+  ..						
+  18    28647961   28648199   DSC2	  .. .. 0.063042636 .. .. .. DEL          .
+  18    28648255   28648331   DSC2	  .. .. 0.160488643 .. .. .. DEL          LOW_QUALITY
+  18    28648840   28649138   DSC2	  .. .. 0.048139583 .. .. .. DEL          .
+  18    28650672   28650837   DSC2	  .. .. 0.080681945 .. .. .. DEL          .
+  18    28651551   28651828   DSC2	  .. .. 0.061021188 .. .. .. DEL          .
+  18    28654629   28654894   DSC2	  .. .. 0.052091653 .. .. .. DEL          .
+  18    28659793   28659976   DSC2	  .. .. 0.118304686 .. .. .. DEL          LOW_QUALITY
+  18    28660042   28660339   DSC2	  .. .. 0.062031772 .. .. .. DEL          .
+  18    28662184   28662410   DSC2	  .. .. 0.16236608  .. .. .. DEL          LOW_QUALITY
+  18    28662872   28663047   DSC2	  .. .. 0.097764448 .. .. .. DEL          .
+  18    28666519   28666727   DSC2	  .. .. 0.07031019  .. .. .. DEL          .
+  18    28667612   28667797   DSC2	  .. .. 0.081027693 .. .. .. DEL          .
+  18    28669382   28669578   DSC2	  .. .. 0.074671788 .. .. .. DEL          .
+  18    28670971   28671133   DSC2	  .. .. 0.064327342 .. .. .. DEL          .
+  18    28672044   28672284   DSC2	  .. .. 0.067765317 .. .. .. DEL          .
+  18    28673502   28673627   DSC2	  .. .. 0.136768702 .. .. .. DEL          LOW_QUALITY
+  18    28681846   28681955   DSC2	  .. .. 0.188210597 .. .. .. DEL          LOW_QUALITY
+  18    29078195   29078280   DSG2	  .. .. 0.10492824  .. .. .. DEL          LOW_QUALITY
+  18    29098182   29098258   DSG2	  .. .. 0.069570847 .. .. .. DEL          .
+  18    29099746   29099921   DSG2	  .. .. 0.058676083 .. .. .. DEL          .
+  18    29100746   29100948   DSG2	  .. .. 0.148595096 .. .. .. DEL          LOW_QUALITY
+  18	29101042   29101227   DSG2	  .. .. 0.102009337 .. .. .. DEL          LOW_QUALITY
+  18	29102026   29102233   DSG2	  .. .. 0.091922155 .. .. .. DEL          .
+```
+
+Since the ABCC9 exon in which a duplication was detected has a low quality, this exon is filtered from the shortlist
+
+
+*Sample1.average.counts.best.score.shortlist.txt*
+```bash
+  CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
+  1   156104958  156105124  LMNA    1                   1                                         DEL
+  2   179511192  179511307  TTN     1                   1                                         DEL
+  6   7576507    7578140    DSP     3                   3                                         DUP
+  18  28647961   28681955   DSC2    17                  17                                        DEL
+  18  29078195   29102233   DSG2    6                   5                                         DEL
+```
+
+### GenerateTargetQcList
+
+For final filtering the TargetQCList is made using all control samples:
+
+```bash
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+  
+  perl $CONVADINGDIR/CoNVaDING.pl \
+  -mode GenerateTargetQcList \
+  -outputDir $DATADIR/results/GenerateTargetQcList \
+  -controlsDir $DATADIR/controls \
+  -inputDir $DATADIR/controls
+```
+
+### CreateFinalList
+
+Finally the shortlist is filtered usint the targetQClist:
+
+```bash
+  CONVADINGDIR="/PATH/TO/CoNVaDINGDIR/"
+  DATADIR="/PATH/TO/Test_dataset/"
+  
+  perl $CONVADINGDIR/CoNVaDING.pl \
+  -mode CreateFinalList \
+  -inputDir $DATADIR/results/StartWithBestScore \
+  -outputDir $DATADIR/results/CreateFinalList \
+  -targetQcList $DATADIR/results/GenerateTargetQcList/targetQcList.txt
+```
+
+The call of the titin exon had sufficient quality within the analysed sample. However, the exon performed poorly in a large portion of the control samples. Therefore, the call is filtered from the final list, leaving four calls. Notice that the whole gene deletion of DSC2 and the six exon deletion of DSG2 consist of consecutive targets. It is possible that there is one big deletion, containing both genes. However, CoNVaDING will always treat CNVs in different genes as seperate calls.  
+
+
+*Sample1.average.counts.best.score.shortlist.finallist.txt*
+```bash
+  CHR START      STOP       GENE    NUMBER_OF_TARGETS   NUMBER_OF_TARGETS_PASS_SHAPIRO-WILK_TEST  ABBERATION
+  1   156104958  156105124  LMNA    1                   1                                         DEL
+  6   7576507    7578140    DSP     3                   3                                         DUP
+  18  28647961   28681955   DSC2    17                  17                                        DEL
+  18  29078195   29102233   DSG2    6                   5                                         DEL
+```
+
 
  
 # QC Thresholds
@@ -388,6 +600,11 @@ The target ratio is also used to filter calls for the shortlist. Both QC metrics
 Sample ratio: 0.09
 
 Target ratio: 0.10
+
+
+# Literature
+[CoNVaDING: Single Exon Variation Detection in Targeted NGS Data](http://www.ncbi.nlm.nih.gov/pubmed/26864275)
+
 
 
 # Contact
