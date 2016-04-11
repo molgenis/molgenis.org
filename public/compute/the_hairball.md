@@ -38,7 +38,7 @@ dir=dir1,dir2,dir2,dir2
 sample=sample1,sample2,sample3,sample4
 ```
 
-This is parsed as a normal property file and the values are subsequently split on ,
+This is parsed as a normal property file and the values are subsequently split on comma's (`,`).
 
 #### List parameter values
 A parameter value of the range format `i..j` will result in multiple rows, one for all values within the range.
@@ -157,19 +157,20 @@ If the step's protocol depends on parameters `project` and `dir`, three instance
 |project1|dir2|
 |project2|dir2|
 
-The step need not be run for the combination `project=project1, dir=dir2`, since no parameter combinations exits with those values.
+The step need not be run for the combination `project=project2, dir=dir1`, since no parameter combinations exist with those values.
 
 #### environment files
 Data is shared between steps using env files.
 Those contain entries of the shape `name[index]=value`
 
-At generation time, compute generates `user.env` which contains all inputs for all steps that are known at generation time.
+Compute generates `user.env` which contains all inputs for all steps that are known at generation time.
 
 At runtime, the steps may create files named *stepname*_*stepindex*.env. So for example `step1_0.sh` creates `step1_0.env`.
 
 #### Weaving
-Parameters which are known beforehand can also be **weaved** directly into the protocols (if 'weave' flag is set in command-line options). In our example, two shell scripts are generated for 
-the 'step1'. The weaved version of generated files are shown below.
+Parameters which are known beforehand can also be **weaved** directly into the protocols
+(if 'weave' flag is set in command-line options). In our example, two shell scripts are generated
+for 'step1'. The weaved version of the generated files is shown below.
 
 step1_0.sh:
 ```bash
@@ -249,7 +250,9 @@ Each Protocol lists its Input parameters and its Output values in the header
 #output out2
 ```
 
-This header would declare that this Protocol depends on the values of three Input parameters named `project`, `dir`, and `sample` and that when it is run it produces two Output values, namely `out1` and `out2`.
+This header states that this Protocol depends on the values of three Input parameters named
+`project`, `dir`, and `sample` and that when it is run it produces two Output values, namely
+`out1` and `out2`.
 The script can handle only a single combination of the `#string` parameters at a time, but the `#list` prefix means it can handle all existing values for out1 and out2. `out1` and `out2` will contain a list of all values.
 
 Multiple inputs may be specified on one line, e.g.
@@ -294,7 +297,7 @@ The Workflow csv file describes for each Step how the global Parameters are mapp
 
 ### Templates
 #### Types
-If your protocol file name ends with `.ftl`, the parameter values will be weaved into 
+If your protocol file name ends with `.ftl`, the parameter values will be weaved into the steps scripts.
 If it ends with `.sh`, it will be left as is and the values will be inserted at runtime.
 
 If you don't want a particular section of your template to be parsed, you can surround it with `<#noparse>` and `</#noparse>` tags.

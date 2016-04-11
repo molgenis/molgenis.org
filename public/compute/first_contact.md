@@ -44,7 +44,7 @@ file | description
 `footer.ftl` | user extra script footer (optional)
 
 ## Steps
-Take a look at `workflow.csv` generated workflow
+Take a look at the generated workflow called `workflow.csv`
 
 step|protocol|dependencies
 ----|--------|----------
@@ -72,7 +72,8 @@ out=${in}_hasBeenInStep1
 
 In the header of the template file, the input parameter `in` and output value `out` are declared.
 
-When generating the job scripts for step 1, the value for the input parameter `in` will be filled in into the template in those places where `${in}` is written.
+When generating the job scripts for step 1, the value for the input parameter `in` will be inserted
+into the template in those places where `${in}` is written.
 
 ## Parameters
 In Molgenis Compute, anything can be a parameter.
@@ -84,7 +85,7 @@ In Molgenis Compute, anything can be a parameter.
 * the name of a report to produce
 
 You can specify parameter values at generation time in parameter files.
-In fact, for some parameters you may want to specify multiple values for some parameters.
+In fact, for some parameters you may want to specify multiple values.
 
 In this workflow, the parameter values are listed in two files:
 
@@ -125,7 +126,9 @@ echo "(FOR TESTING PURPOSES: your runid is ${runid})"
 ```
 
 The first three lines are the header listing the input parameters of the protocol.
-In `step2` maps the parameter value `workflowName=myFirstWorkflow` from file `workflow.defaults.csv` to protocol input `wf`. So when the script for `step2` gets generated, the value `myFirstWorkflow` will be filled in where it says `${wf}`.
+In `step2` the parameter value `workflowName=myFirstWorkflow` from file `workflow.defaults.csv`
+is mapped to protocol input `wf`. So when the script for `step2` gets generated, the
+value `myFirstWorkflow` will be inserted where it says `${wf}`.
 
 The output from `step1.sh` is parameter value `step1.out`, and `step2` maps it to parameter `strings` of this protocol.
 
@@ -147,7 +150,7 @@ file | description
 `step1_0.sh`, `step1_1.sh`|	 the two scripts for `step1`, one for each value of the `input` parameter
 `step2_0.sh`| the script for `step2`
 `submit.sh`| a submission script, which will run the generated script files in the correct order
-`user.env`| the user environment, containing runtime parameter values as input for `step1`
+`user.env`| the user environment, containing runtime parameter values as input the steps.
 
 ## Run it
 We've not specified a backend when we generated the scripts. By default the `submit.sh` will be generated for the `localhost` backend which simply calls the generated scripts in the right order.
