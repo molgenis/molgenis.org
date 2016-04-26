@@ -7,7 +7,7 @@ JetBrains on an open source license.
 ## Middleware
 Before you start, make sure the following middleware is installed on your system.
 * MySQL server.
-    * Create a database called molgenis with a user molgenis that has full permissions on the database.
+    * Create a database called omx with a user molgenis that has full permissions on the database.
 * Java 8 JDK (latest version available from Oracle)
 * Maven >= 3.1.0 (The built-in maven version of IntelliJ is too old to compile molgenis.)
 * Apache Tomcat 7 or 8
@@ -18,6 +18,7 @@ You'll need a molgenis-server.properties file. In your home dir, create a folder
 `.molgenis`. In it create a folder called `omx`.
 Put a file in there called `molgenis-server.properties` and fill it with the
 JDBC url and molgenis user credentials for your MySQL molgenis database.
+See [the start documentation](./start.html#server-props) for the contents of this file.
 
 ## Set the maven home dir in IntelliJ
 * Open Preferences, Build Execution Deployment, Maven
