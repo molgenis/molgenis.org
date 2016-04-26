@@ -7,6 +7,7 @@ This document explains how to get the code, install the necessary software and c
 install java8 JDK (not JRE) from http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 install eclipse (we used Luna) from https://www.eclipse.org/downloads/
+(or use [IntelliJ](./intellij.html))
 
 install mysql from (we used 5.6.23 DMG) http://dev.mysql.com/downloads/mysql/
 
@@ -67,7 +68,7 @@ Optionally select stable molgenis version:
 
 More information about forking can be found here: https://help.github.com/articles/fork-a-repo
 
-# Set admin password
+# Set admin password<a name="server-props"></a>
 
 Create directory ~/.molgenis/omx/
 
@@ -85,14 +86,8 @@ Create the file ~/.molgenis/omx/molgenis-server.properties
     admin.password=admin
     user.password=admin
 
-If these properties are not present, the MolgenisDatabasePopulator will fail (RuntimeException). This properties-file should be in your home folder, if the file is not there yet, just create it.    
-
-If you are developing you might want to add the following
-	
-	environment=development
-
-This property allows for at runtime javascript editing and makes sure the javascript files do not get minified and bundled.
-
+If these properties are not present, the MolgenisDatabasePopulator will fail (RuntimeException). This properties-file
+should be in your home folder, if the file is not there yet, just create it.
 
 # Start MOLGENIS
 
