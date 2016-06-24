@@ -60,7 +60,7 @@ Select it for the molgenis project.
 * Call it `molgenis-app [exploded]`
 * (Add and) select your Tomcat installation
 * VM options: `-Dmolgenis.home=<path to dir containing molgenis-server.properties>`
-* Deployment: Select `molgenis-app:war exploded`
+* Deployment: Select `+` -> `artifact` -> `molgenis-app:war exploded`
 * Application context: Select `/`
 * Go back to the first tab, you should now have more options in the update and frame deactivation pulldowns.
 * Select On Update: Redeploy, don't ask (This is the action that will triggered when you press the blue reload button in the run view)
