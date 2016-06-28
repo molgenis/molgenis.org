@@ -59,7 +59,7 @@ Select it for the molgenis project.
 * Run, Edit configurations..., `+`, Tomcat, Local.
 * Call it `molgenis-app [exploded]`
 * (Add and) select your Tomcat installation
-* VM options: `-Dmolgenis.home=<path to dir containing molgenis-server.properties>`
+* VM options: `-Dmolgenis.home=<path to dir containing molgenis-server.properties> -Xmx4g`
 * Deployment: Select `+` -> `artifact` -> `molgenis-app:war exploded`
 * Application context: Select `/`
 * Go back to the first tab, you should now have more options in the update and frame deactivation pulldowns.
