@@ -146,8 +146,13 @@ Optional columns (can be omitted):
 * defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
 * partOfAttribute: is used to group attributes into a compound attribute. Put here the name of the compound attribute.
 * expression:
- * computed string expression: use this configuration when you want to conver datatypes of a attribute into another existing attribute. Value in expression ("name of attribute to convert")
- * computed object expression: use this configuration when you want to create a copmuted object from another existing attributes. Value in expression ({"name of target attribute" : "name of attribute to convert from"})
+ * computed string expression: 
+  1. Create a new attribute target.
+  2. Add in expression: the "name of attribute to convert from"
+ * computed object expression: 
+  1. Create two new target attributes.
+  2. Create a attribute to contain the computed xref
+  3. Add in expression of new xref: ({"name of target attribute 1" : "name of attribute to convert from", "name of target attribute 2" : "name of attribute to convert from"})
 
 ** Example (computed string expression): "xref as label attribute" (config attributes table)**
 
