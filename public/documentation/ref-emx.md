@@ -152,18 +152,18 @@ computed string expression:
    1. Create a new attribute target
    2. Add in expression: "the name of attribute to convert from"
 
-computed object expression: 
-   1. Create two new target attributes.
-   2. Create a attribute to contain the computed xref
-   3. Add in expression of new xref: ({"name of target attribute 1" : "name of attribute to convert from", "name of target attribute 2" : "name of attribute to convert from"})
-
-** Example (computed string expression): "xref as label attribute" (config attributes table)**
+**Example (computed string expression): "xref as label attribute" (config attributes table)**
 
 | name    | entity	  | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
 |---------|----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
 | id      | myEntity | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
 | myXref	 | myEntity | Other Entity	| xref	    | FALSE	      | otherEntity |TRUE      | TRUE    | FALSE	         |            |
 | myLabel | myEntity | Label	       | string	  | FALSE	      |             |TRUE		    | FALSE	  | TRUE           | myXref     |
+
+computed object expression: 
+   1. Create two new target attributes.
+   2. Create a attribute to contain the computed xref
+   3. Add in expression of new xref: ({"name of target attribute 1" : "name of attribute to convert from", "name of target attribute 2" : "name of attribute to convert from"})
 
 
 # Entities options
