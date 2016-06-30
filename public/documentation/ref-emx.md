@@ -161,17 +161,17 @@ Optional columns (can be omitted):
 | myLabel | myEntity | Label	       | string	  | FALSE	      |             |TRUE		    | FALSE	  | TRUE           | myXref     |
 
 "Computed object": 
-  1. Create a two new target attribute in a new entity.
-  2. Create a xref attribute to contain the computed entity.
-  3. Add in the expression column of new xref attribute the next script: ({"name of target attribute 1" : "name of attribute to convert from", "name of target attribute 2" : "name of attribute to convert from"})
-  4. The name of attribute to convert from should be in the same entity as the new xref attribute.
+  1. Create a two new target attributes (attr1, attr2) in a new entity (newEntity).
+  2. Create a xref attribute (myXref) to contain the computed entity.
+  3. Add in the expression column of new xref attribute (myXref) the next script: "{attr1: myAttr1, attr2: myAttr2}"
+  4. The name of the attributes to convert from should be in the same entity as the new xref attribute (myEntity).
 
 **Example (Computed object): "computed myXref" (config attributes table)**
 
 | name    | entity	   | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
 |---------|-----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
 | id      | myEntity  | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
-| myXref	 | myEntity  | New Entity  	| xref	    | FALSE	      | newEntity   |TRUE      | TRUE    | FALSE	         |{attr1: myAttr1, attr2: myAttr2}         |
+| myXref	 | myEntity  | New Entity  	| xref	    | FALSE	      | newEntity   |TRUE      | TRUE    | FALSE	         |{attr1: myAttr1, attr2: myAttr2}|
 | myAttr1 | myEntity  | My Attr 1    | date   	 | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
 | myAttr2 | myEntity  | My Attr 2    | int      | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
 | attr1   | newEntity |    Attr 1    | string   | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
