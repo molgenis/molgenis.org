@@ -147,34 +147,34 @@ Optional columns (can be omitted):
 * partOfAttribute: is used to group attributes into a compound attribute. Put here the name of the compound attribute.
 * expression:
 
-    "Computed string":
-      1. Create a new target attribute into the "myEntity" entity, that will become the new computed attribute (in the example: "myLabel")
-      2. Add in the expression column of the new attribute "myLabel": "the name of attribute to convert from" (in example: expression -> "myXref")
-    
-    **Example (Computed string): "xref as label attribute" (config attributes table)**
-    
-    | name    | entity	  | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
-    |---------|----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
-    | id      | myEntity | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
-    | myXref	 | myEntity | Other Entity	| xref	    | FALSE	      | otherEntity |TRUE      | TRUE    | FALSE	         |            |
-    | myLabel | myEntity | Label	       | string	  | FALSE	      |             |TRUE		    | FALSE	  | TRUE           | myXref     |
-    
-    "Computed object": 
-      1. Create a two new target attributes (attr1, attr2) in a new entity (newEntity).
-      2. Create a xref attribute (myXref) to contain the computed entity.
-      3. Add in the expression column of new xref attribute (myXref) the next script: "{attr1: myAttr1, attr2: myAttr2}"
-      4. The name of the attributes to convert from should be in the same entity as the new xref attribute (myEntity).
-    
-    **Example (Computed object): "computed myXref" (config attributes table)**
-    
-    | name    | entity	   | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
-    |---------|-----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
-    | id      | myEntity  | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
-    | myXref	 | myEntity  | New Entity  	| xref	    | FALSE	      | newEntity   |TRUE      | TRUE    | FALSE	         |{attr1: myAttr1, attr2: myAttr2}|
-    | myAttr1 | myEntity  | My Attr 1    | date   	 | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
-    | myAttr2 | myEntity  | My Attr 2    | int      | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
-    | attr1   | newEntity |    Attr 1    | string   | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
-    | attr2   | newEntity |    Attr 2    | string   | TRUE 	      |             |TRUE		    | FALSE	  | TRUE           |            |
+"Computed string":
+  1. Create a new target attribute into the "myEntity" entity, that will become the new computed attribute (in the example: "myLabel")
+  2. Add in the expression column of the new attribute "myLabel": "the name of attribute to convert from" (in example: expression -> "myXref")
+
+**Example (Computed string): "xref as label attribute" (config attributes table)**
+
+| name    | entity	  | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
+|---------|----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
+| id      | myEntity | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
+| myXref	 | myEntity | Other Entity	| xref	    | FALSE	      | otherEntity |TRUE      | TRUE    | FALSE	         |            |
+| myLabel | myEntity | Label	       | string	  | FALSE	      |             |TRUE		    | FALSE	  | TRUE           | myXref     |
+
+"Computed object": 
+  1. Create a two new target attributes (attr1, attr2) in a new entity (newEntity).
+  2. Create a xref attribute (myXref) to contain the computed entity.
+  3. Add in the expression column of new xref attribute (myXref) the next script: "{attr1: myAttr1, attr2: myAttr2}"
+  4. The name of the attributes to convert from should be in the same entity as the new xref attribute (myEntity).
+
+**Example (Computed object): "computed myXref" (config attributes table)**
+
+| name    | entity	   | label	       | dataType	| idAttribute	| refEntity	  | nillable	| visible	| labelAttribute	| expression |
+|---------|-----------|--------------|----------|-------------|-------------|----------|---------|----------------|------------|
+| id      | myEntity  | Id	          | int	     | TRUE	       |             |FALSE		   | FALSE	  | FALSE          |            |
+| myXref	 | myEntity  | New Entity  	| xref	    | FALSE	      | newEntity   |TRUE      | TRUE    | FALSE	         |{attr1: myAttr1, attr2: myAttr2}|
+| myAttr1 | myEntity  | My Attr 1    | date   	 | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
+| myAttr2 | myEntity  | My Attr 2    | int      | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
+| attr1   | newEntity |    Attr 1    | string   | FALSE	      |             |TRUE		    | FALSE	  | TRUE           |            |
+| attr2   | newEntity |    Attr 2    | string   | TRUE 	      |             |TRUE		    | FALSE	  | TRUE           |            |
 
 
 # Entities options
