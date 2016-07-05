@@ -16,11 +16,5 @@
     "ref-rest" : {"title":"REST api v1","description":"REST api reference"},
     "ref-rest2" : {"title":"REST api v2","description":"REST v2 api reference (extensions)"},
     "ref-R" : {"title":"R api","description":"R-api reference"},
-    "install" : {"title":"Install","description":"Download & Install"},
-    "MOLGENIS/compute":{"title":"MOLGENIS/compute","description":"How to use the MOLGENIS data tools", "subheading":true},
-    "start":{"title":"Quickstart","description":"Start"},
-    "parameters":{"title":"Parameters","description":"Save time by joining parameter files"},
-    "reference":{"title":"Reference","description":"Compute reference documentation"},
-    "publications":{"title":"Read more","description":"Publications, presentations and other reading"},
-    "pipelines":{"title":"Pipelines", "description":"Pipelines to use"}
+    "install" : {"title":"Install","description":"Download & Install"}
 }

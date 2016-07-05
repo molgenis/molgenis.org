@@ -8,6 +8,10 @@
     "title": "DOCUMENTATION",
     "description": "Documentation to using MOLGENIS tools"
   },
+  "pipelines": {
+    "title" : "PIPELINES",
+    "description" : "Large scale DNA and RNA analysis using MOLGENIS compute"
+  },
   "develop": {
     "title": "DEVELOP",
     "description": "Download source and code your own MOLGENIS components"
