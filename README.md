@@ -30,7 +30,20 @@ brew install node
 
 #install harp
 sudo npm install -g harp
+
+#note
+If harp is producing an error that looks like this: node-sass please update node.js
+than your node version is probably version 6. Downgrading to 5.4.1 is the only solution to have harp running.
+Do the following:
+sudo npm cache clean -f
+
+sudo npm install -g n
+
+sudo n 5.4.1
+
+sudo npm install -g harp
 ```
+
 
 clone this repo (once)
 ```
