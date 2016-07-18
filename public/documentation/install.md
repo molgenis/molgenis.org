@@ -26,10 +26,10 @@ MOLGENIS will try to find its property file at *<user_home>/.molgenis/omx/*. Cre
 
 Remember the *omx* specified in your db_uri, because this will be the name of the database you will create later on in MySQL. This effectively means that whatever you call your database, your db_uri should point to it.
 
-To make it clear to tomcat where to find your properties file, you have to edit the setenv.sh file in the apache-tomcat folder.
+To make it clear to tomcat where to find your properties file, you have to edit the setenv.sh file in the apache-tomcat folder. The additional options tell tomcat to use specific settings.
 
 ```
-echo 'CATALINA_OPTS="-Xmx2g -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Dmolgenis.home=${molgenis_home_folder}"' > ${apache-tomcat_folder}/bin/setenv.sh
+echo 'CATALINA_OPTS="-Xmx2g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Dmolgenis.home=${molgenis_home_folder}"' > ${apache-tomcat_folder}/bin/setenv.sh
 ```
 
 The -Dmolgenis.home property tells tomcat where to find your properties file. Note that you should **NOT** use relative paths in your apache-tomcat configuration. Always use absolute paths to point to your molgenis-server.properties.
