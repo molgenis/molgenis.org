@@ -46,7 +46,7 @@ If you are unfamiliar with MySQL, follow one of their [MySQL installation guides
 Now that your MySQL server and properties file have been configured, restart the apache tomcat server.
 If you open up a web browser and navigate to where your apache-tomcat applications are deployed (often this is localhost:8080) you should see the following:  
 
-![](res/images/molgenis_home_logged_out.png?raw=true, "molgenis home page")  
+![](../res/images/molgenis_home_logged_out.png?raw=true, "molgenis home page")  
 
 Congratulations! You now have your MOLGENIS application up and running. Remember the admin.password you set in the molgenis-server.properties file? Use that password to login as the admin user. The next section will take you through the different modules MOLGENIS has to offer.
 
