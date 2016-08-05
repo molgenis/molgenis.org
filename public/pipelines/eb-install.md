@@ -19,7 +19,7 @@ mkdir /apps/modules/
 
 ###copy all files in the folder /apps/modules/ from the zip to the server (if /apps/modules is not possible, NB the copying of these files should go somewhere else)
 
-cp -r apps/modules/* apps/modules/.lmod/ /apps/modules/
+cp -r depad-utils/apps/modules/* depad-utils/.lmod/ /apps/modules/
 ```
 **_NB: Lmod must already have been deployed as root using your Linux distro's package manager._**
 **_NB2: if apps modules is not possible then ~/.bashrc should also be changed _**
