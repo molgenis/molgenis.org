@@ -17,12 +17,12 @@ create folder where the modules will be
 ```bash
 mkdir /apps/modules/
 
-###copy all files in the folder apps/modules/ from the zip to the server (if /apps/modules is not possible, NB the copying of these files should go somewhere else)
+###copy all files in the folder /apps/modules/ from the zip to the server (if /apps/modules is not possible, NB the copying of these files should go somewhere else)
 
 cp -r apps/modules/* apps/modules/.lmod/ /apps/modules/
 ```
 **_NB: Lmod must already have been deployed as root using your Linux distro's package manager._**
-**_NB2 if apps modules is not possible then ~/.bashrc should also be changed _**
+**_NB2: if apps modules is not possible then ~/.bashrc should also be changed _**
 
 If lmod is not installed, please do the following (admins-only) in our case for CentOS use 
 ```
@@ -38,9 +38,7 @@ echo ${HPC_ENV_PREFIX}
 
 ### 2) Create main folders for our HPC environment.
 ```bash
-mkdir -m 0755 ${HPC_ENV_PREFIX}
 mkdir -m 2775 ${HPC_ENV_PREFIX}/data/
-mkdir -m 2775 ${HPC_ENV_PREFIX}/modules/
 mkdir -m 2775 ${HPC_ENV_PREFIX}/software/
 mkdir -m 2775 ${HPC_ENV_PREFIX}/sources/
 mkdir -m 2770 ${HPC_ENV_PREFIX}/.tmp/
@@ -70,7 +68,7 @@ eb --version
 ```
 ### 6) Install toolchain
 ```bash
-eb foss-2015b.eb –robot
+eb foss-2015b.eb -–robot
 ```
 
 **_Note: some sources should be downloaded manually_ (see below)**
