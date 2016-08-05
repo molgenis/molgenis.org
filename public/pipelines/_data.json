@@ -11,7 +11,7 @@
     "ngs-run":{"title":"Run", "description":"Running NGS pipeline"},
 	"ngs-workflow":{"title":"Workflow", "description":"workflow of the pipeline"},
 	"ngs-protocols":{"title":"Protocols", "description":"Steps explained"},
-	
+	"ngs-faq":{"title":"FAQ", "description":"Frequently Asked Questions"},
 
     "MOLGENIS/compute":{"title":"MOLGENIS/compute","description":"How to use the MOLGENIS data tools", "subheading":true},
     "mc-start":{"title":"Quickstart","description":"Start"},
