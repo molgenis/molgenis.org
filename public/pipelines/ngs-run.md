@@ -2,7 +2,7 @@
 
 ### 1) Copy rawdata to rawdata ngs folder
 ```bash
-scp –r 198210_SEQ_RUNTEST_FLOWCELLXX username@yourcluster:${root}/groups/$groupname/${tmpDir}/rawdata/ngs/
+scp –r PROJECTNAME_SEQ_RUNTEST_FLOWCELLXX username@yourcluster:${root}/groups/$groupname/${tmpDir}/rawdata/ngs/
 ```
 ### 2) Create a folder in the generatedscripts folder
 ```bash
@@ -10,9 +10,9 @@ mkdir ${root}/groups/$groupname/${tmpDir}/generatedscripts/TestRun
 ```
 ### 3) Copy samplesheet to generatedscripts folder
 ```bash
-scp –r TestRun username@yourcluster:/groups/$groupname/${tmpDir}/generatedscripts/
+scp –r TestRun.csv username@yourcluster:/groups/$groupname/${tmpDir}/generatedscripts/
 ```
-**_Note: the name of the folder should be the same as csv file_**
+**_Note: the name of the folder should be the same as samplesheet (.csv) file_**
 
 ### 4) Run the generate script
 ```bash
@@ -31,7 +31,7 @@ sh submit.sh
 ```
 ### 5) Submit jobs
 
-navigate to jobs folder (this will be outputted at the step before this one).
+navigate to jobs folder. The location of the jobs folder will be outputted at the step before this one (step 4).
 ```bash
 sh submit.sh
 ```
