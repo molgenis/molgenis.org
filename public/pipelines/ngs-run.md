@@ -2,7 +2,7 @@
 
 ### 1) Copy rawdata to rawdata ngs folder
 ```bash
-scp –r PROJECTNAME_SEQ_RUNTEST_FLOWCELLXX username@yourcluster:${root}/groups/$groupname/${tmpDir}/rawdata/ngs/
+scp –r SEQSTARTDATE_SEQ_RUNTEST_FLOWCELLXX username@yourcluster:${root}/groups/$groupname/${tmpDir}/rawdata/ngs/
 ```
 ### 2) Create a folder in the generatedscripts folder
 ```bash
