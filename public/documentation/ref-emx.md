@@ -108,13 +108,16 @@ These rules only apply to the technical names, labels are not limited by these r
 
 # Attributes options
 
-Required columns:
-* entity : name of the entity this attribute is part of
-* name : name of attribute, unique per entity.
+## Required columns
+### entity 
+Name of the entity this attribute is part of
+### name
+Name of attribute, unique per entity.
 
-Optional columns (can be omitted):
+## Optional columns (can be omitted)
 
-* dataType: defines the data type (default: string)
+### dataType
+Defines the data type (default: string)
   * string : character string of <255 characters
   * text : character string of unlimited length (usually <2Gb)
   * int : natural numbers like -1, 0, 3. Optionally use rangeMin and rangeMax
@@ -128,24 +131,60 @@ Optional columns (can be omitted):
   * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options.
   * compound : A way to assemble complex entities from building blocks (will be shown as tree in user interface); Don't forget to fill in the partOfAttribute configuration of the attributes that are grouped under this attribute. The partOfAttribute must contain the name of this new created compound attribute.
   * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
-* refEntity : used in combination with xref, mref or categorical. Should refer to an entity.
-* nillable : whether the column may be left empty. Default: false
-* idAttribute : whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
-* description : free text documentation describing the attribute
-* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
-* rangeMin : used to set range in case of int attributes
-* rangeMax : used to set range in case of int attributes
-* lookupAttribute : true/false to indicate that the attribute should appear in the xref/mref search dropdown in the dataexplorer
-* label : optional human readable name of the attribute
-* label-{languageCode} : label for specified language (can be multiple languages, example: label-nl)
-* aggregateable : true/false to indicate if the user can use this atrribute in an aggregate query
-* labelAttribute : true/false to indicate that the value of this attribute should be used as label for the entity (in the dataexplorer when used in xref/mref). Default: false
-* readOnly true/false to indicate a readOnly attribute
-* tags : ability to tag the data referring to the tags sections, described below
-* validationExpression : javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
-* defaultValue: value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
-* partOfAttribute: is used to group attributes into a compound attribute. Put here the name of the compound attribute.
-* expression: is used to create computed attributes.
+
+### refEntity 
+Used in combination with xref, mref or categorical. Should refer to an entity.
+
+### nillable 
+Whether the column may be left empty. Default: false
+
+### idAttribute 
+Whether this field is the unique key for the entity. Default: false. Use 'AUTO' for auto generated (string) identifiers.
+
+### description 
+Free text documentation describing the attribute
+
+### description-{languageCode} 
+Description for specified language (can be multiple languages, example: description-nl)
+
+### rangeMin 
+Used to set range in case of int attributes
+
+### rangeMax 
+Used to set range in case of int attributes
+
+### lookupAttribute 
+true/false to indicate that the attribute should appear in the xref/mref search dropdown in the dataexplorer
+
+### label 
+optional human readable name of the attribute
+
+### label-{languageCode}
+label for specified language (can be multiple languages, example: label-nl)
+
+### aggregateable 
+true/false to indicate if the user can use this atrribute in an aggregate query
+
+### labelAttribute 
+true/false to indicate that the value of this attribute should be used as label for the entity (in the dataexplorer when used in xref/mref). Default: false
+
+### readOnly
+true/false to indicate a readOnly attribute
+
+### tags 
+ability to tag the data referring to the tags sections, described below
+
+### validationExpression 
+javascript validation expression that must return a bool. Must return true if valid and false if invalid. See for a syntax description the section [[Javascript Expressions]]
+
+### defaultValue
+value that will be filled in in the forms when a new entity instance is created. Not yet supported for mref and xref values. For categorical_mref, should be a comma separated list of ids. For xref should be the of the refEntity. For bool should be true or false. For datetime should be a string in the format YYYY-MM-DDTHH:mm:ssZZ. For date should be a string in the format YYYY-MM-DD.
+
+### partOfAttribute
+is used to group attributes into a compound attribute. Put here the name of the compound attribute.
+
+### expression
+is used to create computed attributes.
 
 **Computed string example: "xref as label attribute" (config attributes table)**
   1. Create a new target attribute into the "myEntity" entity, that will become the new computed attribute (in the example: "myLabel")
@@ -177,29 +216,51 @@ Optional columns (can be omitted):
 
 
 # Entities options
-Required columns:
+## Required columns
 
-* entity : unique name of the entity. If packages are provided, name must be unique within a package.
+### entity 
+unique name of the entity. If packages are provided, name must be unique within a package.
 
-Optional columns:
+## Optional columns
 
-* extends : reference to another entity that is extended
-* package : name of the group this entity is part of
-* abstract : indicate if data can be provided for this entity (abstract entities are only used for data modeling purposes but cannot accept data)
-* description : free text description of the entity
-* description-{languageCode} : description for specified language (can be multiple languages, example: description-nl)
-* backend: the backend (database) to store the entities in (currently MySQL or ElasticSearch)
-* tags : ability to tag the data referring to the tags sections, described below
+### extends 
+reference to another entity that is extended
+
+### package 
+name of the group this entity is part of
+
+### abstract 
+indicate if data can be provided for this entity (abstract entities are only used for data modeling purposes but cannot accept data)
+
+### description 
+free text description of the entity
+
+### description-{languageCode} 
+description for specified language (can be multiple languages, example: description-nl)
+
+### backend
+the backend (database) to store the entities in (currently MySQL or ElasticSearch)
+
+### tags 
+ability to tag the data referring to the tags sections, described below
 
 # Packages options
-Required columns:
 
-* name : unique name of the package. If parent package is provided the name is unique within the parent.
+## Required columns
 
-Optional columns:
-* description : free text description of the package
-* parent : use when packages is a sub-package of another package
-* tags : mechanism to add flexible meta data such as ontology references, hyperlinks
+### name 
+unique name of the package. If parent package is provided the name is unique within the parent.
+
+## Optional columns
+
+### description 
+free text description of the package
+
+### parent 
+use when packages is a sub-package of another package
+
+### tags 
+mechanism to add flexible meta data such as ontology references, hyperlinks
 
 # Tags options (BETA)
 
@@ -211,15 +272,27 @@ Optionally, additional information can be provided beyond the standard meta data
 | homepage   | http://www.molgenis.org | http://www.molgenis.org | homepage               |            |             |
 | docs       | http://some.url         | http://www.molgenis.org | Documentation and Help | EDAM       | http://edamontology.org/topic_3061 |
 
-Required columns:
-* identifier : unique name of this tag, such that it can be referenced
-* label : the human readable label of the tag (e.g. the 'like' tag as shown above).
+## Required columns
 
-Optional columns:
-* objectIRI: url to the value object (will become an hyperlink in the user interface)
-* relationLabel: human readible label of the relation, e.g. 'Documentation and Help'
-* relationIRI: url to the relation definition, e.g. http://edamontology.org/topic_3061
-* codeSystem: name of the code system used, e.g. EDAM
+### identifier 
+unique name of this tag, such that it can be referenced
+
+### label 
+the human readable label of the tag (e.g. the 'like' tag as shown above).
+
+## Optional columns
+
+### objectIRI
+url to the value object (will become an hyperlink in the user interface)
+
+### relationLabel
+human readible label of the relation, e.g. 'Documentation and Help'
+ 
+### relationIRI
+url to the relation definition, e.g. http://edamontology.org/topic_3061
+
+### codeSystem
+name of the code system used, e.g. EDAM
 
 # Internationalization
 
