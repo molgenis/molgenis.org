@@ -118,6 +118,7 @@ Name of attribute, unique per entity.
 
 ### dataType
 Defines the data type (default: string)
+
   * string : character string of <255 characters
   * text : character string of unlimited length (usually <2Gb)
   * int : natural numbers like -1, 0, 3. Optionally use rangeMin and rangeMax
@@ -155,8 +156,11 @@ Used to set range in case of int attributes
 
 ### lookupAttribute 
 true/false, default false
+
 Indicates if this attribute should appear in the xref/mref search dropdown in the dataexplorer.
+
 An entity inherits the lookupAttributes from the entity it extends.
+
 If an entity has no lookupAttributes, the labelAttribute is used in the dropdown.
 
 ### label 
