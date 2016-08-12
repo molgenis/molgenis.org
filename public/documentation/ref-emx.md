@@ -154,7 +154,10 @@ Used to set range in case of int attributes
 Used to set range in case of int attributes
 
 ### lookupAttribute 
-true/false to indicate that the attribute should appear in the xref/mref search dropdown in the dataexplorer
+true/false, default false
+Indicates if this attribute should appear in the xref/mref search dropdown in the dataexplorer.
+An entity inherits the lookupAttributes from the entity it extends.
+If an entity has no lookupAttributes, the labelAttribute is used in the dropdown.
 
 ### label 
 optional human readable name of the attribute
