@@ -3,7 +3,7 @@ EMX (entity model extensible) is a flexible spreadsheet format to easily upload 
 **
 
 # Minimal example 
-([download](/data/example1.xlsx))
+([download](/data/simple_data_example_v20160915.xlsx))
 
 For example, if you want to upload an Excel with sheet 'patients':
 
@@ -28,7 +28,7 @@ Then you must provide a model of your 'patients' via Excel with sheet named 'att
 You can first upload the 'model' and then the 'data'. Or you can put the both into one file and upload in one go. What you prefer :-) [todo: provide example files for download]
 
 # Advanced example 
-([download](/data/example2.xlsx))
+([download](/data/advanced_data_example_v20151104.xlsx))
 
 Lets assume we want to upload multiple data sheets, with relations between them:
 
