@@ -1,4 +1,4 @@
-# 1\. Install environment 2
+# 1\. Install environment
 
 ### 1) Get depad-utils and configure environment 
 
