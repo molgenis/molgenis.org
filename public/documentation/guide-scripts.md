@@ -114,6 +114,8 @@ Go to the Script plugin and create a new script.
 
 ```
 library('RCurl')
+library('methods')
+library('bitops')
 eval(expr = parse(text = getURL("https://molgenis56.target.rug.nl/molgenis.R")))
 
 samples <- molgenis.get("SampleAse", q="SNP_ID==${snp_id}")
@@ -124,6 +126,10 @@ max <- max(samples$Ref_Counts, samples$Alt_Counts)
 plot(samples$Ref_Counts, samples$Alt_Counts, xlim = c(0, max), ylim = c(0, max), xlab='Reference Allele', ylab='Alternative Allele', main = 'Allele-Specific Expression for ${snp_id}')
 lines(c(0,max), c(0, max))
 ```
+Note: If you are running this on localhost you might have to install the following packages through Rstudio/R command line;
+* install.packages('rjson');
+* install.packages('RCurl');
+* install.packages('methods');
 
 Let's take a closer look at what happens here.
 
