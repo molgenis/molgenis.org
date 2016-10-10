@@ -146,5 +146,3 @@ See /res/css
 Copyright (c) 2002-, Morris Swertz, MOLGENIS Team, 
 Contributors Documentation released under [Creative Commons](./public/LICENSE-CC.md).
 Documentation source code released under the [MIT License](./public/LICENSE-MIT.md).
-
-Test
