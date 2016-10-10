@@ -2,6 +2,7 @@
     "data":{"title":"MOLGENIS/data", "description":"Getting to know the code", "subheading":true},
     "start":{"title":"Start", "description":"Getting, compiling and running the code"},
     "intellij":{"title":"IntelliJ", "description": "Develop using IntelliJ"},
+    "security":{"title":"Security", "description":"Security settings for development machines"},
     "architecture":{"title":"Architecture", "description":"Summary of the main components"},
     "technologies":{"title":"Technologies", "description":"Technologies and frameworks we use"},
     "frontend":{"title": "UX Frontend", "description":"How to add a new user interface module"},

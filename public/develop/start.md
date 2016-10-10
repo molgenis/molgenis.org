@@ -103,12 +103,18 @@ Select it, you will then be prompted to install some maven connectors, accept th
 Right mouse 'molgenis' -> Run as -> Maven build ... 
 	In Goals type: clean install. 
 	Under Goals check Update Snapshots and Resolve Workspace artifacts. 
-	In the JRE tab, add the VM argument; -Xmx2g
+	In the JRE tab, add the VM arguments: 
+	```
+	-Xmx2g -Des.discovery.zen.ping.multicast.enabled=false -Des.network.host=localhost
+	```
 	Click run
 
 Right mouse 'molgenis-app' -> Run as -> Maven build ... 
 	in goals type 'jetty:run' 
-	In the JRE tab, add the VM argument; -Xmx2g
+	In the JRE tab, add the VM arguments:
+    ```
+    -Xmx2g -Des.discovery.zen.ping.multicast.enabled=false -Des.network.host=localhost
+    ```
 	Click run
 
 Open your browser at http://localhost:8080/
@@ -129,6 +135,9 @@ Perform regular updates so the latest changes are merged with your local clone.
 And push back any merges or commits of your own to your online fork.
 
     git push origin master
+    
+## Security
+See also the [MOLGENIS Security settings](./security)
 
 # Troubleshooting
 

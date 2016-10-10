@@ -59,7 +59,7 @@ Select it for the molgenis project.
 * Run, Edit configurations..., `+`, Tomcat, Local.
 * Call it `molgenis-app [exploded]`
 * (Add and) select your Tomcat installation
-* VM options: `-Dmolgenis.home=<path to dir containing molgenis-server.properties> -Xmx4g`
+* VM options: `-Dmolgenis.home=<path to dir containing molgenis-server.properties> -Xmx4g -Des.discovery.zen.ping.multicast.enabled=false -Des.network.host=localhost`
 * Deployment: Select `+` -> `artifact` -> `molgenis-app:war exploded`
 * Application context: Select `/`
 * Go back to the first tab, you should now have more options in the update and frame deactivation pulldowns.
@@ -73,6 +73,9 @@ Select it for the molgenis project.
 This'll build and deploy molgenis to tomcat and open it in the browser.
 Whenever you tab from molgenis to the browser, all modified resources will be copied to the deployed exploded war.
 A browser reload should display the changes.
+
+## Security
+See also the [MOLGENIS Security settings](./security)
 
 ## Webpack watch run configuration
 (TODO: I just noticed that IntelliJ has webpack support so I suspect there's a better way to do this.)
