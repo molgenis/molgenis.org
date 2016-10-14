@@ -9,9 +9,9 @@ For example, if you want to upload an Excel with sheet 'patients':
 
 | displayName | firstName | lastName | birthdate  | birthplace |
 |-------------|-----------|----------|------------|------------|
-| john doe    | john      | doe      | 1976-03-13 | new york   |
-| jane doe    | jane      | doe      |            | metropolis |
-| papa doe    | papa      | doe      |            | new york   |
+| john_doe    | john      | doe      | 1976-03-13 | new york   |
+| jane_doe    | jane      | doe      |            | metropolis |
+| papa_doe    | papa      | doe      |            | new york   |
 
 Then you must provide a model of your 'patients' via Excel with sheet named 'attributes':
 
@@ -36,26 +36,27 @@ Cities:
 
 | cityName   |lat       | lng       |
 |------------|----------|-----------|
-| new york   | 40,712784|-74,005941 |
+| new_york   | 40,712784|-74,005941 |
 | metropolis | 37,151165|-88,731998 |
 
 Patients:
 
 | displayName | firstName | lastName | birthdate  | birthplace | children           | disease |
 |-------------|-----------|----------|------------|------------|--------------------|---------|
-| john doe    | john      | doe      | 1976-13-03 | new york   |                    | none    |
-| jane doe    | jane      | doe      |            | metropolis |                    | none    |
-| pape doe    | papa      | doe      |            | new york   | john doe, jane doe | cardio  |
+| john_doe    | john      | doe      | 1976-13-03 | new_york   |                    | none    |
+| jane_doe    | jane      | doe      |            | metropolis |                    | none    |
+| papa_doe    | papa      | doe      |            | new_york   | john_doe, jane_doe | cardio  |
 
 Notes: birthplace refers to elements in the cityName values in the cities table. children contains comma separated values referring to another patient via displayName (trailing spaces will be removed).
+Warning: when using excel, be sure your decimal separator is a ".", instead of ",", otherwise mrefs might be seen as decimals when their id is a number, this causes molgenis to see a dot between your references and the importer to fail when uploading.
 
 Users:
 
 | userName | active | displayName | firstName | lastName |
 |----------|--------|-------------|-----------|----------|
-| jdoe     | TRUE   | john doe    | john      | doe      |
-| jdoe2    |        | jane doe    | jane      | doe      |
-| pdoe     |        | papa doe    | papa      | doe      |
+| jdoe     | TRUE   | john_doe    | john      | doe      |
+| jdoe2    |        | jane_doe    | jane      | doe      |
+| pdoe     |        | papa_doe    | papa      | doe      |
 
 Note: users looks similar patients, i.e. they are also persons having 'displayName', 'firstName', and 'lastName'. We will use this in the model below. 
 
@@ -66,11 +67,12 @@ Attributes:
 | name        | entity   | dataType | nillable | refEntity | idAttribute | description             |
 |-------------|----------|----------|----------|-----------|-------------|-------------------------|
 | cityName    | cities   |          | FALSE    |           | TRUE        |  unique city name       |
-| lat         | cities   | decimal  |          |           |             | latitude in degrees     |
-| lng         | cities   | decimal  |          |           |             | longitude in degrees    |
-| displayName | persons  |          | FALSE    |           | TRUE        |  unique name            |
+| lat         | cities   | decimal  |          |           |             |  latitude in degrees    |
+| lng         | cities   | decimal  |          |           |             |  longitude in degrees   |
+| displayName | patients |          | FALSE    |           | TRUE        |  unique name            |
 | firstName   | persons  |          |          |           |             |  first name             |
 | lastName    | persons  |          |          |           |             |  family name            |
+| children	  | patients | mref     |          | patients  |             |  children of a patient  |
 | birthdate   | patients | date     |          |           |             |  day of birth           |
 | birthplace  | patients | xref     |          | cities    |             |  place of birth         |
 | disease     | patients |          |          |           |             |  disese description     |
