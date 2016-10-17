@@ -134,6 +134,11 @@ Defines the data type (default: string)
   * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options.
   * compound : A way to assemble complex entities from building blocks (will be shown as tree in user interface); Don't forget to fill in the partOfAttribute configuration of the attributes that are grouped under this attribute. The partOfAttribute must contain the name of this new created compound attribute.
   * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
+  * categorical: cross reference to another entity; requires refEntity to be provided (typically used when options are fixed, like "Yes", "No", "Unknown"). 
+  * categorical mref: many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options (typically used when options are fixed).
+  * e-mail: an email adres
+  * enum: a fixed list of options can be selected for this type. These options cannot be updated without editing meta-data. 
+  * hyperlink: a link to a website 
 
 ### refEntity 
 Used in combination with xref, mref or categorical. Should refer to an entity.
