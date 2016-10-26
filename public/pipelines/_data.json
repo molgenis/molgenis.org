@@ -13,6 +13,17 @@
 	"ngs-protocols":{"title":"Protocols", "description":"Steps explained"},
 	"ngs-faq":{"title":"FAQ", "description":"Frequently Asked Questions"},
 
+    "NGS_RNA":{"title":"Pipeline installation", "description":"How to install pipelines on an empty machine using EasyBuild", "subheading":true},
+        "ngs-quickstart":{"title":"Quickstart", "description":"Start"},
+
+    "NGS_RNA":{"title":"NGS_RNA", "description":"Pipeline for next generation RNA sequencing analysis", "subheading":true},
+    "ngs-install":{"title":"Install pipeline", "description":"Installing NGS pipeline"},
+        "ngs-dependencies":{"title":"Dependencies", "description":"tools and packages required for running the pipeline"},
+    "ngs-run":{"title":"Run", "description":"Running NGS pipeline"},
+        "ngs-workflow":{"title":"Workflow", "description":"workflow of the pipeline"},
+        "ngs-protocols":{"title":"Protocols", "description":"Steps explained"},
+        "ngs-faq":{"title":"FAQ", "description":"Frequently Asked Questions"},	
+
     "MOLGENIS/compute":{"title":"MOLGENIS/compute","description":"How to use the MOLGENIS data tools", "subheading":true},
     "mc-start":{"title":"Quickstart","description":"Start"},
     "mc-parameters":{"title":"Parameters","description":"Save time by joining parameter files"},
