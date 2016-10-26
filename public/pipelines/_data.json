@@ -16,7 +16,7 @@
     "NGS_RNA":{"title":"Pipeline installation", "description":"How to install pipelines on an empty machine using EasyBuild", "subheading":true},
         "ngs-quickstart":{"title":"Quickstart", "description":"Start"},
 
-    "NGS_RNA":{"title":"NGS_RNA", "description":"Pipeline for next generation RNA sequencing analysis", "subheading":true},
+    "NGS_RNA":{"title":"NGS_RNA", "description":"Pipeline for next generation RNA sequencing analysis ", "subheading":true},
     "ngs-install":{"title":"Install pipeline", "description":"Installing NGS pipeline"},
         "ngs-dependencies":{"title":"Dependencies", "description":"tools and packages required for running the pipeline"},
     "ngs-run":{"title":"Run", "description":"Running NGS pipeline"},
