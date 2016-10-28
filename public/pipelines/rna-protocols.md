@@ -241,7 +241,7 @@ The batches will be calculated and created in this step. If there are less then 
 
 Toolname: GATK CombineGVCFs
 Scriptname: VariantGVCFCombine
-Input: gVCF file (from step 7b)
+Input: gVCF file (from step 9a)
 Output: Multiple combined gVCF files ${project}.${batchBed}.variant.calls.combined.g.vcf{batch}
 
 java -Xmx30g -XX:ParallelGCThreads=2 -Djava.io.tmpdir=${tmpTmpDataDir} -jar \
@@ -258,7 +258,7 @@ In this step there will be a joint analysis over all the samples in the project.
 
 Toolname: GATK GenotypeGVCFs
 Scriptname: VariantGVCFGenotype
-Input: gVCF files from step 7b or combined gVCF files from step 7c
+Input: gVCF files from step 9a or combined gVCF files from step 9b
 Output: VCF file for all the samples in the project: ${project}.${batchBed}.variant.calls.genotyped.vcf
 
 java -Xmx16g -XX:ParallelGCThreads=2 -Djava.io.tmpdir=${tmpTmpDataDir} -jar ${EBROOTGATK}/GenomeAnalysisTK.jar \

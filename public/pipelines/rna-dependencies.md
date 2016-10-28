@@ -43,7 +43,7 @@
 - CmdLineAnnotator (1.9.0)
 ```
 
-### 2) NGS_DNA-3.2.3 pipeline dependencies
+### 2) NGS_RNA-3.2.4 pipeline dependencies
 ```
 ('HTSeq','0.6.1p1-foss-2015b'),
 ('hisat','0.1.5-beta-foss-2015b'),
