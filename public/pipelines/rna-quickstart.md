@@ -13,7 +13,7 @@ ${HPC_ENV_PREFIX}/sources/[a-z]/NameOfTheSoftwarePackage/ for more details check
 
 Run the script NGS_resources to install the required resources and create directory structure, you can download the scripts [here](attachments/scripts.tar.gz)
 ```bash
-sh NGS_RNA-makestructure.sh
+sh makestructure.sh
 sh NGS_RNA-resources.sh
 ```
 **_Note:_** Sometimes the GATK ftp server can be down/instable, try it a couple of times

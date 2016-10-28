@@ -40,5 +40,5 @@ This script will download parts of the 2.8 bundle from the GATK server
 
 ### 3) Creating workdir structure
 ```bash
-sh NGS_RNA-makestructure.sh
+sh makestructure.sh
 ```
