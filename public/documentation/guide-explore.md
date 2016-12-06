@@ -51,6 +51,275 @@ This button will open a form with a custom made report for this row. Different r
 - Delete row:
 This button can be used to remove a row from the entity.
 
+# Metadata editing (Since MOLGENIS 2.0)
+
+A new feature of MOLGENIS 2.0 is the "Metadata editing capabilities". All data including metadata can be created, read, updated and deleted, with some restrictions though. The metadata editing capabilities will be discussed in this part of the documentation.
+
+## Metadata main entities
+
+There are three metadata main entities. These entities contain all info about the entities, attributes and packages in MOLGENIS and respectivally are called: EntityType, Attribute and Package.
+
+###EntityType
+
+EntityType contains all data about the entities in MOLGENIS. Each row in this table represents an entity in MOLGENIS.
+
+####Editing capabilities
+* Create new entities: 
+  * "Forms" (Data Explorer -> EntityType -> create): "Cannot be created" 
+  * "Upload" (Upload): Yes when metadata is configured correctly in the EMX
+* Read: Yes 
+* Update:
+  * Label
+  * Description
+  * Abstract 
+  * Tags
+  * i18n fields
+* Delete: Posible for non system entities.
+
+###Attribute
+
+Attribute contains all data about the attributes in MOLGENIS. Each row in this table represents one attribute in an MOLGENIS entity
+
+####Editing capabilities
+* Create: Yes for non system entities.
+  * When creating an attribute for an existing enitity with data Nillable cannot be set to true.
+* Read: Yes 
+* Update: Yes for non system entities:
+  * Sequence number
+  * Data type:
+  	* See "data types"
+  * ID attribute 
+  * Label attribute
+  * Lookup attribute index
+  * Attribute parent
+  * Attribute parts
+  * Referenced entity
+  * Order by
+  * Expression
+  * Nillable
+  * Auto
+  * Visible
+  * Label
+  * Description
+  * Aggregatable
+  * Enum values
+  * Range min
+  * Range max
+  * Read-only
+  * Unique
+  * Tags
+  * Visible expression
+  * Validation expression 
+  * Default value
+ * i18n fields
+* Delete: Yes for non system entities
+
+####Data types
+Here is a list convertion allowed in the metadata edit and some motivation with some extra info.
+
+#####BOOL
+* Allowed: 
+  * STRING
+  * TEXT
+  * INT
+* Motivation: 
+  * TRUE and FALSE do not need another representation then the way they are, or as a string or as 0 and BOOL to dates makes no sense.
+  * ENUM representation does not add anything to the existing true or false selection. 
+  * Making a compound of an attribute just throws away the data. 
+  * Converting to a reference does not make sense, because when will you use true or false as an identifier?
+
+#####DATE
+* Allowed: 
+  * STRING
+  * TEXT
+  * DATE_TIME
+* Motivation: 
+  * We do not support DATE as an ID attribute type, so no need for referencing conversions.
+  * If you want to do something with your dates, convert them to STRING first and then to another type. 
+
+#####DATE_TIME
+* Allowed: 
+  * STRING 
+  * TEXT
+  * DATE
+* Motivation: 
+  * We do not support DATE_TIME as an ID attribute type, so no need for referencing conversions.
+  * If you want to do something with your date times, convert them to STRING first and then to another  type. 
+
+#####INT
+* Allowed: 
+  * STRING
+  * TEXT
+  * DECIMAL
+  * LONG
+  * BOOL
+  * ENUM
+  * XREF
+  * CATEGORICAL
+* Motivation: 
+  * Conversion to DATES will throw an error, why support it? In general, conversion to COMPOUND does not make sense. 
+  * Conversion to SCRIPT or HTML can be done via the STRING route.
+
+#####LONG
+* Allowed: 
+  * STRING
+  * TEXT
+  * INT
+  * DECIMAL
+  * ENUM
+  * XREF
+  * CATEGORICAL
+* Motivation: 
+  * Conversion to DATES will throw an error, why support it? In general, conversion to COMPOUND does not make sense. 
+  * Conversion to SCRIPT or HTML can be done via the STRING route.
+
+#####DECIMAL
+* Allowed: 
+  * STRING
+  * TEXT
+  * INT
+  * LONG
+  * ENUM
+* Motivation: 
+  * DECIMAL can not be an ID attribute type, so why support that conversion? 
+  * Conversion to DATES will throw an error, why support it? In general, conversion to COMPOUND does not make sense. 
+  * Conversion to SCRIPT or HTML can be done via the STRING route.
+
+#####EMAIL
+* Allowed: 
+  * STRING
+  * TEXT
+  * XREF
+  * CATEGORICAL
+* Motivation: 
+  * EMAIL format can never be numeric or a date. 
+  * XREF or CATEGORICAL are a far better alternative for ENUMs.
+
+#####HYPERLINK
+* Allowed: 
+  * STRING
+  * TEXT
+  * XREF
+  * CATEGORICAL
+* Motivation: 
+  * HYPERLINK format can never be numeric or a date. 
+  * XREF or CATEGORICAL are a far better alternative for ENUMs.
+
+#####HTML
+* Allowed: 
+  * STRING
+  * TEXT
+  * SCRIPT
+* Motivation: 
+  * If HTML is properly used, you won't be able to convert it to anything else but text or script, why should we support bad data modelling habits by allowing to create dates in an HTML field, so they can convert to date types?
+
+#####CATEGORICAL
+* Allowed:
+  * STRING
+  * INT
+  * LONG
+  * XREF
+* Motivation: 
+  * ID types can only be STRING, INT, LONG, EMAIL and HYPERLINK. 
+  * Converting to EMAIL or HYPERLINK can not be validated, so that leaves STRING, INT and LONG
+
+#####XREF 
+* Allowed: 
+  * STRING
+  * INT
+  * LONG
+  * CATEGORICAL
+* Motivation: 
+  * ID types can only be STRING, INT, LONG, EMAIL and HYPERLINK. 
+  * Converting to EMAIL or HYPERLINK can not be validated, so that leaves STRING, INT and LONG
+
+#####MREF
+* Allowed: 
+  * CATEGORICAL_MREF
+
+#####CATEGORICAL_MREF
+* Allowed: 
+  * MREF
+
+#####SCRIPT
+* Allowed: 
+  * STRING
+  * TEXT
+* Motivation: 
+  * If a SCRIPT type is used properly, you will not be able to convert to anything else but STRING or TEXT
+
+#####STRING
+* Allowed: 
+  * BOOL
+  * DATE
+  * DATE_TIME
+  * DECIMAL
+  * INT
+  * LONG
+  * HTML
+  * SCRIPT
+  * TEXT
+  * ENUM
+  * COMPOUND
+
+#####TEXT
+* Allowed: 
+  * BOOL
+  * DATE
+  * DATE_TIME
+  * DECIMAL
+  * INT
+  * LONG
+  * HTML
+  * SCRIPT
+  * STRING
+  * ENUM
+  * COMPOUND
+
+#####ENUM
+* Allowed: 
+  * STRING
+  * INT
+  * LONG
+  * TEXT
+* Motivation:
+  * For ENUM it is a bit hard to decide what we should allow.
+  * We figured that enum values will be strings or numbers almost always, so only support those conversions. 
+  * If we have a use case for DATEs as ENUM options, we will concede!
+
+#####COMPOUND
+* Allowed: STRING
+* Motivation: 
+  * STRING can be converted to almost everything, and because COMPOUND never has any values, 
+STRING should be a nice starting point.
+
+#####FILE
+Allowed: NONE
+Motivation: not desirable functionality
+
+#####ONE_TO_MANY
+Allowed: NONE
+Motivation: not desirable functionality
+
+###Package
+
+EntityType contains all data about the entities in MOLGENIS. Each row in this table represents an entity in MOLGENIS.
+
+####Editing capabilities
+* Create: Yes
+* Read: Yes 
+* Update: Yes for non system entities
+  * Label
+  * Description
+  * Tags
+* Delete: 
+  * Yes for non system entities
+ 
+
+### System packages, entities and attributes
+
+System packages, entities and attributes are available in MOLGENIS 2.0 after installation. They are configured programmatically and can only be changed in new releases of the software. Changing the system packages, entities and attributes via the metadata editing functionality will be registerd in the database. When dropping the index and database this registration will be droped and the original values will be loaded again.
+
 # Download  
 
 At the bottom of the table there is a download button, which will allow you to save the data to a CSV of XLS file. Depending on the purpose of the download, identifiers or labels can be used as column headers. Probably the data is safest inside molgenis!
