@@ -138,7 +138,7 @@ Defines the data type (default: string)
   * e-mail: an email adres
   * enum: a fixed list of options can be selected for this type. These options cannot be updated without editing meta-data. 
   * hyperlink: a link to a website 
-
+  * one-to-many (MOLGENIS 2.0): A data type that defines the one to many relationship between two columns in two separate tables. Example: An author wrote one or more books. An book is written by one author.
 ### refEntity 
 Used in combination with xref, mref or categorical. Should refer to an entity.
 
