@@ -121,26 +121,29 @@ Name of attribute, unique per entity.
 ### dataType
 Defines the data type (default: string)
 
-  * string : character string of <255 characters
-  * text : character string of unlimited length (usually <2Gb)
-  * int : natural numbers like -1, 0, 3. Optionally use rangeMin and rangeMax
-  * long : non-decimal number of type long
-  * decimal : decimal numbers like -1.3, 0.5, 3.75 (float precision)
-  * bool : yes/no choice
-  * date : date in yyyy-mm-dd format
-  * datetime : date in yyyy-mm-dd hh:mm:ss
-  * xref : cross reference to another entity; requires refEntity to be provided
-  * mref : many-to-many relation to another entity; requires refEntity to be provided
-  * categorical_mref : many-to-many relation to another entity; requires refEntity to be provided. Forms will display a complete list of options (typically used when options are fixed).
-  * compound : A way to assemble complex entities from building blocks (will be shown as tree in user interface); Don't forget to fill in the partOfAttribute configuration of the attributes that are grouped under this attribute. The partOfAttribute must contain the name of this new created compound attribute.
-  * file: [create a column of the 'file' data type](https://github.com/molgenis/molgenis/wiki/File-datatype) requires refEntity FileMeta.
-  * categorical: cross reference to another entity; requires refEntity to be provided (typically used when options are fixed, like "Yes", "No", "Unknown"). 
-  * e-mail: an email adres
-  * enum: a fixed list of options can be selected for this type. These options cannot be updated without editing meta-data. 
-  * hyperlink: a link to a website 
-  * one-to-many (MOLGENIS 2.0): A data type that defines the one to many relationship between two columns in two separate tables. Example: An author wrote one or more books. An book is written by one author.
+| Data type    | Description                                                                                   | Expected formatting                                              |
+|--------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| string       | The default data type in  MOLGENIS, describing a character string of <255 characters.         | A string of characters with a length of less than 255            |
+| text         | When having a string with a length of more than 255 characters, this data type is recommended.| A string with characters with a maximum length of 65535		  |
+| int          | Integers. Natural numbers like 1, 2, 3, -1, -2, -3. rangeMin and rangeMax can be defined.     | Non decimal numbers in range[-2^31 , 2^31 -1]                    |
+| long         | Non-decimal number of type long                                                               | Non decimal numbers in range[-2^63 , 2^63 -1]                    |
+| decimal      | Decimal numbers/floats.                                                                       | Decimal numbers in range[-2^31 , 2^31 -1]                        |
+| bool         | A boolean value: true/false                                                                   | TRUE/FALSE                                                       |
+| date         | A date                                                                                        | yyyy-mm-dd                                                       |
+| datetime     | Date and time                                                                                 | yyyy-mm-ddThh:mm:ss+timezone e.g. 1985-08-12T11:12:13+0500       |
+| xref         | Reference to an attribute of another entity. Using this type requires another entity (refEntity) with information that is linked to the selected entity. Although you should always refer to the id of an attribute defined as xref, in your data explorer the label of the refEntity will be presented instead. When label is not specified, id will be used as label. When searching for a specific xref value in the filter wizard, the value has to be typed partly and then selected out of a list with suggestions.| Id of the attribute you wish to link, this id should always be available in the refEntity. |
+| mref         | Reference to several attributes of another entity. Using this type requires another entity (refEntity) with information that is linked to the selected entity. Although you should always refer to the id of an attribute defined as mref, in your visualisation, the defined label for the refEntity will be presented, when label is not given, id will be used as label. When searching for a specific mref value in the filter wizard, the value has to be typed partly and then selected out of a list with suggestions.| A comma separated list of id’s, these id’s should always be available in the refEntity. |
+| categorical  | Reference to an attribute of another entity. Using this type requires another entity (refEntity) with information that is linked to the selected entity. Although you should always refer to the id of an attribute defined as categorical, in your visualisation, the defined label for the refEntity will be presented, when label is not given, id will be used as label. This type is typically used when answers are fixed like: “Yes”, “No”, “Unknown”. When searching for a specific categorical value in the filter wizard of molgenis a checkbox can be marked.| Id of the attribute you wish to link, this id should always be available in the refEntity. |
+| categorical_mref| Reference to several attributes of another entity. Using this type requires another entity (refEntity) with information that is linked to the selected entity. Although you should always refer to the id of an attribute defined as categorical_mref, in your visualisation, the defined label for the refEntity will be presented, when label is not given, id will be used as label. When searching for a specific categorical value in the filter wizard of molgenis a checkbox can be marked.| A comma separated list of id’, these id’s should always be available in the refEntity.|
+| compound     | This type can be used to group parts of your data together. Your dataset will consist of several compounds all containing certain attributes. Don’t forget to specify the partOfAttribute column for the attributes you wish to put in the compound.| Nothing|
+| file         | A file. Create a column of the 'file' data type requires refEntity FileMeta.| [How to](https://github.com/molgenis/molgenis/wiki/File-datatype)|
+| email        | An e-mail adress                                                                              | E-mail adress                                                    |
+| enum         | An item chosen from a fixed list of options that can be selected for this data type. The options should be given in an extra column called “enumOptions”. These options cannot be updated without changing meta-data (so deleting the data and meta data and a new upload are required in MOLGENIS 1.x). | A value chosen from the enumOptions list specified as a comma separated list of options in the model.|
+| hyperlink    | A link to a website                                                                           | A link to a website                                              |
+| one_to_many  | This data type is only supported in MOLGENIS 2.0. A data type that defines the one to many relationship between two columns in two separate tables. Having this data types requires having another table with an xref column which is linked to the one_to_many. The one_to_many requires a refEntity like the other referring data types, but unlike the others, it also requires a “mappedBy” column. In this column the name of the xref in the other column should be specified. For instance, an author can write several books. Books are stored in one table (called “books”) with “author” as xref and as refEntity “authors”. In the authors table authors are stored with books as one_to_many. The books attribute has the refEntity “books” and is mappedBy “author”. | A comma separated list of id’s. Requires having an xref to this attribute in another table. |
+
 ### refEntity 
-Used in combination with xref, mref or categorical. Should refer to an entity.
+Used in combination with xref, mref, categorical, categorical_mref or one_to_many. Should refer to an entity.
 
 ### nillable 
 Whether the column may be left empty. Default: false
