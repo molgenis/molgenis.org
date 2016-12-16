@@ -1,18 +1,17 @@
-.molgenis-landing(style="height:90vh; width: 100%")
-    .jumbotron(style="text-align: center; background: #0079c2; color: white; height: 70vh")
+.molgenis-landing(style="height:150vh; width: 100%")
+    .jumbotron(style="text-align: center; background: #0079c2; color: white; height: 50vh")
         table(style="width: 100%")
             tr
                 td(style="vertical-align: middle")
                     div.container
-                    img(src="/res/images/wordmark.png", alt="#{ name }", width="80%")
-                    h2 Flexible software for scientific data
+                    h1 Flexible software for scientific data
+                    h2 Process, manage, query, annotate, integrate, analyse, share
                     a.btn.btn-default.btn-lg(href="start",role="button") Getting started
         
-    .container(style="text-align: center; height: 20vh;")
+    .container(style="text-align: center; height: 25vh;")
         p.lead MOLGENIS is open source. It's hosted, developed, and maintained on GitHub.
         a.btn.btn-outline.btn-lg(href="https://github.com/molgenis/molgenis",target="_blank") View the GitHub project
-    
-div.jumbotron(style="text-align: center")
-    div.container
-        p.lead Partners & Sponsors
+    .jumbotron
+        .container(style="text-align: center; height: 100vh;")
+            p.lead Partners & Sponsors:
             != partial("partners")

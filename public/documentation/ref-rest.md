@@ -378,7 +378,8 @@ GET http://your.molgenis.url/api/v1/dataset/meta
             "href": "/api/v1/DataSet/meta/endTime"
         }
     },
-    "labelAttribute": "Identifier"
+    "labelAttribute": "Identifier",
+    "languageCode": "en"
 }
 ```
 ## Delete meta data

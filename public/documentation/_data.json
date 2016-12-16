@@ -1,17 +1,20 @@
 {
-    "User interfaces":{"title":"User interfaces","description":"How to use the MOLGENIS tools", "subheading":true},
+    "MOLGENIS/data":{"title":"MOLGENIS/data","description":"How to use the MOLGENIS data tools", "subheading":true},
+    "../software/data" : {"title":"Getting started","description":"Getting started"},
     "guide-upload" : {"title":"Upload","description":"How to structure and load your data"},
     "guide-explore" : {"title":"Explore","description":"Search and visualize your data"},
     "guide-admin": {"title":"Admin","description":"Change users, groups and permissions"},
     "guide-customize" : {"title":"Customize","description":"Customize menu, theme, homepage"},
     "guide-scripts" : {"title":"Scripts","description":"Make your scripts/visualization available in the UI"},
-    "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically","subheading":true},
+    "guide-SORTA" : {"title":"SORTA","description":"Match data values with standardised codes"},
+    "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically", "subheading":true},
     "guide-rest" : {"title":"REST","description":"Access via REST+javascript"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
-    "reference" : {"title":"Reference","description":"Reference materials", "subheading":true},
+    "ref" : {"title":"Reference","description":"Reference documenation", "subheading":true},
     "ref-emx" : {"title":"EMX format","description":"EMX format reference"},
     "ref-rest" : {"title":"REST api v1","description":"REST api reference"},
     "ref-rest2" : {"title":"REST api v2","description":"REST v2 api reference (extensions)"},
-    "ref-R" : {"title":"R api","description":"R-api reference"}
+    "ref-R" : {"title":"R api","description":"R-api reference"},
+    "install" : {"title":"Install","description":"Download & Install"}
 }

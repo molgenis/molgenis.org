@@ -8,7 +8,7 @@
     "docsgithub": "https://github.com/molgenis/molgenis.org/tree/master/public",      
     "issues": "http://github.com/molgenis/molgenis/issues",
     "docsissues": "http://github.com/molgenis/molgenis.org/issues",
-    "version": "1.8.0",
+    "version": "2.0.0",
     "releases" : "https://github.com/molgenis/molgenis/releases",
     "service": {
       "analytics": "UA-2273328-11",
