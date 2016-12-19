@@ -9,6 +9,7 @@
     "guide-SORTA" : {"title":"SORTA","description":"Match data values with standardised codes"},
     "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically", "subheading":true},
     "guide-rest" : {"title":"REST","description":"Access via REST+javascript"},
+    "guide-fair" : {"title":"FAIR","description":"Access to the FAIR endpoint"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
     "ref" : {"title":"Reference","description":"Reference documenation", "subheading":true},
