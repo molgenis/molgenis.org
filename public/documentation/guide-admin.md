@@ -2,6 +2,27 @@
 Once you have a server running and data loaded, you are probably eager to share your data with the world. However, you might want to only show your data to a select few. In the following paragraphs we explain on how to define groups and permissions.
 **
 
+# Mail settings
+You should configure an email server to interact with your users for things like lost password recovery.
+You can find the mail settings in the Admin menu, under Settings.
+At the top of the page, type "Mail settings" into the selection box.
+
+For basic configuration, you only need to provide the username and password fields with a valid Gmail username and password.
+But you may also specify a different (non-Gmail) SMTP server.
+
+### Low level mail properties
+By default, the following JavaMail properties, needed to interact with the Gmail SMTP server, are added:
+```
+mail.smtp.starttls.enable=true
+mail.smtp.quitwait=false
+mail.smtp.auth=true
+```
+You may add additional properties and override these defaults by adding entities to the ```MailSenderProp``` repository
+in the Data Explorer. Each key may be provided at most once.
+For a list of valid keys, check https://javamail.java.net/nonav/docs/api/
+
+> Add an entity with key ```mail.debug``` and value ```true``` if you'd like to debug the mail dialog with the server.
+
 # User management
 User management is crucial for keeping an overview of people visiting your online database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. MOLGENIS uses groups and users to efficiently control permissions. Groups and users can both have individual permissions on certain data sets for example. But users can also be part of a group, automatically inheriting the permissions set for that group. You can find the User manager module under the Admin menu:
 
@@ -74,4 +95,3 @@ Congratulations! The molgenis_user account should now be able to use the data ex
 Note that if you are creating more complex data sets that have references to other data sets, that you should also consider giving permissions to those reference tables.
 
 And if you are wondering about the Entity permissions menu, that is reserved for when we implement row level security.
-
