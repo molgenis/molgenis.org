@@ -60,23 +60,23 @@
     "description": "Pipeline for next generation RNA sequencing analysis",
     "subheading": true
   },
-  "ngs-install": {
+  "rna-install": {
     "title": "Install pipeline",
     "description": "Installing NGS pipeline"
   },
-  "ngs-dependencies": {
+  "rna-dependencies": {
     "title": "Dependencies",
     "description": "tools and packages required for running the pipeline"
   },
-  "ngs-run": {
+  "rna-run": {
     "title": "Run",
     "description": "Running NGS pipeline"
   },
-  "ngs-workflow": {
+  "rna-workflow": {
     "title": "Workflow",
     "description": "workflow of the pipeline"
   },
-  "ngs-protocols": {
+  "rna-protocols": {
     "title": "Protocols",
     "description": "Steps explained"
   },
