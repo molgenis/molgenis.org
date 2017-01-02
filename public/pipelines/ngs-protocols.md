@@ -113,11 +113,11 @@ sambamba merge \
 	output.bam \
 	${ARRAYOFINPUTBAMS[@]}
 ```
-### Step 8: Mark duplicates + creating dedup metrics
+### Step 8: Marking duplicates 
 
 In this step, the BAM file is examined to locate duplicate reads, using Sambamba markdup. A mapped read is considered to be duplicate if the start and end base of two or more reads are located at the same chromosomal position in comparison to the reference genome. For paired-end data the start and end locations for both ends need to be the same to be called duplicate. One read pair of these duplicates is kept, the remaining ones are flagged as being duplicate.
 
-Toolname: Sambamba markdup & Sambamba flagstat
+Toolname: Sambamba markdup
 
 Scriptname: MarkDuplicates
 
@@ -126,7 +126,7 @@ Input: Merged BAM file from generated in step 7 (${sample}.merged.bam)
 Output:
 - BAM file with duplicates flagged (${sample}.dedup.bam)
 - BAM index file (${sample}.dedup.bam.bai)
-- Dedup metrics file (${sample}.merged.dedup.metrics)
+
 
 Mark duplicates:
 ```
@@ -139,68 +139,114 @@ sambamba markdup \
 	output.bam
 ```
 
-dedup metrics:
+
+
+### Step 9: Flagstat (dedup metrics)
+Calculating dedup metrics
+
+Toolname: Sambamba flagstat
+
+Scriptname: FlagstatMetrics
+
+Input: dedup BAM file (${sample}.dedup.bam)
+Output: .flagstat file (${sample}.dedup.bam.flagstat)
+
 ```
 sambamba flagstat \
 	--nthreads=4 \
 	input.bam \
 	> output.flagstat
 ```
-# Indel calling with Delly
-### Step 09a: Calling big deletions with Delly
 
-In this step, the progam Delly calls deletions from the merged BAM file. The deletions are written to a VCF file, along with information such as difference in length between REF and ALT alleles, type of structural variant end information about allele depth.
 
-Toolname: Delly
 
-Scriptname: Delly
+# Indel calling with Manta, Convading & XHMM
+### Step 10a: Calling big deletions with Manta
 
-Input: merged BAM file from step 7 (${sample}.merged.bam)
-Output: indels in VCF (${sample}.delly.vcf)
+In this step, the progam Manta calls all types (DEL,DUP,INV,TRA,INS) from the merged BAM file. The calls are written to 3 different gzipped VCF files. These files are candidateSmallIndels, candidateSV and diploidSV along with information such as difference in length between REF and ALT alleles, type of structural variant end information about allele depth.
 
+Toolname: Manta
+
+Scriptname: Manta
+
+Input: dedup BAM file (${sample}.dedup.bam)
+Output: ${sample}.candidateSmallIndels.vcf.gz
+		${sample}.candidateSV.vcf.gz
+		${sample}.diploidSV.vcf.gz
+
+
+Prepare workflow
 ```
-delly \
-	-n \
-	-t DEL \
-	-x human.hg19.excl.tsv \
-	-o outputDelly.vcf \
-	-g human_g1k_v37.fa \
-	input.bam
-```
-### Step 09b. Delly annotator
-
-There will be some annotation to the produced vcf by Delly. This step will add hpo terms and snpEff annotation
-
-Toolname: CmdAnnotator
-
-Scriptname: DellyAnnotator
-
-Input: indels in VCF (${sample}.delly.vcf)
-
-Output:
-- ${sample}.delly.snpeff.vcf
-- ${sample}.snpeff.hpo.vcf
-
-snpEff:
-```
-java -Xmx10g -jar CmdLineAnnotator-1.9.0.jar \
-	snpEff \
-	snpEff.jar \
-	outputDelly.vcf \
-	snpEffAnnotatedoutputDelly.vcf
+python configManta.py \
+        --bam input.bam \
+        --referenceFasta human_g1k_v37.fa \
+        --exome \
+        --runDir /run/dir/manta
 ```
 
-HPO:
+run workflow
 ```
-java -Xmx10g -jar CmdLineAnnotator-1.9.0.jar \
-	hpo \
-	ALL_SOURCES_TYPICAL_FEATURES_diseases_to_genes_to_phenotypes.txt \
-	snpEffoutputDelly.vcf \
-	snpEff_and_HPO_AnnotatedoutputDelly.vcf
+        python /run/dir/manta/runWorkflow.py \ 
+		-m local \
+		-j 20
 ```
+
+### Step 10b: CoNVaDING
+CoNVaDING (Copy Number Variation Detection In Next-generation sequencing Gene panels) was designed for small (single-exon) copy number variation (CNV) detection in high coverage next-generation sequencing (NGS) data, such as obtained by analysis of smaller targeted gene panels.
+This step includes the 4 Convading steps in one protocol. It is gender specific for the sex chromosomes. For more detail about this step: http://molgenis.github.io/software/CoNVaDING
+Note: This step needs an already defined controlsgroup!
+
+Toolname: Convading
+
+Scriptname: Convading
+Input: dedup BAM file (${sample}.dedup.bam)
+Output: file containing regions that contain a CNV ${sample}.finallist
+
+Step 1:StartWithBam
+perl CoNVaDING.pl \
+	-mode StartWithBam \
+	-inputDir Convading/InputBamsDir/ \
+	-outputDir Convading/StartWithBam/ \
+	-controlsDir Convading/ControlsDir/ \
+	-bed mypanel.bed \
+	-rmdup
+
+Step 2:StartWithMatchScore
+perl ${EBROOTCONVADING}/CoNVaDING.pl \
+	-mode StartWithMatchScore \
+    -inputDir Convading/StartWithBam/ \
+    -outputDir Convading/StartWithMatchScore/ \
+    -controlsDir Convading/ControlsDir/
+							
+Step 3:StartWithBestScore
+perl ${EBROOTCONVADING}/CoNVaDING.pl \
+	-mode StartWithBestScore \
+	-inputDir Convading/StartWithMatchScore/ \
+	-outputDir Convading/StartWithBestScore/ \
+	-controlsDir Convading/ControlsDir/ \
+	-sexChr	##only selected when there are sexChromosomes	
+
+Step 4: CreateFinalList
+perl ${EBROOTCONVADING}/CoNVaDING.pl \
+	-mode CreateFinalList \
+	-inputDir Convading/StartWithBestScore/ \
+	-outputDir Convading/CreateFinalList/ \
+	-targetQcList targetQcList.txt
+	
+### Step 10c: XHMM
+The XHMM software suite was written to call copy number variation (CNV) from next-generation sequencing projects, where exome capture was used (or targeted sequencing, more generally)
+This protocol contains all the steps described here http://atgu.mgh.harvard.edu/xhmm/tutorial.shtml
+
+Toolname: XHMM
+
+Scriptname: XHMM 
+
+Input: dedup BAM file (${sample}.dedup.bam)
+
+Output: file containing regions that contain a CNV ${sample}.xcnv
 # Determine gender
 
-### Step 10a: GenderCalculate
+### Step 11a: GenderCalculate
 
 Due to the fact a male has only one X chromosome it is important to know if the sample is male or female. Calculating the coverage on the non pseudo autosomal region and compare this to the average coverage on the complete genome predicts male or female well.
 
@@ -219,7 +265,7 @@ java -jar -Xmx4g picard.jar CalculateHsMetrics \
 	OUTPUT=output.nonAutosomalRegionChrX_hs_metrics
 ```
 # Side steps (Cram conversion and concordance check)
-### Step 10b: CramConversion
+### Step 12: CramConversion
 
 Producing more compressed bam files, decreasing size with 40%
 
@@ -241,7 +287,7 @@ scramble \
 	output.cram
 ```
 
-### Step 11: Make md5’s for the realigned bams
+### Step 13: Make md5’s for the realigned bams
 
 Small step to create md5sums for the realigned bams created in step 9
 
@@ -249,7 +295,7 @@ Input: realigned BAM file (.realigned.bam)
 
 Output: md5sums (.realigned.bam.md5)
 
-### Step 12: SequonomConcordance Check
+### Step 14: SequonomConcordance Check
 
 Scriptname: SequenomConcordanceCheck
 
@@ -298,7 +344,7 @@ Input: SNP file generated with a Sequenom.
 Output: concordance file (.concordance.ngsVSSequenom.txt)
 
 # Coverage calculations (Diagnostics only)
-### Step 13: Calculate coverage per base and per target
+### Step 15: Calculate coverage per base and per target
 
 Calculates coverage per base and per target, the output will contain chromosomal position, coverage per base and gene annotation
 
@@ -333,7 +379,7 @@ java -Xmx10g -jar GenomeAnalysisTK.jar \
 ```
 
 # Metrics calculations
-### Step 14 (a,b,c,d): Calculate alignment QC metrics
+### Step 16 (a,b,c,d): Calculate alignment QC metrics
 
 In this step, QC metrics are calculated for the alignment created in the previous steps. This is done using several QC related Picard tools:
 
@@ -356,7 +402,7 @@ Input: dedup BAM file (.merged.dedup.bam)
 Output: alignmentmetrics, gcbiasmetrics, insertsizemetrics, meanqualitybycycle, qualityscoredistribution, hsmetrics, bamindexstats (text files and matching PDF files)
 
 # Determine Gender
-### Step 15: Gender check
+### Step 17: Gender check
 
 Due to the fact a male has only one X chromosome it is important to know if the sample is male or female. Calculating the coverage on the non pseudo autosomal region and compare this to the average coverage on the complete genome predicts male or female well.
 
@@ -366,7 +412,7 @@ Input: ${dedupBam}.hs_metrics (step 14 & ${dedupBam}.nonAutosomalRegionChrX_hs_m
 Output: ${sample}.chosenSex.txt
 
 # Variant discovery
-### Step 16a: Call variants (VariantCalling)
+### Step 18a: Call variants (VariantCalling)
 
 The GATK HaplotypeCaller estimates the most likely genotypes and allele frequencies in an alignment using a Bayesian likelihood model for every position of the genome regardless of whether a variant was detected at that site or not. This information can later be used in the project based genotyping step.
 
@@ -386,12 +432,12 @@ java -Xmx12g -jar GenomeAnalysisTK.jar \
 	--dbsnp dbsnp_137.b37.vcf \
     -stand_emit_conf 20.0 \
     -stand_call_conf 10.0 \
-    -o output.g.vcf \
+    -o output.g.vcf.gz \
     -L captured.bed \
     --emitRefConfidence GVCF \
 	-ploidy 2  ##ploidy 1 in non autosomal chr X region in male##
 ```
-### Step 16b: Combine variants
+### Step 18b: Combine variants
 
 When there 200 or more samples the gVCF files should be combined into batches of equal size. (NB: These batches are different then the ${batchBed}.) The batches will be calculated and created in this step. If there are less then 200, this step will automatically be skipped.
 
@@ -407,10 +453,10 @@ Output: Multiple combined gVCF files (${project}.${batchBed}.variant.calls.combi
 java -Xmx30g -jar GenomeAnalysisTK.jar \
 	-T CombineGVCFs \
 	-R human_g1k_v37.fa \
-	-o batch_output.g.vcf \
+	-o batch_output.g.vcf.gz \
 	${ArrayWithgVCF[@]}
 ```
-### Step 16c: Genotype variants
+### Step 18c: Genotype variants
 
 In this step there will be a joint analysis over all the samples in the project. This leads to a posterior probability of a variant allele at a site. SNPs and small Indels are written to a VCF file, along with information such as genotype quality, allele frequency, strand bias and read depth for that SNP/Indel.
 
@@ -429,21 +475,75 @@ java -Xmx16g -jar GenomeAnalysisTK.jar \
 	-L captured.bed \
 	--dbsnp dbsnp_137.b37.vcf \
 	-o output.vcf \
-	${ArrayWithgVCF[@]} 
+	${ArrayWithgVCFgz[@]} 
 ```
-### Step 17: Merge batches
+# Annotation
+### Step 19a: Annotating with SnpEff 
+Data will be annotated with SnpEff
+Genetic variant annotation and effect prediction toolbox. It annotates and predicts the effects of variants on genes (such as amino acid changes). 
 
-Running GATK CatVariants to merge all the files created in the genotype variants step (Step 16c) into one.
+Toolname: SnpEff
+ScriptName SnpEff
+Input: genotyped vcf (.genotyped.vcf)
+Output: snpeff annotated vcf (.snpeff.vcf)
+```
+java -XX:ParallelGCThreads=4 -Xmx4g -jar \
+        snpEff.jar \
+        -v hg19 \
+        -noStats \
+        -noLog \
+        -lof \
+		-canon \
+        -ud 0 \
+        -c snpEff.config \
+        input.vcf \
+        > output.vcf
+```
+### Step 19b: Annotating with VEP
+Data will be annotated with VEP.
+VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions
 
-Tools: GATK CatVariants
+Toolname: VEP
 
-Scriptname: MergeChrAndSplitVariants
+ScriptName VEP
 
-Input: files created in step 16 (${project}.{batchBed}.variant.calls.vcf)
+Input: genotyped vcf (.genotyped.vcf)
 
-Output: merged snp and indel file (${project}.variant.calls.GATK.sorted.vcf)
+Output: VEP annotated vcf (.variant.calls.VEP.vcf)
 
-### Step 18: VariantAnnotator
+```
+variant_effect_predictor.pl \
+	-i input.vcf \
+    --offline \
+    --cache \
+    --dir ${vepDataDir} \
+    --db_version=${vepDBVersion} \
+    --buffer 1000 \
+    --most_severe \
+    --species homo_sapiens \
+    --vcf \
+    -o output.vcf
+```
+### Step 20: Annotating with CADD, GoNL, ExAC (CmdLineAnnotator) 
+Data will be annotated with CADD, GoNL and ExAC
+
+Toolname: CmdLineAnnotator
+
+ScriptName CmdLineAnnotator
+
+Input: snpeff annotated vcf (.snpeff.vcf)
+
+Output: cadd, gonl and exac annotated vcf (.exac.gonl.cadd.vcf)
+
+```
+java -Xmx10g -jar molgenisAnnotator.jar \
+        -a exac ## cadd or gonl ## \
+        -s exacAnnotation.sites.vep.vcf.gz ##CADD.whole_genome_SNVs.tsv.gz gonl/release5_noContam_noChildren_with_AN_AC_GTC_stripped/## \
+        -i input.vcf \
+        -o output.vcf
+```
+
+### Step 21: VariantAnnotator 
 
 An HTML file with some statistics and a text file with SNPs per gene and region are produced.
 
@@ -451,9 +551,9 @@ Toolname: GATK VariantAnnotator
 
 Scriptname: StructuralVariantAnnotator
 
-Input: VCF file (.calls.vcf)
+Input: cadd, gonl and exac annotated vcf (.exac.gonl.cadd.vcf)
 
-Output: SNPeff VCF file (.annotated.vcf)
+Output: GATK variantannotator vcf file (.gatk.vcf)
 
 ```
 java -Xmx8g -jar GenomeAnalysisTK.jar \
@@ -484,7 +584,108 @@ java -Xmx8g -jar GenomeAnalysisTK.jar \
 -nt 8
 ```
 
-### Step 19: Split indels and SNPs
+### Step s22: Merge batches
+
+Running GATK CatVariants to merge all the files created in the genotype variants step (Step 16c) into one.
+
+Tools: GATK CatVariants
+
+Scriptname: MergeChrAndSplitVariants
+
+Input: GATK variantannotator vcf file (.gatk.vcf)
+
+Output: merged (batches) vcf per project (${project}.variant.calls.GATK.vcf)
+
+### Step s23a: Gavin split samples
+To run Gavin per sample the data needs to be splitted first.
+
+Toolname: GATK
+Scriptname: GavinSplitSamples
+
+Input: merged vcf per project (${project}.variant.calls.GATK.vcf)
+Output: merged vcf per sample ${sample}.variant.calls.GATK.vcf
+```
+java -Xmx4g -jar GenomeAnalysisTK.jar \
+-R human_g1k_v37.fa \
+-T SelectVariants \
+--variant input.vcf \
+-o output.vcf \
+-L .interval_list_ \
+-sn sample
+```
+### Step s23b: Gavin
+Tool that predict the impact of the SNP with the help of different databases (CADD etc). 
+
+Scriptname: Gavin
+
+#### Gavin first round
+
+Toolname: Gavin_toolpack
+
+Input: merged vcf per sample ${sample}.variant.calls.GATK.vcf
+
+Output: First draft (.GAVIN.RVCF.firstpass.vcf)
+		tab seperated file to be send to CADD (.toCadd.tsv)
+
+```
+java -Xmx4g -jar GAVIN-APP.jar \
+-i input.vcf \
+-o output.vcf \
+-m CREATEFILEFORCADD \
+-a gavinToCADD \
+-c gavinClinVar.vcf.gz \
+-d gavinCGD.txt.gz \
+-f gavinFDR.tsv \
+-g gavinCalibrations.tsv
+```
+
+####Get CADD annotations locally
+
+Toolname: CADD
+
+Input: tab seperated file to be send to CADD (.toCadd.tsv)
+Output: tab seperated file to be send from CADD (.fromCadd.tsv.gz)
+
+```
+score.sh gavinToCADDgz gavinFromCADDgz
+```
+
+#### Gavin second round
+Toolname: Gavin_toolpack
+
+Input: 	merged vcf per sample ${sample}.variant.calls.GATK.vcf
+		tab seperated file to be send from CADD (.fromCadd.tsv.gz)
+Output: Gavin final output (.GAVIN.RVCF.final.vcf)
+
+```
+java -Xmx4g -jar GAVIN-APP.jar \
+-i input.vcf \
+-o output.vcf \
+-m ANALYSIS \
+-a gavinFromCADDgz \
+-c gavinClinVar.vcf.gz \
+-d gavinCGD.txt.gz \
+-f gavinFDR.tsv \
+-g gavinCalibrations.tsv
+```
+
+#### Merging Gavin output with original
+Toolname: Gavin_toolpack
+
+Input: 	merged vcf per sample ${sample}.variant.calls.GATK.vcf
+		Gavin final output (.GAVIN.RVCF.final.vcf)
+Output: Gavin final output merged with original (.GAVIN.RVCF.final.mergedWithOriginal.rlv.vcf)
+
+```
+java -jar -Xmx4g MergeBackTool.jar \
+-i input.vcf \
+-v output.GAVIN.RVCF.final.vcf \
+-o output.GAVIN.RVCF.final.mergedWithOriginal.rlv.vcf
+
+```
+
+##
+### Step 24: Split indels and SNPs
 
 This step is necessary because the filtering of the vcf needs to be done seperately.
 
@@ -496,7 +697,9 @@ Input: VCF file (.annotated.vcf)
 
 Output: .annotated.indels.vcf and .annotated.snps.vcf
 
-### Step 20: (a) SNP and (b) Indel filtration
+
+
+### Step 25: (a) SNP and (b) Indel filtration
 
 Based on certain quality thresholds (based on GATK best practices) the SNPs and indels are filtered, and marked as Lowqual or Pass.
 
@@ -506,12 +709,12 @@ Toolname: GATK VariantFiltration
 Scriptname: VariantFiltration
 
 Input:
-- 20a (.snpEff.annotated.snps.vcf)
-- 20b (.snpEff.annotated.indels.vcf)
+- 24a (.snpEff.annotated.snps.vcf)
+- 24b (.snpEff.annotated.indels.vcf)
 
 Output:
-- 20a filtered snp vcf file (.snpEff.annotated.filtered.snps.vcf)
-- 20b filtered indel vcf file (.snpEff.annotated.filtered.indels.vcf)
+- 25a filtered snp vcf file (.snpEff.annotated.filtered.snps.vcf)
+- 25b filtered indel vcf file (.snpEff.annotated.filtered.indels.vcf)
 
 SNP:
 ```
@@ -547,7 +750,7 @@ java-Xmx8g -Xms6g -jar GenomeAnalysisTK.jar \
 --filterName "filterReadPosRankSum"
 ```
 
-### Step 21: Merge indels and SNPs
+### Step 26: Merge indels and SNPs
 
 Merge all the SNPs and indels into one file (per project) and merge SNPs and indels per sample.
 
@@ -561,7 +764,7 @@ Output:
 - ${sample}.final.vcf
 - ${project}.final.vcf
 
-### Step 22: Convert structural variants VCF to table
+### Step 28: Convert structural variants VCF to table
 
 In this step the indels in VCF format are converted into a tabular format using Perlscript vcf2tab by F. Van Dijk.
 
@@ -574,7 +777,7 @@ Input: (${sample}.final.vcf)
 Output: (${sample}.final.vcf.table)
 
 # QC-ing
-### Step 23: In silico concordance check
+### Step 29: In silico concordance check
 
 The reads that are inserted contain SNPs that are handmade. To see whether the pipeline ran correctly at least these SNPs should be found.
 
@@ -582,7 +785,7 @@ Input: InSilicoData.chrNC_001422.1.variant.calls.vcf and ${sample}.variant.calls
 
 Output: inSilicoConcordance.txt
 
-### Step 24a: Prepare QC Report, collecting metrics
+### Step 30a: Prepare QC Report, collecting metrics
 
 Combining all the statistics which are used in the QC report.
 
@@ -590,11 +793,11 @@ Scriptname:QCStats
 
 Toolname: pull_DNA_Seq_Stats.py
 
-Input: metrics files from steps 14a/b/c/d (*.hsmetrics, *.alignmentmetrics, *.insertsizemetrics), flagstat file and concordance file (*.dedup.metrics.concordance.ngsVSarray.txt)
+Input: metrics files from step 09 (flagstat file) and 16a/b/c/d (*.hsmetrics, *.alignmentmetrics, *.insertsizemetrics) and concordance file (*.dedup.metrics.concordance.ngsVSarray.txt)
 
 Output: ${sample}.total.qc.metrics.table
 
-### Step 24b: Generate quality control report
+### Step 30b: Generate quality control report
 
 The step in the inhouse sequence analysis pipeline is to output the statistics and metrics from each step that produced such data that was collected in the QCStats step before. From these, tables and graphs are produced. Reports are then created and written to a separate quality control (QC) directory, located IN RunNr/Results/qc/statistics. This report will be outputted in html and pdf. Converting html to pdf the tool wkhtmltopdf is used.
 
@@ -606,7 +809,7 @@ Input: ${sample}.total.qc.metrics.table
 
 Output: A quality control report html(*_QCReport.html) and pdf (*_QCReport.html)
 
-### Step 25: Check if all files are finished
+### Step 31: Check if all files are finished
 
 This step is checking if all the steps in the pipeline are actually finished. It sometimes happens that a job is not submitted to the scheduler. If everything is finished than it will write a file called CountAllFinishedFiles_CORRECT, if not it will make CountAllFinishedFiles_INCORRECT. When it is not all finished it will show in the CountAllFinishedFiles_INCORRECT file which files are not finished yet.
 
@@ -616,7 +819,7 @@ Input: all .sh scripts + all .sh.finished files in the jobs folder
 
 Output: CountAllFinishedFiles_CORRECT or CountAllFinishedFiles_INCORRECT
 
-### Step 26: Prepare data to ship to the customer
+### Step 32: Prepare data to ship to the customer
 
 In this last step the final results of the inhouse sequence analysis pipeline are gathered and prepared to be shipped to the customer. The pipeline tools and scripts write intermediate results to a temporary directory. From these, a selection is copied to a results directory. This directory has five subdirectories:
 
