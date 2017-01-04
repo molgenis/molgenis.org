@@ -5,6 +5,6 @@ each article, slug in public.pipelines._data
             p #{article.description}:
         else
             li
-                p
+                span
                     a(href="#{slug}") #{article.title}
                     |  - #{article.description}
