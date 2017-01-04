@@ -5,6 +5,6 @@ each article, slug in public.develop._data
             p #{article.description}:
         else
             li
-                p
+                span
                     a(href="#{slug}") #{article.title}
                     |  - #{article.description}
