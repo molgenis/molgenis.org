@@ -5,11 +5,11 @@ You can download, install and use MOLGENIS for free under license [LGPLv3](). We
 # Using apache-tomcat
 The three components needed to run MOLGENIS locally or on a server are:
 
-* [apache-tomcat](http://tomcat.apache.org/), v7 (latest release) 
-* MOLGENIS v1.21.5 or lower: [MySQL](https://www.mysql.com/downloads/), v5.1
-* MOLGENIS v2.0 or higher: [PostGreSQL](https://www.postgresql.org/download/), v9.6
+* [apache-tomcat, v7 (latest release)](http://tomcat.apache.org/)
+* MOLGENIS v1.21.5 or lower: [MySQL, v5.1](https://www.mysql.com/downloads/)
+* MOLGENIS v2.0 or higher: [PostGreSQL, v9.6](https://www.postgresql.org/download/)
 * The WAR for the [latest molgenis-app release](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.molgenis%22%20AND%20a%3A%22molgenis-app%22) from maven central.
-* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html), v8 (latest release)
+* [Java, v8 (latest release)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 Deploy apache-tomcat, and place the molgenis-app WAR as the ROOT.war in your apache-tomcat/webapps folder. If you are unfamiliar with apache-tomcat, follow one of their [apache-tomcat installation guides](https://tomcat.apache.org/tomcat-7.0-doc/deployer-howto.html).
 
