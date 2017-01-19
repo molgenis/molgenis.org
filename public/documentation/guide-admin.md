@@ -7,21 +7,27 @@ You should configure an email server to interact with your users for things like
 You can find the mail settings in the Admin menu, under Settings.
 At the top of the page, type "Mail settings" into the selection box.
 
+For backwards compatability, the default settings are filled with the values provided in `molgenis-server.properties` 
+under the keys `mail.user` and `mail.password`, but the values provided here will override those settings.
+
 For basic configuration, you only need to provide the username and password fields with a valid Gmail username and password.
 But you may also specify a different (non-Gmail) SMTP server.
 
-### Low level mail properties
-By default, the following JavaMail properties, needed to interact with the Gmail SMTP server, are added:
+If you've filled in a username and password, the settings will be validated when you save them, by making a connection
+with the mail server. If you do not want the settings to be tested at all, you can set `testConnection` to false.
+
+### JavaMail properties
+By default, the following low-level JavaMail properties, needed to interact with the Gmail SMTP server, are set:
 ```
 mail.smtp.starttls.enable=true
 mail.smtp.quitwait=false
 mail.smtp.auth=true
 ```
-You may add additional properties and override these defaults by adding entities to the ```MailSenderProp``` repository
-in the Data Explorer. Each key may be provided at most once.
+You may override these properties or add additional properties and override these defaults by adding entities to the 
+```JavaMailProperty``` repository in the Data Explorer. Each key may be provided at most once.
 For a list of valid keys, check https://javamail.java.net/nonav/docs/api/
 
-> Add an entity with key ```mail.debug``` and value ```true``` if you'd like to debug the mail dialog with the server.
+> E.g. Add an entity with key ```mail.debug``` and value ```true``` if you'd like to debug the mail dialog with the server.
 
 # User management
 User management is crucial for keeping an overview of people visiting your online database, but it is also important for security reasons. MOLGENIS has an extensive user management system, allowing people to register themselves, or be registered by an administrator. MOLGENIS uses groups and users to efficiently control permissions. Groups and users can both have individual permissions on certain data sets for example. But users can also be part of a group, automatically inheriting the permissions set for that group. You can find the User manager module under the Admin menu:
