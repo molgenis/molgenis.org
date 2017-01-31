@@ -12,6 +12,7 @@
     "guide-fair" : {"title":"FAIR","description":"Access to the FAIR endpoint"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
+    "biobank-directory" : {"title":"Biobank Directory", "description":"Use MOLGENIS to host a biobank directory"},
     "ref" : {"title":"Reference","description":"Reference documenation", "subheading":true},
     "ref-emx" : {"title":"EMX format","description":"EMX format reference"},
     "ref-rest" : {"title":"REST api v1","description":"REST api reference"},
