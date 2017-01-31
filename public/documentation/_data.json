@@ -10,6 +10,7 @@
     "APIs" : {"title":"Script tools","description":"Upload, download your data programmatically", "subheading":true},
     "guide-rest" : {"title":"REST","description":"Access via REST+javascript"},
     "guide-fair" : {"title":"FAIR","description":"Access to the FAIR endpoint"},
+    "guide-emx-download" : {"title":"Download tool","description":"A runnable jar to download your data in EMX format"},
     "guide-R" : {"title":"R","description":"Access via R-project"},
     "guide-python" : {"title":"Python","description":"Access via Python"},
     "biobank-directory" : {"title":"Biobank Directory", "description":"Use MOLGENIS to host a biobank directory"},
