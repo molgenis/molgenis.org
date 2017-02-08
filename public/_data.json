@@ -17,6 +17,11 @@
     "description": "Download source and code your own MOLGENIS components"
   },
   "support" : {
-  "title":"SUPPORT", 
-  "description" : "Need help? We have developers and data scientists too"}
+    "title":"SUPPORT", 
+    "description" : "Need help? We have developers and data scientists too"
+  },
+  "gcc": {
+    "title":"GCC wiki",
+    "description":"To the GCC wiki/trac intranet site"
+  }
 }
