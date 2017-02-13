@@ -18,6 +18,7 @@
     "ref-emx" : {"title":"EMX format","description":"EMX format reference"},
     "ref-rest" : {"title":"REST api v1","description":"REST api reference"},
     "ref-rest2" : {"title":"REST api v2","description":"REST v2 api reference (extensions)"},
+    "ref-swagger" : {"title":"Swagger specification","description":"Swagger specification of the REST api"},
     "ref-R" : {"title":"R api","description":"R-api reference"},
     "install" : {"title":"Install","description":"Download & Install"}
 }
