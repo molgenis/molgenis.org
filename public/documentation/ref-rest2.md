@@ -83,7 +83,7 @@ GET http://your.molgenis.url/api/v2/<entity_name>?aggs=x==attr0;y==attr1;distinc
 
 When working with larger datasets the RESTv2 api provides batching via the 'entities' parameter:
 
-## create
+## Create
 
 To create/add a list of entities into a collection you can POST the 'entities' parameter to a collection:
 
@@ -151,6 +151,37 @@ Content-Type: application/json
 ```
 204 No Content
 ```
+
+## Delete (since v3.0.0)
+
+To delete a list of entities of a collection you can DELETE the 'entityIds' parameter to a collection:
+
+*Request*
+```
+DELETE http://your.molgenis.url/api/v2/person
+Content-Type: application/json
+
+{
+    entityIds: ["person0", "person1"]
+}
+
+```
+*Response*
+```
+204 No Content
+
+```
+Body
+```
+{
+    location: "/api/v2/Person?q=id=in=("1","2")"
+    resources: [{
+        href: "/api/v2/Person/1"
+    },
+    {
+        href: "/api/v2/Person/2"
+    }]
+}
 
 ## One value
 
