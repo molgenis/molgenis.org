@@ -21,6 +21,11 @@ GET http://your.molgenis.url/api/v2/<entity_name>/<entity_id>?attrs=attr0(subatt
 ```
 POST http://your.molgenis.url/api/v2/<entity_name>/<entity_id>?_method=GET
 ```
+When not logged in, the molgenis-token has to be added to your URL:
+```
+POST http://your.molgenis.url/api/v2/<entity_name>/<entity_id>?_method=GET&molgenis-token=YOURTOKEN
+```
+You can get a token using the [REST api V1 login](http://molgenis.github.io/documentation/ref-rest#14authentication).
 ```
 POST http://your.molgenis.url/api/v2/<entity_name>/<entity_id>?_method=GET
 attrs=attr0(subattr0,subattr1),attr1(*)
