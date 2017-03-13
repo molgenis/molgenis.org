@@ -98,12 +98,14 @@ A browser reload should display the changes.
 See also the [MOLGENIS Security settings](./security)
 
 ## Webpack watch run configuration
-(TODO: I just noticed that IntelliJ has webpack support so I suspect there's a better way to do this.)
+* Open molgenis-core-ui/target/classes/js.
+* Right-click the dist folder, Mark directory as..., cancel exclusion.
 * Open molgenis-core-ui/package.json
 * Select the scripts / watch key in the json configuration
 * Right-click it and select the NPM `create watch` option from the menu.
 * SaveIn the tool bar, select the npm `watch` configuration and press the play button to start webpack watch.
 
-Somehow, getting your javascript/webpack changes to show in the browser requires tabbing from IntelliJ to the browser
-and back again twice. But then it works!
-Let us know if you find out how to improve this.
+Now, whenever you make changes to one or more JavaScript files, the corresponding js bundle file will get rebuilt by
+the npm watch task. Once it's built, tab out of IntelliJ to trigger a refresh of the exploded war.
+As soon as IntelliJ loses focus, you'll see a task progress bar in the bottom right corner of IntelliJ.
+Wait for that task to finish and then refresh the browser. The changes will be loaded.
