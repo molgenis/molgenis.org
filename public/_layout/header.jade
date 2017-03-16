@@ -14,7 +14,7 @@ header.molgenis-docs-header
                     img.wordmark(src="/res/images/wordmark-blue.png", alt="#{ name }")
             
             .collapse.navbar-collapse               
-                ul.nav.navbar-nav
+                ul.nav.navbar-nav pull-right
                     each article, slug in public._data
                         if(slug != "index")
                             li(class="#{ current.path[0] === slug ? 'active' : '' }")
