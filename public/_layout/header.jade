@@ -13,16 +13,12 @@ header.molgenis-docs-header
                 a.navbar-brand.active(href="/")
                     img.wordmark(src="/res/images/wordmark-blue.png", alt="#{ name }")
             
-            .collapse.navbar-collapse               
-                ul.nav.navbar-nav pull-right
+            .collapse.navbar-collapse           
+                ul.nav.navbar-nav
                     each article, slug in public._data
                         if(slug != "index")
                             li(class="#{ current.path[0] === slug ? 'active' : '' }")
-                                a(href="/#{slug}") #{article.title}
-                    li
-                        a(href="#searchbox", data-toggle="collapse")
-                            i.glyphicon.glyphicon-search
-                        
+                                a(href="/#{slug}") #{article.title}                        
     #searchbox.collapse
         form(role="search",action="/search-results")
             input.form-control(placeholder="Search",name="q")                  
