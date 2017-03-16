@@ -1,23 +1,7 @@
 {   
   "index" : {"title":"home","description":"Welcome to MOLGENIS home page"},    
-  "software" : {
-  "title":"TOOLS",
-   "description":"View & download the tools"
-  },
-  "documentation": {
-    "title": "DOCUMENTATION",
-    "description": "Documentation to using MOLGENIS tools"
-  },
-  "pipelines": {
-    "title" : "PIPELINES",
-    "description" : "Large scale DNA and RNA analysis using MOLGENIS compute"
-  },
-  "develop": {
-    "title": "DEVELOP",
-    "description": "Download source and code your own MOLGENIS components"
-  },
-  "support" : {
-    "title":"SUPPORT", 
-    "description" : "Need help? We have developers and data scientists too"
+  "about_us" : {
+    "title":"About us", 
+    "description" : "We are a driven group of developers and data scientists on a mission to deliver great infrastructure for life sciences"
   }
 }

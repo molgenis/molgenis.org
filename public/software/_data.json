@@ -1,5 +1,0 @@
-{  
-    "data":{"title":"MOLGENIS/data","description":"For scientific data management"},
-    "compute":{"title":"MOLGENIS/compute","description":"For HPC pipelines on computer clusters"},
-    "CoNVaDING":{"title":"CoNVaDING","description":"Copy Number Variation Detection in NGS Gene Panels"}
-}

@@ -1,19 +1,23 @@
 p(style="text-align: center;")
   a(href="http://wiki.gcc.rug.nl",role="button") N.B. The Genomics Coordination Center website has been moved to http://wiki.gcc.rug.nl. Please update your bookmarks.
-.molgenis-landing(style="height:150vh; width: 100%")
-    .jumbotron(style="text-align: center; background: #0079c2; color: white; height: 50vh")
+.molgenis-landing(style="width: 100%")
+    .jumbotron(style="text-align: center; background: #0079c2; color: white;")
         table(style="width: 100%")
             tr
                 td(style="vertical-align: middle")
                     div.container
                     h1 Flexible software for scientific data
                     h2 Process, manage, query, annotate, integrate, analyse, share
-                    a.btn.btn-default.btn-lg(href="start",role="button") Getting started
+                    a.btn.btn-default.btn-lg(href="https://molgenis.gitbooks.io/molgenis/content/",role="button",target="_blank") Getting started
         
-    .container(style="text-align: center; height: 25vh;")
+    .container(style="text-align: center;")
         p.lead MOLGENIS is open source. It's hosted, developed, and maintained on GitHub.
         a.btn.btn-outline.btn-lg(href="https://github.com/molgenis/molgenis",target="_blank") View the GitHub project
+        hr
+        p.lead The GCC also develops NGS pipeline software.
+        a.btn.btn-outline.btn-lg(href="https://molgenis.gitbooks.io/molgenis-pipelines/content/",target="_blank") View the documentation on GitBook 
+        hr
     .jumbotron
-        .container(style="text-align: center; height: 100vh;")
+        .container(style="text-align: center;")
             p.lead Partners & Sponsors:
             != partial("partners")
