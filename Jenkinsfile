@@ -33,7 +33,7 @@ pipeline {
                             sh('jekyll build')
                             docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                 def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
-                                siteDockerDev.push('dev')
+                                siteDockerDev.push("${TAG}")
                             }
                         }
                     }
