@@ -29,11 +29,13 @@ pipeline {
             stages {
                 stage('Build [ PR ]') {
                     steps {
-                        container('jekyll') {
-                            sh('jekyll build')
-                            docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
-                                def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
-                                siteDockerDev.push("${TAG}")
+                        script {
+                            container('jekyll') {
+                                sh('jekyll build')
+                                docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
+                                    def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
+                                    siteDockerDev.push("${TAG}")
+                                }
                             }
                         }
                     }
@@ -58,11 +60,13 @@ pipeline {
             stages {
                 stage('Build [ master ]') {
                     steps {
-                        container('jekyll') {
-                            sh('jekyll build')
-                            docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
-                                siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
-                                siteDocker.push('latest')
+                        script {
+                            container('jekyll') {
+                                sh('jekyll build')
+                                docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
+                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
+                                    siteDocker.push('latest')
+                                }
                             }
                         }
                     }
