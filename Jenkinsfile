@@ -98,13 +98,6 @@ pipeline {
                 }
             }
         }
-    } post {
-        success {
-            notifySuccess()
-        }
-        failure {
-            notifyFailed()
-        }
     }
 }
 
