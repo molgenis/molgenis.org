@@ -1,0 +1,386 @@
+/* margin 96px unrelated, 48px unrelated
+padding 24px margin horizontal 128px*/
+/** 62.5% is makes 1rem about 10px**/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0px;
+}
+/** paddings and margins **/
+header, section, footer {
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+footer ul {
+  width: 100%;
+}
+
+@media (min-width: 25em) {
+  html {
+    font-size:  62.5%; //so that is about 40 characters in default font. We need 45-80
+  }
+}
+
+.feature_box {
+  display: flex;
+  margin-top: 2.4rem;
+}
+
+.feature_content_box {
+  width: 100%; /** will get smaller on higher res**/
+}
+
+.feature_image_box {
+  display: flex;
+  width: 0%;/** will be shown on higher res **/
+  align-items: center;
+  justify-content: center;
+}
+
+.feature_image_box img {
+  width: 60%;
+}
+
+#menu:not(:checked) ~ li {
+  display: none;
+}
+
+dt {
+  background-size: 0 0; /** hide background image unless higher resolution*//
+}
+@media (min-width: 40em) {
+  html {
+    font-size: 62.5%;
+  }
+  header, section, footer {
+    padding-left: 6.4rem;
+    padding-right: 6.4rem;
+  }
+  .feature_image_box {
+    width: 35%;
+  }
+  .feature_content_box {
+    width: 65%;
+  }
+  footer ul {
+    width: 30%;
+    padding-right: 1.6rem;
+  }
+}
+@media (min-width: 67em) {
+  html {
+    font-size: 80%;
+  }
+  header, section, footer {
+    padding-left: 12.8rem;
+    padding-right: 12.8rem;
+  }
+  #menu:not(:checked) ~ li {
+    display: inline-block;
+  }
+  label[for=menu] {
+    display: none;
+  }
+  nav li:first-child {
+    padding-left: 0px;
+  }
+  .newscontainer {
+    clear: both;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .newsitem {
+    width: 40%;
+    display: table-cell;
+  }
+}
+
+@media (min-width: 100em) {
+  html {
+    font-size: 100%;
+  }
+  header, section, footer {
+    padding-left: 25.6rem;
+    padding-right: 25.6rem;
+  }
+}
+
+nav {
+  height: 4.8em;
+  padding-top: 0.8em;
+}
+header h1, header p, section, section h1, section h2, section h3, .feature_box {
+  margin: 0px;
+  padding-top: 1.6rem;
+}
+
+#logo {
+  background-size: auto 3.8rem;
+  width: 12rem;
+  height: 4.2rem;
+}
+
+#footer_logo {
+  height: 10rem;
+}
+
+nav, footer ul {
+}
+
+nav li {
+  padding-left: 1.6rem;
+}
+
+/** sizes **/
+header h1 {
+  font-size: 4.8rem;
+  line-height: 4.8rem;
+}
+header p, nav ul {
+  font-size: 1.6rem;
+  line-height: 3.0rem;
+}
+
+section, footer a, footer li, summary {
+  font-size: 1.4rem;
+  line-height: 2.6rem;
+}
+
+section h1 {
+  font-size: 4.0rem;
+  line-height: 4.0rem;
+}
+section h2 {
+  font-size: 2.6rem;
+  line-height: 2.6rem;
+}
+
+section h3, footer li h1 {
+  font-size: 2.0rem;
+  line-height: 2.2rem;
+}
+
+section intro {
+  font-size: 1.6rem;
+  line-height: 3.0rem;
+}
+
+section blockquote {
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+}
+
+summary > p {
+  margin-top: 0px;
+}
+
+/* fonts */
+@font-face {
+    font-family: BebasNeueBold;
+    src: url(/assets/fonts/BebasNeue-Bold.woff);
+}
+/* from https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/woff */
+@font-face {
+    font-family: IBMPlexMono;
+    src: url(/assets/fonts/IBMPlexMono-Regular.ttf);
+}
+
+@font-face {
+    font-family: IBMPlexSans;
+    src: url(/assets/fonts/IBMPlexSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: IBMPlexMono-LightItalic;
+    src: url(/assets/fonts/IBMPlexMono-Lightitalic.ttf);
+}
+
+header h1, section h1, section h2, section h3, nav, footer li h1 {
+  font-family: BebasNeueBold, Oswald, sans-serif;
+}
+
+header p, footer a, footer li {
+  font-family: IBMPlexMono, "Roboto Mono", monospace;
+}
+
+section {
+  font-family: IBMPlexSans, Roboto, sans-serif;
+}
+
+section blockquote {
+  font-family: IBMPlexMono-LightItalic;
+}
+
+/* colors */
+.green-layout header {
+  background: #72F6B2;
+}
+.green-layout header, .green-layout nav a {
+  color: #353535;
+}
+
+.blue-layout header {
+  background: #017FFD;
+}
+
+.blue-layout header, .blue-layout nav a {
+  color: white;
+}
+
+.black-layout header {
+  background: #353535;
+}
+
+.black-layout header, .black-layout nav a {
+  color: #72F6B2;
+}
+
+.green-layout header h1 {
+  color: #353535;
+  border-color: #353535;
+}
+
+.blue-layout header h1 {
+  border-color: white;
+}
+
+.black-layout header h1 {
+  border-color: #72F6B2;
+}
+
+.black-layout header p {
+  color: white;
+}
+
+h1 {
+  border-top: 0.2rem solid;
+}
+
+section h1 {
+  color: #017FFD;
+  border-color: #017FFD;
+}
+
+section h2, section h3 {
+  color: #353535;
+}
+
+/* site nav */
+/* toggle for the menu when on small screens, works like a checkbox */
+#menu {
+  display:none;
+}
+#menu ~ label {
+  cursor:pointer;
+}
+#menu:checked ~ li {
+  display: block;
+  padding-top: 0.6rem;
+}
+
+nav {
+  margin: 0px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  margin-top: 0px;
+}
+
+nav li {
+  text-align:right;
+}
+
+nav ul li:first-child
+{
+  float: left;
+}
+
+#logo {
+  background-repeat: no-repeat;
+  float: left;
+}
+
+/* article  */
+.green-layout header, .blue-layout header, .black-layout header {
+  margin: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+header img {
+  width: 100%;
+}
+
+
+/* footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  justify-content: space-evenly;
+  background: #353535;
+  color: #72F6B2;
+}
+
+footer ul {
+  padding-left: 0px;
+}
+
+footer li {
+  display: block;
+}
+
+footer li h1 {
+  color: #72F6B2;
+}
+
+footer a, footer li {
+  color: white;
+  font-weight: normal;
+}
+
+/** to deal with the image in the title we must have title flowing over the image in the header */
+header {
+  position: relative;
+}
+.titlebox {
+  position: absolute;
+  bottom: 0px;
+}
+
+/* newsitems on frontpage */
+.newsitem h2 a {
+  text-decoration: none;
+  color:
+}
+
+.newslist:last-child {
+  display: none;
+}
+
+.bluebutton {
+  display:inline-block;
+  background: #017FFD;
+  color: white;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  padding-bottom: 1.6rem;
+  padding-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  text-decoration: none;
+}

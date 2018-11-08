@@ -1,0 +1,10 @@
+---
+title:  VIDI award for Morris Swertz
+intro: Dr Morris Swertz from DTL partner UMC Groningen has been awarded an NWO-VIDI grant to develop scalable big data methods for personalised genome diagnostics.
+layout: green
+---
+# Morris Swertz
+Swertz is head of the Genomics Coordination Centre, which is a major data coordination hub in the Netherlands. He is also a member of the DTL scientific team. New sequencing techniques can identify all the DNA variations in an individual in one experiment. Unfortunately, this is not leading to more diagnoses because genetic labs are drowning in the amount of data produced. Analysis is still largely performed manually and can take months, while supporting software is based on simple filters and one-size-fits-all estimation tools, basically ignoring (public) big data. This means clinicians see thousands of DNA variants of unclear pathogenicity and the majority of patients remain without a clear diagnosis. The bottleneck is not the data acquisition, but its interpretation. Dr Swertz wants to develop patient-centered techniques to detect damaging mutations more efficiently.
+
+# Three objectives
+Dr Swertz will develop novel methods to enable personalised whole-genome diagnostics. He will collaborate closely with diagnosticians and clinicians in order to validate the new methods immediately with real patient data. He has three objectives for his VIDI project:

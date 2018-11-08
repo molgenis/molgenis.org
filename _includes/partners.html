@@ -1,0 +1,10 @@
+<div style="vertical-align: middle;">
+{% for link_hash in page.partners %}
+  {% for link in link_hash %}
+<a href="{{ link[1] }}" _target="blank" style="vertical-align: middle; text-decoration: none">
+  <img src="/images/{{ link[0] }}" alt="{{ link[1] }}" style="width: 150px; padding: 40px; vertical-align: middle;" class="partner">
+</a>
+  {% endfor %}
+{% endfor %}
+
+</div>
