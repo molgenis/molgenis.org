@@ -1,4 +1,4 @@
-# mswertz.gihub.io
+# molgenis.org
 
 
 ## Styling
