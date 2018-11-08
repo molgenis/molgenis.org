@@ -53,51 +53,6 @@ pipeline {
                 }
             }
         }
-        stage('Steps [ master ]') {
-            when {
-                branch 'master'
-            }
-            stages {
-                stage('Build [ master ]') {
-                    steps {
-                        script {
-                            container('jekyll') {
-                                sh('jekyll build')
-                                docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
-                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
-                                    siteDocker.push('latest')
-                                }
-                            }
-                        }
-                    }
-                }
-                stage("Deploy to accept-site [ master ]") {
-                    steps {
-                        milestone(ordinal: 100, label: 'deploy to site.accept.molgenis.org')
-                        container('helm') {
-                            sh "helm init --client-only"
-                            sh "helm repo add molgenis ${HELM_REPO}"
-                            sh "helm repo update"
-                            sh "helm upgrade site-accept molgenis/molgenis --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
-                        }
-                    }
-                }
-                stage('Deploy release [ master ]') {
-                    steps {
-                        timeout(time: 10, unit: 'MINUTES') {
-                            input(message: 'Prepare to release?')
-                        }
-                        milestone(ordinal: 100, label: 'deploy to test.molgenis.org')
-                        container('helm') {
-                            sh "helm init --client-only"
-                            sh "helm repo add molgenis ${HELM_REPO}"
-                            sh "helm repo update"
-                            sh "helm upgrade prod-site molgenis/molgenis --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
-                        }
-                    }
-                }
-            }
-        }
     } post {
         success {
             notifySuccess()
