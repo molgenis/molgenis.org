@@ -29,8 +29,8 @@ pipeline {
             stages {
                 stage('Build [ PR ]') {
                     steps {
-                        script {
-                            container('jekyll') {
+                        container('jekyll') {
+                            script {
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
@@ -60,8 +60,8 @@ pipeline {
             stages {
                 stage('Build [ master ]') {
                     steps {
-                        script {
-                            container('jekyll') {
+                        container('jekyll') {
+                            script {
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
