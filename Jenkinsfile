@@ -47,7 +47,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade site-dev molgenis/molgenis --reuse-values --set site.image.tag=${TAG} --set site.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-dev molgenis/molgenis --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
