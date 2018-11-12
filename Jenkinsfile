@@ -2,7 +2,7 @@ def siteDocker
 pipeline {
     agent {
         kubernetes {
-            label 'molgenis'
+            label 'site-gen'
         }
     }
     environment {
