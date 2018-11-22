@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        REPOSITORY = 'molgenis/site'
+        LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/site"
     }
     stages {
         stage('Retrieve build secrets') {
@@ -48,7 +48,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade website-dev molgenis/molgenis --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-dev molgenis/molgenis --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REPOSITORY}"
                         }
                     }
                 }
@@ -80,7 +80,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade site-accept molgenis/molgenis --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade site-accept molgenis/molgenis --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REPOSITORY}"
                         }
                     }
                 }
@@ -94,7 +94,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade prod-site molgenis/molgenis --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade prod-site molgenis/molgenis --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REPOSITORY}"
                         }
                     }
                 }
