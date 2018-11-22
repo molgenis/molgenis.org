@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/site"
+        LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/website"
     }
     stages {
         stage('Retrieve build secrets') {
@@ -48,7 +48,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade website-dev molgenis/molgenis-website --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REPOSITORY}"
+                            sh "helm upgrade website-dev molgenis/molgenis-website --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
@@ -80,7 +80,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade site-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REPOSITORY}"
+                            sh "helm upgrade site-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
@@ -94,7 +94,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade prod-site molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REPOSITORY}"
+                            sh "helm upgrade prod-site molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
