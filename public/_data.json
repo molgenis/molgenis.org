@@ -1,7 +1,0 @@
-{   
-  "index" : {"title":"home","description":"Welcome to MOLGENIS home page"},    
-  "about_us" : {
-    "title":"About us", 
-    "description" : "We are a driven group of developers and data scientists on a mission to deliver great infrastructure for life sciences"
-  }
-}

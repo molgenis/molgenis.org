@@ -1,0 +1,25 @@
+<html>
+{% include header.html %}
+<body class="{{page.layout}}-layout">
+<article>
+  {% if page.image %}
+  <header style="background-image: url({{page.image}})">
+  {% else %}
+  <header>
+  {% endif %}
+      {% include nav.html %}
+      {% if page.image %}
+      <h1>{{ page.title}}</h1>
+      {% else %}
+      <h1>{{ page.title}}</h1>
+      {% endif %}
+      <p>{{ page.intro }} {% if page.date %} <br/><i>(Posted {{ page.date | date: '%A, %B %d, %Y'}})</i>{% endif %}<p>
+ </header>
+  <section>
+    {{ content }}
+  </section>
+</article>
+
+{% include footer.html %}
+</body>
+</html>
