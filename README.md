@@ -10,7 +10,7 @@ You can build the project by installing Jekyll on your system:
 ### Mac
 You need to install the following dependencies.
 
-```gem install bundler jekyll jekyll-feed```
+```gem install bundler addressable jekyll jekyll-feed jekyll-blank-target```
 
 ### Jekyll
 We use Jekyll to generate the website. You can build the site with the following command.
