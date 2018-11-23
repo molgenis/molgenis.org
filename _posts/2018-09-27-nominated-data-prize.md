@@ -1,6 +1,6 @@
 ---
 title: MOLGENIS database nominated for Dutch Data Prize
-intro:
+intro: Sept 27 2018
 layout: blue
 ---
 

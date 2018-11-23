@@ -1,6 +1,6 @@
 ---
-title: Team
-intro: A team of over 20 developers, researchers and data managers develops, supports and continuously improves the software. A large community of international and national partners supports the project.
+title: Support
+intro: A team of 20 developers, researchers and data managers develops, supports and continuously improves the software. We are always happy to hear about your experience with MOLGENIS. Please, help us to improve MOLGENIS and send your feedback and ideas to <a href="mailto:molgenis-support@umcg.nl">molgenis-support@umcg.nl</a>
 layout: green
 partners:
 - bbmri-nl-bw.png: http://bbmri.nl
@@ -50,7 +50,3 @@ website: <http://www.ctmm-trait.nl/service-desk/>
 MOLGENIS is used by, developed in collaboration with and funded by:
 
 {% include partners.html %}
-
-In addition we greatly thank in-kind contribution from several commercial parties:
-* Balsamiq, for great wireframing
-* IntelliJ, for software development

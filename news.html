@@ -3,19 +3,3 @@ title: news
 intro: Here you can find all news items
 layout: green
 ---
-<a name="top"></a>
-<ul>
-{% for post in site.posts %}
-    <li><a href="#{{ post.title}}">{{ post.title }}</a><small> <i>Posted {{ post.date | date: '%A, %B %d, %Y'}}</i></small></li>
-{% endfor %}
-</ul>
-
-{% for post in site.posts %}
-<a id="{{post.title}}"/>
-<h1>{{ post.title }}</h1>
-<small> <i>Posted {{ post.date | date: '%A, %B %d, %Y'}}</i></small>
-<div>
-{{ post.content }}
-</div>
-<a href="#top">Back to top</a>
-{% endfor %}
