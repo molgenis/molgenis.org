@@ -9,11 +9,38 @@ body {
   margin: 0px;
 }
 /** paddings and margins **/
-header, section, footer {
+/** margin-top unrelated */
+header, footer, h1, h2, h3, .feature_image_box {
   margin-top: 2.4rem;
-  padding-top: 1.6rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  margin-bottom: 0rem;
+}
+
+ h1, h2, h3 {
+   padding-bottom: 1.6rem;
+ }
+
+ section h1 {
+   margin-top: 4.8rem;
+ }
+
+p {
+  margin-top: 0px;
+}
+
+/** page margin */
+header, section, footer {
   padding-left: 2.4rem;
   padding-right: 2.4rem;
+}
+
+h1 {
+  border-top: 0.2rem solid;
+}
+
+section h2, h3 {
+  margin-top: 1.6rem;
 }
 
 footer ul {
@@ -53,6 +80,32 @@ footer ul {
 dt {
   background-size: 0 0; /** hide background image unless higher resolution*//
 }
+
+nav {
+  height: 4.8em;
+  padding-top: 0.8em;
+}
+header p, section, section h2, section h3, .feature_box {
+  padding-top: 1.6rem;
+}
+
+#logo {
+  background-size: auto 3.8rem;
+  width: 12rem;
+  height: 4.2rem;
+}
+
+#footer_logo {
+  height: 10rem;
+}
+
+nav, footer ul {
+}
+
+nav li {
+  padding-left: 1.6rem;
+}
+
 @media (min-width: 40em) {
   html {
     font-size: 62.5%;
@@ -71,14 +124,24 @@ dt {
     width: 30%;
     padding-right: 1.6rem;
   }
+  h1 {
+    border-top: 0.4rem solid;
+  }
+
 }
 @media (min-width: 67em) {
   html {
-    font-size: 80%;
+    font-size: 75%;
   }
   header, section, footer {
     padding-left: 12.8rem;
     padding-right: 12.8rem;
+  }
+  header, footer, h1, h2, h3, .feature_image_box {
+    margin-top: 3.2rem;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+    margin-bottom: 0rem;
   }
   #menu:not(:checked) ~ li {
     display: inline-block;
@@ -104,7 +167,7 @@ dt {
 
 @media (min-width: 100em) {
   html {
-    font-size: 100%;
+    font-size: 90%;
   }
   header, section, footer {
     padding-left: 25.6rem;
@@ -112,38 +175,12 @@ dt {
   }
 }
 
-nav {
-  height: 4.8em;
-  padding-top: 0.8em;
-}
-header h1, header p, section, section h1, section h2, section h3, .feature_box {
-  margin: 0px;
-  padding-top: 1.6rem;
-}
-
-#logo {
-  background-size: auto 3.8rem;
-  width: 12rem;
-  height: 4.2rem;
-}
-
-#footer_logo {
-  height: 10rem;
-}
-
-nav, footer ul {
-}
-
-nav li {
-  padding-left: 1.6rem;
-}
-
 /** sizes **/
 header h1 {
   font-size: 4.8rem;
   line-height: 4.8rem;
 }
-header p, nav ul {
+header p {
   font-size: 1.6rem;
   line-height: 3.0rem;
 }
@@ -157,12 +194,12 @@ section h1 {
   font-size: 4.0rem;
   line-height: 4.0rem;
 }
-section h2 {
+section h2  {
   font-size: 2.6rem;
   line-height: 2.6rem;
 }
 
-section h3, footer li h1 {
+section h3, footer li h1, nav ul {
   font-size: 2.0rem;
   line-height: 2.2rem;
 }
@@ -202,7 +239,7 @@ summary > p {
     src: url(/assets/fonts/IBMPlexMono-Lightitalic.ttf);
 }
 
-header h1, section h1, section h2, section h3, nav, footer li h1 {
+header h1, section h1, section h2, section h3, nav, footer li h1, footer li h2 {
   font-family: BebasNeueBold, Oswald, sans-serif;
 }
 
@@ -259,13 +296,13 @@ section blockquote {
   color: white;
 }
 
-h1 {
-  border-top: 0.2rem solid;
-}
-
 section h1 {
   color: #017FFD;
   border-color: #017FFD;
+}
+
+section a {
+  color: #017FFD;
 }
 
 section h2, section h3 {
@@ -345,7 +382,7 @@ footer li {
   display: block;
 }
 
-footer li h1 {
+footer li h2 {
   color: #72F6B2;
 }
 

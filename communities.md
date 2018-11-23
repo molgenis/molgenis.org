@@ -1,14 +1,14 @@
 ---
-title: Applications
-intro: "Many have created great data solutions using MOLGENIS. Examples of communities using MOLGENIS below. Please email us if you want to added to this list."
+title: Communities
+intro: "MOLGENIS can be applied in many ways and great data solutions are created using MOLGENIS. Examples of communities and their applications below."
 layout: black
 ---
 <div class="feature_box">
 <div class="feature_content_box">
-<h1>'FAIR' Catalogues</h1>
-<b>Make data and samples findable</b> from biobanks, registries and researchers collections to ensure maximum (re)use for research and improve patients and citizens lives. Examples:
+<h1>FAIR Catalogues</h1>
+Make data and samples findable from biobanks, registries and researchers collections to ensure maximum (re)use for research and improve patients and citizens lives. Examples:
 <ul>
-<li><a href="http://directory.bbmri-eric.nl">European directory of biobank collections (BBMRI-ERIC)</a></li>
+<li><a href="http://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
 <li><a href="http://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
 <li><a href="http://samples.rd-connect.nl">Catalogue of rare disease samples (RD-Connect)</a></li>
 <li><a href="http://www.palgaopenbaredatabank.nl/">Dutch catalogue of pathology samples (PALGA)]</a></li>
@@ -26,7 +26,7 @@ layout: black
 </div>
 <div class="feature_content_box">
 <h1>Registries</h1>
-<b>Share patients, mutation and disease knowledge</b> to understand relations between genetics, environment and disease. Examples:
+Share patients, mutation and disease knowledge to understand relations between genetics, environment and disease. Examples:
 <ul>
 <li><a href="http://www.deb-central.org">Deb-central: patient registry for Epidermolosis Bullosa]</a></li>
 <li><a href="http://www.mvid-central.org">International registry of Microvillus Inclusion Disease (MVID) patients and associated MYO5B, STX3 and STXBP2 mutations</a></li>
@@ -39,7 +39,7 @@ layout: black
 <div class="feature_box">
 <div class="feature_content_box">
 <h1>Research portals</h1>
-<b>Capture, manage, analyse, share complete datasets</b> with biomedical researchers,clinical professionals, and bioinformaticians without the need for advanced bioinformatics skills. Examples:
+Capture, manage, analyse, share complete datasets with biomedical researchers,clinical professionals, and bioinformaticians without the need for advanced bioinformatics skills. Examples:
 <ul>
 <li><a href="http://1000ibd.org">Prospectively study of 1000 IBD patients from the Northern provinces of the Netherlands</a></li>
 <li><a href="http://hfgp.bbmri.nl">Human Functional Genomics Project</a></li>
@@ -57,7 +57,7 @@ layout: black
 </div>
 <div class="feature_content_box">
 <h1>Pipelines</h1>
-<b>Reusable bioinformatics protocols</b> to process  molecular profiles that can now be produced at unbelievable rates demanding bespoke bioinformatics protocols and high performance computing to process. Examples:
+Reusable bioinformatics protocols to process  molecular profiles that can now be produced at unbelievable rates demanding bespoke bioinformatics protocols and high performance computing to process. Examples:
 <ul>
 <li><a href="https://github.com/molgenis/NGS_DNA">[NGS DNA pipeline</a></li>
 <li><a href="https://github.com/molgenis/NGS_RNA">NGS RNA pipeline</a></li>
@@ -67,6 +67,8 @@ layout: black
 </ul>
 </div>
 </div>
+
+Please email us if you want to added to this list.
 
 <!--
 <a name="connect"/>

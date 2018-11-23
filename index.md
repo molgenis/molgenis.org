@@ -1,7 +1,7 @@
 ---
-title: "Love your scientific data."
-intro: Free. Open source. Simple to use.<br/><br/>MOLGENIS a data platform to accelerate your scientific endavours. <br/><br/>And for bioinformaticians who want to make their researchers happy.<br/><br/><br/><br/><br/>
-image: /images/frontpage-small-darker.jpeg
+title: "For scientific data"
+intro: Free. Open source. Simple to use.<br/><br/>MOLGENIS a data platform to accelerate your scientific collaborations. <br/><br/>And for bioinformaticians who want to make researchers happy.<br/><br/><br/><br/><br/>
+image: /images/frontpage-small-darker3.jpg
 layout: blue
 ---
 
