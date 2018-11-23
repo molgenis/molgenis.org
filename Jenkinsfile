@@ -32,6 +32,7 @@ pipeline {
                         container('jekyll') {
                             script {
                                 sh('chown -R jekyll:jekyll $(pwd)')
+                                sh('jekyll doctor')
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
@@ -64,6 +65,7 @@ pipeline {
                         container('jekyll') {
                             script {
                                 sh('chown -R jekyll:jekyll $(pwd)')
+                                sh('jekyll doctor')
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
@@ -80,7 +82,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade site-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
@@ -89,12 +91,12 @@ pipeline {
                         timeout(time: 10, unit: 'MINUTES') {
                             input(message: 'Prepare to release?')
                         }
-                        milestone(ordinal: 100, label: 'deploy to test.molgenis.org')
+                        milestone(ordinal: 100, label: 'deploy to www.molgenis.org')
                         container('helm') {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade prod-site molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-prod molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
