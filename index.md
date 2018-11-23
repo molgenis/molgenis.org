@@ -1,5 +1,5 @@
 ---
-title: "For scientific data."
+title: "For scientific data"
 intro: Free. Open source. Simple to use.<br/><br/>MOLGENIS a data platform to accelerate your scientific collaborations. <br/><br/>And for bioinformaticians who want to make researchers happy.<br/><br/><br/><br/><br/>
 image: /images/frontpage-small-darker3.jpg
 layout: blue
