@@ -1,6 +1,6 @@
 FROM nginx
 
-COPY _site /usr/share/nginx/html
+ADD _site /usr/share/nginx/html
 
 RUN mkdir /etc/nginx/redirect.d
 
