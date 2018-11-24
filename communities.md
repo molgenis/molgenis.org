@@ -61,7 +61,7 @@ MOLGENIS compute based reusable bioinformatics protocols to process molecular pr
 <ul>
 <li><a href="https://github.com/molgenis/NGS_DNA">[NGS DNA pipeline</a></li>
 <li><a href="https://github.com/molgenis/NGS_RNA">NGS RNA pipeline</a></li>
-<li><a href="https://github.com/molgenis/NGS_ScRN">NGS scRNA pipelin</a></li>
+<li><a href="https://github.com/molgenis/NGS_ScRNA">NGS scRNA pipelin</a></li>
 <li><a href="https://github.com/molgenis/NGS_Microbiome">NGS Microbiome</a></li>
 <li><a href="https://github.com/molgenis/GAP">Genotype Array Pipeline</a></li>
 </ul>
