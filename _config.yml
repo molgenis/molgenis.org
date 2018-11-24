@@ -1,8 +1,8 @@
 title: MOLGENIS
 email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  MOLGENIS open source project website.
-layout: green #default layout
+description: MOLGENIS open source project website.
+layout: black #default layout
+url: http://www.molgenis.or
 
 # Build settings
 markdown: kramdown
