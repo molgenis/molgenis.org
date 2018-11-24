@@ -8,6 +8,7 @@ layout: green #default layout
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-target-blank
 exclude:
   - Gemfile
   - Gemfile.lock
