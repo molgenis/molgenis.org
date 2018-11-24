@@ -16,7 +16,7 @@ partners:
 - rug-bw.png: http://www.rug.nl/gbic
 - energysense-bw.png: http://www.energyacademy.org/research/energysense
 - dtl-bw.png: http://dtls.nl
-- nfud4ls-bw.png: http://www.nfu.nl/publicaties/data4lifesciences
+- nfud4ls-bw.png: https://data4lifesciences.nl/
 - e-rare-bw.png: http://www.erare.eu/financed-projects/insaid
 - solverd-bw.png: http://solve-rd.eu/
 - corbel-bw.png: http://www.corbel-project.eu/home.html
