@@ -14,7 +14,7 @@ During development you can view changes by running
  ```jekyll server```
 
 To test if your stuff will work in product you can do:
- ```jekyll build``
+ ```jekyll build```
 
 # Other notes
 
