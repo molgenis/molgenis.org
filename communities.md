@@ -10,7 +10,7 @@ Make data and samples from biobanks, registries and research collections findabl
 <ul>
 <li><a href="http://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
 <li><a href="http://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
-<li><a href="http://samples.rd-connect.nl">Catalogue of rare disease samples (RD-Connect)</a></li>
+<li><a href="http://samples.rd-connect.eu">Catalogue of rare disease samples (RD-Connect)</a></li>
 <li><a href="http://www.palgaopenbaredatabank.nl/">Dutch catalogue of pathology samples (PALGA)</a></li>
 <li><a href="https://catalogue.lifelines.nl">LifeLines request portal of data and materials</a></li>
 </ul>
