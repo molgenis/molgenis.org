@@ -1,7 +1,7 @@
 ---
 title: Learn
 intro: Read more about MOLGENIS in manuals, news items and publications.
-layout: blue
+layout: black
 ---
 # Documentation
 Here you can find documentation:

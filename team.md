@@ -1,7 +1,7 @@
 ---
 title: Team
-intro: A team of 20 developers, researchers and data managers develops, supports and continuously improves the software. And a community of 20+ partners supports the project. We are always happy to hear about your experiences. Please, help us to improve MOLGENIS and send your feedback and ideas to <a href="mailto:molgenis-support@umcg.nl">molgenis-support@umcg.nl</a>
-layout: green
+intro: A team of over 20 developers, researchers and data managers develops, supports and continuously improves the software. Furthermore we have a large community of international and national partners supporting the project.
+layout: black
 partners:
 - bbmri-nl-bw.png: http://bbmri.nl
 - bbmri-eric-bw.png: http://bbmri-eric.eu
@@ -16,7 +16,7 @@ partners:
 - rug-bw.png: http://www.rug.nl/gbic
 - energysense-bw.png: http://www.energyacademy.org/research/energysense
 - dtl-bw.png: http://dtls.nl
-- nfud4ls-bw.png: http://www.nfu.nl/publicaties/data4lifesciences
+- nfud4ls-bw.png: https://data4lifesciences.nl/
 - e-rare-bw.png: http://www.erare.eu/financed-projects/insaid
 - solverd-bw.png: http://solve-rd.eu/
 - corbel-bw.png: http://www.corbel-project.eu/home.html
@@ -29,13 +29,13 @@ partners:
 - eu-bw.png: https://ec.europa.eu/info/research-and-innovation_en
 ---
 
-The MOLGENIS support teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: molgenis-support@umcg.nl.
+The MOLGENIS teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: molgenis-support@umcg.nl. You can also post your ideas open source at [GitHub](https://github.com/molgenis/molgenis/issues).
 
 ## Coordination
-MOLGENIS was initiated and is currently coordinated by Prof.Dr. Morris Swertz of the Genomics Coordination Center (GCC), kindly hosted by the Dept of Genetics of University Medical Center Groningen. Please contact at: <a href="mailto:m.a.swertz@rug.nl">mailto:m.a.swertz@rug.nl</a>. You can also post your ideas open source at [GitHub](https://github.com/molgenis/molgenis/issues).
+MOLGENIS was initiated and is currently coordinated by Prof.Dr. Morris Swertz of the Genomics Coordination Center (GCC), kindly hosted by the Department of Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:m.a.swertz@rug.nl">mailto:m.a.swertz@rug.nl</a>.
 
 ## Hosting and support
-You can get MOLGENIS ready to use from two support providers. They can also provide support with entering and managing your data. Please contact one of the support groups below for details and costs.
+MOLGENIS is free to download and install yourself. You can also get MOLGENIS ready for use from two support providers. They can also provide support with entering and managing your data. Please contact one of the support groups below for details and costs.
 
 **Genomics Coordination Center**  
 University Medical Center Groningen  
@@ -50,3 +50,7 @@ website: <http://www.ctmm-trait.nl/service-desk/>
 MOLGENIS is used by, developed in collaboration with and funded by:
 
 {% include partners.html %}
+
+In addition we greatly thank in-kind contribution from several commercial parties:
+* Balsamiq, for great wireframing
+* IntelliJ, for software development
