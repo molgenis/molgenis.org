@@ -59,6 +59,9 @@ pipeline {
             when {
                 branch 'master'
             }
+            environment {
+                TAG = "$BUILD_NR"
+            }
             stages {
                 stage('Build [ master ]') {
                     steps {
@@ -68,8 +71,9 @@ pipeline {
                                 sh('jekyll doctor')
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
-                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
+                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:$TAG", "--pull --no-cache --force-rm .")
                                     siteDocker.push('latest')
+                                    siteDocker.push("$TAG")
                                 }
                             }
                         }
@@ -82,7 +86,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade website-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-accept molgenis/molgenis-website --reuse-values --set site.image.tag=$TAG --set site.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
@@ -96,7 +100,7 @@ pipeline {
                             sh "helm init --client-only"
                             sh "helm repo add molgenis ${HELM_REPO}"
                             sh "helm repo update"
-                            sh "helm upgrade website-prod molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
+                            sh "helm upgrade website-prod molgenis/molgenis-website --reuse-values --set molgenis.image.tag=$TAG --set molgenis.image.repository=${LOCAL_REGISTRY}"
                         }
                     }
                 }
