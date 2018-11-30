@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
         LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/website"
+        CHART_VERSION = '0.3.3'
     }
     stages {
         stage('Retrieve build secrets') {
@@ -17,11 +18,6 @@ pipeline {
                         sh(script: 'vault read -field=value secret/ops/jenkins/rancher/cli2.json > /home/jenkins/.rancher/cli2.json')
                         env.GITHUB_TOKEN = sh(script: 'vault read -field=value secret/ops/token/github', returnStdout: true)
                         env.GITHUB_USER = sh(script: 'vault read -field=username secret/ops/token/github', returnStdout: true)
-                    }
-                }
-                container('rancher') {
-                    script {
-                        sh "cp /home/jenkins/.rancher/cli2.json /root/.rancher/cli2.json"
                     }
                 }
             }
@@ -54,7 +50,7 @@ pipeline {
                         milestone(ordinal: 100, label: 'deploy to site.dev.molgenis.org')
                         container('rancher') {
                             sh "rancher context switch development"
-                            sh "rancher apps --set website.image.tag=${TAG} website-dev 0.3.2"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-dev ${CHART_VERSION}"
                         }
                     }
                 }
@@ -89,7 +85,7 @@ pipeline {
                         milestone(ordinal: 100, label: 'deploy to site.accept.molgenis.org')
                         container('rancher') {
                             sh "rancher context switch acceptance"
-                            sh "rancher apps --set website.image.tag=${TAG} website-accept 0.3.2"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-accept ${CHART_VERSION}"
                         }
                     }
                 }
@@ -101,7 +97,7 @@ pipeline {
                         milestone(ordinal: 100, label: 'deploy to www.molgenis.org')
                         container('rancher') {
                             sh "rancher context switch production"
-                            sh "rancher apps --set website.image.tag=${TAG} website-prod 0.3.2"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-prod ${CHART_VERSION}"
                         }
                     }
                 }
