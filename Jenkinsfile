@@ -61,7 +61,7 @@ pipeline {
                 branch 'master'
             }
             environment {
-                TAG = "$BUILD_NR"
+                TAG = "$BUILD_NUMBER"
             }
             stages {
                 stage('Build [ master ]') {
@@ -91,10 +91,8 @@ pipeline {
                 }
                 stage('Deploy release [ master ]') {
                     steps {
-                        timeout(time: 10, unit: 'MINUTES') {
-                            input(message: 'Prepare to release?')
-                        }
-                        milestone(ordinal: 100, label: 'deploy to www.molgenis.org')
+                        milestone(ordinal: 200, label: 'deploy to www.molgenis.org')
+                        input(message: 'Prepare to release?')
                         container('rancher') {
                             sh "rancher context switch production"
                             sh "rancher apps upgrade --set website.image.tag=${TAG} website-prod ${CHART_VERSION}"
