@@ -34,9 +34,10 @@ pipeline {
                     steps {
                         container('jekyll') {
                             script {
+                                sh ("echo version: ${TAG} > _version.yml")
                                 sh('chown -R jekyll:jekyll $(pwd)')
                                 sh('jekyll doctor')
-                                sh('jekyll build')
+                                sh('jekyll build --config _version.yml,_config.yml')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     def siteDockerDev = docker.build("${LOCAL_REPOSITORY}:${TAG}", "--pull --no-cache --force-rm .")
                                     siteDockerDev.push("${TAG}")
@@ -68,9 +69,10 @@ pipeline {
                     steps {
                         container('jekyll') {
                             script {
+                                sh ("echo version: ${TAG} > _version.yml")
                                 sh('chown -R jekyll:jekyll $(pwd)')
                                 sh('jekyll doctor')
-                                sh('jekyll build')
+                                sh('jekyll build --config _version.yml,_config.yml')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
                                     siteDocker = docker.build("${LOCAL_REPOSITORY}:$TAG", "--pull --no-cache --force-rm .")
                                     siteDocker.push('latest')
