@@ -7,12 +7,15 @@ pipeline {
     }
     environment {
         LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/website"
+        CHART_VERSION = '0.3.3'
     }
     stages {
         stage('Retrieve build secrets') {
             steps {
                 container('vault') {
                     script {
+                        sh "mkdir /home/jenkins/.rancher"
+                        sh(script: 'vault read -field=value secret/ops/jenkins/rancher/cli2.json > /home/jenkins/.rancher/cli2.json')
                         env.GITHUB_TOKEN = sh(script: 'vault read -field=value secret/ops/token/github', returnStdout: true)
                         env.GITHUB_USER = sh(script: 'vault read -field=username secret/ops/token/github', returnStdout: true)
                     }
@@ -44,12 +47,10 @@ pipeline {
                 }
                 stage("Deploy to dev-site [ site.dev.molgenis.org ]") {
                     steps {
-                        milestone(ordinal: 100, label: 'deploy to dev.molgenis.org')
-                        container('helm') {
-                            sh "helm init --client-only"
-                            sh "helm repo add molgenis ${HELM_REPO}"
-                            sh "helm repo update"
-                            sh "helm upgrade website-dev molgenis/molgenis-website --reuse-values --set website.image.tag=${TAG} --set website.image.repository=${LOCAL_REGISTRY}"
+                        milestone(ordinal: 100, label: 'deploy to site.dev.molgenis.org')
+                        container('rancher') {
+                            sh "rancher context switch development"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-dev ${CHART_VERSION}"
                         }
                     }
                 }
@@ -58,6 +59,9 @@ pipeline {
         stage('Steps [ master ]') {
             when {
                 branch 'master'
+            }
+            environment {
+                TAG = "$BUILD_NR"
             }
             stages {
                 stage('Build [ master ]') {
@@ -68,8 +72,9 @@ pipeline {
                                 sh('jekyll doctor')
                                 sh('jekyll build')
                                 docker.withRegistry("https://${LOCAL_REGISTRY}", "molgenis-jenkins-registry-secret") {
-                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:latest", "--pull --no-cache --force-rm .")
+                                    siteDocker = docker.build("${LOCAL_REPOSITORY}:$TAG", "--pull --no-cache --force-rm .")
                                     siteDocker.push('latest')
+                                    siteDocker.push("$TAG")
                                 }
                             }
                         }
@@ -78,11 +83,9 @@ pipeline {
                 stage("Deploy to accept-site [ master ]") {
                     steps {
                         milestone(ordinal: 100, label: 'deploy to site.accept.molgenis.org')
-                        container('helm') {
-                            sh "helm init --client-only"
-                            sh "helm repo add molgenis ${HELM_REPO}"
-                            sh "helm repo update"
-                            sh "helm upgrade website-accept molgenis/molgenis-website --reuse-values --set site.image.tag=latest --set site.image.repository=${LOCAL_REGISTRY}"
+                        container('rancher') {
+                            sh "rancher context switch acceptance"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-accept ${CHART_VERSION}"
                         }
                     }
                 }
@@ -92,11 +95,9 @@ pipeline {
                             input(message: 'Prepare to release?')
                         }
                         milestone(ordinal: 100, label: 'deploy to www.molgenis.org')
-                        container('helm') {
-                            sh "helm init --client-only"
-                            sh "helm repo add molgenis ${HELM_REPO}"
-                            sh "helm repo update"
-                            sh "helm upgrade website-prod molgenis/molgenis-website --reuse-values --set molgenis.image.tag=latest --set molgenis.image.repository=${LOCAL_REGISTRY}"
+                        container('rancher') {
+                            sh "rancher context switch production"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-prod ${CHART_VERSION}"
                         }
                     }
                 }
