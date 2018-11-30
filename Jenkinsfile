@@ -19,6 +19,11 @@ pipeline {
                         env.GITHUB_USER = sh(script: 'vault read -field=username secret/ops/token/github', returnStdout: true)
                     }
                 }
+                container('rancher') {
+                    script {
+                        sh "cp /home/jenkins/.rancher/cli2.json /root/.rancher/cli2.json"
+                    }
+                }
             }
         }
         stage('Steps [ PR ]') {
