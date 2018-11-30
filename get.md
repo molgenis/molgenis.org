@@ -1,12 +1,13 @@
 ---
 title: GET MOLGENIS
-intro: MOLGENIS is an open source platform that is available for everybody. We have hosting services and self-hosting options for getting access to and using MOLGENIS, depending on your wishes and needs. And all software is open source so programmers can check-out all code and start from there.
+intro: MOLGENIS is open source and free to download, install and use. There are also hosting services if you don't want to install yourself.
 layout: blue
 ---
 
+You can freely copy and install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions. There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below:
 
 # Hosting and support
-You can get MOLGENIS ready to use from two hosting providers. They can also provide support with entering and managing your data. Please contact one of the support groups below for details and costs.
+At least two hosting organisations provide MOLGENIS hosting as a service. E.g. for 200 euro/month UMCG hosts 1 MOLGENIS servers and for 250 euro/month 3 MOLGENIS servers. This includes basic data management support with functional application management. In addition, hosting providers can deliver support on a tailor made basis. Please contact one of the support groups below for details and costs regarding tailored support.
 
 **Genomics Coordination Center**  
 University Medical Center Groningen  
@@ -16,10 +17,8 @@ email: <molgenis-support@umcg.nl>
 Lygature, Utrecht  
 website: <http://www.ctmm-trait.nl/service-desk/>
 
-# Download and install yourself
-You can also install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions.
 
-## Install on Linux
+# Install on Linux
 
 To install on Linux you need
 * MOLGENIS 'WAR' file (Choose download WAR [here](https://search.maven.org/search?q=g:org.molgenis%20AND%20a:molgenis-app here))
@@ -31,7 +30,7 @@ To install on Linux you need
 * Optional: Python (enables Python scripting feature)
 See for details on versions used the [Manual](https://molgenis.gitbooks.io/molgenis/content/quickstart/guide-tomcat.html).
 
-## Install using Docker (experimental)
+# Install using Docker (experimental)
 
 For testing purposes we now use Docker. We have the ambition to also use it for production but then you need to configure data persistence. However feel free to use our docker as a starting point. Get [Docker Images](https://github.com/molgenis/docker)
 

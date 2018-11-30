@@ -32,7 +32,13 @@ partners:
 The MOLGENIS teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: molgenis-support@umcg.nl. You can also post your ideas open source at [GitHub](https://github.com/molgenis/molgenis/issues).
 
 ## Coordination
-MOLGENIS was initiated and is currently coordinated by Prof.Dr. Morris Swertz of the Genomics Coordination Center (GCC), kindly hosted by the Department of Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:m.a.swertz@rug.nl">mailto:m.a.swertz@rug.nl</a>.
+MOLGENIS was initiated and is currently coordinated by Prof.Dr. Morris Swertz of the Genomics Coordination Center (GCC), kindly hosted by the Department of Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:m.a.swertz@rug.nl">mailto:m.a.swertz@rug.nl</a>. MOLGENIS is funded by a large range of public projects from various academic sponsors (see PartnerS below).
+
+**Scientific Advisory Board**
+MOLGENIS development is strategically guided by an independent international Strategic Advisory Board (SAB) who provide solicited and unsolicited scientific and strategic advice. Also, they highlight critical issues and emerging global trends in academia where MOLGENIS could fill a gap or meet a need and help the MOLGENIS team to push forward FAIR data and FAIR data stewardship in a national and international context, in particular in human data research, biobanking and rare disease. The SAB consists of 3 independent members who are appointed for 2 years and who are currently being appointed. The SAB meets twice a year and the next SAB meeting is scheduled for Q1 2019. Due to the public funding of MOLGENIS, no compensation, apart from traveling costs will be available to the board members.”
+
+**User groups**
+In addition to strategic advice MOLGENIS also has several user communities guiding its development. These groups are managed by the respective communities, and often change dynamically following changes in funded project. For example, there is a Dutch biobank user group and a European directory user forum. We plan to expand these user engagement activities to ensure optimal allocation of the limited development resources.
 
 ## Hosting and support
 MOLGENIS is free to download and install yourself. You can also get MOLGENIS ready for use from two support providers. They can also provide support with entering and managing your data. Please contact one of the support groups below for details and costs.
