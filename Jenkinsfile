@@ -48,7 +48,7 @@ pipeline {
                     steps {
                         milestone(ordinal: 100, label: 'deploy to site.dev.molgenis.org')
                         container('rancher') {
-                            sh "rancher cluster molgenis-dev"
+                            sh "rancher context switch development"
                             sh "rancher apps --set website.image.tag=${TAG} website-dev 0.3.2"
                         }
                     }
@@ -83,7 +83,7 @@ pipeline {
                     steps {
                         milestone(ordinal: 100, label: 'deploy to site.accept.molgenis.org')
                         container('rancher') {
-                            sh "rancher cluster molgenis-prod"
+                            sh "rancher context switch acceptance"
                             sh "rancher apps --set website.image.tag=${TAG} website-accept 0.3.2"
                         }
                     }
@@ -95,7 +95,7 @@ pipeline {
                         }
                         milestone(ordinal: 100, label: 'deploy to www.molgenis.org')
                         container('rancher') {
-                            sh "rancher cluster molgenis-prod"
+                            sh "rancher context switch production"
                             sh "rancher apps --set website.image.tag=${TAG} website-prod 0.3.2"
                         }
                     }
