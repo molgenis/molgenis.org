@@ -1,5 +1,5 @@
 ---
-title: 'MOLGENIS is selected as part of 10 ELIXIR ‘recommended interoperability resources’"
+title: "MOLGENIS is selected as part of 10 ELIXIR ‘recommended interoperability resources’"
 layout: blue
 ---
 
