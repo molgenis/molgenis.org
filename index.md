@@ -37,5 +37,5 @@ MOLGENIS Pipelines: [DNA pipeline](https://github.com/molgenis/NGS_DNA) [docs](h
 {% include newscontainer.html %}
 
 <div style="text-align: center">
-<a href="/learn.html" class="bluebutton">Discover more news</a>
+<a href="/news.html" class="bluebutton">Discover more news</a>
 </div>
