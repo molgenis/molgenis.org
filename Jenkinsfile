@@ -94,7 +94,6 @@ pipeline {
                 stage('Deploy release [ master ]') {
                     steps {
                         milestone(ordinal: 200, label: 'deploy to www.molgenis.org')
-                        input(message: 'Prepare to release?')
                         container('rancher') {
                             sh "rancher context switch production"
                             sh "rancher apps upgrade --set website.image.tag=${TAG} website-prod ${CHART_VERSION}"
@@ -106,18 +105,10 @@ pipeline {
     }
     post {
         success {
-            notifySuccess()
+            hubotSend(message: 'Build success', status: 'INFO', site: 'slack-pr-ops')
         }
         failure {
-            notifyFailed()
+            hubotSend(message: 'Build failed', status: 'ERROR', site: 'slack-pr-ops')
         }
     }
-}
-
-def notifySuccess() {
-    hubotSend(message: 'Build success', status: 'INFO', site: 'slack-pr-ops')
-}
-
-def notifyFailed() {
-    hubotSend(message: 'Build failed', status: 'ERROR', site: 'slack-pr-ops')
 }
