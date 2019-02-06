@@ -50,7 +50,7 @@ pipeline {
                     steps {
                         milestone(ordinal: 100, label: 'deploy to site.dev.molgenis.org')
                         container('rancher') {
-                            sh "rancher context switch development"
+                            sh "rancher context switch dev-molgenis"
                             sh "rancher apps upgrade --set website.image.tag=${TAG} website-dev ${CHART_VERSION}"
                         }
                     }
@@ -86,7 +86,7 @@ pipeline {
                     steps {
                         milestone(ordinal: 100, label: 'deploy to site.accept.molgenis.org')
                         container('rancher') {
-                            sh "rancher context switch acceptance"
+                            sh "rancher context switch accept-molgenis"
                             sh "rancher apps upgrade --set website.image.tag=${TAG} website-accept ${CHART_VERSION}"
                         }
                     }
@@ -96,7 +96,7 @@ pipeline {
                         milestone(ordinal: 200, label: 'deploy to www.molgenis.org')
                         input(message: 'Prepare to release?')
                         container('rancher') {
-                            sh "rancher context switch production"
+                            sh "rancher context switch prod-molgenis"
                             sh "rancher apps upgrade --set website.image.tag=${TAG} website-prod ${CHART_VERSION}"
                         }
                     }
