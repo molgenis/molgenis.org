@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-name="Layer 1"
+   viewBox="0 0 100 125"
+   x="0px"
+   y="0px"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="noun_security system_1381817_green.svg">
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs26">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4171"
+       x="-0.82407335"
+       width="2.6481467"
+       y="-1.3381505"
+       height="3.676301">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.521928"
+         id="feGaussianBlur4173" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1273"
+     inkscape:window-height="860"
+     id="namedview24"
+     showgrid="false"
+     inkscape:zoom="1.888"
+     inkscape:cx="-20.444915"
+     inkscape:cy="62.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">Artboard 20</title>
+  <path
+     d="M50,26.83a2.5,2.5,0,0,0,2.5-2.5V17.79a8.58,8.58,0,1,0-5,0v6.54A2.5,2.5,0,0,0,50,26.83ZM46.42,9.58A3.58,3.58,0,1,1,50,13.17,3.59,3.59,0,0,1,46.42,9.58Z"
+     id="path6" />
+  <path
+     d="M50,73.17a2.5,2.5,0,0,0-2.5,2.5v6.54a8.58,8.58,0,1,0,5,0V75.67A2.5,2.5,0,0,0,50,73.17Zm3.58,17.25A3.58,3.58,0,1,1,50,86.83,3.59,3.59,0,0,1,53.58,90.42Z"
+     id="path8" />
+  <path
+     d="M40.58,44.82A6.42,6.42,0,0,0,35,51.18v9.49a6.42,6.42,0,0,0,6.42,6.42H58.59A6.42,6.42,0,0,0,65,60.67V51.18a6.42,6.42,0,0,0-5.58-6.36V40.67a8.77,8.77,0,0,0-8.76-8.76H49.33a8.77,8.77,0,0,0-8.76,8.76ZM60,51.18v9.49a1.42,1.42,0,0,1-1.42,1.42H41.41A1.42,1.42,0,0,1,40,60.67V51.18a1.42,1.42,0,0,1,1.42-1.42H58.59A1.42,1.42,0,0,1,60,51.18ZM49.33,36.91h1.33a3.76,3.76,0,0,1,3.76,3.76v4.09H45.58V40.67A3.76,3.76,0,0,1,49.33,36.91Z"
+     id="path10"
+     style="fill:#72f6b2;fill-opacity:1" />
+  <path
+     d="M23.29,27.57A8.58,8.58,0,1,0,15,38.38a8.63,8.63,0,0,0,2.24-.3A8.54,8.54,0,0,0,20.91,36l5.58,2.87a2.5,2.5,0,1,0,2.29-4.45l-5.4-2.77A8.54,8.54,0,0,0,23.29,27.57ZM13.21,32.9a3.58,3.58,0,1,1,4.89-1.31A3.59,3.59,0,0,1,13.21,32.9Z"
+     id="path12" />
+  <path
+     d="M89.29,62.77A8.59,8.59,0,0,0,79.09,64l-5.58-2.87a2.5,2.5,0,0,0-2.29,4.45l5.4,2.77a8.58,8.58,0,1,0,12.67-5.56ZM88.11,72a3.58,3.58,0,1,1-1.31-4.9A3.59,3.59,0,0,1,88.11,72Z"
+     id="path14" />
+  <path
+     d="M80.71,22.36a8.58,8.58,0,0,0-4.09,9.31l-5.4,2.77a2.5,2.5,0,1,0,2.29,4.45L79.09,36a8.58,8.58,0,1,0,1.62-13.66ZM86.79,32.9A3.58,3.58,0,1,1,88.11,28,3.59,3.59,0,0,1,86.79,32.9Z"
+     id="path16" />
+  <path
+     d="M19.29,77.64a8.58,8.58,0,0,0,4.09-9.31l5.4-2.77a2.5,2.5,0,1,0-2.29-4.45L20.91,64a8.58,8.58,0,1,0-1.62,13.66ZM11.89,72a3.58,3.58,0,1,1,4.9,1.31A3.59,3.59,0,0,1,11.89,72Z"
+     id="path18" />
+  <text
+     x="22"
+     y="105"
+     font-size="5px"
+     font-weight="bold"
+     id="text20"
+     style="font-weight:bold;font-size:5px;font-family:'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif;fill:#72f6b2;fill-opacity:1;">Created by Gregor Cresnar</text>
+  <text
+     x="24"
+     y="110"
+     font-size="5px"
+     font-weight="bold"
+     id="text22"
+     style="font-weight:bold;font-size:5px;font-family:'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif;fill:#72f6b2;fill-opacity:1">from the Noun Project</text>
+  <image
+     y="52.127121"
+     x="43.84322"
+     id="image4164"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAYCAYAAADpnJ2CAAAABHNCSVQICAgIfAhkiAAAAXxJREFU
+SIm11kGKwjAYhuFQu7C9gRZbvIgu9AYeQ93pgdSCFkG6Ee8gUjyGRQ8greM7i0EZTa2ppoFsyh+e
+/OlHiKDkEYYhtVoN13XZbDZXUSa23W6pVqsIIRBC4HkehihpxHEser2eOJ/P92+GYYhSOkyShFar
+de/sNoMgKOdI+/2+hI3HYwD94HQ6lbBOp0OapvrBKIqwLOsB8zyP4/F4K9EHHg4HGo3GA2ZZFrvd
+7n+ZHjBNU9rttnSU8/n8uVQPOBgMXoVEP/gmJHpBhZDI4Hq9pl6v4zgOq9VKGYvjWAqJbdvs9/u8
+ZVfhOM59gWmaWT9aGkmSqIZEBp93qYIOh0MJG41GbzcKXEUYhpimKaGLxSJzxWQykbBut8vlclED
+AZbLpYRWKhVms9lDdRRF2LZdJCTZYB7q+z4Ap9OJZrP57iZRBwGCIMg8Xt/3Pw1JPviq06z54iYp
+DqqgOTfJZ2AeWjAk6mAW+kFIioHw98xzXff2zPsGA/j5BREqQX7HjnH0AAAAAElFTkSuQmCC
+"
+     style="image-rendering:optimizeSpeed;fill:#72f6b2;fill-opacity:1;stroke:#72f6b2;stroke-opacity:1;filter:url(#filter4171)"
+     preserveAspectRatio="none"
+     height="8.1101694"
+     width="13.169492" />
+</svg>
