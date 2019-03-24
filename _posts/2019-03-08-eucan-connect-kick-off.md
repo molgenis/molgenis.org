@@ -20,6 +20,6 @@ EUCAN-Connect will be novel and ground-breaking showcase of a common data infras
 
 The kick-off meeting was organized to publicly announce the beginning of the EUCAN-Connect project. The main goal of the meeting was to clarify the expectations of everyone, outline the deliverables contents and provide an overview on the project’s framework of activities and plans. The stakeholder engagement and the project benchmark challenges were highlighted, and work packages leaders explained their roles and responsibilities. Partners also discussed and talked through various parts of the EUCAN project and agreed on common goals and results. 
 
-Download full press release [here](/downloads/eucan-connect-kickoff-pressrelease.docx)
+Download full press release [here](/attachments/eucan-connect-kickoff-pressrelease.docx)
 
-<img src="/downloads/eucan-connect-kickoff.jpg" alt="image" width="100%"/>
+<img src="/attachments/eucan-connect-kickoff.jpg" alt="image" width="100%"/>
