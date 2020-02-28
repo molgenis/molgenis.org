@@ -28,7 +28,7 @@ To install on Linux you need
 * Elasticsearch
 * Optional: OpenCPU (enables R scripting feature)
 * Optional: Python (enables Python scripting feature)
-See for details on versions used the [Manual](https://molgenis.gitbooks.io/molgenis/content/quickstart/guide-tomcat.html).
+See for details on versions used the [Manual](https://molgenis.gitbook.io/molgenis/quickstart/guide-tomcat.html).
 
 # Install using Docker (experimental)
 
@@ -37,6 +37,6 @@ For testing purposes we now use Docker. We have the ambition to also use it for 
 # For programmers
 The complete source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis)
 
-You can find developer documentation as part of the [Manual](https://molgenis.gitbooks.io/molgenis/content/)
+You can find developer documentation as part of the [Manual](https://molgenis.gitbook.io/molgenis/)
 
 We are always happy to hear about your experience with MOLGENIS and suggestions for improvement. Please, help us to improve MOLGENIS and send your feedback and ideas to our 'product owner': <a href="mailto:m.a.swertz@gmail.com">m.a.swertz@gmail.com</a>

@@ -6,7 +6,7 @@ layout: blue
 # Documentation
 Here you can find documentation:
 
- * [MOLGENIS Data Platform manual](https://molgenis.gitbooks.io/molgenis/content/)
+ * [MOLGENIS Data Platform manual](https://molgenis.gitbook.io/molgenis/)
  * [MOLGENIS Computer Platform manual](https://molgenis.gitbooks.io/molgenis-pipelines/content/)
 
 # News archive
