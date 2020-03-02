@@ -14,8 +14,8 @@ pipeline {
             steps {
                 container('vault') {
                     script {
-                        sh "mkdir /home/jenkins/.rancher"
-                        sh(script: 'vault read -field=value secret/ops/jenkins/rancher/cli2.json > /home/jenkins/.rancher/cli2.json')
+                        sh "mkdir ${JENKINS_AGENT_WORKDIR}/.rancher"
+                        sh(script: "vault read -field=value secret/ops/jenkins/rancher/cli2.json > ${JENKINS_AGENT_WORKDIR}/.rancher/cli2.json")
                         env.GITHUB_TOKEN = sh(script: 'vault read -field=value secret/ops/token/github', returnStdout: true)
                         env.GITHUB_USER = sh(script: 'vault read -field=username secret/ops/token/github', returnStdout: true)
                     }
