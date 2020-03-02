@@ -22,7 +22,7 @@ partners:
 ---
 
 # Get molgenis
-MOLGENIS data platform: [docs](https://molgenis.gitbook.io/molgenis/), [war](https://molgenis.gitbook.io/molgenis/quickstart/guide-tomcat.html), [docker](https://github.com/molgenis/docker), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
+MOLGENIS data platform: [docs](https://molgenis.gitbook.io/molgenis/), [deploy](https://molgenis.gitbook.io/molgenis/guide-deploy-molgenis),war [docker](https://github.com/molgenis/docker), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
 
 MOLGENIS compute platform: [docs](https://rawgit.com/molgenis/molgenis-compute/master/molgenis-compute-core/README.html),[releases](https://github.com/molgenis/molgenis-compute/releases), [code](https://github.com/molgenis/molgenis-compute).
 
