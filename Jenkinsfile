@@ -27,7 +27,7 @@ pipeline {
                 changeRequest()
             }
             environment {
-                TAG = "PR-$CHANGE_ID"
+                TAG = "PR-${CHANGE_ID}-${BUILD_NUMBER}"
             }
             stages {
                 stage('Build [ PR ]') {
