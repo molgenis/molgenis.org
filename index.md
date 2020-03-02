@@ -23,7 +23,7 @@ MOLGENIS was born from molecular genetics research and is now a broadly applicab
 
 # Get molgenis
 
-MOLGENIS data platform: [docs](https://molgenis.gitbooks.io/molgenis/content/), [war](https://molgenis.gitbooks.io/molgenis/content/quickstart/guide-tomcat.html), [docker](https://github.com/molgenis/docker), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
+MOLGENIS data platform: [docs](https://molgenis.gitbook.io/molgenis/), [deploy](https://molgenis.gitbook.io/molgenis/guide-deploy-molgenis), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
 
 MOLGENIS compute platform: [docs](https://rawgit.com/molgenis/molgenis-compute/master/molgenis-compute-core/README.html),[releases](https://github.com/molgenis/molgenis-compute/releases), [code](https://github.com/molgenis/molgenis-compute).
 
