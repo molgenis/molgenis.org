@@ -46,6 +46,7 @@ MOLGENIS is free to download and install yourself. You can also get MOLGENIS rea
 **Genomics Coordination Center**  
 University Medical Center Groningen  
 email: <molgenis-support@umcg.nl>
+
 conditions: [Example service agreement](/attachments/MOLGENIS_DVO_annex4_20201120.pdf)
 
 **TraIT service desk, TraIT foundation**   
