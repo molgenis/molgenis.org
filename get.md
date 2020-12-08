@@ -12,6 +12,8 @@ At least two hosting organisations provide MOLGENIS hosting as a service. E.g. f
 **Genomics Coordination Center**  
 University Medical Center Groningen  
 email: <molgenis-support@umcg.nl>
+Example service agreement: </attachments/MOLGENIS_DVO_annex4_20201120.pdf>
+Acceptable Use policy: </attachements/MOLGENIS_AUP.pdf>
 
 **TraIT service desk, TraIT foundation**   
 Lygature, Utrecht  
