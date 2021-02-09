@@ -1,6 +1,6 @@
 ---
 title: HumanPathwayDB
-intro: HumanPathwayDB was taken off-line on 12 February 2021.
+intro: HumanPathwayDB was taken off-line on the 9th of February 2021.
 layout: blue
 ---
 
