@@ -2,7 +2,7 @@ def siteDocker
 pipeline {
     agent {
         kubernetes {
-            label 'site-gen'
+            inheritFrom 'site-gen'
         }
     }
     environment {
