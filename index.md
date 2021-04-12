@@ -7,6 +7,8 @@ layout: blue
 
 # Features
 
+
+
 MOLGENIS helps to find, capture, exchange, manage and analyse scientific data. It is fully customizable: data structure, user interface and layout can be fully changed and you can plug-in your own (bioinformatics) scripts to make your MOLGENIS very special.
 
 <div style="text-align: center">
@@ -34,8 +36,14 @@ MOLGENIS Pipelines: [DNA pipeline](https://github.com/molgenis/NGS_DNA) [docs](h
 </div>
 
 # News
+
+<div style="float:right; padding-left: 48px; margin-top:48px;">
+<a class="twitter-timeline" data-width="300" data-height="100%" href="https://twitter.com/molgenis?ref_src=twsrc%5Etfw">Tweets by molgenis</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 {% include newscontainer.html %}
 
 <div style="text-align: center">
 <a href="/news.html" class="bluebutton">Discover more news</a>
 </div>
+

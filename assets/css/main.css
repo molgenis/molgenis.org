@@ -153,6 +153,7 @@ nav li {
     padding-left: 0px;
   }
   .newscontainer {
+    width: calc(100% - 350px)
     clear: both;
     margin: 0px;
     padding: 0px;

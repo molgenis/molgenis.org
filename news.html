@@ -4,6 +4,11 @@ intro: Here you can find all news items
 layout: green
 ---
 <a name="top"></a>
+
+<div style="float:right;">
+    <a class="twitter-timeline" data-width="400" data-height="100%" href="https://twitter.com/molgenis?ref_src=twsrc%5Etfw">Tweets by molgenis</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 <ul>
 {% for post in site.posts %}
     <li><a href="#{{ post.url}}">{{ post.title }}</a><small> <i>Posted {{ post.date | date: '%A, %B %d, %Y'}}</i></small></li>
