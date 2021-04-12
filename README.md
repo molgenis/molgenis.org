@@ -6,14 +6,20 @@ We produce the website using Jekyl. The master branch is automatically build and
 # How to develop
 
 Fork this repository and then checkout. On your own machine you should install jekyll. 
+Assuming you already have Ruby (ships with Mac):
+
+```
+gem install jekyll
+```
+
 In addition need a gem:
- ```gem install bundler jekyll jekyll-feed```
+```gem install bundler jekyll jekyll-feed jekyll-target-blank webrick```
 
 During development you can view changes by running
- ```jekyll server```
+```jekyll server```
 
 To test if your stuff will work in product you can do:
- ```jekyll build```
+```jekyll build```
 
 # Other notes
 
