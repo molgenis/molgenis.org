@@ -103,10 +103,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-        }
-        failure {
-        }
-    }
 }
