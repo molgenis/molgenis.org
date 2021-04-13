@@ -105,10 +105,8 @@ pipeline {
     }
     post {
         success {
-            hubotSend(message: 'Build success', status: 'INFO', site: 'slack-pr-ops')
         }
         failure {
-            hubotSend(message: 'Build failed', status: 'ERROR', site: 'slack-pr-ops')
         }
     }
 }
