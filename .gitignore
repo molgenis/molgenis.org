@@ -9,3 +9,4 @@
 .DS_Store
 _site
 _version.yml
+.jekyll-cache
