@@ -42,10 +42,10 @@ pipeline {
                         container('jekyll') {
                             script {
                                 sh "echo version: ${TAG} > _version.yml"
-                                sh "chown -R jekyll:jekyll $(pwd)"
-                                sh "jekyll doctor"
-                                sh "jekyll build --config _version.yml,_config.yml"
-                                sh "docker build ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
+                                sh 'chown -R jekyll:jekyll $(pwd)'
+                                sh 'jekyll doctor'
+                                sh 'jekyll build --config _version.yml,_config.yml'
+                                sh "docker build . -t ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
                                 sh "docker push ${LOCAL_REPOSITORY}:${TAG}"
                             }
                         }
@@ -75,9 +75,9 @@ pipeline {
                         container('jekyll') {
                             script {
                                 sh "echo version: ${TAG} > _version.yml"
-                                sh "chown -R jekyll:jekyll $(pwd)"
-                                sh "jekyll doctor"
-                                sh "jekyll build --config _version.yml,_config.yml"
+                                sh 'chown -R jekyll:jekyll $(pwd)'
+                                sh 'jekyll doctor'
+                                sh 'jekyll build --config _version.yml,_config.yml'
                                 sh "docker build . -t ${LOCAL_REPOSITORY}:latest -t ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
                                 sh "docker push ${LOCAL_REPOSITORY} --all-tags"
                             }
