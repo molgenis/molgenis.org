@@ -79,7 +79,7 @@ pipeline {
                                 sh 'jekyll doctor'
                                 sh 'jekyll build --config _version.yml,_config.yml'
                                 sh "docker build . -t ${LOCAL_REPOSITORY}:latest -t ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
-                                sh "docker push ${LOCAL_REPOSITORY} --all-tags"
+                                sh "docker push ${LOCAL_REPOSITORY}"
                             }
                         }
                     }
