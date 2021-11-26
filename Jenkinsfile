@@ -23,7 +23,7 @@ pipeline {
                         env.DOCKERHUB_AUTH = sh(script: 'vault read -field=value secret/gcc/token/dockerhub', returnStdout: true)
                     }
                 }
-                container('jekyll') {
+                container(name: 'kaniko', shell: '/busybox/sh') {
                     sh "mkdir -p ${DOCKER_CONFIG}"
                     sh "set +x && echo '{\"auths\": {\"registry.molgenis.org\": {\"auth\": \"${NEXUS_AUTH}\"}, \"https://index.docker.io/v1/\": {\"auth\": \"${DOCKERHUB_AUTH}\"}}}' > ${DOCKER_CONFIG}/config.json"
                 }
@@ -45,9 +45,10 @@ pipeline {
                                 sh 'chown -R jekyll:jekyll $(pwd)'
                                 sh 'jekyll doctor'
                                 sh 'jekyll build --config _version.yml,_config.yml'
-                                sh "docker build . -t ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
-                                sh "docker push ${LOCAL_REPOSITORY}:${TAG}"
                             }
+                        }
+                        container (name: 'kaniko', shell: '/busybox/sh') {
+                            sh "#!/busybox/sh\n/kaniko/executor --context ${WORKSPACE} --destination ${LOCAL_REPOSITORY}:${TAG}"
                         }
                     }
                 }
@@ -78,9 +79,10 @@ pipeline {
                                 sh 'chown -R jekyll:jekyll $(pwd)'
                                 sh 'jekyll doctor'
                                 sh 'jekyll build --config _version.yml,_config.yml'
-                                sh "docker build . -t ${LOCAL_REPOSITORY}:latest -t ${LOCAL_REPOSITORY}:${TAG} --pull --no-cache --force-rm"
-                                sh "docker push ${LOCAL_REPOSITORY}"
                             }
+                        }
+                        container (name: 'kaniko', shell: '/busybox/sh') {
+                            sh "#!/busybox/sh\n/kaniko/executor --context ${WORKSPACE} --destination ${LOCAL_REPOSITORY}:${TAG} --destination ${LOCAL_REPOSITORY}:latest"
                         }
                     }
                 }
