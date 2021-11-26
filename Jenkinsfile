@@ -1,8 +1,8 @@
-def siteDocker
 pipeline {
     agent {
         kubernetes {
-            inheritFrom 'site-gen'
+            inheritFrom "shared"
+            yamlFile ".jenkins/build-pod.yaml"
         }
     }
     environment {
