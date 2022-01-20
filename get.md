@@ -32,9 +32,13 @@ To install on Linux you need
 * Optional: Python (enables Python scripting feature)
 See for details on versions used the [Manual](https://molgenis.gitbook.io/molgenis/quickstart/guide-tomcat.html).
 
-# Install using Docker (experimental)
+# Install locally using Docker (experimental)
 
 For testing purposes we now use Docker. We have the ambition to also use it for production but then you need to configure data persistence. However feel free to use our docker as a starting point. Get [Docker Images](https://github.com/molgenis/docker)
+
+# Install on server for multiple users and data persistence
+
+If our hosting solution is not suitable and you want to host your own molgenis instance in your own cloud or on premise. Please take a look at our [ansible galaxy repo](https://galaxy.ansible.com/molgenis)
 
 # For programmers
 The complete source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis)
