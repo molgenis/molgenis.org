@@ -38,7 +38,7 @@ For testing purposes we now use Docker. We have the ambition to also use it for 
 
 # Install on server for multiple users and data persistence
 
-If our hosting solution is not suitable and you want to host your own molgenis instance in your own cloud or on prem. Please use our [ansible galaxy repo](https://galaxy.ansible.com/molgenis)
+If our hosting solution is not suitable and you want to host your own molgenis instance in your own cloud or on premise. Please take a look at our [ansible galaxy repo](https://galaxy.ansible.com/molgenis)
 
 # For programmers
 The complete source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis)
