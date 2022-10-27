@@ -41,16 +41,13 @@ MOLGENIS development is strategically guided by an independent international Str
 In addition to strategic advice MOLGENIS also has several user communities guiding its development. These groups are managed by the respective communities, and often change dynamically following changes in funded project. For example, there is a Dutch biobank user group and a European directory user forum. We plan to expand these user engagement activities to ensure optimal allocation of the limited development resources.
 
 ## Hosting and support
-MOLGENIS is free to download and install yourself. You can also get MOLGENIS ready for use from two support providers. They can also provide support with entering and managing your data. Please contact one of the support groups below for details and costs.
+MOLGENIS is free to download and install yourself. You can also get a MOLGENIS instance ready for use from us. We can also provide support with entering and managing your data. Please contact us for details and costs.
 
-**Genomics Coordination Center**  
+**Genomics Coordination Center (GCC)**  
 University Medical Center Groningen  
 email: <molgenis-support@umcg.nl>  
 conditions: [Acceptable Use Conditions(AUP)](/attachments/MOLGENIS_AUP.pdf), [Example service agreement](/attachments/MOLGENIS_DVO_annex4_20201120.pdf) 
 
-**TraIT service desk, TraIT foundation**   
-Lygature, Utrecht  
-website: <http://www.ctmm-trait.nl/service-desk/>
 
 ## Partners
 
