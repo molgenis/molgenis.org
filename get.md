@@ -7,13 +7,11 @@ layout: blue
 You can freely copy and install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions. There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below:
 
 # Hosting and support
-Our team provide MOLGENIS hosting as a service. E.g. for 200 euro/month UMCG hosts 1 MOLGENIS servers and for 250 euro/month 3 MOLGENIS servers. This includes basic data management support with functional application management. In addition, hosting providers can deliver support on a tailor made basis. Please contact us for details and costs regarding tailored support:
+Our team provide MOLGENIS hosting as a service. Please contact us for details and costs regarding tailored support:
 
 **Genomics Coordination Center (GCC)**  
 University Medical Center Groningen  
 email: <molgenis-support@umcg.nl>  
-Example service agreement: [here](/attachments/MOLGENIS_DVO_annex4_20201120.pdf)  
-Acceptable Use policy: [here](/attachments/MOLGENIS_AUP.pdf)
 
 
 # Install on server for multiple users and data persistence
