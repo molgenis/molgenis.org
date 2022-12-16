@@ -8,7 +8,7 @@ pipeline {
     environment {
         DOCKER_CONFIG="/root/.docker"
         LOCAL_REPOSITORY = "${LOCAL_REGISTRY}/molgenis/website"
-        CHART_VERSION = '0.3.4'
+        CHART_VERSION = '0.5.0'
     }
     stages {
         stage('Retrieve build secrets') {
@@ -57,7 +57,7 @@ pipeline {
                         milestone(ordinal: 100, label: 'deploy to site.dev.molgenis.org')
                         container('rancher') {
                             sh "rancher context switch dev-molgenis"
-                            sh "rancher apps upgrade --set website.image.tag=${TAG} website-dev ${CHART_VERSION}"
+                            sh "rancher apps upgrade --set website.image.tag=${TAG} molgenis-website ${CHART_VERSION}"
                         }
                     }
                 }

@@ -22,8 +22,6 @@ If our hosting solution is not suitable and you want to host your own molgenis i
 
 For local testing purposes we provide a Docker image.  Get [Docker Images](https://github.com/molgenis/docker)
 
-
-
 # For programmers
 The complete source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis)
 
