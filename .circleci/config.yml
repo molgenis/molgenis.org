@@ -20,7 +20,7 @@ orbs:
 jobs:
   build:
     docker:
-    - image: cimg/base:2024.01
+    - image: ubuntu:jammy
     environment:
       BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
@@ -59,14 +59,25 @@ jobs:
           jekyll doctor
           jekyll build
     - run:
-        name: create helm template
+        name: prepare azure
         command: |
-          echo "PR number: ${CIRCLE_PULL_REQUEST##*/}"
+          az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
+          az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
+          kubectl config set-cluster ${RESOURCE_GROUP}
+          kubectl config use-context ${RESOURCE_GROUP}
+    - run:
+        name: update preview
+        command: |
+          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+          echo "${NAME}"
           helm repo add onechart https://chart.onechart.dev
           helm template my-release onechart/onechart \
             --set image.repository=nginx \
             --set image.tag=1.19.3 \
-            --set ingress.host=https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org/
+            --set ingress.host=${NAME}.dev.molgenis.org/
+          kubectl create namespace ${NAME}
+          kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
+          helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME}
 workflows:
   version: 2
   build:
