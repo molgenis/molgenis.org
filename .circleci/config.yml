@@ -20,7 +20,7 @@ orbs:
 jobs:
   build:
     docker:
-    - image: cimg/ruby:3.2.2
+    - image: cimg/base:2024.01
     environment:
       BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
@@ -30,7 +30,22 @@ jobs:
         - rubygems-v1-{{ checksum "Gemfile.lock" }}
         - rubygems-v1-fallback
     - run:
-        name: Bundle Install
+        name: Install ruby, helm, az
+        command: |
+          apt-get update
+          apt-get install ruby -y
+          curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
+          apt-get update
+          apt-get install helm -y
+          mkdir -p /etc/apt/keyrings
+          curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+          chmod go+r /etc/apt/keyrings/microsoft.gpg
+          AZ_DIST=$(lsb_release -cs) && echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_DIST main" | tee /etc/apt/sources.list.d/azure-cli.list
+          apt-get update
+          apt-get install azure-cli
+    - run:
+        name: Bundle Install jekyll and deps
         command: |
           gem install bundler jekyll
           bundle update
@@ -43,7 +58,15 @@ jobs:
         command: |
           jekyll doctor
           jekyll build
-
+    - run:
+        name: create helm template
+        command: |
+          echo "PR number: ${CIRCLE_PULL_REQUEST##*/}"
+          helm repo add onechart https://chart.onechart.dev
+          helm template my-release onechart/onechart \
+            --set image.repository=nginx \
+            --set image.tag=1.19.3 \
+            --set ingress.host=https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org/
 workflows:
   version: 2
   build:
