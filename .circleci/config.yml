@@ -20,43 +20,9 @@ orbs:
 jobs:
   build:
     docker:
-    - image: ubuntu:jammy
-    environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
+    - image: molgenis/molgenis-org-ci:v1.0.0
     steps:
     - checkout
-    - restore_cache:
-        keys:
-        - rubygems-v1-{{ checksum "Gemfile.lock" }}
-        - rubygems-v1-fallback
-    - run:
-        name: Install ruby, helm, az
-        command: |
-          apt-get update
-          apt-get install ruby-full build-essential zlib1g-dev lsb-release curl -y
-          curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
-          apt-get update
-          apt-get install helm -y
-          mkdir -p /etc/apt/keyrings
-          curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor |  tee /etc/apt/keyrings/microsoft.gpg > /dev/null
-          chmod go+r /etc/apt/keyrings/microsoft.gpg
-          AZ_DIST=$(lsb_release -cs) && echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_DIST main" | tee /etc/apt/sources.list.d/azure-cli.list
-          apt-get update
-          apt-get install azure-cli -y
-          curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
-          echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
-          apt-get update
-          apt-get install kubectl -y
-    - run:
-        name: Bundle Install jekyll and deps
-        command: |
-          gem install bundler jekyll
-          bundle update
-    - save_cache:
-        key: rubygems-v1-{{ checksum "Gemfile.lock" }}
-        paths:
-        - vendor/bundle
     - run:
         name: Jekyll build
         command: |
@@ -80,6 +46,8 @@ jobs:
             --set image.tag=1.19.3 \
             --set ingress.host=${NAME}.dev.molgenis.org/
           kubectl create namespace ${NAME}
+          echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
+          echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
           kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
           helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME}
 workflows:
