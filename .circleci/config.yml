@@ -20,7 +20,7 @@ orbs:
 jobs:
   build:
     docker:
-    - image: cimg/ruby:2.7.4
+    - image: cimg/ruby:3.2.2
     environment:
       BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
