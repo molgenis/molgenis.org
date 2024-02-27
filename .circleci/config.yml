@@ -47,8 +47,8 @@ jobs:
     - run:
         name: Bundle Install jekyll and deps
         command: |
-          gem install bundler jekyll
-          bundle update
+          sudo gem install bundler jekyll
+          sudo bundle update
     - save_cache:
         key: rubygems-v1-{{ checksum "Gemfile.lock" }}
         paths:
