@@ -44,7 +44,7 @@ jobs:
           helm template helm-chart onechart/onechart \
             --set image.repository=nginx \
             --set image.tag=1.19.3 \
-            --set ingress.host=${NAME}.dev.molgenis.org/
+            --set ingress.host=${NAME}.dev.molgenis.org/ \
             --set builtAssets=_site
           kubectl delete namespace $NAME || true
           kubectl create namespace ${NAME}
@@ -52,6 +52,14 @@ jobs:
           echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
           kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
           helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME}
+    - run:
+        name: message slack about preview
+        command: |
+          curl -d "token=${SLACK_TOKEN}" \
+          -d "text=*<${CIRCLE_PULL_REQUEST}|Circle-CI » Molgenis » Molgenis-org » PR-${CIRCLE_PULL_REQUEST##*/} #${CIRCLE_BUILD_NUM}>*
+          PR Preview available on https://preview-molgenis-org-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
+          -d "channel=C02AZDG6QQ7" \
+          -X POST https://slack.com/api/chat.postMessage
 workflows:
   version: 2
   build:
