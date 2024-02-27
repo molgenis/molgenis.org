@@ -16,11 +16,11 @@ pipeline {
                 container('vault') {
                     script {
                         sh "mkdir ${JENKINS_AGENT_WORKDIR}/.rancher"
-                        sh(script: "vault read -field=value secret/ops/jenkins/rancher/cli2.json > ${JENKINS_AGENT_WORKDIR}/.rancher/cli2.json")
-                        env.GITHUB_TOKEN = sh(script: 'vault read -field=value secret/ops/token/github', returnStdout: true)
-                        env.GITHUB_USER = sh(script: 'vault read -field=username secret/ops/token/github', returnStdout: true)
-                        env.NEXUS_AUTH = sh(script: 'vault read -field=base64 secret/ops/account/nexus', returnStdout: true)
-                        env.DOCKERHUB_AUTH = sh(script: 'vault read -field=value secret/gcc/token/dockerhub', returnStdout: true)
+                        sh(script: "vault read -field=value secret/data/ops/jenkins/rancher/cli2.json > ${JENKINS_AGENT_WORKDIR}/.rancher/cli2.json")
+                        env.GITHUB_TOKEN = sh(script: 'vault read -field=value secret/data/ops/token/github', returnStdout: true)
+                        env.GITHUB_USER = sh(script: 'vault read -field=username secret/data/ops/token/github', returnStdout: true)
+                        env.NEXUS_AUTH = sh(script: 'vault read -field=base64 secret/data/ops/account/nexus', returnStdout: true)
+                        env.DOCKERHUB_AUTH = sh(script: 'vault read -field=value secret/data/gcc/token/dockerhub', returnStdout: true)
                     }
                 }
                 container(name: 'kaniko', shell: '/busybox/sh') {
