@@ -45,6 +45,7 @@ jobs:
             --set image.repository=nginx \
             --set image.tag=1.19.3 \
             --set ingress.host=${NAME}.dev.molgenis.org/
+          kubectl delete namespace $NAME || true
           kubectl create namespace ${NAME}
           echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
           echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
