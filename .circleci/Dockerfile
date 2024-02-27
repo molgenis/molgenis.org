@@ -1,7 +1,7 @@
 # docker file for the ci
 # to build and publish:
-# docker build -t molgenis/molgenis-org-ci:v1.0.0 .
-# docker push molgenis/molgenis-org-ci:v1.0.0
+# docker build -t molgenis/molgenis-org-ci:v1.0.1 --build-arg ARCH=amd64/ .
+# docker push molgenis/molgenis-org-ci:v1.0.1
 
 FROM ubuntu:jammy
 
