@@ -41,10 +41,11 @@ jobs:
           NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
           echo "${NAME}"
           helm repo add onechart https://chart.onechart.dev
-          helm template my-release onechart/onechart \
+          helm template helm-chart onechart/onechart \
             --set image.repository=nginx \
             --set image.tag=1.19.3 \
             --set ingress.host=${NAME}.dev.molgenis.org/
+            --set builtAssets=_site
           kubectl delete namespace $NAME || true
           kubectl create namespace ${NAME}
           echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
