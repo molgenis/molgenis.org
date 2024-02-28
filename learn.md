@@ -6,7 +6,10 @@ layout: blue
 # Documentation
 Here you can find documentation:
 
- * [MOLGENIS Data Platform manual](https://molgenis.gitbook.io/molgenis/)
+ * [MOLGENIS Data Platform manual](https://molgenis.github.io/molgenis-emx2/#/molgenis/)
+ * [MOLGENIS Datashield Armadillo Platform manual](https://molgenis.github.io/molgenis-service-armadillo/#/)
+ * [MOLGENIS Variant Interpretation Pipeline (VIP) manual](https://molgenis.github.io/vip/)
+ * [MOLGENIS Catalogue manual](https://molgenis.github.io/molgenis-emx2/#/catalogue/)
  * [MOLGENIS Compute Platform manual](https://molgenis.gitbook.io/molgenis-pipelines/)
 
 # News archive
@@ -22,10 +25,12 @@ Here you can find all news items:
 Relevant publications by MOLGENIS community members:
 
 ## Sample and data catalogues:
+* Swertz et al (2022) Towards an Interoperable Ecosystem of Research Cohort and Real-world Data Catalogues Enabling Multi-center Studies. [Yearb Med Inform](https://pubmed.ncbi.nlm.nih.gov/36463884/)
 * Holub et al (2016) BBMRI-ERIC Directory: 515 Biobanks with Over 60 Million Biological Samples. [Biopreservation and Biobanking](https://www.ncbi.nlm.nih.gov/pubmed/27936342)
 * Roxana Merino-Martinez et al (2016) Toward Global Biobank Integration by Implementation of the Minimum Information About BIobank Data Sharing (MIABIS 2.0 Core). [Biopreservation and Biobanking](https://www.ncbi.nlm.nih.gov/pubmed/26977825)
 
 ## Harmonization / FAIRification:
+* Van der velde et al (2022) FAIR Genomes metadata schema promoting Next Generation Sequencing data reuse in Dutch healthcare and research. [Sci Data](https://pubmed.ncbi.nlm.nih.gov/35418585/)
 * Pang et al (2017) BiobankUniverse: automatic matchmaking between datasets for biobank data discovery and integration. [Bioinformatics](https://www.ncbi.nlm.nih.gov/pubmed/29036577)
 * Wilkinson et al (2016) The FAIR Guiding Principles for scientific data management and stewardship. [Scientific Data](https://www.ncbi.nlm.nih.gov/pubmed/26978244)
 * Pang et al (2016) MOLGENIS/connect: a system for semi-automatic integration of heterogeneous phenotype data with applications in biobanks. [Bioinformatics](https://www.ncbi.nlm.nih.gov/pubmed/27153686)
