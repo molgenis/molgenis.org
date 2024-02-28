@@ -20,9 +20,9 @@ spec:
         {{- include "website.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
-      - name: website-html-volume
-        configMap:
-          name: website-files-configmap
+      - name: html-volume
+        persistentVolumeClaim:
+          claimName: {{ include "website.fullname" . }}
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Chart.Name }}
@@ -30,9 +30,8 @@ spec:
         ports:
         - containerPort: 80
       volumeMounts:
-        - name: website-html-volume
+        - name: html-volume
           mountPath: /usr/share/nginx/html
-      command: ["/bin/sh", "-c", "tar -xzvf /usr/share/nginx/html/website.tar.gz -C /usr/share/nginx/html/ && nginx -g 'daemon off;'"]
 
 restartPolicy: Always
 status: {}
