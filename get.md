@@ -4,7 +4,38 @@ intro: MOLGENIS is open source and free to download, install and use. There are 
 layout: blue
 ---
 
-You can freely copy and install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions. There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below:
+# Data platform
+
+MOLGENIS original product is its FAIR data platform. You can freely copy and install MOLGENIS data platform on your own machines (Licence: LGPLv3). 
+
+The actively developed MOLGENIS is codenamed 'exm2' and you can see [Releases](https://github.com/molgenis/molgenis-emx2/releases) here. It is easier to install as compared to previous version, see README at https://github.com/molgenis/molgenis-emx2. This package also includes pre-packaged the 'catalogue', FAIR genomes and beacon v2 tools.
+
+The previous generation of MOLGENIS is still in maintances and you can see [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions. 
+
+There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below.
+
+# Analysis tools
+
+In addition to the data platform quite a range of additional tools have emerged>
+
+*** DataSHIELD armadillo ***
+For federated analysis using the DataSHIELD protocol we have Armadillo. This can be found here https://github.com/molgenis/molgenis-service-armadillo
+
+*** Variant interpretation pipeline (VIP) ***
+For NGS DNA variant analysis we have the VIP toolbox. This can be found here https://github.com/molgenis/vip
+
+*** CAPICE ***
+CAPICE is a modern machine learning based variant pathogenicity classifiction predictor for DNA variants. See https://github.com/molgenis/capice
+
+*** NGS_DNA pipeline ***
+NGS_DNA is a NGS DNA best practice pipeline for Illumina sequencing - alignment, variant calling, annotation and QC. See https://github.com/molgenis/NGS_DNA
+
+*** Compute ***
+Compute is a simple workflow management framework for generating/submitting/monitoring Bash scripts on compute clusters managed by schedulers. eSee https://github.com/molgenis/molgenis-compute
+
+*** TRE/Sandbox for HPC ***
+For setting up trusted research environments for large genome analysis projects (such as Solve-RD) we operate HPC clusters on OpenStack, in close collaboration with University of Groningen center for information technology. See https://docs.gcc.rug.nl/
+
 
 # Hosting and support
 Our team provide MOLGENIS hosting as a service. Please contact us for details and costs regarding tailored support:
