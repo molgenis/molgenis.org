@@ -17,7 +17,7 @@ spec:
     - {{ .host | quote }}
     secretName: dev.molgenis.org
   rules:
-  - host: {{ .Values.ingress.host }}
+  - host:  {{ .host | quote }}
     http:
       paths:
       - path: /
