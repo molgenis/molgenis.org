@@ -48,11 +48,10 @@ jobs:
           kubectl create configmap static-files-configmap --from-file=_site -n ${NAME}
           helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
           --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
-          --set ingress.tls[0].host=${NAME}.dev.molgenis.org \
-          --set ingress.tls[0].secretName=dev.molgenis.org \
-          --set configMap.namespace=${NAME} \
-          --set ingress.tlsSecretName=dev.molgenis.org \
-          --set ingress.host=${NAME}.dev.molgenis.org \
+          --set spec.tls[0].hosts[0].host=${NAME}.dev.molgenis.org \
+          --set image.tag=latest \
+          --set image.repository=nginx:alpine \
+          --set image.pullPolicy=Always \
           --debug
     - run:
         name: message slack about preview

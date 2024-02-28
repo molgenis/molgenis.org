@@ -1,51 +1,15 @@
-# requires config map
-# requires --set
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-replicaCount: 1
-
+adminPassword: admin
 image:
-  repository: nginx
-  tag: alpine
-  pullPolicy: IfNotPresent
-
-service:
-  enabled: true
-  type: ClusterIP
-  port: 80
+  repository: "nginx:alpine"
+  tag: "latest"
+  pullPolicy: Always
 
 ingress:
-  host: dummy
   enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/use-regex: "true"
   hosts:
-  - host: dummy
-    paths:
-    - path: /
-      pathType: Prefix
-  tls:
-  - hosts:
-    - dummy
-    secretName: dev.molgenis.org
-
-resources: {}
-
-configMap:
-  create: true
-  name: static-files-configmap
-  namespace: dummy
-
-volumeMounts:
-- name: static-files
-  mountPath: /usr/share/nginx/html
-
-volumes:
-- name: static-files
-  configMap:
-    name: static-files-configmap
+  - host: www.molgenis.org
+  path: /

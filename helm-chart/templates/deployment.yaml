@@ -1,24 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "molgenis-org.fullname" . }}
+  name: {{ include "website.fullname" . }}
   labels:
-    app: {{ include "molgenis-org.name" . }}
+    app: {{ template "website.name" . }}
+    chart: {{ template "website.chart" . }}
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      app: {{ include "molgenis-org.name" . }}
+      {{- include "website.selectorLabels" . | nindent 6 }}
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: {{ include "molgenis-org.name" . }}
+        {{- include "website.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - name: {{ .Chart.Name }}
-        image: nginx:alpine
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: {{ .Chart.Name }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 80
       volumeMounts:
-      - name: static-files
-        mountPath: /usr/share/nginx/html
+        - name: static-html-volume
+          mountPath: /usr/share/nginx/html
+
+restartPolicy: Always
+status: {}

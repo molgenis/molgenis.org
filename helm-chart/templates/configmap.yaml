@@ -1,0 +1,10 @@
+# templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "website.fullname" . }}
+data:
+  {{- $files := .Files.Glob "../../_site/*" }}
+  {{- range $files }}
+  {{ .Path | base | printf "%s: |-\n%s" . . | nindent 4 }}
+    {{- end }}

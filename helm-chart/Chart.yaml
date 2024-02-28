@@ -1,7 +1,7 @@
 apiVersion: v2
-name: molgenis-org
+name: website
 version: 0.0.0
 appVersion: "8.x"
 icon: https://raw.githubusercontent.com/molgenis/molgenis-ops-helm/master/charts/molgenis/catalogIcon-molgenis.png
-description: MOLGENIS.org
+description: MOLGENIS website
 type: application
