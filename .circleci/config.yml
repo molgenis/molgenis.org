@@ -47,9 +47,8 @@ jobs:
           kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
           kubectl create configmap static-files-configmap --from-file=_site -n ${NAME}
           helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
-          --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
-          --set ingress.tls[0].host=${NAME}.dev.molgenis.org \
-          --set ingress.tls[0].secretName=dev.molgenis.org \
+          --set ingress.host=${NAME}.dev.molgenis.org \
+          --set ingress.tlsSecretName=dev.molgenis.org \
           --set configMap.namespace=${NAME} \
           --debug
     - run:
