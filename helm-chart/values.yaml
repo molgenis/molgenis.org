@@ -33,6 +33,7 @@ resources: {}
 configMap:
   create: false
   name: static-files-configmap
+  namespace: {{ .Values.namespace }}
 
 volumeMounts:
 - name: static-files
