@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "molgenis.org.fullname" . }}
+  name: {{ include "molgenis-org.fullname" . }}
   labels:
-    app: {{ include "molgenis.org.name" . }}
+    app: {{ include "molgenis-org.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "molgenis.org.name" . }}
+      app: {{ include "molgenis-org.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "molgenis.org.name" . }}
+        app: {{ include "molgenis-org.name" . }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
