@@ -45,7 +45,7 @@ jobs:
           echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
           kubectl create namespace ${NAME}
           kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
-          kubectl create configmap html-files --from-file=_site-n ${NAME}
+          kubectl create configmap html-files --from-file=_site -n ${NAME}
           helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
           --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
           --set spec.tls[0].hosts[0].host=${NAME}.dev.molgenis.org \
