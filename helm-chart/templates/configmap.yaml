@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "website.fullname" . }}
-data:
-  html-directory: |
-    {{ .Files.AsConfig . | nindent 8 }}
