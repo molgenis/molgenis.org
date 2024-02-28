@@ -19,21 +19,21 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     cert-manager.io/issuer: "letsencrypt-staging"
   hosts:
-  - host: {{ .Values.host }}
+  - host: dummy
     paths:
     - path: /
       pathType: Prefix
   tls:
   - hosts:
-    - {{ .Values.host }}
-    secretName: {{ .Values.host | replace "." "-" }}-tls
+    - dummy
+    secretName: dev.molgenis.org
 
 resources: {}
 
 configMap:
   create: false
   name: static-files-configmap
-  namespace: {{ .Values.namespace }}
+  namespace: dummy
 
 volumeMounts:
 - name: static-files
