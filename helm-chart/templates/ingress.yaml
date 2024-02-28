@@ -24,7 +24,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Release.Name }}-service  # Replace with the name of your service
+            name:  {{ .Chart.Name }}
             port:
               number: 80
   {{- end }}

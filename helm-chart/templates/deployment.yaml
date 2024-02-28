@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: nginx:alpine
         ports:
         - containerPort: 80
       volumeMounts:
