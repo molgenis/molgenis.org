@@ -4,7 +4,7 @@ intro: MOLGENIS is open source and free to download, install and use. There are 
 layout: blue
 ---
 
-You can freely copy and install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis/releases) for overview of versions. There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below:
+You can freely copy and install MOLGENIS on your own machines (Licence: LGPLv3). See [Releases](https://github.com/molgenis/molgenis-emx2/releases) for overview of versions. There are also organisations who can host MOLGENIS for you and provide data management support. And programmers can take MOLGENIS code and customize it. Each option is described below:
 
 # Hosting and support
 Our team provide MOLGENIS hosting as a service. Please contact us for details and costs regarding tailored support:
@@ -20,7 +20,7 @@ If our hosting solution is not suitable and you want to host your own molgenis i
 
 # Install locally for single user testing with Docker (experimental)
 
-For local testing purposes we provide a Docker image.  Get [Docker Images](https://github.com/molgenis/docker)
+For local testing purposes we provide a Docker image.  Get [Docker Images](https://molgenis.github.io/molgenis-emx2/#/molgenis/run_docker)
 
 # For programmers
 The latest incarnation of MOLGENIS is codenamed 'emx2'. The complete documentation and source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis-emx2)
