@@ -40,18 +40,15 @@ jobs:
         command: |
           NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
           echo "${NAME}"
-          helm repo add onechart https://chart.onechart.dev
-          helm template helm-chart onechart/onechart \
-            --set image.repository=nginx \
-            --set image.tag=1.19.3 \
-            --set ingress.host=${NAME}.dev.molgenis.org/ \
-            --set builtAssets=_site
           kubectl delete namespace $NAME || true
-          kubectl create namespace ${NAME}
           echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
           echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
+          kubectl create namespace ${NAME}
           kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
-          helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME}
+          kubectl create configmap static-files-configmap --from-file=_site
+          helm upgrade --install ${NAME} ./helm-chart \
+          --namespace ${NAME} \
+          --set ingress.host=${NAME}.dev.molgenis.org
     - run:
         name: message slack about preview
         command: |

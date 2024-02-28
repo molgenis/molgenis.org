@@ -1,0 +1,44 @@
+# requires config map
+# requires --set
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: alpine
+  pullPolicy: IfNotPresent
+
+service:
+  enabled: true
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/issuer: "letsencrypt-staging"
+  hosts:
+  - host: {{ .Values.host }}
+    paths:
+    - path: /
+      pathType: Prefix
+  tls:
+  - hosts:
+    - {{ .Values.host }}
+    secretName: {{ .Values.host | replace "." "-" }}-tls
+
+resources: {}
+
+configMap:
+  create: false
+  name: static-files-configmap
+
+volumeMounts:
+- name: static-files
+  mountPath: /usr/share/nginx/html
+
+volumes:
+- name: static-files
+  configMap:
+    name: static-files-configmap
