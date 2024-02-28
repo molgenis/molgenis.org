@@ -19,6 +19,10 @@ spec:
       labels:
         {{- include "website.selectorLabels" . | nindent 8 }}
     spec:
+      volumes:
+      - name: static-html-volume
+        configMap:
+          name: static-files-configmap
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Chart.Name }}
