@@ -1,6 +1,10 @@
 # requires config map
 # requires --set
 
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
 replicaCount: 1
 
 image:
