@@ -25,11 +25,15 @@ MOLGENIS was born from molecular genetics research and is now a broadly applicab
 
 # Get molgenis
 
-MOLGENIS data platform: [docs](https://molgenis.gitbook.io/molgenis/), [deploy](https://molgenis.gitbook.io/molgenis/guide-deploy-molgenis), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
+MOLGENIS data platform: [docs](https://molgenis.github.io/molgenis-emx2/#/molgenis/), [deploy](https://molgenis.github.io/molgenis-emx2/#/molgenis/run_java), [code](https://github.com/molgenis/molgenis-emx2), [releases](https://github.com/molgenis/molgenis-emx2/releases)
 
-MOLGENIS compute platform: [docs](https://rawgit.com/molgenis/molgenis-compute/master/molgenis-compute-core/README.html),[releases](https://github.com/molgenis/molgenis-compute/releases), [code](https://github.com/molgenis/molgenis-compute).
+MOLGENIS datashield armadillo: [docs](https://molgenis.github.io/molgenis-service-armadillo),[releases](https://github.com/molgenis/molgenis-service-armadillo/releases), [code](https://github.com/molgenis/molgenis-service-armadillo).
+
+MOLGENIS variant interpretation pipeline (VIP): [docs](https://molgenis.github.io/vip/),[releases](https://github.com/molgenis/vip/releases), [code](https://github.com/molgenis/vip).
 
 MOLGENIS Pipelines: [DNA pipeline](https://github.com/molgenis/NGS_DNA) [docs](https://molgenis.gitbooks.io/ngs_dna/), [code](https://github.com/molgenis/NGS_DNA), [RNA pipeline](https://github.com/molgenis/NGS_RNA), [easybuild for automatic installation](https://github.com/molgenis/easybuild-easyconfigs)
+
+MOLGENIS compute platform: [docs](https://rawgit.com/molgenis/molgenis-compute/master/molgenis-compute-core/README.html),[releases](https://github.com/molgenis/molgenis-compute/releases), [code](https://github.com/molgenis/molgenis-compute).
 
 <div style="text-align: center">
 <a href="/get.html" class="bluebutton">Discover more resources</a>
