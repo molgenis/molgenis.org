@@ -52,6 +52,7 @@ jobs:
           --set ingress.tls[0].secretName=dev.molgenis.org \
           --set configMap.namespace=${NAME} \
           --set ingress.tlsSecretName=dev.molgenis.org \
+          --set ingress.host=${NAME}.dev.molgenis.org \
           --debug
     - run:
         name: message slack about preview
