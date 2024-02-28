@@ -50,7 +50,7 @@ jobs:
           --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
           --set spec.tls[0].hosts[0].host=${NAME}.dev.molgenis.org \
           --set image.tag=latest \
-          --set image.repository=nginx:alpine \
+          --set image.repository=nginx \
           --set image.pullPolicy=Always \
           --debug
     - run:
