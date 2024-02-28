@@ -23,8 +23,6 @@ If our hosting solution is not suitable and you want to host your own molgenis i
 For local testing purposes we provide a Docker image.  Get [Docker Images](https://github.com/molgenis/docker)
 
 # For programmers
-The complete source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis)
-
-You can find developer documentation as part of the [Manual](https://molgenis.gitbook.io/molgenis/)
+The latest incarnation of MOLGENIS is codenamed 'emx2'. The complete documentation and source code of MOLGENIS is open source available at [Github](http://github.com/molgenis/molgenis-emx2)
 
 We are always happy to hear about your experience with MOLGENIS and suggestions for improvement. Please, help us to improve MOLGENIS and send your feedback and ideas to our 'product owner': <a href="mailto:m.a.swertz@gmail.com">m.a.swertz@gmail.com</a>
