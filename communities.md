@@ -8,12 +8,13 @@ layout: black
 <h1>FAIR Catalogues</h1>
 Make data and samples from biobanks, registries and research collections findable to ensure maximum (re)use for research and improve patients and citizens lives. Examples:
 <ul>
+<li><a href="data-catalogue.molgeniscloud.org">EU health data networks and harmonization catalogue</a></li>
 <li><a href="http://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
 <li><a href="http://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
-<li><a href="http://catalogue.lifecycle-project.eu/">EU child network for multi-center cohort harmonisation</a></li>
+<li><a href="https://umcgresearchdatacatalogue.nl/">University Medical Center Groningen Cohorts and Data Catalogue (UMCG)</a></li>
 <li><a href="http://samples.rd-connect.eu">Catalogue of rare disease samples (RD-Connect)</a></li>
 <li><a href="http://www.palgaopenbaredatabank.nl/">Dutch catalogue of pathology samples (PALGA)</a></li>
-<li><a href="https://catalogue.lifelines.nl">LifeLines request portal of data and materials</a></li>
+<li><a href="https://datacatalogue.lifelines.nl">LifeLines request portal of data and materials</a></li>
 </ul>
 </div>
 <div class="feature_image_box">
@@ -60,7 +61,8 @@ Capture, manage, analyse and share complete datasets with biomedical researchers
 <h1>Pipelines</h1>
 MOLGENIS compute based reusable bioinformatics protocols to process molecular profiles that can now be produced at unbelievable rates demanding bespoke bioinformatics protocols and high performance computing to process. Examples:
 <ul>
-<li><a href="https://github.com/molgenis/NGS_DNA">[NGS DNA pipeline</a></li>
+<li><a href="https://github.com/molgenis/vip">Variant interpretation pipeline</a></li>
+<li><a href="https://github.com/molgenis/NGS_DNA">NGS DNA pipeline</a></li>
 <li><a href="https://github.com/molgenis/NGS_RNA">NGS RNA pipeline</a></li>
 <li><a href="https://github.com/molgenis/NGS_ScRNA">NGS scRNA pipelin</a></li>
 <li><a href="https://github.com/molgenis/NGS_Microbiome">NGS Microbiome</a></li>
