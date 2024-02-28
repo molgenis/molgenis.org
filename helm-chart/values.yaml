@@ -13,3 +13,7 @@ ingress:
   hosts:
   - host: www.molgenis.org
   path: /
+
+service:
+  type: ClusterIP
+  port: 80
