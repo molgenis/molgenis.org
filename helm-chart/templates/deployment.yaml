@@ -30,16 +30,16 @@ spec:
       volumes:
       - name: html-volume
         persistentVolumeClaim:
-          claimName: {{ include "website.fullname" . }}
+          claimName: {{ include "website.fullname" . }}-pv
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Chart.Name }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 80
-      volumeMounts:
-        - name: html-volume
-          mountPath: /usr/share/nginx/html
+        volumeMounts:
+          - name: html-volume
+            mountPath: /usr/share/nginx/html
 
 restartPolicy: Always
 status: {}
