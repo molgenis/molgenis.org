@@ -23,6 +23,7 @@ spec:
   rules:
   - host: {{ .host | quote }}
     http:
+      paths:
       - path: {{default "/" .path}}
         pathType: Prefix
         backend:
