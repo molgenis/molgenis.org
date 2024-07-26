@@ -2,7 +2,6 @@
 
 We produce the website using Jekyl. The master branch is automatically build and can be viewed at http://site.dev.molgenis.org . The admin of the website can then push it into production.
 
-
 # How to develop
 
 Fork this repository and then checkout. On your own machine you should install jekyll. 

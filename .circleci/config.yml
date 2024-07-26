@@ -1,0 +1,68 @@
+version: 2.1
+
+parameters:
+  GHA_Actor:
+    type: string
+    default: ""
+  GHA_Event:
+    type: string
+    default: ""
+  GHA_Action:
+    type: string
+    default: ""
+  GHA_Meta:
+    type: string
+    default: ""
+
+orbs:
+  slack: circleci/slack@4.4.4
+
+jobs:
+  build:
+    docker:
+    - image: molgenis/molgenis-org-ci:v1.0.1
+    steps:
+    - checkout
+    - run:
+        name: Jekyll build
+        command: |
+          bundle exec jekyll doctor
+          bundle exec jekyll build
+    - run:
+        name: prepare azure
+        command: |
+          az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
+          az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
+          kubectl config set-cluster ${RESOURCE_GROUP}
+          kubectl config use-context ${RESOURCE_GROUP}
+    - run:
+        name: update preview
+        command: |
+          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+          echo "${NAME}"
+          kubectl delete namespace $NAME || true
+          echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
+          echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
+          kubectl create namespace ${NAME}
+          kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
+          kubectl create configmap html-files --from-file=_site -n ${NAME}
+          helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
+          --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
+          --set spec.tls[0].hosts[0].host=${NAME}.dev.molgenis.org \
+          --set image.tag=latest \
+          --set image.repository=nginx \
+          --set image.pullPolicy=Always \
+          --debug
+    - run:
+        name: message slack about preview
+        command: |
+          curl -d "token=${SLACK_TOKEN}" \
+          -d "text=*<${CIRCLE_PULL_REQUEST}|Circle-CI » Molgenis » Molgenis-org » PR-${CIRCLE_PULL_REQUEST##*/} #${CIRCLE_BUILD_NUM}>*
+          PR Preview available on https://preview-molgenis-org-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
+          -d "channel=C02AZDG6QQ7" \
+          -X POST https://slack.com/api/chat.postMessage
+workflows:
+  version: 2
+  build:
+    jobs:
+    - build
