@@ -45,7 +45,7 @@ MOLGENIS is free to download and install yourself. You can also get a MOLGENIS i
 
 **Genomics Coordination Center (GCC)**  
 University Medical Center Groningen  
-email: <molgenis-support@umcg.nl>  
+email: <support@molgenis.org>  
 conditions: [Acceptable Use Conditions(AUP)](/attachments/MOLGENIS_AUP.pdf), [Example service agreement](/attachments/MOLGENIS_DVO_annex4_20201120.pdf) 
 
 
