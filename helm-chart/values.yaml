@@ -1,0 +1,19 @@
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+adminPassword: admin
+image:
+  repository: "nginx:alpine"
+  tag: "latest"
+  pullPolicy: Always
+
+ingress:
+  enabled: true
+  hosts:
+  - host: www.molgenis.org
+  path: /
+
+service:
+  type: ClusterIP
+  port: 80
