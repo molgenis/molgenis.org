@@ -11,7 +11,7 @@ Our team provide MOLGENIS hosting as a service. Please contact us for details an
 
 **Genomics Coordination Center (GCC)**  
 University Medical Center Groningen  
-email: <molgenis-support@umcg.nl>  
+email: <support@molgenis.org>  
 
 
 # Install on server for multiple users and data persistence
