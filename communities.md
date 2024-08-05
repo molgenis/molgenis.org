@@ -9,11 +9,11 @@ layout: black
 Make data and samples from biobanks, registries and research collections findable to ensure maximum (re)use for research and improve patients and citizens lives. Examples:
 <ul>
 <li><a href="data-catalogue.molgeniscloud.org">EU health data networks and harmonization catalogue</a></li>
-<li><a href="http://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
-<li><a href="http://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
+<li><a href="https://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
+<li><a href="https://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
 <li><a href="https://umcgresearchdatacatalogue.nl/">University Medical Center Groningen Cohorts and Data Catalogue (UMCG)</a></li>
-<li><a href="http://samples.rd-connect.eu">Catalogue of rare disease samples (RD-Connect)</a></li>
-<li><a href="http://www.palgaopenbaredatabank.nl/">Dutch catalogue of pathology samples (PALGA)</a></li>
+<li><a href="https://samples.rd-connect.eu">Catalogue of rare disease samples (RD-Connect)</a></li>
+<li><a href="https://www.palgaopenbaredatabank.nl/">Dutch catalogue of pathology samples (PALGA)</a></li>
 <li><a href="https://datacatalogue.lifelines.nl">LifeLines request portal of data and materials</a></li>
 </ul>
 </div>
@@ -30,10 +30,10 @@ Make data and samples from biobanks, registries and research collections findabl
 <h1>Registries</h1>
 Share patient, mutation and disease knowledge to understand relations between genetics, environment and disease. Examples:
 <ul>
-<li><a href="http://www.deb-central.org">Deb-central: patient registry for Epidermolosis Bullosa</a></li>
-<li><a href="http://www.mvid-central.org">International registry of Microvillus Inclusion Disease (MVID) patients and associated MYO5B, STX3 and STXBP2 mutations</a></li>
-<li><a href="http://www.arvcdatabase.info">Arrhythmogenic Right Ventricular Dysplasia/Cardiomyopathy (ARVD/C) Genetic Variants Database</a></li>
-<li><a href="http://www.CHD7.org">Open-access database on CHD7 mutations</a></li>
+<li><a href="https://www.deb-central.org">Deb-central: patient registry for Epidermolosis Bullosa</a></li>
+<li><a href="https://www.mvid-central.org">International registry of Microvillus Inclusion Disease (MVID) patients and associated MYO5B, STX3 and STXBP2 mutations</a></li>
+<li><a href="https://www.arvcdatabase.info">Arrhythmogenic Right Ventricular Dysplasia/Cardiomyopathy (ARVD/C) Genetic Variants Database</a></li>
+<li><a href="https://www.CHD7.org">Open-access database on CHD7 mutations</a></li>
 </ul>
 </div>
 </div>
