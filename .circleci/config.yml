@@ -28,6 +28,7 @@ jobs:
         command: |
           bundle exec jekyll doctor
           bundle exec jekyll build
+
     - run:
         name: prepare azure
         command: |
@@ -53,12 +54,32 @@ jobs:
           --set image.repository=nginx \
           --set image.pullPolicy=Always \
           --debug
+
+
+    - run:
+        name: Wait for pod to come up
+        command: |
+          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
+          kubectl wait --timeout=60s --for=condition=Ready pod/$POD -n $NAME          
+
+
+    - run:
+        name: Copy Files to kubernetes
+        command: |
+          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+          cd _site/
+          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
+          find -maxdepth 1  |grep -v helm | xargs -i{} kubectl cp {} $POD:/usr/share/nginx/html/ -n $NAME 
+          cd
+
+         
     - run:
         name: message slack about preview
         command: |
           curl -d "token=${SLACK_TOKEN}" \
           -d "text=*<${CIRCLE_PULL_REQUEST}|Circle-CI » Molgenis » Molgenis-org » PR-${CIRCLE_PULL_REQUEST##*/} #${CIRCLE_BUILD_NUM}>*
-          PR Preview available on https://preview-molgenis-org-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
+          PR Preview available on https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
           -d "channel=C02AZDG6QQ7" \
           -X POST https://slack.com/api/chat.postMessage
 workflows:
