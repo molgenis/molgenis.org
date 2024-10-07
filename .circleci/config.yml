@@ -28,6 +28,7 @@ jobs:
         command: |
           bundle exec jekyll doctor
           bundle exec jekyll build
+
     - run:
         name: prepare azure
         command: |
@@ -53,6 +54,17 @@ jobs:
           --set image.repository=nginx \
           --set image.pullPolicy=Always \
           --debug
+
+
+    - run:
+        name: Copy Files to kubernetes
+        command: |
+          cd project/_site/
+          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
+          find -maxdepth 1  |grep -v helm | xargs -i{} kubectl cp {} $POD:/usr/share/nginx/htlm/ -n $NAME 
+          cd
+
+         
     - run:
         name: message slack about preview
         command: |
