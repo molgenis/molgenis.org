@@ -57,6 +57,14 @@ jobs:
 
 
     - run:
+        name: Wait for pod to come up
+        command: |
+          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
+          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+          kubectl wait --timout=60s --for=condition=Ready pod/$POD -n $NAME          
+
+
+    - run:
         name: Copy Files to kubernetes
         command: |
           NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
