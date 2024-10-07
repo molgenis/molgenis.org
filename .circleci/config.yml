@@ -59,7 +59,7 @@ jobs:
     - run:
         name: Copy Files to kubernetes
         command: |
-          cd project/_site/
+          cd _site/
           POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
           find -maxdepth 1  |grep -v helm | xargs -i{} kubectl cp {} $POD:/usr/share/nginx/htlm/ -n $NAME 
           cd
