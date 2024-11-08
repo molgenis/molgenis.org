@@ -9,7 +9,7 @@ layout: blue
 
 
 
-MOLGENIS helps to find, capture, exchange, manage and analyse scientific data. It is fully customizable: data structure, user interface and layout can be fully changed and you can plug-in your own (bioinformatics) scripts to make your MOLGENIS special.
+MOLGENIS helps to find, capture, exchange, manage and analyse scientific data. It is fully customizable: data structure, user interface and layout can be fully changed and you can plug-in your own (bioinformatics) scripts to make your MOLGENIS very special.
 
 <div style="text-align: center">
 <a href="/features.html" class="bluebutton">Discover more features</a>
