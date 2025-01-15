@@ -1,6 +1,6 @@
 ---
 title: Team
-intro: A team of over 20 developers, researchers and data managers develops, supports and continuously improves the software. Furthermore we have a large community of international and national partners supporting the project.
+intro: A team of over 30 developers, researchers and data managers develops, supports and continuously improves the software. Furthermore we have a large community of international and national partners supporting the project.
 layout: black
 partners:
 - bbmri-nl-bw.png: http://bbmri.nl
