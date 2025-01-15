@@ -8,6 +8,7 @@ layout: black
 <h1>FAIR Catalogues</h1>
 Make data and samples from biobanks, registries and research collections findable to ensure maximum (re)use for research and improve patients and citizens lives. Examples:
 <ul>
+<li><a href="https://data-catalogue.molgeniscloud.org">European health data and sample network catalogue</a></li>
 <li><a href="http://directory.bbmri-eric.eu">European directory of biobank collections (BBMRI-ERIC)</a></li>
 <li><a href="http://catalogue.bbmri.nl">Dutch catalogue of human data and sample collections (BBMRI-NL)</a></li>
 <li><a href="http://catalogue.lifecycle-project.eu/">EU child network for multi-center cohort harmonisation</a></li>
