@@ -7,7 +7,7 @@ layout: blue
 <div class="feature_box">
 <div class="feature_content_box">
 <h1>Structured Data Management</h1>
-Model, capture, and manage your data. Quickly upload data files, or enter data via user friendly forms. Refine your data model dynamically using MOLGENIS advanced 'object-relational' data definition format and the online metadata editor. <br/>Example: <a href="https://hfgp.bbmri.nl/">https://hfgp.bbmri.nl/</a>
+Model, capture, and manage your data. Quickly upload data files, or enter data via user friendly forms. Refine your data model dynamically using MOLGENIS advanced 'object-relational' data definition format and the online metadata editor. <br/>Example: <a href="[https://hfgp.bbmri.nl/](https://1000ibd.org/)">[https://hfgp.bbmri.nl/](https://1000ibd.org/)</a>
 </div>
 <div class="feature_image_box"><img src="/images/noun_RELATIONAL DATABASE_1875885_blue.svg"/></div>
 </div>
@@ -17,14 +17,14 @@ Model, capture, and manage your data. Quickly upload data files, or enter data v
 <div class="feature_content_box">
 <h1> FAIR data sharing</h1>
 Make your data findable, interoperable, accessible, reusable (FAIR). We believe data sharing and re-use should be easy. MOLGENIS enables you to quickly create explorers for your data sets and variables to the outside world while preventing exposure of (sensitive) data values using the fine-grained permission system.
-<br/>Example: <a href="http://www.palgaopenbaredatabank.nl">http://www.palgaopenbaredatabank.nl</a>
+<br/>Example: <a href="https://data-catalogue.molgeniscloud.org/">https://data-catalogue.molgeniscloud.org/</a> and <a href="http://www.palgaopenbaredatabank.nl">http://www.palgaopenbaredatabank.nl</a>
 </div>
 </div>
 
 <div class="feature_box">
 <div class="feature_content_box">
 <h1>secure access</h1>
-Easily control group, role and individual access. MOLGENIS data is organised following scientific practice. Data can be divided in research groups, within the groups you can assign roles such as 'data manager', 'data editor' and 'data user'. Authentication can be ensured by connecting you institute account via SURFconext (NL) and BBMRI/ELIXIR AAI (Europe) or using Google two-factor authentication.
+Easily control group, role and individual access. MOLGENIS data is organised following scientific practice. Data can be divided in research groups, within the groups you can assign roles such as 'data manager', 'data editor' and 'data user'. Authentication can be ensured by connecting you institute account via SURFconext (NL) and BBMRI/ELIXIR AAI (Europe) or using Google two-factor authentication. In addition we support DataSHIELD federated analysis. See <a href="https://github.com/molgenis/molgenis-service-armadillo">MOLGENIS Armadillo</a>
 </div>
 <div class="feature_image_box"><img src="/images/noun_Security_1980517_blue.svg"/></div>
 </div>
@@ -34,7 +34,6 @@ Easily control group, role and individual access. MOLGENIS data is organised fol
 <div class="feature_content_box">
 <h1> Scripting & visualisation </h1>
 Bioinformaticians can take full control in MOLGENIS. Add scripts in your favorite programming languages (e.g. R, javascript, python) and connect to the data using API's to add great analysis tools and views. Or even create complete html + javascript apps to make MOLGENIS completely your own.
-<br/>Example: <a href="http://molgenis.org/ase">http://molgenis.org/ase</a>
 </div>
 </div>
 
