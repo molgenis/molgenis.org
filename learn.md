@@ -7,6 +7,8 @@ layout: blue
 Here you can find documentation:
 
  * [MOLGENIS Data Platform manual](https://molgenis.gitbook.io/molgenis/)
+ * [MOLGENIS Armadillo DataSHIELD manual](https://molgenis.github.io/molgenis-service-armadillo/)
+ * [MOLGENIS VIP NGS variant interpreation pipelinee manual](https://molgenis.github.io/vip/)
  * [MOLGENIS Compute Platform manual](https://molgenis.gitbook.io/molgenis-pipelines/)
 
 # News archive
