@@ -1,24 +1,22 @@
 ---
-title: Learn
-intro: Read more about MOLGENIS in manuals, news items and publications.
+title: Support
 layout: blue
 ---
 # Documentation
 Here you can find documentation:
 
- * [MOLGENIS Data Platform manual](https://molgenis.gitbook.io/molgenis/)
+ * [MOLGENIS Data Platform manual](https://molgenis.github.io/molgenis-emx2/#/molgenis/use)
+ * [MOLGENIS EMX2 Githubl](https://github.com/molgenis/molgenis-emx2)
  * [MOLGENIS Armadillo DataSHIELD manual](https://molgenis.github.io/molgenis-service-armadillo/)
- * [MOLGENIS VIP NGS variant interpreation pipelinee manual](https://molgenis.github.io/vip/)
+ * [MOLGENIS Variant Interpretation Pipeline manual](https://molgenis.github.io/vip/)
  * [MOLGENIS Compute Platform manual](https://molgenis.gitbook.io/molgenis-pipelines/)
 
-# News archive
-Here you can find all news items:
+# Hosting and support
+MOLGENIS is open source and free to install. Our team provide MOLGENIS hosting as a service. Please contact us for details and costs:
 
-<ul>
-{% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a><small> <i>Posted {{ post.date | date: '%A, %B %d, %Y'}}</i></small></li>
-{% endfor %}
-</ul>
+**Genomics Coordination Center (GCC)**  
+University Medical Center Groningen  
+email: <support@molgenis.org>
 
 # Publications
 Relevant publications by MOLGENIS community members:
