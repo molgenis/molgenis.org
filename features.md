@@ -46,14 +46,6 @@ Armadillo is a data portal that allows data stewards to share datasets on a serv
 </div>
 
 <div class="feature_box">
-<div class="feature_content_box">
-<h1>App development platform</h1>
-Add your own user interfaces to the app store. MOLGENIS gives programmers the complete freedom to create HTML+JavaScript applications using MOLGENIS REST-style programmers interfaces. But it gets even better: you can upload these apps like plugins to become part of MOLGENIS itself and use them seamlessly.
-</div>
-<div class="feature_image_box"><img src="/images/noun_web_developer_1873915_blue.svg"/></div>
-</div>
-
-<div class="feature_box">
 <div class="feature_image_box"><img src="/images/noun_Cluster_Computing_1390758_blue.svg"/></div>
 <div class="feature_content_box">
 <h1>High performance computing</h1>
