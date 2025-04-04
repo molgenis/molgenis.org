@@ -30,7 +30,7 @@ Share patient, mutation and disease knowledge to understand relations between ge
 </div>
 
 <div class="feature_box">
-<div class="feature_image_box"><img src="/images/noun_statistical_analysis_1857873_blue.svg"/></div>
+<div class="feature_image_box"><img src="/images/noun_Workflow_1110086_blue.svg"/></div>
 <div class="feature_content_box">
 <h1>Variant Interpretation Pipeline</h1>
 VIP is a flexible human variant interpretation pipeline for rare disease using state-of-the-art pathogenicity prediction (CAPICE) and template-based interactive reporting to facilitate decision support. More info: <a href="https://molgenis.github.io/vip/" target="_blank">https://molgenis.github.io/vip/</a>
