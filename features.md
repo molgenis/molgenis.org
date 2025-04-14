@@ -7,7 +7,7 @@ layout: blue
 <div class="feature_box">
 <div class="feature_content_box">
 <h1>Structured Data Management</h1>
-Model, capture, and manage your data. Quickly upload data files, or enter data via user friendly forms. Refine your data model dynamically using MOLGENIS advanced 'object-relational' data definition format and the online metadata editor. <br/>Example: <a href="[https://hfgp.bbmri.nl/](https://1000ibd.org/)">[https://hfgp.bbmri.nl/](https://1000ibd.org/)</a>
+Model, capture, and manage your data. Quickly upload data files, or enter data via user friendly forms. Refine your data model dynamically using MOLGENIS advanced 'object-relational' data definition format and the online metadata editor. <br/>Examples: <a href="https://hfgp.bbmri.nl/">https://hfgp.bbmri.nl</a><a href="https://1000ibd.org/">https://1000ibd.org/</a>
 </div>
 <div class="feature_image_box"><img src="/images/noun_RELATIONAL DATABASE_1875885_blue.svg"/></div>
 </div>
