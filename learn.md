@@ -6,7 +6,7 @@ layout: blue
 Here you can find documentation:
 
  * [MOLGENIS Data Platform manual](https://molgenis.github.io/molgenis-emx2/#/molgenis/use)
- * [MOLGENIS EMX2 Githubl](https://github.com/molgenis/molgenis-emx2)
+ * [MOLGENIS EMX2 Github](https://github.com/molgenis/molgenis-emx2)
  * [MOLGENIS Armadillo DataSHIELD manual](https://molgenis.github.io/molgenis-service-armadillo/)
  * [MOLGENIS Variant Interpretation Pipeline manual](https://molgenis.github.io/vip/)
  * [MOLGENIS Compute Platform manual](https://molgenis.gitbook.io/molgenis-pipelines/)
