@@ -16,7 +16,7 @@ Model, capture, and manage your data. Quickly upload data files, or enter data v
 <div class="feature_image_box"><img src="/images/noun_Share_2020990_blue.svg"/></div>
 <div class="feature_content_box">
 <h1>Catalogue</h1>
-Based on the EMX2 platform, MOLGENIS provides various health research metadata catalogues to increase discoverability and accelerate reuse of data and samples.
+Based on the EMX2 platform, MOLGENIS provides various health research FAIR data catalogues to increase discoverability and accelerate reuse of data and samples.
 <br/>Example: <a href="https://data-catalogue.molgeniscloud.org/" target="_blank">https://data-catalogue.molgeniscloud.org/</a> and <a href="https://umcgresearchdatacatalogue.nl/UMCG/catalogue/all/" target="_blank">https://umcgresearchdatacatalogue.nl</a>
 </div>
 </div>
