@@ -15,19 +15,24 @@ Find here user manuals of broadly used MOLGENIS applications:
 The full list of applications can be found at the MOLGENIS [Github](https://github.com/molgenis).
 
 ## Publications
-Relevant publications by MOLGENIS community members:
+
+Publications by MOLGENIS community members:
 
 ### Sample and data catalogues:
+* Swertz et al (2022) Towards an Interoperable Ecosystem of Research Cohort and Real-world Data Catalogues Enabling Multi-center Studies. [Yearb Med Inform](https://pubmed.ncbi.nlm.nih.gov/36463884/)
 * Holub et al (2016) BBMRI-ERIC Directory: 515 Biobanks with Over 60 Million Biological Samples. [Biopreservation and Biobanking](https://www.ncbi.nlm.nih.gov/pubmed/27936342)
 * Roxana Merino-Martinez et al (2016) Toward Global Biobank Integration by Implementation of the Minimum Information About BIobank Data Sharing (MIABIS 2.0 Core). [Biopreservation and Biobanking](https://www.ncbi.nlm.nih.gov/pubmed/26977825)
 
-### Harmonization / FAIRification:
-* Pang et al (2017) BiobankUniverse: automatic matchmaking between datasets for biobank data discovery and integration. [Bioinformatics](https://www.ncbi.nlm.nih.gov/pubmed/29036577)
+### FAIRification:
+* Van der Velde et al (2022) FAIR Genomes metadata schema promoting Next Generation Sequencing data reuse in Dutch healthcare and research. [Sci Data](https://pubmed.ncbi.nlm.nih.gov/35418585/)
 * Wilkinson et al (2016) The FAIR Guiding Principles for scientific data management and stewardship. [Scientific Data](https://www.ncbi.nlm.nih.gov/pubmed/26978244)
+* Lancaster et al (2015) Cafe Variome: general-purpose software for making genotype-phenotype data discoverable in restricted or open access contexts. [Human Mutation](https://www.ncbi.nlm.nih.gov/pubmed/26224250)
+
+### Harmonisation:
+* Pang et al (2017) BiobankUniverse: automatic matchmaking between datasets for biobank data discovery and integration. [Bioinformatics](https://www.ncbi.nlm.nih.gov/pubmed/29036577)
 * Pang et al (2016) MOLGENIS/connect: a system for semi-automatic integration of heterogeneous phenotype data with applications in biobanks. [Bioinformatics](https://www.ncbi.nlm.nih.gov/pubmed/27153686)
 * Pang et al (2015) BiobankConnect: software to rapidly connect data elements for pooled analysis across biobanks using ontological and lexical indexing. [Journal of the Medical Informatics Association](https://www.ncbi.nlm.nih.gov/pubmed/25361575)
 * Pang et al (2015,)SORTA: a system for ontology-based re-coding and technical annotation of biomedical phenotype data. [Database(Oxford)](https://www.ncbi.nlm.nih.gov/pubmed/26385205)
-* Lancaster et al (2015) Cafe Variome: general-purpose software for making genotype-phenotype data discoverable in restricted or open access contexts. [Human Mutation](https://www.ncbi.nlm.nih.gov/pubmed/26224250)
 
 ### Large research projects and studies:
 * Van der Velde et al (2018) MOLGENIS Research: Advanced bioinformatics data software for non-bioinformaticians. [Bioinformatics](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty742/5085379)

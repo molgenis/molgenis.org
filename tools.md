@@ -1,8 +1,15 @@
 ---
 title: Tools
-intro: "MOLGENIS promotes best practice tools to implement Open Science and FAIR principles:"
+intro: "MOLGENIS promotes best practice tools and services to implement Open Science and FAIR principles:"
 layout: blue
 ---
+
+MOLGENIS was created in 2002 as an open source software that was configurable to be quickly adapted to new research needs (then: [microarray experiments]
+(https://pubmed.ncbi.nlm.nih.gov/15059831/)).
+It therefore provided a blueprint system, so users can quickly configure what they need, and then MOLGENIS quickly generates tool to manage and query data
+matching those needs (described in [Nature Reviews Genetics](https://pubmed.ncbi.nlm.nih.gov/17297480/)). Now, MOLGENIS has become a combination of software
+tools,
+services, expertise and their user communities, sustaining the whole ecosystem for over two decades.
 
 <div class="feature_box">
 <div class="feature_content_box">
@@ -58,8 +65,11 @@ VIP is a flexible human variant interpretation pipeline for rare disease using s
 
 <div class="feature_box">
 <div class="feature_content_box">
-<h1>Armadillo</h1>
-Armadillo is a data portal that allows data stewards to share datasets on a server, and researchers to analyse these data and those shared on other servers using the DataSHIELD analysis tools. More info: <a href="https://molgenis.github.io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
+<h1>MOLGENIS Armadillo DataSHIELD</h1>
+Armadillo is a data portal that allows data stewards to share datasets on a server, and researchers to analyse these data and those shared on other servers 
+using the DataSHIELD analysis tools. MOLGENIS is active partner in the [DataSHIELD organisation](https://wiki.datashield.org/). More info: <a 
+href="https://molgenis.github.
+io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
 </div>
 <div class="feature_image_box"><img src="/images/noun_data_integration_1630965_blue.svg"/></div>
 </div>
