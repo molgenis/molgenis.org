@@ -131,7 +131,7 @@ nav li {
 }
 @media (min-width: 67em) {
   html {
-    font-size: 62.5%;
+    font-size: 75%;
   }
   header, section, footer {
     padding-left: 12.8rem;
@@ -168,7 +168,7 @@ nav li {
 
 @media (min-width: 100em) {
   html {
-    font-size: 90%;
+    font-size: 75%;
   }
   header, section {
     padding-left: 25.6rem;
