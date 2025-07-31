@@ -68,8 +68,7 @@ VIP is a flexible human variant interpretation pipeline for rare disease using s
 <h1>MOLGENIS Armadillo DataSHIELD</h1>
 Armadillo is a data portal that allows data stewards to share datasets on a server, and researchers to analyse these data and those shared on other servers 
 using the DataSHIELD analysis tools. MOLGENIS is active partner in the [DataSHIELD organisation](https://wiki.datashield.org/). More info: <a 
-href="https://molgenis.github.
-io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
+href="https://molgenis.github.io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
 </div>
 <div class="feature_image_box"><img src="/images/noun_data_integration_1630965_blue.svg"/></div>
 </div>

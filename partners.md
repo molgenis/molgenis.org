@@ -5,9 +5,12 @@ layout: blue
 ---
 {% assign sorted_partners = site.partners | sort: "name" %}
 <a id="top"/>
-<p style="text-align: center;">{% for item in sorted_partners %}
-  <a href="#{{ item.name | slugify }}">{{ item.name }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
-{% endfor %}</p>
+<div class="partner-grid">{% for item in sorted_partners %}
+<div class="partner-block">
+  <a href="#{{ item.name | slugify }}"><img src="{{ item.logo }}">
+    {{ item.name }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+</div>
+{% endfor %}</div>
 
 {% assign sorted_by_end = site.partners | sort: "end"  %}
 {% assign sorted_by_end_and_start = sorted_by_end | sort: "start" | reverse %}
