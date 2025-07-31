@@ -4,6 +4,7 @@ intro: "MOLGENIS tools and services are driven by the valuable input and investm
 layout: blue
 ---
 {% assign sorted_partners = site.partners | sort: "name" %}
+<a id="top"/>
 <p style="text-align: center;">{% for item in sorted_partners %}
   <a href="#{{ item.name | slugify }}">{{ item.name }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
 {% endfor %}</p>
@@ -24,4 +25,7 @@ layout: blue
 {% endfor %}
 </p>
 {% endif %}
+<p style="text-align: right;">
+  <a href="#top">Back to top ↑</a>
+</p>
 {% endfor %}
