@@ -1,0 +1,20 @@
+<!--h1 style="overflow: hidden;">
+    {{ include.title }} <small style="font-size: 0.6em;">{{ include.date }}</small>
+    {% if include.image %}
+    <img src="{{ include.image }}" alt="Logo" style="float: right; height: 80px; margin-left: 10px;" />
+    {% endif %}
+</h1-->
+
+<h1 style="overflow: hidden; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+    <span>
+        {{ include.title }}
+        {% if include.date %}
+        <small style="font-size: 0.6em;  margin-left: 10px;">({{ include.date }})</small>
+        {% endif %}
+    </span>
+    {% if include.image %}
+    <img src="{{ include.image }}" alt="Logo"
+        style="height: 80px; max-width: 30%; min-width: 80px; object-fit: contain; margin-left: 10px;"
+        class="responsive-logo" />
+    {% endif %}
+</h1>
