@@ -131,7 +131,7 @@ nav li {
 }
 @media (min-width: 67em) {
   html {
-    font-size: 75%;
+    font-size: 62.5%;
   }
   header, section, footer {
     padding-left: 12.8rem;
@@ -421,4 +421,14 @@ header {
   padding-top: 1.6rem;
   margin-bottom: 1.6rem;
   text-decoration: none;
+}
+
+.partner-logo {
+  float:right;
+  height: 80px;
+  max-width: 30%;
+  min-width: 80px;
+  object-fit: contain;
+  margin-top: -20px;
+  margin-left: 10px;
 }

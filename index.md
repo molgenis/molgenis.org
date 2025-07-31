@@ -5,11 +5,11 @@ image: /images/frontpage-small-darker3.jpg
 layout: blue
 ---
 
-# Tools for research lifecycle
+# Tools for health research data
 
 tekeningetje die de onderzoekscyclus weergeeft en onze tools daarvoor.
 
-- Explore tools
+- Catalogue for 
 - Documentation
 - Support
 - About us
