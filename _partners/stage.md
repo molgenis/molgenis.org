@@ -1,5 +1,5 @@
 ---
-name:  STAGE healthy aging
+name:  STAGE
 logo: /images/stage.png 
 start: 2024
 end: 2030
