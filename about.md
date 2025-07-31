@@ -33,7 +33,8 @@ The MOLGENIS teams enable new software development, hosting, data management sup
 
 ## Coordination
 MOLGENIS was initiated and is currently coordinated by Prof.Dr. Morris Swertz of the Genomics Coordination Center ([GCC](https://umcgresearch.org/w/gcc)), kindly hosted by the Department of 
-Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. MOLGENIS is funded by a large range of public projects from various academic sponsors (see PartnerS below).
+Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. MOLGENIS is funded 
+by a large range of public projects from various academic sponsors (see Partners below).
 
 ### Governance
 MOLGENIS development is strategically guided by a large list of academic partner projects, the PIs of which provide solicited and unsolicited scientific and strategic advice. Also, they highlight critical issues and emerging global trends in academia where MOLGENIS could fill a gap or meet a need and help the MOLGENIS team to push forward FAIR data and FAIR data stewardship in a national and international context, in particular in human data research, biobanking and rare disease. 
