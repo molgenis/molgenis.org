@@ -1,6 +1,6 @@
 ---
-title: "MOLGENIS"
-intro: "Open-source infrastructure to find, capture, exchange, manage, and analyse research data"
+title: "MOLGENIS: Free and open-source data infrastructure for health research"
+intro: ""
 image: /images/frontpage-small-darker3.jpg
 layout: blue
 ---

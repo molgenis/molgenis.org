@@ -1,6 +1,7 @@
 ---
 title: Partners
-intro: "MOLGENIS tools and services are driven by the valuable input and investments of many partners. Find examples of our partnerships below."
+intro: "MOLGENIS tools and services are driven by the valuable input and investments of many partners and their user communities. Find examples of our 
+partnerships below."
 layout: blue
 ---
 {% assign sorted_partners = site.partners | sort: "name" %}
@@ -8,12 +9,12 @@ layout: blue
 <div class="partner-grid">{% for item in sorted_partners %}
 <div class="partner-block">
   <a href="#{{ item.name | slugify }}"><img src="{{ item.logo }}">
-    {{ item.name }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+    {{ item.name }}</a>
 </div>
 {% endfor %}</div>
 
-{% assign sorted_by_end = site.partners | sort: "end"  %}
-{% assign sorted_by_end_and_start = sorted_by_end | sort: "start" | reverse %}
+{% assign sorted_by_start = site.partners | sort: "start" | reverse %}
+{% assign sorted_by_end_and_start = sorted_by_start | sort: "end" | reverse %}
 
 {% for item in sorted_by_end_and_start %}
   <h1 id="{{ item.name | slugify }}">{{ item.name }} 

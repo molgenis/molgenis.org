@@ -1,24 +1,21 @@
 ---
 title: Support
 layout: blue
-intro: "Here you can find information on hosting and support"
+intro: "MOLGENIS is open source and free to download and install yourself. However, you can also get a MOLGENIS tools as a service and we can also provide support with entering and managing your data."
 ---
 
-MOLGENIS is open source and free to download and install yourself. You can also get a MOLGENIS tools ready for use from us. We can also provide support with 
-entering and managing your data. 
-
-## Free services
+# Free services
 
 MOLGENIS provides public services with our partners that are free to use:
 - [Data catalogue](https://data-catalogue.molgeniscloud.org/) in collaboration with many [consortia](/partners.html)
 - [Biobank catalogue](http://directory.bbmri-eric.eu/) via BBMRI-ERIC
 
-## Controlled access service
+# Controlled access service
 MOLGENIS partners also provides controlled access services
 - HPC compute cloud at [UMCG](https://umcgresearch.org/w/high-performance-computing)
 - DataSHIELD armadillo network
 
-## Hosting and support
+# Hosting and support
 
 Currently, MOLGENIS server are provided fee for service by:
 
