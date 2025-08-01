@@ -12,3 +12,7 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+collections:
+  partners:
+    output: true
