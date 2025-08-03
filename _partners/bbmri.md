@@ -3,6 +3,7 @@ name:  BBMRI Directory
 logo: /images/bbmri-eric.png 
 start: 2012
 end: now
+pi: Petr Holub
 tools:
 - portal
 - vip

@@ -1,6 +1,6 @@
 ---
 name: multi-center cohort studies
-summary: population-based cohort studies provide advanced longitudinal and diverse data concerning mental and
+summary: population cohort studies provide longitudinal data concerning mental and
   physical health, sociodemographic, lifestyle, economic, and environmental factors.
 ---
 

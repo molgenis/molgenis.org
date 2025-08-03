@@ -434,6 +434,7 @@ header {
 .partner-grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end; /* Align items to the bottom */
   justify-content: center;
   gap: 2em;
   margin: 2em auto;
@@ -443,6 +444,9 @@ header {
   width: 150px;
   height: 100px;
   object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
 }
 .partner-block img {
   max-height: 1.8em;
@@ -462,7 +466,6 @@ header {
   display: flex;
   overflow: hidden;
   &:hover .carousel-group {
-    animation-play-state: paused;
   }
   padding: 2rem;
 }

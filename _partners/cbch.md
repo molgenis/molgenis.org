@@ -3,6 +3,7 @@ name:  UMCG CBCH
 logo: /images/umcg.png 
 start: 2012
 end: now
+pi: Wim Timens
 tools:
 - catalogue
 ---

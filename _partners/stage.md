@@ -3,6 +3,7 @@ name:  STAGE
 logo: /images/stage.png 
 start: 2024
 end: 2030
+pi: Sylvain Sebert
 tools:
 - catalogue
 - armadillo

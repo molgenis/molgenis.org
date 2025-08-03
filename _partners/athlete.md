@@ -3,6 +3,7 @@ name: ATHLETE
 logo: /images/athlete.svg 
 start: 2020
 end: 2025
+pi: Martine Vrijheid
 tools:
 - catalogue
 - armadillo

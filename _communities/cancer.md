@@ -5,6 +5,8 @@ partners:
 - uncan-connect
 - eosc4cancer
 - force
+- genturis
+- nestor
 ---
 
 Our cancer communities propose to set up National and European Federated Cancer Research data hubs and to generate a series of use cases, addressing major

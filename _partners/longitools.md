@@ -3,6 +3,7 @@ name: LongITools
 logo: /images/longitools.svg 
 start: 2020
 end: 2025
+pi: Sylvain Sebert
 tools:
 - catalogue
 - armadillo

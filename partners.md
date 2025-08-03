@@ -21,6 +21,7 @@ layout: blue
     <small><small>{{ item.start }} - {{ item.end }}</small></small> 
     <img class="partner-logo" src="{{ item.logo }}">
   </h1>
+  
   <p>{{ item.content | markdownify }}</p>
 {% if item.tools %}
 <p>MOLGENIS tools used:

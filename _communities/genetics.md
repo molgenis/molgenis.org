@@ -5,4 +5,8 @@ summary: Co-analyzing data from thousands of RD cases, including phenotypes, ped
 partners:
 - solve-rd
 - erdera
+- skin
+- genturis
+- rd-connect
+- vkgl
 ---

@@ -1,18 +1,18 @@
 ---
 title: "FAIR and open-source data infrastructure for health research"
-intro: "MOLGENIS is a virtual data infrastructure for large (inter)national multi-centre health research communities.
+intro: "MOLGENIS provides virtual FAIR data infrastructures for large (inter)national multi-centre health research communities.
  MOLGENIS is open access (public/partnership/fee-based) and all tools are free and open source, implementing (inter)national standards and FAIR principles, so 
  they can easily be reused."
 image: /images/frontpage-small-darker3.jpg
 layout: blue
 ---
 
-# Virtual data infrastructure
+# FAIR data infrastructures
 
 <div style="display: flex; justify-content: space-between;">
 
 <div style="flex: 1; padding-top: 5vw">
-<p>MOLGENIS is a virtual data infrastructure providing tools for large (inter)national multi-centre health research groups.</p>
+<p>MOLGENIS is a virtual data infrastructure providing FAIR data tools for large (inter)national multi-centre health research groups.</p>
 <p style="text-align: center" ><a href="/tools.html" class="bluebutton">Discover all MOLGENIS tools</a></p>
 </div>
 
@@ -34,7 +34,7 @@ MOLGENIS accelerates research communities with user-friendly IT tools, support a
         <div class="carousel-card">
             <h2>{{ item.name }}</h2>
             <p>"{{ item.summary | capitalize}}"</p>
-            <p class="carousel-card-footer"><a href="/communities.html#{{item.name}}">read more</a></p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | slugify }}">read more</a></p>
         </div>
 {% endfor %}
     </div>
@@ -43,7 +43,7 @@ MOLGENIS accelerates research communities with user-friendly IT tools, support a
         <div class="carousel-card">
             <h2>{{ item.name }}</h2>
             <p>"{{ item.summary | capitalize}}"</p>
-            <p class="carousel-card-footer"><a href="/communities.html#{{item.name}}">read more</a></p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | slugify }}">read more</a></p>
      </div>
 {% endfor %}
     </div>
@@ -53,7 +53,7 @@ MOLGENIS accelerates research communities with user-friendly IT tools, support a
 <a href="/tools.html" class="bluebutton">Discover all MOLGENIS communities</a>
 </div>
 
-# Driven by open-source partners
+# Driven by partnerships
 
 MOLGENIS is created and maintained through partnerships who invest in and share MOLGENIS developments as free and open source.
 
@@ -69,3 +69,9 @@ MOLGENIS is created and maintained through partnerships who invest in and share 
 <div style="text-align: center">
 <a href="/partners.html" class="bluebutton">Discover all MOLGENIS partners</a>
 </div>
+
+# Get involved
+
+- Contact: <a href="mailto:support@molgenis.org">support@molgenis.org</a>
+- Github: <a href="https://github.com/molgenis">https://github.com/molgenis</a>
+- LinkedIn: <a href="https://www.linkedin.com/company/molgenis">https://www.linkedin.com/company/molgenis</a>
