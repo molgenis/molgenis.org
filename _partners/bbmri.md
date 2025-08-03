@@ -2,8 +2,8 @@
 name:  BBMRI Directory
 logo: /images/bbmri-eric.png 
 start: 2012
-end: 2028
-tags:
+end: now
+tools:
 - portal
 - vip
 - hpc

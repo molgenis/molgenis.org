@@ -22,10 +22,10 @@ layout: blue
     <img class="partner-logo" src="{{ item.logo }}">
   </h1>
   <p>{{ item.content | markdownify }}</p>
-{% if item.tags %}
+{% if item.tools %}
 <p>MOLGENIS tools used:
-{% for tag in item.tags %}
-<a href="/tools/#{{ tag }}">{{ tag }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+{% for tool in item.tools %}
+<a href="/tools/#{{ tool }}">{{ tool }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
 {% endfor %}
 </p>
 {% endif %}
