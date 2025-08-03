@@ -1,46 +1,71 @@
 ---
 title: "FAIR and open-source data infrastructure for health research"
-intro: "MOLGENIS is a virtual data infrastructure for large (inter)national multi-centre health research communities
- MOLGENIS is open access (partnership/fee-based) and all tools are free and open source, implementing (inter)national standards and FAIR principles, so they can easily be reused."
+intro: "MOLGENIS is a virtual data infrastructure for large (inter)national multi-centre health research communities.
+ MOLGENIS is open access (public/partnership/fee-based) and all tools are free and open source, implementing (inter)national standards and FAIR principles, so 
+ they can easily be reused."
 image: /images/frontpage-small-darker3.jpg
 layout: blue
 ---
 
 # Virtual data infrastructure
 
-MOLGENIS is a virtual data infrastructure for large (inter)national multi-centre health research communities
+<div style="display: flex; justify-content: space-between;">
 
-boxen maken met een horizontal scroll, liefst automatisch langzaam alles voorbij laten komen.
-
-## multi-center cohort studies
-
-De soorten partnerships die we hebben en dan door linken naar de partnership website.
-
-## rare-disease
-
-De soorten partnerships die we hebben en dan door linken naar de partnership website.
-
-## biobanking
-
-De soorten partnerships die we hebben en dan door linken naar de partnership website.
-
-## cancer
-
-De soorten partnerships die we hebben en dan door linken naar de partnership website.
-
-# Tools for health research data
-
-MOLGENIS provides research communities with user-friendly IT tools, professional support and secure hosting to accelerate their research lifecycle.
-
-tekeningetje die de onderzoekscyclus weergeeft en onze tools daarvoor.
-
-- Catalogue for
-- Documentation
-- Support
-- About us
-
-<div style="text-align: center">
-<a href="/tools.html" class="bluebutton">Discover MOLGENIS tools</a>
+<div style="flex: 1; padding-top: 5vw">
+<p>MOLGENIS is a virtual data infrastructure providing tools for large (inter)national multi-centre health research groups.</p>
+<p style="text-align: center" ><a href="/tools.html" class="bluebutton">Discover all MOLGENIS tools</a></p>
 </div>
 
+<div style="flex: 1;">
+  <img src="/images/molgenis-cycle.png" alt="molgenis data lifecycle tools" style="max-width: 100%; height: auto;">
+</div>
 
+</div>
+
+# For health research communities
+
+MOLGENIS accelerates research communities with user-friendly IT tools, support and hosting:
+
+<!-- thanks to https://blog.logto.io/css-only-infinite-scroll -->
+<div class="carousel">
+<!-- endless scroll requires all twice -->
+    <div class="carousel-group">
+{% for item in site.communities %}
+        <div class="carousel-card">
+            <h2>{{ item.name }}</h2>
+            <p>"{{ item.summary | capitalize}}"</p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{item.name}}">read more</a></p>
+        </div>
+{% endfor %}
+    </div>
+    <div aria-hidden class="carousel-group">
+{% for item in site.communities %}
+        <div class="carousel-card">
+            <h2>{{ item.name }}</h2>
+            <p>"{{ item.summary | capitalize}}"</p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{item.name}}">read more</a></p>
+     </div>
+{% endfor %}
+    </div>
+</div>
+
+<div style="text-align: center">
+<a href="/tools.html" class="bluebutton">Discover all MOLGENIS communities</a>
+</div>
+
+# Driven by open-source partners
+
+MOLGENIS is created and maintained through partnerships who invest in and share MOLGENIS developments as free and open source.
+
+{% assign sorted_partners = site.partners | sort: "name" %}
+<a id="top"/>
+<div class="partner-grid">{% for item in sorted_partners %}
+<div class="partner-block">
+  <a href="/partners.html#{{ item.name | slugify }}"><img src="{{ item.logo }}">
+    {{ item.name }}</a>
+</div>
+{% endfor %}</div>
+
+<div style="text-align: center">
+<a href="/partners.html" class="bluebutton">Discover all MOLGENIS partners</a>
+</div>

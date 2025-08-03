@@ -12,7 +12,7 @@ MOLGENIS has become an infrastructure of tools, services, expertise and their pa
 <a id="top"/>
 <p>
 Tools: 
-{% for item in site.tools | sort: "name" %}
+{% for item in site.tools  %}
   <a href="#{{ item.name | slugify }}">
     {{ item.name }}</a> {% unless forloop.last %}- {% endunless %}
 {% endfor %}
