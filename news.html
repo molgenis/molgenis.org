@@ -1,16 +1,19 @@
 ---
 title: news
 intro: Here you can find all news items
-layout: green
+layout: blue
 ---
-<a name="top"></a>
-
-<div style="float:right;">
-    <a class="twitter-timeline" data-width="400" data-height="100%" href="https://twitter.com/molgenis?ref_src=twsrc%5Etfw">Tweets by molgenis</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-<ul>
+<a href="/feed.xml" style="float:right">Follow our RSS feed</a>
+<ul class="news-list">
 {% for post in site.posts %}
-    <li><a href="#{{ post.url}}">{{ post.title }}</a><small> <i>Posted {{ post.date | date: '%A, %B %d, %Y'}}</i></small></li>
+    <li class="news-item">
+        <div class="news-date">{{ post.date | date: '%B %d, %Y'}}
+            <span class="news-category">{{post.category}}</span>
+        </div>
+        <div class="news-excerpt">
+            <h2><a href="{{post.url}}">{{ post.title | markdownify }}<i class="news-citation"><small>{{post.citation}}</small</i></a></h2>
+            <p>{{ post.excerpt }}</p>
+        </div>
+    </li>
 {% endfor %}
 </ul>

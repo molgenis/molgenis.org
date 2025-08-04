@@ -157,18 +157,6 @@ nav li {
   nav li:first-child {
     padding-left: 0px;
   }
-  .newscontainer {
-    width: calc(100% - 350px)
-    clear: both;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .newsitem {
-    width: 40%;
-    display: table-cell;
-  }
 }
 
 @media (min-width: 100em) {
@@ -227,7 +215,7 @@ summary > p {
 /* fonts */
 @font-face {
     font-family: BebasNeueBold;
-    src: url(/assets/fonts/BebasNeue-Bold.woff);
+    src: url(/assets/fonts/BebasNeue-Regular.woff2);
 }
 /* from https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/woff */
 @font-face {
@@ -406,16 +394,6 @@ header {
   bottom: 0px;
 }
 
-/* newsitems on frontpage */
-.newsitem h2 a {
-  text-decoration: none;
-  color:
-}
-
-.newslist:last-child {
-  display: none;
-}
-
 .bluebutton {
   display:inline-block;
   background: #017FFD;
@@ -522,4 +500,54 @@ header {
 .carousel-card-footer {
   font-style: italic;
   margin-top: auto; /* pushes footer to bottom */
+}
+
+.news-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  align-items: start;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.news-date {
+  font-weight: bold;
+
+}
+
+.news-item h2 {
+  color: #017FFD;
+  padding: 0px;
+  margin: 0px;
+}
+
+.news-item h2 a {
+  text-decoration: none;     /* No underline by default */
+  color: inherit;            /* Optional: match surrounding text color */
+}
+
+.news-item h2 a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.news-item p {
+  margin: 0.5rem;
+}
+
+.news-category {
+  background-color: #017FFD;
+  color: white;
+  border-radius: 6px;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-right: 1rem;
+  float: right;
 }
