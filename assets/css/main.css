@@ -75,6 +75,7 @@ footer ul {
 
 #menu:not(:checked) ~ li {
   display: none;
+  vertical-align: middle;
 }
 
 .icon {

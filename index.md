@@ -55,7 +55,7 @@ MOLGENIS accelerates research communities with user-friendly IT tools, support a
 
 # Driven by partnerships
 
-MOLGENIS is created and maintained through partnerships who invest in and share MOLGENIS developments as free and open source.
+MOLGENIS is created and maintained through multi-center partnerships who invest in and share MOLGENIS developments as free and open source.
 
 {% assign sorted_partners = site.partners | sort: "name" %}
 <a id="top"/>
