@@ -77,6 +77,10 @@ footer ul {
   display: none;
 }
 
+.icon {
+  height: 2rem;
+}
+
 dt {
   background-size: 0 0; /** hide background image unless higher resolution*//
 }
@@ -462,7 +466,6 @@ header {
 /* carrousel */
 
 .carousel {
-  width: 100%;
   display: flex;
   overflow: hidden;
   &:hover .carousel-group {
