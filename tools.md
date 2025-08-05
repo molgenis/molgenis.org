@@ -27,7 +27,17 @@ Tools:
 <div class="feature_content_box">
   <h1 id="{{ item.name | slugify }}">{{ item.name }}</h1>
   <p>{{ item.content | markdownify }}</p>
+{% assign filtered_posts = site.posts | where_exp: "post", "post.tools contains item.name" %}
+{% if filtered_posts.size > 0 %}
+News:
+<ul>
+  {% for post in filtered_posts %}
+    <li><a href="/news.html#{{post.name | slugify}}">{% if post.citation %}publication: {{post.citation}} {% else %}{{ post.title }}{% endif %}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
 </div>
+
 {% if remainder == 1 %}
 <div class="feature_image_box"><img src="{{item.logo}}"/></div>
 {% endif %}

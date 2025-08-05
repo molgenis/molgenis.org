@@ -14,14 +14,19 @@ Example of MOLGENIS communities:
 </p>
 
 {% for item in site.communities %}
+<div>
   <h1 id="{{ item.name | slugify }}">{{ item.name }} community</h1>
-  <p>{{ item.content | markdownify }}</p>
-<p>
-Partners:
+  <div style="display: flex; column-gap: 2em;">
+<div style="width: 70%">{{ item.content | markdownify }}</div>
+<div>
+{% if item.partners %}
+Partnerships:
 <ul>
 {% for partner in item.partners %}
 <li><a href="/partners.html#{{partner}}">{{partner}}</a></li>
 {% endfor %}
 </ul>
-</p>
+{% endif %}
+</div>
+</div>
 {% endfor %}

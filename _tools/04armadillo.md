@@ -7,6 +7,4 @@ servers
 using the DataSHIELD analysis tools. MOLGENIS is active partner in the [DataSHIELD organisation](https://wiki.datashield.org/). More info: <a
 href="https://molgenis.github.io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
 
-Getting started:
-- [Docs](https://molgenis.github.io/molgenis-service-armadillo/)
-- [Publication](https://pubmed.ncbi.nlm.nih.gov/39673440/)
+[Getting started](https://molgenis.github.io/molgenis-service-armadillo/)

@@ -1,5 +1,5 @@
 ---
-name:  BBMRI Directory
+name:  BBMRI-eric
 logo: /images/bbmri-eric.png 
 start: 2012
 end: now

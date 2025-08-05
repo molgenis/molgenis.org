@@ -1,13 +1,12 @@
 ---
-title: 'MOLGENIS research: advanced bioinformatics data software for non-bioinformaticians. Van der Velde et al (2018) Bioinformatics'
-intro: Our researchers, developers and data managers are constantly improving MOLGENIS. The latest efforts are described
-  in this paper.
-layout: green
+title: Our researchers, developers and data managers are constantly improving MOLGENIS. The latest efforts are described
+  in this paper
+citation: 'Van der Velde et al (2018) MOLGENIS research: advanced bioinformatics data software for non-bioinformaticians. Bioinformatics.'
+layout: blue
 category: publication
+tool: platform
+doi: https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty742/5085379
 ---
-
-Our researchers, developers and data managers are constantly improving MOLGENIS. The latest efforts are described
-in [this paper](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty742/5085379).
 
 # Abstract
 
