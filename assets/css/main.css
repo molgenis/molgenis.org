@@ -75,6 +75,11 @@ footer ul {
 
 #menu:not(:checked) ~ li {
   display: none;
+  vertical-align: middle;
+}
+
+.icon {
+  height: 2rem;
 }
 
 dt {
@@ -96,7 +101,7 @@ header p, section, section h2, section h3, .feature_box {
 }
 
 #footer_logo {
-  height: 10rem;
+  height: 15rem;
 }
 
 nav, footer ul {
@@ -152,25 +157,13 @@ nav li {
   nav li:first-child {
     padding-left: 0px;
   }
-  .newscontainer {
-    width: calc(100% - 350px)
-    clear: both;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .newsitem {
-    width: 40%;
-    display: table-cell;
-  }
 }
 
 @media (min-width: 100em) {
   html {
-    font-size: 90%;
+    font-size: 75%;
   }
-  header, section, footer {
+  header, section {
     padding-left: 25.6rem;
     padding-right: 25.6rem;
   }
@@ -222,7 +215,7 @@ summary > p {
 /* fonts */
 @font-face {
     font-family: BebasNeueBold;
-    src: url(/assets/fonts/BebasNeue-Bold.woff);
+    src: url(/assets/fonts/BebasNeue-Regular.woff2);
 }
 /* from https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/woff */
 @font-face {
@@ -401,16 +394,6 @@ header {
   bottom: 0px;
 }
 
-/* newsitems on frontpage */
-.newsitem h2 a {
-  text-decoration: none;
-  color:
-}
-
-.newslist:last-child {
-  display: none;
-}
-
 .bluebutton {
   display:inline-block;
   background: #017FFD;
@@ -421,4 +404,150 @@ header {
   padding-top: 1.6rem;
   margin-bottom: 1.6rem;
   text-decoration: none;
+}
+
+.partner-logo {
+  float:right;
+  max-height: 2em;
+  max-width: 3em;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.partner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end; /* Align items to the bottom */
+  justify-content: center;
+  gap: 2em;
+  margin: 2em auto;
+}
+.partner-block {
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+}
+.partner-block img {
+  max-height: 1.8em;
+  max-width: 7em;
+  margin-bottom: 0.5em;
+}
+.partner-block a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* carrousel */
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  &:hover .carousel-group {
+  }
+  padding: 2rem;
+}
+
+.carousel-group {
+  display: flex;
+  will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+  animation: scrolling 30s linear infinite;
+  gap: 20px;
+  /* Add padding to the right to create a gap between the last and first card. */
+  padding-right: 20px;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-card {
+  width: 25rem;
+  padding: 1rem;
+  flex-shrink: 0;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-color: #017FFD;
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-card h2 {
+  color: #017FFD;
+  padding-bottom: 0rem;
+  font-style: italic;
+  font-weight: bold;
+  font-family: IBMPlexSans, Roboto, sans-serif;
+  font-size: 2rem;
+}
+
+.carousel-card p {
+  font-style: italic;
+}
+
+.carousel-card-footer {
+  font-style: italic;
+  margin-top: auto; /* pushes footer to bottom */
+}
+
+.news-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  align-items: start;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.news-date {
+  font-weight: bold;
+
+}
+
+.news-item h2 {
+  color: #017FFD;
+  padding: 0px;
+  margin: 0px;
+}
+
+.news-item h2 a {
+  text-decoration: none;     /* No underline by default */
+  color: inherit;            /* Optional: match surrounding text color */
+}
+
+.news-item h2 a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.news-item p {
+  margin: 0.5rem;
+}
+
+.news-category {
+  background-color: #017FFD;
+  color: white;
+  border-radius: 6px;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-right: 1rem;
+  float: right;
 }

@@ -4,6 +4,7 @@ intro: "This five-year European H2020 project with one Canadian and twelve Europ
 partners will enable large-scale integrated cohort data analysis for personalized and preventive
 healthcare across EU and Canada."
 layout: blue
+category: news
 ---
 
 On 7th and 8th of March, the EUCAN-Connect project held a successful kick-off meeting.
