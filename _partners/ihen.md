@@ -1,5 +1,6 @@
 ---
 name:  IHEN
+title: The International Human Exposome Network
 logo: /images/ihen.png 
 start: 2024
 end: 2030

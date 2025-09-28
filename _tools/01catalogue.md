@@ -2,8 +2,7 @@
 name: catalogue
 logo: /images/noun_Share_2020990_blue.svg
 ---
-
-MOLGENIS Catalogue enable creation of FAIR data catalogues, including support for FDP and DCAT. In additin we provide MOLGENIS catalogue as a service a
+MOLGENIS Catalogue enable creation of FAIR data catalogues, including support for FDP and DCAT. In addition we provide MOLGENIS catalogue as a service a
 range of health research consortia and organisations to increase discoverability and
 accelerate
 reuse of
@@ -14,8 +13,7 @@ Getting started:
 2. create new database and select the 'catalogue' template
 3. read more in [catalogue docs](https://molgenis.github.io/molgenis-emx2/#/catalogue/)
 
-
-Examples:
+Public instances:
 - [European health data and sample network catalogue](https://data-catalogue.molgeniscloud.org)
 - [European directory of biobank collections (BBMRI-ERIC)](http://directory.bbmri-eric.eu)
 - [LifeLines request portal of data and materials](https://data-catalogue.lifelines.nl/)

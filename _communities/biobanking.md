@@ -7,6 +7,7 @@ partners:
 - bbmri-nl
 - lifelines
 - integrate large medical cohorts
+- health-ri
 ---
 
 MOLGENIS work with individual biobanks and networks across Europe, coordinated by BBMRI-ERIC the European research infrastructure for biobanking. BBMRI-ERIC

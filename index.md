@@ -1,30 +1,20 @@
 ---
-title: "FAIR and open-source data infrastructure for health research"
-intro: "MOLGENIS provides virtual FAIR data infrastructures for large (inter)national multi-centre health research communities.
- MOLGENIS is open access (public/partnership/fee-based) and all tools are free and open source, implementing (inter)national standards and FAIR principles, so 
- they can easily be reused."
-image: /images/frontpage-small-darker3.jpg
+title: MOLGENIS - the flexible research data platform
+intro: "MOLGENIS provides virtual data infrastructure to large (inter)national health research projects and groups. 
+All MOLGENIS tools are free and open source, implement standards and FAIR principles, and have model-based configuration to quickly adapt to new 
+research."
 layout: blue
 ---
 
-# FAIR data infrastructures
-
-<div style="display: flex; justify-content: space-between;">
-
-<div style="flex: 1; padding-top: 5vw">
-<p>MOLGENIS is a virtual data infrastructure providing FAIR data tools for large (inter)national multi-centre health research groups.</p>
+# Tools
+<p>MOLGENIS provides FAIR data infrastructure through flexible tools:</p>
+<div style="text-align: center">
+<img src="/images/molgenis-cycle.png" alt="molgenis data lifecycle tools" style="width: 80%; height: auto;"/>
+</div>
 <p style="text-align: center" ><a href="/tools.html" class="bluebutton">Discover all MOLGENIS tools</a></p>
-</div>
 
-<div style="flex: 1;">
-  <img src="/images/molgenis-cycle.png" alt="molgenis data lifecycle tools" style="max-width: 100%; height: auto;">
-</div>
-
-</div>
-
-# For health research communities
-
-MOLGENIS accelerates research communities with user-friendly IT tools, support and hosting:
+# Research communities
+MOLGENIS accelerates research with flexible IT tools, support and hosting:
 
 <!-- thanks to https://blog.logto.io/css-only-infinite-scroll -->
 <div class="carousel">
@@ -53,9 +43,8 @@ MOLGENIS accelerates research communities with user-friendly IT tools, support a
 <a href="/tools.html" class="bluebutton">Discover all MOLGENIS communities</a>
 </div>
 
-# Driven by partnerships
-
-MOLGENIS is created and maintained through multi-center partnerships who invest in and share MOLGENIS developments as free and open source.
+# Partnerships
+MOLGENIS is created and sustained through multi-center partnerships:
 
 {% assign sorted_partners = site.partners | sort: "name" %}
 <a id="top"/>
@@ -63,6 +52,7 @@ MOLGENIS is created and maintained through multi-center partnerships who invest 
 <div class="partner-block">
   <a href="/partners.html#{{ item.name | slugify }}"><img src="{{ item.logo }}">
     {{ item.name }}</a>
+ <span class="tooltip">{{ item.title }}</span>
 </div>
 {% endfor %}</div>
 

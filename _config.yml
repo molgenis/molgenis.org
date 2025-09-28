@@ -1,7 +1,7 @@
 title: MOLGENIS
 email: your-email@domain.com
 description: MOLGENIS open source project website.
-layout: black #default layout
+layout: blue #default layout
 url: https://www.molgenis.org
 
 # Build settings

@@ -1,5 +1,6 @@
 ---
 name: GDI
+title: The European Genomic Data Infrastructure (GDI) project
 logo: /images/gdi.svg
 start: 2022
 end: 2026

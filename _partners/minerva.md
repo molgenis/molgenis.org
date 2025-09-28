@@ -1,5 +1,6 @@
 ---
 name: MINERVA
+title: Strengthening Use of Real-World Data in Medicines Development - Metadata for Data Discoverability and Study Replicability (MINERVA)
 logo: /images/minerva.png 
 start: 2020
 end: 2021

@@ -2,7 +2,8 @@
 name: registry
 logo: /images/noun_Security_1980517_blue.svg
 ---
-Share patient, mutation and disease knowledge to understand relations between genetics, environment and disease.
+
+Best practice emx templates for patient, mutation and disease knowledge to understand relations between genetics, environment and disease.
 
 Getting started:
 1. install [molgenis platform](https://molgenis.github.io/molgenis-emx2/#/molgenis/)

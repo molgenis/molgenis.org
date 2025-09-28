@@ -1,5 +1,6 @@
 ---
-name:  BBMRI-eric
+name:  BBMRI-ERIC
+title: The European Research Infrastructure for biobanking and biomolecular resources
 logo: /images/bbmri-eric.png 
 start: 2012
 end: now

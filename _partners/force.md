@@ -1,5 +1,6 @@
 ---
 name: FORCE
+title: InFrastructure fOr Rare Cancers in the NEtherlands
 logo: /images/force.jpeg
 start: 2020
 end: now

@@ -1,5 +1,6 @@
 ---
 name: LongITools
+title: Dynamic longitudinal exposome trajectories in cardiovascular and metabolic non-communicable diseases
 logo: /images/longitools.svg 
 start: 2020
 end: 2025

@@ -1,5 +1,6 @@
 ---
 name:  ReCONNET-ERN
+title: The European Reference Network on Rare and Complex Connective Tissue and Musculoskeletal Diseases
 logo: /images/cranio.avif 
 start: 2019
 end: now

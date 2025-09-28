@@ -1,5 +1,6 @@
 ---
 name: CINECA
+title: Common Infrastructure for National Cohorts in Europe, Canada, and Africa
 logo: /images/cineca.png
 start: 2019
 end: 2023

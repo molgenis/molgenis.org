@@ -1,5 +1,6 @@
 ---
 name: GEN2PHEN
+title: Unify human and model organism genetic variation databases towards increasingly holistic views into Genotype-To-Phenotype (G2P) data
 logo: /images/gen2phen.png
 start: 2008
 end: 2013

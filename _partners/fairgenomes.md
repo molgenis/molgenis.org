@@ -1,5 +1,6 @@
 ---
 name: FAIR Genomes
+title: A national guideline to promote optimal (re)use of NGS data in research and healthcare
 logo: /images/fairgenomes.png
 start: 2018
 end: now

@@ -1,5 +1,6 @@
 ---
 name:  ITHACA-ERN
+title: The European Reference Network for Rare Malformation Syndromes, Intellectual and Other Neurodevelopmental Disorders
 logo: /images/ithaca.jpeg 
 start: 2019
 end: now

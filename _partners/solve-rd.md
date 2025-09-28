@@ -1,5 +1,6 @@
 ---
 name: Solve-RD
+title: Solving the unsolved rare diseases
 logo: /images/solve-rd.png
 start: 2018
 end: 2022

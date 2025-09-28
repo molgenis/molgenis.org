@@ -1,21 +1,22 @@
 ---
 title: Communities
-intro: "MOLGENIS aims to contribute to the creation long-term collaborations in broad research communities, systematically funded by series of partner projects"
+intro: "MOLGENIS helps to create long-term research collaborations via continuous partnerships:"
 layout: blue
 ---
 
 <a id="top"/>
-<p>
-Example of MOLGENIS communities:
+<div style="width: 80%; margin: 0 auto; text-align: center;">
+<p style="text-align: center">
 {% for item in site.communities  %}
-  <a href="#{{ item.name | slugify }}">
+  <a href="#{{ item.name | slugify }}" style="text-wrap: nowrap">
     {{ item.name }}</a> {% unless forloop.last %}- {% endunless %}
 {% endfor %}
 </p>
+</div>
 
 {% for item in site.communities %}
 <div>
-  <h1 id="{{ item.name | slugify }}">{{ item.name }} community</h1>
+  <h1 id="{{ item.name | slugify }}">{{ item.name }}</h1>
   <div style="display: flex; column-gap: 2em;">
 <div style="width: 70%">{{ item.content | markdownify }}</div>
 <div>

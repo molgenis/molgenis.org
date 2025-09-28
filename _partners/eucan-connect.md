@@ -1,5 +1,6 @@
 ---
 name: EUCAN-connect
+title: Federated FAIR platform enabling large-scale analysis of high-value cohort data connecting Europe and Canada in personalized health
 logo: /images/eucan-connect.png
 start: 2019
 end: 2024

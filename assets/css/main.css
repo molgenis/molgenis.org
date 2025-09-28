@@ -10,7 +10,7 @@ body {
 }
 /** paddings and margins **/
 /** margin-top unrelated */
-header, footer, h1, h2, h3, .feature_image_box {
+footer, h1, h2, h3, .feature_image_box {
   margin-top: 2.4rem;
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
@@ -19,10 +19,6 @@ header, footer, h1, h2, h3, .feature_image_box {
 
  h1, h2, h3 {
    padding-bottom: 1.6rem;
- }
-
- section h1 {
-   margin-top: 4.8rem;
  }
 
 p {
@@ -142,7 +138,11 @@ nav li {
     padding-left: 12.8rem;
     padding-right: 12.8rem;
   }
-  header, footer, h1, h2, h3, .feature_image_box {
+  header {
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+  }
+  footer, h1, h2, h3, .feature_image_box {
     margin-top: 3.2rem;
     padding-top: 3.2rem;
     padding-bottom: 3.2rem;
@@ -357,6 +357,21 @@ header img {
   width: 100%;
 }
 
+header .content {
+  position: relative;
+  z-index: 1;
+  color: white; /* adjust based on wallpaper */
+}
+
+header .wallpaper {
+  position: absolute;
+  inset: 0;
+  background-size: cover;      /* or contain/repeat for wallpaper look */
+  background-position: center;
+  opacity: 0.4;                      /* fade the wallpaper */
+  z-index: 0;
+}
+
 
 /* footer */
 footer {
@@ -430,6 +445,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Push content to the bottom */
+  position: relative; /* ← added for tooltip positioning */
 }
 .partner-block img {
   max-height: 1.8em;
@@ -441,7 +457,43 @@ header {
   flex-direction: column;
   align-items: center;
 }
+.partner-block .tooltip {
+  visibility: hidden;
+  background-color: #017FFD;
+  color: white;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
 
+  position: absolute;
+  bottom: 75%; /* above the div */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  min-width: 600px;   /* allow it to grow beyond parent */
+  max-width: 90vw;      /* allow to expand toward page center */
+  z-index: 10;
+
+  word-wrap: break-word; /* allow long words to wrap */
+}
+/* small arrow under tooltip */
+.partner-block .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* arrow below tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #017FFD transparent transparent transparent;
+}
+
+/* show tooltip on hover */
+.partner-block:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 /* carrousel */
 
 .carousel {
@@ -455,10 +507,16 @@ header {
 .carousel-group {
   display: flex;
   will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-  animation: scrolling 30s linear infinite;
+  animation: scrolling 15s linear infinite;
   gap: 20px;
   /* Add padding to the right to create a gap between the last and first card. */
   padding-right: 20px;
+  /* Allow animation to pause */
+  animation-play-state: running;
+}
+
+.carousel:hover .carousel-group {
+  animation-play-state: paused;
 }
 
 @keyframes scrolling {
@@ -501,7 +559,7 @@ header {
   font-style: italic;
   margin-top: auto; /* pushes footer to bottom */
 }
-
+/* news */
 .news-list {
   list-style: none;
   display: flex;
@@ -519,7 +577,6 @@ header {
 
 .news-date {
   font-weight: bold;
-
 }
 
 .news-item h2 {
@@ -550,4 +607,20 @@ header {
   padding-right: 0.5rem;
   margin-right: 1rem;
   float: right;
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    display: block;              /* disable grid */
+  }
+
+  .news-item > * {
+    margin-bottom: 1rem;         /* add spacing between items */
+  }
+
+  .news-category {
+    float: none;                 /* disable float */
+    display: inline-block;       /* keep it styled like a badge */
+    margin: 0.5rem 0;            /* space it out */
+  }
 }

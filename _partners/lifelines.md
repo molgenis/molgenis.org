@@ -1,5 +1,6 @@
 ---
 name: Lifelines
+title: The large, multi-generational, prospective cohort study that includes over 167,000 participants (10%) from the northern population of the Netherlands.
 logo: /images/lifelines.png
 start: 2014
 end: now

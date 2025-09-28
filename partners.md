@@ -1,7 +1,6 @@
 ---
-title: Partners
-intro: "MOLGENIS tools and services are driven by the valuable input and investments of many partners and their user communities. Find examples of our 
-partnerships below."
+title: Partners 
+intro: "MOLGENIS tools and services are driven by many partners and their user communities:"
 layout: blue
 ---
 {% assign sorted_partners = site.partners | sort: "name" %}

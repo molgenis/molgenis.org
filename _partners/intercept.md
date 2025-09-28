@@ -1,5 +1,6 @@
 ---
 name: INTERCEPT IHI
+title: Pioneering A Future Without Crohn's Disease
 logo: /images/intercept.svg
 start: 2025
 end: 2030

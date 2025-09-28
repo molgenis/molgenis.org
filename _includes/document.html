@@ -1,23 +1,31 @@
 <html>
-{% include header.html %}
 <body class="{{page.layout}}-layout">
 <article>
-  {% if page.image %}
-  <header style="background-image: url({{page.image}})">
-  {% else %}
-  <header>
-  {% endif %}
-      {% include nav.html %}
-      {% if page.image %}
-      <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
-      {% else %}
-      <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
-      {% endif %}
-      <p>{{ page.intro }} {% if page.date %} <br/><i>(Posted {{ page.date | date: '%A, %B %d, %Y'}})</i>{% endif %}<p>
- </header>
-  {% if post.citation %}<section>
+    <header>
+        <div class="header-text">
+            {% if page.image %}
+            <div class="wallpaper" style="background-image: url({{page.image}})"></div>
+            {% endif %}
+
+            {% include header.html %}
+
+            <div class="content">
+                {% include nav.html %}
+                <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
+                <p>
+                    {{ page.intro }}
+                    {% if page.date %}
+                    <br/><i>(Posted {{ page.date | date: '%A, %B %d, %Y'}})</i>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </header>
+  {% if post.citation %}
+  <section>
       <p>Read all about it in <a href="{{post.doi}}">{{post.citation}}</a>.
-  </section>{% endif %}
+  </section>
+  {% endif %}
   <section>
     {{ content }}
   </section>

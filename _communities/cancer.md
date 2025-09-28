@@ -7,6 +7,7 @@ partners:
 - force
 - genturis
 - nestor
+- health-ri
 ---
 
 Our cancer communities propose to set up National and European Federated Cancer Research data hubs and to generate a series of use cases, addressing major

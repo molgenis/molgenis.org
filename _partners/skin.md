@@ -1,5 +1,6 @@
 ---
 name:  SKIN-ERN
+title: The European Reference Network for rare, complex and undiagnosed skin diseases
 logo: /images/skin.png 
 start: 2019
 end: now

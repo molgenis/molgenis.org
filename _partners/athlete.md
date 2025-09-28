@@ -1,5 +1,7 @@
 ---
 name: ATHLETE
+funding: EU h2020 grant 874583
+title: Advancing Tools for Human Early Lifecourse Exposome Research and Translation
 logo: /images/athlete.svg 
 start: 2020
 end: 2025
