@@ -24,7 +24,10 @@ layout: blue
 Partnerships:
 <ul>
 {% for partner in item.partners %}
-<li><a href="/partners.html#{{partner}}">{{partner}}</a></li>
+{% assign partner_item = site.partners | where: "slug", partner | first %}
+{% if partner_item %}
+<li><a href="/partners.html#{{partner}}">{{partner_item.name}}</a></li>
+{% endif %}
 {% endfor %}
 </ul>
 {% endif %}
