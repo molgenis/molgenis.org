@@ -74,6 +74,13 @@ footer ul {
   vertical-align: middle;
 }
 
+#menu-container {
+  background: #017FFD;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 9999;
+}
+
 .icon {
   height: 2rem;
 }
@@ -351,10 +358,7 @@ nav ul li:first-child
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-header img {
-  width: 100%;
+  padding-top: 2.4rem;
 }
 
 header .content {
@@ -622,5 +626,15 @@ header {
     float: none;                 /* disable float */
     display: inline-block;       /* keep it styled like a badge */
     margin: 0.5rem 0;            /* space it out */
+  }
+
+  #menu-container {
+    background: #017FFD;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 9999;
+    border-color: white;
+    border: 2px;
+    border-style: solid;
   }
 }
