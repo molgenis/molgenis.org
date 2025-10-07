@@ -7,7 +7,9 @@ intro: MOLGENIS consists of a team of over 30 developers, researchers and data m
 layout: blue
 ---
 
-The MOLGENIS teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: molgenis-support@umcg.nl. You can also post your ideas open source at [GitHub](https://github.com/molgenis/).
+The MOLGENIS teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. You can also post your ideas open source at [GitHub](https://github.com/molgenis/).
+
+<img class="team-photo" src="/images/team_2025.jpg">
 
 ## History
 MOLGENIS was created in 2002 as an open source software that was configurable to be quickly adapted to new research needs (i.e. [microarray experiments](https://pubmed.ncbi.nlm.nih.gov/15059831/)). 

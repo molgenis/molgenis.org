@@ -114,6 +114,10 @@ nav li {
   padding-left: 1.6rem;
 }
 
+.team-photo {
+  max-width: 800px;
+}
+
 @media (min-width: 40em) {
   html {
     font-size: 62.5%;
@@ -636,5 +640,9 @@ header {
     border-color: white;
     border: 2px;
     border-style: solid;
+  }
+
+  .team-photo {
+    max-width: 300px;
   }
 }
