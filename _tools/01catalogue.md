@@ -14,7 +14,7 @@ Getting started:
 3. read more in [catalogue docs](https://molgenis.github.io/molgenis-emx2/#/catalogue/)
 
 Public instances:
-- [European health data and sample network catalogue](https://data-catalogue.molgeniscloud.org)
+- [European health data and sample network catalogue](https://molgeniscatalogue.org/)
 - [European directory of biobank collections (BBMRI-ERIC)](http://directory.bbmri-eric.eu)
 - [LifeLines request portal of data and materials](https://data-catalogue.lifelines.nl/)
 - [Dutch catalogue of human data and sample collections (BBMRI-NL)](http://catalogue.bbmri.nl)

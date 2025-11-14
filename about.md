@@ -7,20 +7,19 @@ intro: MOLGENIS consists of a team of over 30 developers, researchers and data m
 layout: blue
 ---
 
-The MOLGENIS teams enable new software development, hosting, data management support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. You can also post your ideas open source at [GitHub](https://github.com/molgenis/).
+The MOLGENIS teams enable new software development, hosting, (data management) support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. You can also post your ideas open source at [GitHub](https://github.com/molgenis/).
 
-<img class="team-photo" src="/images/team_2025.jpg">
+<img class="team-photo" src="/images/team_2025.jpg" alt="Molgenis team photo 2025"/>
 
 ## History
 MOLGENIS was created in 2002 as an open source software that was configurable to be quickly adapted to new research needs (i.e. [microarray experiments](https://pubmed.ncbi.nlm.nih.gov/15059831/)). 
 It therefore was craeted with a blueprint system, so users can quickly configure what they need, and then
 MOLGENIS quickly generates tools to manage and query those data (e.g. [Nature Reviews Genetics](https://pubmed.ncbi.nlm.nih.gov/17297480/)). Now,
-MOLGENIS has become an infrastructure of tools, services, expertise and their partner communities, sustaining the whole ecosystem for over two decades.
+MOLGENIS has become an infrastructure of tools, services, expertise, and their partner communities, sustaining the whole ecosystem for over two decades.
 
 ## Coordination
 MOLGENIS is currently coordinated by [Prof.Dr. Morris Swertz](http://www.rug.nl/staff/m.a.swertz) of the Genomics Coordination 
-Center (
-[GCC](https://umcgresearch.org/w/gcc)), 
+Center ([GCC](https://umcgresearch.org/w/gcc)), 
 kindly hosted by the Department of 
 Genetics of the University Medical Center Groningen. Please contact at: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. MOLGENIS is funded 
 by a large range of public projects from various academic sponsors (see [Partners](/partners.html)).

@@ -7,7 +7,7 @@ intro: "MOLGENIS is open source and free to download and install yourself. Howev
 # Free services
 
 MOLGENIS provides public services with our partners that are free to use:
-- [Data catalogue](https://data-catalogue.molgeniscloud.org/) in collaboration with many [consortia](/partners.html)
+- [Data catalogue](https://molgeniscatalogue.org/) in collaboration with many [consortia](/partners.html)
 - [Biobank catalogue](http://directory.bbmri-eric.eu/) via BBMRI-ERIC
 
 # Controlled access service
