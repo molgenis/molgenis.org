@@ -5,6 +5,8 @@ logo: /images/noun_Security_1980517_blue.svg
 
 Best practice emx templates for patient, mutation and disease knowledge to understand relations between genetics, environment and disease.
 
+Source code: [github.com/molgenis/molgenis-emx2](https://github.com/molgenis/molgenis-emx2)
+
 Getting started:
 1. install [molgenis platform](https://molgenis.github.io/molgenis-emx2/#/molgenis/)
 2. create new database and select the 'registry' template

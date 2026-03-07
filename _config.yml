@@ -1,6 +1,6 @@
 title: MOLGENIS
-email: your-email@domain.com
-description: MOLGENIS open source project website.
+email: support@molgenis.org
+description: "MOLGENIS is an open-source platform for FAIR scientific data management in genomics, biobanking, and rare disease research."
 layout: blue #default layout
 url: https://www.molgenis.org
 
@@ -9,6 +9,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-target-blank
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock

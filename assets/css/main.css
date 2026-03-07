@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* margin 96px unrelated, 48px unrelated
 padding 24px margin horizontal 128px*/
 /** 62.5% is makes 1rem about 10px**/
@@ -26,7 +30,7 @@ p {
 }
 
 /** page margin */
-header, section, footer {
+header, main, footer {
   padding-left: 2.4rem;
   padding-right: 2.4rem;
 }
@@ -35,7 +39,7 @@ h1 {
   border-top: 0.2rem solid;
 }
 
-section h2, h3 {
+main h2, h3 {
   margin-top: 1.6rem;
 }
 
@@ -45,7 +49,7 @@ footer ul {
 
 @media (min-width: 25em) {
   html {
-    font-size:  62.5%; //so that is about 40 characters in default font. We need 45-80
+    font-size:  62.5%; /* so that is about 40 characters in default font. We need 45-80 */
   }
 }
 
@@ -69,15 +73,12 @@ footer ul {
   width: 60%;
 }
 
-#menu:not(:checked) ~ li {
+#menu:not(:checked) ~ ul li {
   display: none;
   vertical-align: middle;
 }
 
-#menu-container {
-  background: #017FFD;
-  border-radius: 8px;
-  padding: 10px;
+#menu + label {
   z-index: 9999;
 }
 
@@ -86,14 +87,14 @@ footer ul {
 }
 
 dt {
-  background-size: 0 0; /** hide background image unless higher resolution*//
+  background-size: 0 0; /** hide background image unless higher resolution **/
 }
 
 nav {
   height: 4.8em;
   padding-top: 0.8em;
 }
-header p, section, section h2, section h3, .feature_box {
+header p, main, main h2, main h3, .feature_box {
   padding-top: 1.6rem;
 }
 
@@ -107,7 +108,12 @@ header p, section, section h2, section h3, .feature_box {
   height: 15rem;
 }
 
-nav, footer ul {
+label[for=menu] {
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 44px;
+  text-align: center;
 }
 
 nav li {
@@ -122,7 +128,7 @@ nav li {
   html {
     font-size: 62.5%;
   }
-  header, section, footer {
+  header, main, footer {
     padding-left: 6.4rem;
     padding-right: 6.4rem;
   }
@@ -145,7 +151,7 @@ nav li {
   html {
     font-size: 75%;
   }
-  header, section, footer {
+  header, main, footer {
     padding-left: 12.8rem;
     padding-right: 12.8rem;
   }
@@ -159,7 +165,7 @@ nav li {
     padding-bottom: 3.2rem;
     margin-bottom: 0rem;
   }
-  #menu:not(:checked) ~ li {
+  #menu:not(:checked) ~ ul li {
     display: inline-block;
   }
   label[for=menu] {
@@ -174,7 +180,7 @@ nav li {
   html {
     font-size: 75%;
   }
-  header, section {
+  header, main {
     padding-left: 25.6rem;
     padding-right: 25.6rem;
   }
@@ -190,31 +196,31 @@ header p {
   line-height: 3.0rem;
 }
 
-section, footer a, footer li, summary {
+main, footer a, footer li, summary {
   font-size: 1.4rem;
   line-height: 2.6rem;
 }
 
-section h1 {
+main h1 {
   font-size: 4.0rem;
   line-height: 4.0rem;
 }
-section h2  {
+main h2  {
   font-size: 2.6rem;
   line-height: 2.6rem;
 }
 
-section h3, footer li h1, nav ul {
+main h3, footer li h1, nav ul {
   font-size: 2.0rem;
   line-height: 2.2rem;
 }
 
-section intro {
+main intro {
   font-size: 1.6rem;
   line-height: 3.0rem;
 }
 
-section blockquote {
+main blockquote {
   font-size: 2.2rem;
   line-height: 3.2rem;
 }
@@ -244,7 +250,7 @@ summary > p {
     src: url(/assets/fonts/IBMPlexMono-Lightitalic.ttf);
 }
 
-header h1, section h1, section h2, section h3, nav, footer li h1, footer li h2 {
+header h1, main h1, main h2, main h3, nav, footer li h1, footer li h2 {
   font-family: BebasNeueBold, Oswald, sans-serif;
 }
 
@@ -252,11 +258,11 @@ header p, footer a, footer li {
   font-family: IBMPlexMono, "Roboto Mono", monospace;
 }
 
-section {
+main {
   font-family: IBMPlexSans, Roboto, sans-serif;
 }
 
-section blockquote {
+main blockquote {
   font-family: IBMPlexMono-LightItalic;
 }
 
@@ -301,16 +307,23 @@ section blockquote {
   color: white;
 }
 
-section h1 {
+main h1 {
   color: #017FFD;
   border-color: #017FFD;
 }
 
-section a {
+main a {
   color: #017FFD;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-section h2, section h3 {
+main h1 a, main h2 a, main h3 a, main .bluebutton,
+main .partner-block a, main .carousel-card a {
+  text-decoration: none;
+}
+
+main h2, main h3 {
   color: #353535;
 }
 
@@ -319,12 +332,19 @@ section h2, section h3 {
 #menu {
   display:none;
 }
-#menu ~ label {
+#menu + label {
   cursor:pointer;
 }
-#menu:checked ~ li {
+#menu:checked ~ ul li {
   display: block;
   padding-top: 0.6rem;
+}
+#menu:checked ~ ul li,
+#menu:checked + label {
+  background: #017FFD;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 nav {
@@ -427,6 +447,10 @@ header {
   padding-top: 1.6rem;
   margin-bottom: 1.6rem;
   text-decoration: none;
+  cursor: pointer;
+}
+.bluebutton:hover {
+  background: #0066cc;
 }
 
 .partner-logo {
@@ -479,7 +503,7 @@ header {
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  min-width: 600px;   /* allow it to grow beyond parent */
+  min-width: auto;
   max-width: 90vw;      /* allow to expand toward page center */
   z-index: 10;
 
@@ -502,29 +526,40 @@ header {
   visibility: visible;
   opacity: 1;
 }
-/* carrousel */
+/* carousel */
 
 .carousel {
   display: flex;
   overflow: hidden;
-  &:hover .carousel-group {
-  }
+  max-width: 100%;
   padding: 2rem;
+}
+
+.carousel:hover {
+  overflow-x: auto;
 }
 
 .carousel-group {
   display: flex;
-  will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+  will-change: transform;
   animation: scrolling 15s linear infinite;
   gap: 20px;
-  /* Add padding to the right to create a gap between the last and first card. */
   padding-right: 20px;
-  /* Allow animation to pause */
   animation-play-state: running;
 }
 
 .carousel:hover .carousel-group {
   animation-play-state: paused;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-group {
+    animation: none;
+  }
+  .carousel {
+    overflow-x: auto;
+  }
 }
 
 @keyframes scrolling {
@@ -632,17 +667,64 @@ header {
     margin: 0.5rem 0;            /* space it out */
   }
 
-  #menu-container {
-    background: #017FFD;
-    border-radius: 8px;
-    padding: 10px;
-    z-index: 9999;
-    border-color: white;
-    border: 2px;
-    border-style: solid;
-  }
-
   .team-photo {
-    max-width: 300px;
+    max-width: 100%;
   }
 }
+
+@media (min-width: 40em) {
+  .partner-block .tooltip {
+    min-width: min(600px, 90vw);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 3px solid #017FFD;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 10000;
+  background: #017FFD;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+  left: 0;
+}
+
+article {
+  overflow-x: hidden;
+}
+
+.community-nav {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.community-nav a {
+  white-space: nowrap;
+}
+
+.community-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+@media (min-width: 40em) {
+  .community-detail {
+    flex-direction: row;
+  }
+  .community-content {
+    width: 70%;
+  }
+}
+

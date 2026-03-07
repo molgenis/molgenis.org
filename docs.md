@@ -2,6 +2,7 @@
 title: Documentation
 layout: blue
 intro: "Here you can find documentation and a list of relevant publications"
+excerpt: "MOLGENIS documentation: user manuals, API references, and scientific publications."
 ---
 
 ## Manuals

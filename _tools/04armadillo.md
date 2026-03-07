@@ -7,6 +7,8 @@ servers
 using the DataSHIELD analysis tools. MOLGENIS is active partner in the [DataSHIELD organisation](https://wiki.datashield.org/). More info: <a
 href="https://molgenis.github.io/molgenis-service-armadillo/">https://molgenis.github.io/molgenis-service-armadillo/</a>
 
+Source code: [github.com/molgenis/molgenis-service-armadillo](https://github.com/molgenis/molgenis-service-armadillo)
+
 Getting started:
 1. [Download and install armadillo](https://molgenis.github.io/molgenis-service-armadillo/pages/install_management/)
 2. [Upload data into Armadillo](https://molgenis.github.io/molgenis-service-armadillo/pages/basic_usage/)

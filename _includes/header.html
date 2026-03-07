@@ -6,9 +6,19 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <meta property="og:image" content="{{ '/assets/img/logo_blue.png' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/img/logo_blue.png' | absolute_url }}">
+
   <link rel="stylesheet" href="{{ "/assets/css/main.css " | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ " /feed.xml " | relative_url }}"> {% if jekyll.environment == 'production' and site.google_analytics %} {% include google-analytics.html %} {% endif %}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}"> {% if jekyll.environment == 'production' and site.google_analytics %} {% include google-analytics.html %} {% endif %}
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
@@ -19,4 +29,20 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="version" content="{{ site.version }}">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MOLGENIS",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "applicationCategory": "ScienceApplication",
+    "license": "https://www.molgenis.org/LICENSE-LGPLv3.html",
+    "author": {
+      "@type": "Organization",
+      "name": "MOLGENIS Team",
+      "url": "{{ site.url }}"
+    }
+  }
+  </script>
 </head>

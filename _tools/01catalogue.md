@@ -2,11 +2,13 @@
 name: catalogue
 logo: /images/noun_Share_2020990_blue.svg
 ---
-MOLGENIS Catalogue enable creation of FAIR data catalogues, including support for FDP and DCAT. In addition we provide MOLGENIS catalogue as a service a
+MOLGENIS Catalogue enables creation of FAIR data catalogues, including support for FDP and DCAT. In addition we provide MOLGENIS catalogue as a service a
 range of health research consortia and organisations to increase discoverability and
 accelerate
 reuse of
 data and samples.
+
+Source code: [github.com/molgenis/molgenis-emx2](https://github.com/molgenis/molgenis-emx2)
 
 Getting started:
 1. install [molgenis platform](https://molgenis.github.io/molgenis-emx2/#/molgenis/)

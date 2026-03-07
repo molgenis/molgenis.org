@@ -10,3 +10,7 @@
 _site
 _version.yml
 .jekyll-cache
+.claude
+node_modules
+test-results
+playwright-report

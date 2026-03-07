@@ -1,13 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+{% include header.html %}
 <body class="{{page.layout}}-layout">
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <article>
     <header>
         <div class="header-text">
             {% if page.image %}
             <div class="wallpaper" style="background-image: url({{page.image}})"></div>
             {% endif %}
-
-            {% include header.html %}
 
             <div class="content">
                 {% include nav.html %}
@@ -21,14 +22,9 @@
             </div>
         </div>
     </header>
-  {% if post.citation %}
-  <section>
-      <p>Read all about it in <a href="{{post.doi}}">{{post.citation}}</a>.
-  </section>
-  {% endif %}
-  <section>
+  <main id="main-content">
     {{ content }}
-  </section>
+  </main>
 </article>
 
 {% include footer.html %}

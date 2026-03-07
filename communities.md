@@ -2,23 +2,23 @@
 title: Communities
 intro: "MOLGENIS helps to create long-term research collaborations via continuous partnerships:"
 layout: blue
+excerpt: "MOLGENIS research communities in biobanking, cancer, exposome, genetics, rare disease and more."
 ---
 
 <a id="top"/>
-<div style="width: 80%; margin: 0 auto; text-align: center;">
-<p style="text-align: center">
+<div class="community-nav">
+<p>
 {% for item in site.communities  %}
-  <a href="#{{ item.name | strip | slugify }}" style="text-wrap: nowrap">
-    {{ item.name }}</a> {% unless forloop.last %}- {% endunless %}
+  <a href="#{{ item.name | strip | slugify }}">{{ item.name }}</a> {% unless forloop.last %}- {% endunless %}
 {% endfor %}
 </p>
 </div>
 
 {% for item in site.communities %}
 <div>
-  <h1 id="{{ item.name | strip | slugify }}">{{ item.name }}</h1>
-  <div style="display: flex; column-gap: 2em;">
-<div style="width: 70%">{{ item.content | markdownify }}</div>
+  <h2 id="{{ item.name | strip | slugify }}">{{ item.name }}</h2>
+  <div class="community-detail">
+<div class="community-content">{{ item.content | markdownify }}</div>
 <div>
 {% if item.partners %}
 Partnerships:
