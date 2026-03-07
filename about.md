@@ -13,7 +13,7 @@ The MOLGENIS teams enable new software development, hosting, (data management) s
 
 ## History
 MOLGENIS was created in 2002 as an open source software that was configurable to be quickly adapted to new research needs (i.e. [microarray experiments](https://pubmed.ncbi.nlm.nih.gov/15059831/)). 
-It therefore was craeted with a blueprint system, so users can quickly configure what they need, and then
+It therefore was created with a blueprint system, so users can quickly configure what they need, and then
 MOLGENIS quickly generates tools to manage and query those data (e.g. [Nature Reviews Genetics](https://pubmed.ncbi.nlm.nih.gov/17297480/)). Now,
 MOLGENIS has become an infrastructure of tools, services, expertise, and their partner communities, sustaining the whole ecosystem for over two decades.
 
