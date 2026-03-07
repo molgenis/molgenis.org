@@ -6,7 +6,7 @@ start: 2024
 end: 2031
 pi: Daria Julkowska
 tools:
-- portal
+- registry
 - vip
 - hpc
 ---

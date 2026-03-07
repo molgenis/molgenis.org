@@ -32,17 +32,15 @@ In addition to strategic advice MOLGENIS also has several user communities guidi
 
 ## Partners
 
-MOLGENIS is co-developed, used and funded by:
+MOLGENIS is co-developed, used and funded by UMCG and the following partnerships:
 
-{% assign sorted_by_start = site.partners  | sort: "start" %}
-{% assign sorted_by_end = sorted_by_start | sort: "end" | reverse %}
+{% assign sorted_partners_by_start = site.partners | sort: "start" | reverse %}
 <ul>
-{% for item in sorted_by_end %}
+{% for item in sorted_partners_by_start %}
 <li><a href="/partners.html#{{ item.name | strip | slugify }}">{{item.start}} - {{item.end}}: {{item.name}} {% if item.funding %} ({{item.funding}}) {% endif %}
 </a></li>
 {% endfor %}
 </ul>
 
 In addition we greatly thank in-kind contribution from several commercial parties:
-* Balsamiq, for great wireframing
 * IntelliJ, for software development

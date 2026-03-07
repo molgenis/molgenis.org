@@ -1,9 +1,9 @@
 ---
-name: emx2 platform
+name: platform
 logo: /images/noun_RELATIONAL DATABASE_1875885_blue.svg
 ---
 
-EMX2 is the backend for many of MOLGENIS applications. It provides ability to create a custom data schema.
+EMX2 platform is the backend for many of MOLGENIS applications. It provides ability to create a custom data schema.
 Using this model, you get tools to capture, query and manager your data. 
 Quickly upload data files using templates genetated from your model.
 Or enter data via user friendly forms.

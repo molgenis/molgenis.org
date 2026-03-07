@@ -6,7 +6,7 @@ start: 2012
 end: now
 pi: Petr Holub
 tools:
-- portal
+- registry
 - vip
 - hpc
 ---

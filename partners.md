@@ -12,10 +12,9 @@ layout: blue
 </div>
 {% endfor %}</div>
 
-{% assign sorted_by_start = site.partners | sort: "start" | reverse %}
-{% assign sorted_by_end_and_start = sorted_by_start | sort: "end" | reverse %}
+{% assign sorted_partners_by_start = site.partners | sort: "start" | reverse %}
 
-{% for item in sorted_by_end_and_start %}
+{% for item in sorted_partners_by_start %}
   <h1 id="{{ item.name | strip | slugify }}">{{ item.name }} 
     <small><small>{{ item.start }} - {{ item.end }}</small></small> 
     <img class="partner-logo" src="{{ item.logo }}">
