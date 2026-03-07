@@ -1,5 +1,5 @@
 ---
-name:  ERDERA
+name: ERDERA
 title: The European Rare Diseases Research Alliance
 logo: /images/erdera.png 
 start: 2024

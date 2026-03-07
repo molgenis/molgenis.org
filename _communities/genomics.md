@@ -9,7 +9,7 @@ partners:
 - genturis
 - rd-connect
 - vkgl
-- fair-genomes
+- fairgenomes
 - gonl
 tools:
 - vip

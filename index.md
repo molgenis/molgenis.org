@@ -24,7 +24,7 @@ MOLGENIS accelerates research with flexible IT tools, support and hosting:
         <div class="carousel-card">
             <h2>{{ item.name }}</h2>
             <p>"{{ item.summary | capitalize}}"</p>
-            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | slugify }}">read more</a></p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | strip | slugify }}">read more</a></p>
         </div>
 {% endfor %}
     </div>
@@ -33,7 +33,7 @@ MOLGENIS accelerates research with flexible IT tools, support and hosting:
         <div class="carousel-card">
             <h2>{{ item.name }}</h2>
             <p>"{{ item.summary | capitalize}}"</p>
-            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | slugify }}">read more</a></p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | strip | slugify }}">read more</a></p>
      </div>
 {% endfor %}
     </div>
@@ -50,7 +50,7 @@ MOLGENIS is created and sustained through multi-center partnerships:
 <a id="top"/>
 <div class="partner-grid">{% for item in sorted_partners %}
 <div class="partner-block">
-  <a href="/partners.html#{{ item.name | slugify }}"><img src="{{ item.logo }}">
+  <a href="/partners.html#{{ item.name | strip | slugify }}"><img src="{{ item.logo }}">
     {{ item.name }}</a>
  <span class="tooltip">{{ item.title }}</span>
 </div>

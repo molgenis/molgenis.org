@@ -38,7 +38,7 @@ MOLGENIS is co-developed, used and funded by:
 {% assign sorted_by_end = sorted_by_start | sort: "end" | reverse %}
 <ul>
 {% for item in sorted_by_end %}
-<li><a href="/partners.html#{{ item.name | slugify }}">{{item.start}} - {{item.end}}: {{item.name}} {% if item.funding %} ({{item.funding}}) {% endif %}
+<li><a href="/partners.html#{{ item.name | strip | slugify }}">{{item.start}} - {{item.end}}: {{item.name}} {% if item.funding %} ({{item.funding}}) {% endif %}
 </a></li>
 {% endfor %}
 </ul>

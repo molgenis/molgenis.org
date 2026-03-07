@@ -7,7 +7,7 @@ layout: blue
 <a id="top"/>
 <div class="partner-grid">{% for item in sorted_partners %}
 <div class="partner-block">
-  <a href="#{{ item.name | slugify }}"><img src="{{ item.logo }}">
+  <a href="#{{ item.name | strip | slugify }}"><img src="{{ item.logo }}">
     {{ item.name }}</a>
 </div>
 {% endfor %}</div>
@@ -16,7 +16,7 @@ layout: blue
 {% assign sorted_by_end_and_start = sorted_by_start | sort: "end" | reverse %}
 
 {% for item in sorted_by_end_and_start %}
-  <h1 id="{{ item.name | slugify }}">{{ item.name }} 
+  <h1 id="{{ item.name | strip | slugify }}">{{ item.name }} 
     <small><small>{{ item.start }} - {{ item.end }}</small></small> 
     <img class="partner-logo" src="{{ item.logo }}">
   </h1>

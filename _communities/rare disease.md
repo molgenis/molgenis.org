@@ -4,7 +4,7 @@ summary: creating (inter)national patient registries to enable breakthrough rese
 partners:
 - skin
 - ithaca
-- carnio
+- cranio
 - reconnet
 - genturis
 - nestor

@@ -1,5 +1,5 @@
 ---
-name:  GENTURIS-ERN
+name: GENTURIS-ERN
 title: The European Reference Network (ERN) for all patients with one of the rare genetic tumour risk syndromes (genturis)
 logo: /images/genturis.png 
 start: 2019

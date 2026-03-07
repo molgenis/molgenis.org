@@ -1,5 +1,5 @@
 ---
-name:  STAGE
+name: STAGE
 title: An Integrated Life-Course Approach for Person-Centred Solutions and Care for Aging with Multi-morbidity in the European Regions - STAGE; Stay Healthy Through Aging
 logo: /images/stage.png 
 start: 2024

@@ -1,5 +1,5 @@
 ---
-name:  CRANIO-ERN
+name: CRANIO-ERN
 title: The European Reference Network for rare and/or complex craniofacial anomalies and ear, nose and throat (ENT) disorders
 logo: /images/cranio.avif 
 start: 2019

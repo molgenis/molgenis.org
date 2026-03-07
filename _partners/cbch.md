@@ -1,5 +1,5 @@
 ---
-name:  UMCG-CBCH
+name: UMCG-CBCH
 title: UMCG Cohort and Biobank Coordination Hub
 logo: /images/umcg.png 
 start: 2012
