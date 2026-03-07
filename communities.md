@@ -26,7 +26,7 @@ Partnerships:
 {% for partner in item.partners %}
 {% assign partner_item = site.partners | where: "slug", partner | first %}
 {% if partner_item %}
-<li><a href="/partners.html#{{partner}}">{{partner_item.name}}</a></li>
+<li><a href="/partners.html#{{partner_item.name | slugify}}">{{partner_item.name}}</a></li>
 {% endif %}
 {% endfor %}
 </ul>

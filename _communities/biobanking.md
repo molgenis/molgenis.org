@@ -3,11 +3,10 @@ name: biobanking
 summary: metadata on all types of human biological samples, such as blood, tissue, cells or DNA, as well as
   other biomolecular resources that can be used in health research.
 partners:
-- bbmri-eric
-- bbmri-nl
+- bbmri
 - lifelines
-- integrate large medical cohorts
 - health-ri
+- integrate
 ---
 
 MOLGENIS work with individual biobanks and networks across Europe, coordinated by BBMRI-ERIC the European research infrastructure for biobanking. BBMRI-ERIC
