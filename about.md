@@ -10,7 +10,7 @@ excerpt: "About MOLGENIS: history, team, governance, and partnerships of the ope
 
 The MOLGENIS teams enable new software development, hosting, (data management) support and advice. In addition we coordinate a wider community of users, sponsors and enthusiasts. We look forward to hear about your experiences with MOLGENIS and suggestions for improvement. Please help us to improve MOLGENIS and send your feedback and ideas to: <a href="mailto:support@molgenis.org">support@molgenis.org</a>. You can also post your ideas open source at [GitHub](https://github.com/molgenis/).
 
-<img class="team-photo" src="/images/team_2025.jpg" alt="Molgenis team photo 2025"/>
+<img class="team-photo" src="/images/team_2025.png" alt="Molgenis team photo 2025"/>
 
 ## History
 MOLGENIS was created in 2002 as an open source software that was configurable to be quickly adapted to new research needs (i.e. [microarray experiments](https://pubmed.ncbi.nlm.nih.gov/15059831/)). 
