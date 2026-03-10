@@ -535,22 +535,16 @@ header {
   padding: 2rem;
 }
 
-.carousel:hover {
-  overflow-x: auto;
-}
-
 .carousel-group {
   display: flex;
   will-change: transform;
   animation: scrolling 15s linear infinite;
   gap: 20px;
   padding-right: 20px;
-  animation-play-state: running;
 }
 
 .carousel:hover .carousel-group {
   animation-play-state: paused;
-  animation: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
