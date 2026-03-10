@@ -91,7 +91,7 @@ dt {
 }
 
 nav {
-  height: 4.8em;
+  min-height: 4.8em;
   padding-top: 0.8em;
 }
 header p, main, main h2, main h3, .feature_box {
@@ -110,10 +110,12 @@ header p, main, main h2, main h3, .feature_box {
 
 label[for=menu] {
   display: inline-block;
+  float: right;
   min-width: 44px;
   min-height: 44px;
   line-height: 44px;
   text-align: center;
+  font-size: 2.4rem;
 }
 
 nav li {
@@ -164,15 +166,6 @@ nav li {
     padding-top: 3.2rem;
     padding-bottom: 3.2rem;
     margin-bottom: 0rem;
-  }
-  #menu:not(:checked) ~ ul li {
-    display: inline-block;
-  }
-  label[for=menu] {
-    display: none;
-  }
-  nav li:first-child {
-    padding-left: 0px;
   }
 }
 
@@ -335,20 +328,52 @@ main h2, main h3 {
 #menu + label {
   cursor:pointer;
 }
+#menu:checked ~ ul {
+  flex-direction: column;
+  background: #017FFD;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid white;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 9999;
+  width: auto;
+}
 #menu:checked ~ ul li {
   display: block;
   padding-top: 0.6rem;
+  text-align: right;
 }
-#menu:checked ~ ul li,
-#menu:checked + label {
-  background: #017FFD;
-  border-radius: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+#menu:checked ~ ul li:first-child {
+  margin-right: 0;
+}
+
+@media (min-width: 67em) {
+  #menu:not(:checked) ~ ul li,
+  #menu:checked ~ ul li {
+    display: inline-block;
+  }
+  #menu:checked ~ ul {
+    position: static;
+    flex-direction: row;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: auto;
+  }
+  label[for=menu] {
+    display: none;
+  }
+  nav li:first-child {
+    padding-left: 0px;
+  }
 }
 
 nav {
   margin: 0px;
+  position: relative;
 }
 
 nav a {
@@ -357,6 +382,7 @@ nav a {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   text-align: right;
   margin-top: 0px;
@@ -368,7 +394,7 @@ nav li {
 
 nav ul li:first-child
 {
-  float: left;
+  margin-right: auto;
 }
 
 #logo {
