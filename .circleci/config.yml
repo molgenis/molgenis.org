@@ -20,7 +20,7 @@ orbs:
 jobs:
   build:
     docker:
-    - image: molgenis/molgenis-org-ci:v1.0.1
+    - image: molgenis/molgenis-org-ci:v1.0.2
     steps:
     - checkout
     - run:

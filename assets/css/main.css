@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* margin 96px unrelated, 48px unrelated
 padding 24px margin horizontal 128px*/
 /** 62.5% is makes 1rem about 10px**/
@@ -10,7 +14,7 @@ body {
 }
 /** paddings and margins **/
 /** margin-top unrelated */
-header, footer, h1, h2, h3, .feature_image_box {
+footer, h1, h2, h3, .feature_image_box {
   margin-top: 2.4rem;
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
@@ -21,16 +25,12 @@ header, footer, h1, h2, h3, .feature_image_box {
    padding-bottom: 1.6rem;
  }
 
- section h1 {
-   margin-top: 4.8rem;
- }
-
 p {
   margin-top: 0px;
 }
 
 /** page margin */
-header, section, footer {
+header, main, footer {
   padding-left: 2.4rem;
   padding-right: 2.4rem;
 }
@@ -39,7 +39,7 @@ h1 {
   border-top: 0.2rem solid;
 }
 
-section h2, h3 {
+main h2, h3 {
   margin-top: 1.6rem;
 }
 
@@ -49,7 +49,7 @@ footer ul {
 
 @media (min-width: 25em) {
   html {
-    font-size:  62.5%; //so that is about 40 characters in default font. We need 45-80
+    font-size:  62.5%; /* so that is about 40 characters in default font. We need 45-80 */
   }
 }
 
@@ -73,19 +73,28 @@ footer ul {
   width: 60%;
 }
 
-#menu:not(:checked) ~ li {
+#menu:not(:checked) ~ ul li {
   display: none;
+  vertical-align: middle;
+}
+
+#menu + label {
+  z-index: 9999;
+}
+
+.icon {
+  height: 2rem;
 }
 
 dt {
-  background-size: 0 0; /** hide background image unless higher resolution*//
+  background-size: 0 0; /** hide background image unless higher resolution **/
 }
 
 nav {
-  height: 4.8em;
+  min-height: 4.8em;
   padding-top: 0.8em;
 }
-header p, section, section h2, section h3, .feature_box {
+header p, main, main h2, main h3, .feature_box {
   padding-top: 1.6rem;
 }
 
@@ -96,21 +105,32 @@ header p, section, section h2, section h3, .feature_box {
 }
 
 #footer_logo {
-  height: 10rem;
+  height: 15rem;
 }
 
-nav, footer ul {
+label[for=menu] {
+  display: inline-block;
+  float: right;
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 2.4rem;
 }
 
 nav li {
   padding-left: 1.6rem;
 }
 
+.team-photo {
+  max-width: 800px;
+}
+
 @media (min-width: 40em) {
   html {
     font-size: 62.5%;
   }
-  header, section, footer {
+  header, main, footer {
     padding-left: 6.4rem;
     padding-right: 6.4rem;
   }
@@ -133,44 +153,27 @@ nav li {
   html {
     font-size: 75%;
   }
-  header, section, footer {
+  header, main, footer {
     padding-left: 12.8rem;
     padding-right: 12.8rem;
   }
-  header, footer, h1, h2, h3, .feature_image_box {
+  header {
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+  }
+  footer, h1, h2, h3, .feature_image_box {
     margin-top: 3.2rem;
     padding-top: 3.2rem;
     padding-bottom: 3.2rem;
     margin-bottom: 0rem;
   }
-  #menu:not(:checked) ~ li {
-    display: inline-block;
-  }
-  label[for=menu] {
-    display: none;
-  }
-  nav li:first-child {
-    padding-left: 0px;
-  }
-  .newscontainer {
-    width: calc(100% - 350px)
-    clear: both;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .newsitem {
-    width: 40%;
-    display: table-cell;
-  }
 }
 
 @media (min-width: 100em) {
   html {
-    font-size: 90%;
+    font-size: 75%;
   }
-  header, section, footer {
+  header, main {
     padding-left: 25.6rem;
     padding-right: 25.6rem;
   }
@@ -186,31 +189,31 @@ header p {
   line-height: 3.0rem;
 }
 
-section, footer a, footer li, summary {
+main, footer a, footer li, summary {
   font-size: 1.4rem;
   line-height: 2.6rem;
 }
 
-section h1 {
+main h1 {
   font-size: 4.0rem;
   line-height: 4.0rem;
 }
-section h2  {
+main h2  {
   font-size: 2.6rem;
   line-height: 2.6rem;
 }
 
-section h3, footer li h1, nav ul {
+main h3, footer li h1, nav ul {
   font-size: 2.0rem;
   line-height: 2.2rem;
 }
 
-section intro {
+main intro {
   font-size: 1.6rem;
   line-height: 3.0rem;
 }
 
-section blockquote {
+main blockquote {
   font-size: 2.2rem;
   line-height: 3.2rem;
 }
@@ -222,7 +225,7 @@ summary > p {
 /* fonts */
 @font-face {
     font-family: BebasNeueBold;
-    src: url(/assets/fonts/BebasNeue-Bold.woff);
+    src: url(/assets/fonts/BebasNeue-Regular.woff2);
 }
 /* from https://github.com/IBM/plex/tree/master/IBM-Plex-Mono/fonts/complete/woff */
 @font-face {
@@ -240,7 +243,7 @@ summary > p {
     src: url(/assets/fonts/IBMPlexMono-Lightitalic.ttf);
 }
 
-header h1, section h1, section h2, section h3, nav, footer li h1, footer li h2 {
+header h1, main h1, main h2, main h3, nav, footer li h1, footer li h2 {
   font-family: BebasNeueBold, Oswald, sans-serif;
 }
 
@@ -248,11 +251,11 @@ header p, footer a, footer li {
   font-family: IBMPlexMono, "Roboto Mono", monospace;
 }
 
-section {
+main {
   font-family: IBMPlexSans, Roboto, sans-serif;
 }
 
-section blockquote {
+main blockquote {
   font-family: IBMPlexMono-LightItalic;
 }
 
@@ -297,16 +300,23 @@ section blockquote {
   color: white;
 }
 
-section h1 {
+main h1 {
   color: #017FFD;
   border-color: #017FFD;
 }
 
-section a {
+main a {
   color: #017FFD;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-section h2, section h3 {
+main h1 a, main h2 a, main h3 a, main .bluebutton,
+main .partner-block a, main .carousel-card a {
+  text-decoration: none;
+}
+
+main h2, main h3 {
   color: #353535;
 }
 
@@ -315,16 +325,55 @@ section h2, section h3 {
 #menu {
   display:none;
 }
-#menu ~ label {
+#menu + label {
   cursor:pointer;
 }
-#menu:checked ~ li {
+#menu:checked ~ ul {
+  flex-direction: column;
+  background: #017FFD;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid white;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 9999;
+  width: auto;
+}
+#menu:checked ~ ul li {
   display: block;
   padding-top: 0.6rem;
+  text-align: right;
+}
+#menu:checked ~ ul li:first-child {
+  margin-right: 0;
+}
+
+@media (min-width: 67em) {
+  #menu:not(:checked) ~ ul li,
+  #menu:checked ~ ul li {
+    display: inline-block;
+  }
+  #menu:checked ~ ul {
+    position: static;
+    flex-direction: row;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: auto;
+  }
+  label[for=menu] {
+    display: none;
+  }
+  nav li:first-child {
+    padding-left: 0px;
+  }
 }
 
 nav {
   margin: 0px;
+  position: relative;
 }
 
 nav a {
@@ -333,6 +382,7 @@ nav a {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   text-align: right;
   margin-top: 0px;
@@ -344,7 +394,7 @@ nav li {
 
 nav ul li:first-child
 {
-  float: left;
+  margin-right: auto;
 }
 
 #logo {
@@ -358,10 +408,22 @@ nav ul li:first-child
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  padding-top: 2.4rem;
 }
 
-header img {
-  width: 100%;
+header .content {
+  position: relative;
+  z-index: 1;
+  color: white; /* adjust based on wallpaper */
+}
+
+header .wallpaper {
+  position: absolute;
+  inset: 0;
+  background-size: cover;      /* or contain/repeat for wallpaper look */
+  background-position: center;
+  opacity: 0.4;                      /* fade the wallpaper */
+  z-index: 0;
 }
 
 
@@ -401,16 +463,6 @@ header {
   bottom: 0px;
 }
 
-/* newsitems on frontpage */
-.newsitem h2 a {
-  text-decoration: none;
-  color:
-}
-
-.newslist:last-child {
-  display: none;
-}
-
 .bluebutton {
   display:inline-block;
   background: #017FFD;
@@ -421,4 +473,278 @@ header {
   padding-top: 1.6rem;
   margin-bottom: 1.6rem;
   text-decoration: none;
+  cursor: pointer;
 }
+.bluebutton:hover {
+  background: #0066cc;
+}
+
+.partner-logo {
+  float:right;
+  max-height: 2em;
+  max-width: 3em;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.partner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end; /* Align items to the bottom */
+  justify-content: center;
+  gap: 2em;
+  margin: 2em auto;
+}
+.partner-block {
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+  position: relative; /* ← added for tooltip positioning */
+}
+.partner-block img {
+  max-height: 1.8em;
+  max-width: 7em;
+  margin-bottom: 0.5em;
+}
+.partner-block a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.partner-block .tooltip {
+  visibility: hidden;
+  background-color: #017FFD;
+  color: white;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  position: absolute;
+  bottom: 75%; /* above the div */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  min-width: auto;
+  max-width: 90vw;      /* allow to expand toward page center */
+  z-index: 10;
+
+  word-wrap: break-word; /* allow long words to wrap */
+}
+/* small arrow under tooltip */
+.partner-block .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* arrow below tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #017FFD transparent transparent transparent;
+}
+
+/* show tooltip on hover */
+.partner-block:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+/* carousel */
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.carousel-group {
+  display: flex;
+  will-change: transform;
+  animation: scrolling 15s linear infinite;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.carousel:hover .carousel-group {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-group {
+    animation: none;
+  }
+  .carousel {
+    overflow-x: auto;
+  }
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-card {
+  width: 25rem;
+  padding: 1rem;
+  flex-shrink: 0;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-color: #017FFD;
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-card h2 {
+  color: #017FFD;
+  padding-bottom: 0rem;
+  font-style: italic;
+  font-weight: bold;
+  font-family: IBMPlexSans, Roboto, sans-serif;
+  font-size: 2rem;
+}
+
+.carousel-card p {
+  font-style: italic;
+}
+
+.carousel-card-footer {
+  font-style: italic;
+  margin-top: auto; /* pushes footer to bottom */
+}
+/* news */
+.news-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  align-items: start;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.news-date {
+  font-weight: bold;
+}
+
+.news-item h2 {
+  color: #017FFD;
+  padding: 0px;
+  margin: 0px;
+}
+
+.news-item h2 a {
+  text-decoration: none;     /* No underline by default */
+  color: inherit;            /* Optional: match surrounding text color */
+}
+
+.news-item h2 a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.news-item p {
+  margin: 0.5rem;
+}
+
+.news-category {
+  background-color: #017FFD;
+  color: white;
+  border-radius: 6px;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-right: 1rem;
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    display: block;              /* disable grid */
+  }
+
+  .news-item > * {
+    margin-bottom: 1rem;         /* add spacing between items */
+  }
+
+  .news-category {
+    float: none;                 /* disable float */
+    display: inline-block;       /* keep it styled like a badge */
+    margin: 0.5rem 0;            /* space it out */
+  }
+
+  .team-photo {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 40em) {
+  .partner-block .tooltip {
+    min-width: min(600px, 90vw);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 3px solid #017FFD;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 10000;
+  background: #017FFD;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+  left: 0;
+}
+
+article {
+  overflow-x: hidden;
+}
+
+.community-nav {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.community-nav a {
+  white-space: nowrap;
+}
+
+.community-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+@media (min-width: 40em) {
+  .community-detail {
+    flex-direction: row;
+  }
+  .community-content {
+    width: 70%;
+  }
+}
+

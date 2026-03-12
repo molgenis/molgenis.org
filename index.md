@@ -1,49 +1,68 @@
 ---
-title: "For scientific data"
-intro: "Free. Open source. Simple to use.<br/><br/>MOLGENIS: a data platform for researchers to accelerate scientific collaborations and for bioinformaticians who want to make researchers happy.<br/><br/><br/><br/><br/>"
-image: /images/frontpage-small-darker3.jpg
+title: MOLGENIS - the flexible research data platform
+intro: "MOLGENIS provides virtual data infrastructure to large (inter)national health research projects and groups. 
+All MOLGENIS tools are free and open source, implement standards and FAIR principles, and have model-based configuration to quickly adapt to new 
+research."
 layout: blue
+excerpt: "MOLGENIS is an open-source platform for scientific data management, used in biobanking, genomics, rare disease research and more."
 ---
 
-# Features
+## Tools
+<p>MOLGENIS provides FAIR data infrastructure through flexible tools:</p>
+<div style="text-align: center">
+<img src="/images/molgenis-cycle.png" alt="molgenis data lifecycle tools" style="width: 80%; height: auto;"/>
+</div>
+<p style="text-align: center" ><a href="/tools.html" class="bluebutton">Discover all MOLGENIS tools</a></p>
 
+## Research communities
+MOLGENIS accelerates research with flexible IT tools, support and hosting:
 
-
-MOLGENIS helps to find, capture, exchange, manage and analyse scientific data. It is fully customizable: data structure, user interface and layout can be fully changed and you can plug-in your own (bioinformatics) scripts to make your MOLGENIS very special.
+<!-- thanks to https://blog.logto.io/css-only-infinite-scroll -->
+<div class="carousel">
+<!-- endless scroll requires all twice -->
+    <div class="carousel-group">
+{% for item in site.communities %}
+        <div class="carousel-card">
+            <h2>{{ item.name }}</h2>
+            <p>"{{ item.summary | capitalize}}"</p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | strip | slugify }}">read more</a></p>
+        </div>
+{% endfor %}
+    </div>
+    <div aria-hidden="true" class="carousel-group">
+{% for item in site.communities %}
+        <div class="carousel-card">
+            <h2>{{ item.name }}</h2>
+            <p>"{{ item.summary | capitalize}}"</p>
+            <p class="carousel-card-footer"><a href="/communities.html#{{ item.name | strip | slugify }}">read more</a></p>
+     </div>
+{% endfor %}
+    </div>
+</div>
 
 <div style="text-align: center">
-<a href="/features.html" class="bluebutton">Discover more features</a>
+<a href="/communities.html" class="bluebutton">Discover all MOLGENIS communities</a>
 </div>
 
-# Applications
+## Partnerships
+MOLGENIS is created and sustained through multi-center partnerships:
 
-MOLGENIS was born from molecular genetics research and is now a broadly applicable data tool thanks to many sponsors and contributors. It is used in many scientific areas such as biobanking, rare disease research, patient registries and other scientific organisations all around the world.
+{% assign sorted_partners = site.partners | sort: "name" %}
+<a id="top"/>
+<div class="partner-grid">{% for item in sorted_partners %}
+<div class="partner-block">
+  <a href="/partners.html#{{ item.name | strip | slugify }}"><img src="{{ item.logo }}" alt="{{ item.name }}">
+    {{ item.name }}</a>
+ <span class="tooltip">{{ item.title }}</span>
+</div>
+{% endfor %}</div>
 
 <div style="text-align: center">
-<a href="/communities.html" class="bluebutton">Discover more applications</a>
+<a href="/partners.html" class="bluebutton">Discover all MOLGENIS partners</a>
 </div>
 
-# Get molgenis
+## Get involved
 
-MOLGENIS data platform: [docs](https://molgenis.gitbook.io/molgenis/), [deploy](https://molgenis.gitbook.io/molgenis/guide-deploy-molgenis), [code](https://github.com/molgenis/molgenis), [releases](https://github.com/molgenis/molgenis/releases)
-
-MOLGENIS compute platform: [docs](https://rawgit.com/molgenis/molgenis-compute/master/molgenis-compute-core/README.html),[releases](https://github.com/molgenis/molgenis-compute/releases), [code](https://github.com/molgenis/molgenis-compute).
-
-MOLGENIS Pipelines: [DNA pipeline](https://github.com/molgenis/NGS_DNA) [docs](https://molgenis.gitbooks.io/ngs_dna/), [code](https://github.com/molgenis/NGS_DNA), [RNA pipeline](https://github.com/molgenis/NGS_RNA), [easybuild for automatic installation](https://github.com/molgenis/easybuild-easyconfigs)
-
-<div style="text-align: center">
-<a href="/get.html" class="bluebutton">Discover more resources</a>
-</div>
-
-# News
-
-<div style="float:right; padding-left: 48px; margin-top:48px;">
-<a class="twitter-timeline" data-width="300" data-height="100%" href="https://twitter.com/molgenis?ref_src=twsrc%5Etfw">Tweets by molgenis</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-{% include newscontainer.html %}
-
-<div style="text-align: center">
-<a href="/news.html" class="bluebutton">Discover more news</a>
-</div>
-
+- Contact: <a href="mailto:support@molgenis.org">support@molgenis.org</a>
+- Github: <a href="https://github.com/molgenis">https://github.com/molgenis</a>
+- LinkedIn: <a href="https://www.linkedin.com/company/molgenis">https://www.linkedin.com/company/molgenis</a>
