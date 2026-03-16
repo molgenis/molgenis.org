@@ -39,6 +39,7 @@ jobs:
         command: |
           bundle exec jekyll doctor
           bundle exec jekyll build
+    - pre_steps
     - run:
         name: update preview
         command: |
@@ -86,7 +87,7 @@ jobs:
           -d "channel=C02AZDG6QQ7" \
           -X POST https://slack.com/api/chat.postMessage
 
-delete-helm-preview:
+  delete-helm-preview:
     environment:
       GHA_PREVIEW_NR: << pipeline.parameters.GHA_Meta >>
     
