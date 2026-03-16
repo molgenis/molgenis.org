@@ -21,12 +21,12 @@ commands:
   pre_steps:
     steps:
       - run:
-        name: prepare azure
-        command: |
-          az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
-          az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
-          kubectl config set-cluster ${RESOURCE_GROUP}
-          kubectl config use-context ${RESOURCE_GROUP}
+          name: prepare azure
+          command: |
+            az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
+            az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
+            kubectl config set-cluster ${RESOURCE_GROUP}
+            kubectl config use-context ${RESOURCE_GROUP}
 
 jobs:
   build:
@@ -88,6 +88,8 @@ jobs:
           -X POST https://slack.com/api/chat.postMessage
 
   delete-helm-preview:
+    docker:
+      - image: molgenis/molgenis-org-ci:v1.0.2
     environment:
       GHA_PREVIEW_NR: << pipeline.parameters.GHA_Meta >>
     
