@@ -392,11 +392,6 @@ nav li {
   text-align:right;
 }
 
-nav ul li:first-child
-{
-  margin-right: auto;
-}
-
 #logo {
   background-repeat: no-repeat;
   float: left;
