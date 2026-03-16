@@ -25,7 +25,7 @@ excerpt: "Overview of all MOLGENIS partner projects across biobanking, genomics,
 {% if item.tools %}
 <p>MOLGENIS tools used:
 {% for tool in item.tools %}
-<a href="/tools/#{{ tool }}">{{ tool }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+<a href="/tools.html#{{ tool }}">{{ tool }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
 {% endfor %}
 </p>
 {% endif %}
