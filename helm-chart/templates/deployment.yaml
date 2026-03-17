@@ -26,16 +26,14 @@ spec:
         ports:
         - containerPort: 80
         readinessProbe:
-          httpGet:
-            path: /
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 2
+          periodSeconds: 5
+        livenessProbe:
+          tcpSocket:
             port: 80
           initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 10
           periodSeconds: 30
         resources:
           requests:
