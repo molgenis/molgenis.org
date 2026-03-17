@@ -14,8 +14,10 @@ parameters:
     type: string
     default: ""
 
-orbs:
-  slack: circleci/slack@4.4.4
+executors:
+  ci:
+    docker:
+      - image: molgenis/molgenis-org-ci:v1.0.2
 
 commands:
   pre_steps:
@@ -30,87 +32,88 @@ commands:
 
 jobs:
   build:
-    docker:
-    - image: molgenis/molgenis-org-ci:v1.0.2
+    executor: ci
     steps:
-    - checkout
-    - run:
-        name: Jekyll build
-        command: |
-          bundle exec jekyll doctor
-          bundle exec jekyll build
-    - pre_steps
-    - run:
-        name: update preview
-        command: |
-          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
-          echo "${NAME}"
-          kubectl delete namespace $NAME || true
-          echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
-          echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
-          kubectl create namespace ${NAME}
-          kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
-          kubectl create configmap html-files --from-file=_site -n ${NAME}
-          helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
-          --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
-          --set spec.tls[0].hosts[0].host=${NAME}.dev.molgenis.org \
-          --set image.tag=latest \
-          --set image.repository=nginx \
-          --set image.pullPolicy=Always \
-          --debug
-
-
-    - run:
-        name: Wait for pod to come up
-        command: |
-          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
-          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
-          kubectl wait --timeout=60s --for=condition=Ready pod/$POD -n $NAME          
-
-
-    - run:
-        name: Copy Files to kubernetes
-        command: |
-          NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
-          cd _site/
-          POD=`kubectl get pods -n $NAME --no-headers -o custom-columns=":metadata.name"`
-          find -maxdepth 1  |grep -v helm | xargs -i{} kubectl cp {} $POD:/usr/share/nginx/html/ -n $NAME 
-          cd
-
-         
-    - run:
-        name: message slack about preview
-        command: |
-          curl -d "token=${SLACK_TOKEN}" \
-          -d "text=*<${CIRCLE_PULL_REQUEST}|Circle-CI » Molgenis » Molgenis-org » PR-${CIRCLE_PULL_REQUEST##*/} #${CIRCLE_BUILD_NUM}>*
-          PR Preview available on https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
-          -d "channel=C02AZDG6QQ7" \
-          -X POST https://slack.com/api/chat.postMessage
+      - checkout
+      - run:
+          name: Check pull request
+          command: |
+            if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+              echo "No pull request associated with this build, skipping preview"
+              circleci-agent step halt
+            fi
+      - run:
+          name: Jekyll build
+          command: |
+            bundle exec jekyll doctor
+            bundle exec jekyll build
+      - pre_steps
+      - run:
+          name: update preview
+          command: |
+            NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+            echo "${NAME}"
+            kubectl delete namespace $NAME || true
+            echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
+            echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
+            kubectl create namespace ${NAME}
+            kubectl create secret tls "dev.molgenis.org" --key /tmp/cert_key --cert /tmp/cert_pem -n ${NAME}
+            helm upgrade --install ${NAME} ./helm-chart --namespace ${NAME} \
+              --set ingress.hosts[0].host=${NAME}.dev.molgenis.org \
+              --set image.repository=nginx \
+              --set image.tag=alpine \
+              --debug
+      - run:
+          name: Wait for pod to come up
+          command: |
+            NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+            POD=$(kubectl get pods -n $NAME -l "app.kubernetes.io/instance=${NAME}" --no-headers -o custom-columns=":metadata.name" | head -1)
+            if [ -z "$POD" ]; then echo "No pod found"; exit 1; fi
+            kubectl wait --timeout=60s --for=condition=Ready pod/$POD -n $NAME
+      - run:
+          name: Copy Files to kubernetes
+          command: |
+            NAME="preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}"
+            POD=$(kubectl get pods -n $NAME -l "app.kubernetes.io/instance=${NAME}" --no-headers -o custom-columns=":metadata.name" | head -1)
+            if [ -z "$POD" ]; then echo "No pod found"; exit 1; fi
+            cd _site/
+            find -maxdepth 1 | grep -v helm | xargs -i{} kubectl cp {} $POD:/usr/share/nginx/html/ -n $NAME
+      - run:
+          name: message slack about preview
+          command: |
+            curl -d "token=${SLACK_TOKEN}" \
+              -d "text=*<${CIRCLE_PULL_REQUEST}|Circle-CI » Molgenis » Molgenis-org » PR-${CIRCLE_PULL_REQUEST##*/} #${CIRCLE_BUILD_NUM}>*
+              PR Preview available on https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
+              -d "channel=C02AZDG6QQ7" \
+              -X POST https://slack.com/api/chat.postMessage
 
   delete-helm-preview:
-    docker:
-      - image: molgenis/molgenis-org-ci:v1.0.2
+    executor: ci
     environment:
       GHA_PREVIEW_NR: << pipeline.parameters.GHA_Meta >>
-    
     steps:
-    - pre_steps
-    - run:
-        name: delete preview on azure
-        command: |
-          echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
-          echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
-          kubectl delete namespace preview-molgenis-org-pr-${GHA_PREVIEW_NR} || true
+      - pre_steps
+      - run:
+          name: delete preview on azure
+          command: |
+            if [ -z "${GHA_PREVIEW_NR}" ]; then
+              echo "No preview number provided, skipping"
+              exit 0
+            fi
+            kubectl delete namespace preview-molgenis-org-pr-${GHA_PREVIEW_NR} || true
 
 workflows:
-  version: 2
   build:
+    when:
+      not:
+        equal: ["", << pipeline.parameters.GHA_Meta >>]
     jobs:
-    - build:
-        filters:
-          branches:
-            ignore: master
-    - delete-helm-preview:
-        filters:
-          branches:
-            only: master
+      - delete-helm-preview
+  preview:
+    when:
+      equal: ["", << pipeline.parameters.GHA_Meta >>]
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: master
