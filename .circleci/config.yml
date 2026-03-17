@@ -36,17 +36,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Check pull request
-          command: |
-            if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
-              echo "No pull request associated with this build, skipping preview"
-              circleci-agent step halt
-            fi
-      - run:
           name: Jekyll build
           command: |
             bundle exec jekyll doctor
             bundle exec jekyll build
+      - run:
+          name: Check pull request
+          command: |
+            if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+              echo "No pull request associated with this build, skipping preview deploy"
+              circleci-agent step halt
+            fi
       - pre_steps
       - run:
           name: update preview
