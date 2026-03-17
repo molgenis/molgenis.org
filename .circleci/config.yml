@@ -17,6 +17,17 @@ parameters:
 orbs:
   slack: circleci/slack@4.4.4
 
+commands:
+  pre_steps:
+    steps:
+      - run:
+          name: prepare azure
+          command: |
+            az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
+            az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
+            kubectl config set-cluster ${RESOURCE_GROUP}
+            kubectl config use-context ${RESOURCE_GROUP}
+
 jobs:
   build:
     docker:
@@ -28,14 +39,7 @@ jobs:
         command: |
           bundle exec jekyll doctor
           bundle exec jekyll build
-
-    - run:
-        name: prepare azure
-        command: |
-          az login --service-principal --tenant ${AZURE_SP_TENANT} -u ${AZURE_CLIENT_ID} -p ${AZURE_SECRET}
-          az aks get-credentials -g ${RESOURCE_GROUP} -n ${RESOURCE_GROUP}
-          kubectl config set-cluster ${RESOURCE_GROUP}
-          kubectl config use-context ${RESOURCE_GROUP}
+    - pre_steps
     - run:
         name: update preview
         command: |
@@ -82,8 +86,31 @@ jobs:
           PR Preview available on https://preview-molgenis-org-pr-${CIRCLE_PULL_REQUEST##*/}.dev.molgenis.org" \
           -d "channel=C02AZDG6QQ7" \
           -X POST https://slack.com/api/chat.postMessage
+
+  delete-helm-preview:
+    docker:
+      - image: molgenis/molgenis-org-ci:v1.0.2
+    environment:
+      GHA_PREVIEW_NR: << pipeline.parameters.GHA_Meta >>
+    
+    steps:
+    - pre_steps
+    - run:
+        name: delete preview on azure
+        command: |
+          echo ${CERTDEVMOLGENIS_KEY} | base64 --decode >> /tmp/cert_key
+          echo ${CERTDEVMOLGENIS_PEM} | base64 --decode >> /tmp/cert_pem
+          kubectl delete namespace preview-molgenis-org-pr-${GHA_PREVIEW_NR} || true
+
 workflows:
   version: 2
   build:
     jobs:
-    - build
+    - build:
+        filters:
+          branches:
+            ignore: master
+    - delete-helm-preview:
+        filters:
+          branches:
+            only: master
