@@ -96,20 +96,20 @@ jobs:
       - run:
           name: delete preview on azure
           command: |
-            if [ -z "${GHA_PREVIEW_NR}" ]; then
-              echo "No preview number provided, skipping"
-              exit 0
-            fi
             kubectl delete namespace preview-molgenis-org-pr-${GHA_PREVIEW_NR} || true
 
 workflows:
-  build:
+  build_and_preview:
+    unless:
+      equal: ["delete-pr-preview", << pipeline.parameters.GHA_Action >>]
     jobs:
       - build:
           filters:
             branches:
               ignore: master
-      - delete-helm-preview:
-          filters:
-            branches:
-              only: master
+
+  delete_preview:
+    when:
+      equal: ["delete-pr-preview", << pipeline.parameters.GHA_Action >>]
+    jobs:
+      - delete-helm-preview
