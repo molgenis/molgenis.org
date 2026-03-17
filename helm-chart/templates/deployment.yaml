@@ -19,19 +19,24 @@ spec:
       labels:
         {{- include "website.selectorLabels" . | nindent 8 }}
     spec:
-      initContainers:
-      - name: data-loader
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["sh", "-c", "cp -r /mnt/html-files/. /usr/share/nginx/html"]
-        volumeMounts:
-        - name: html-volume
-          mountPath: /mnt/html-files
       containers:
       - name: nginx-container
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 80
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 30
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
         volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html

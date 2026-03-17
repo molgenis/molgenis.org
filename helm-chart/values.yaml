@@ -4,8 +4,8 @@ fullnameOverride: ""
 
 adminPassword: admin
 image:
-  repository: "nginx:alpine"
-  tag: "latest"
+  repository: nginx
+  tag: alpine
   pullPolicy: Always
 
 ingress:
