@@ -104,16 +104,12 @@ jobs:
 
 workflows:
   build:
-    when:
-      not:
-        equal: ["", << pipeline.parameters.GHA_Meta >>]
-    jobs:
-      - delete-helm-preview
-  preview:
-    when:
-      equal: ["", << pipeline.parameters.GHA_Meta >>]
     jobs:
       - build:
           filters:
             branches:
               ignore: master
+      - delete-helm-preview:
+          filters:
+            branches:
+              only: master
