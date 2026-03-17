@@ -395,6 +395,8 @@ nav li {
 #logo {
   background-repeat: no-repeat;
   float: left;
+  position: relative;
+  z-index: 999999999;
 }
 
 /* article  */
