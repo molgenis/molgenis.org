@@ -17,8 +17,11 @@ Getting started:
 
 Public instances:
 - [European health data and sample network catalogue](https://molgeniscatalogue.org/)
+- [UMCG Research Data Catalogue](https://umcgresearchdatacatalogue.nl/)
 - [European directory of biobank collections (BBMRI-ERIC)](http://directory.bbmri-eric.eu)
 - [LifeLines request portal of data and materials](https://data-catalogue.lifelines.nl/)
 - [Dutch catalogue of human data and sample collections (BBMRI-NL)](http://catalogue.bbmri.nl)
 - [Catalogue of rare disease samples (RD-Connect)](http://samples.rd-connect.eu)
 - [Dutch catalogue of pathology samples (PALGA)](http://www.palgaopenbaredatabank.nl/)
+- [Health data space Utrecht Catalogue](https://catalogue.hdsu.nl/)
+- [Datapoort Metadata Catalogus](https://catalogue.datapoortnoord.nl/)
