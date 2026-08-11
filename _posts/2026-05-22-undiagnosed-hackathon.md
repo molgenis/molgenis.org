@@ -1,6 +1,6 @@
 ---
 title: National Undiagnosed Hackathon at Radboudumc
-category: publication
+category: news
 layout: blue
 tool: vip
 doi: https://www.radboudumc.nl/nieuws/2026/specialisten-uit-alle-umcs-48-uur-bijeen-op-zoek-naar-diagnoses-voor-33-zeldzame-aandoeningen
