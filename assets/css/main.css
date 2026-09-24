@@ -105,7 +105,24 @@ header p, main, main h2, main h3, .feature_box {
 }
 
 #footer_logo {
+  margin-top: 60px;
   height: 15rem;
+}
+
+#footer_logo_nwo {
+  margin-top: 15px;
+  max-width: 3em;
+  float: left;
+  margin-right: 10px;
+}
+
+.footer_block_nwo {
+  font-size: 0.7em;
+}
+
+.footer_text_nwo {
+  padding-top: 25px;
+  line-height: 1.5;
 }
 
 label[for=menu] {
